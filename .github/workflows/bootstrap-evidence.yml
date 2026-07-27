@@ -1,20 +1,25 @@
 name: Bootstrap evidence repository
 
 on:
-  push:
+  pull_request:
+    branches:
+      - main
     paths:
-      - '_upload/READY'
+      - '_upload/**'
 
 permissions:
   contents: write
 
 jobs:
   bootstrap:
-    if: github.event.head_commit.message == 'Finalize repository package upload'
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out pull-request branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Reconstruct and unpack evidence package
         shell: bash
@@ -25,14 +30,47 @@ jobs:
           rm -rf /tmp/repository_extract
           mkdir -p /tmp/repository_extract
           unzip -q /tmp/repository.zip -d /tmp/repository_extract
+          test -d /tmp/repository_extract/repository_ready
           cp -a /tmp/repository_extract/repository_ready/. .
           rm -rf _upload
 
-      - name: Commit repository contents
+      - name: Validate evidence registers
         shell: bash
         run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          expected = {
+              'data/studies_805_mapping_corpus.csv': 805,
+              'data/studies_403_published_accepted_pool.csv': 403,
+              'data/records_excluded_from_strict_pool.csv': 3,
+          }
+          for path, expected_rows in expected.items():
+              p = Path(path)
+              if not p.is_file():
+                  raise SystemExit(f'Missing required file: {path}')
+              with p.open(encoding='utf-8-sig', newline='') as handle:
+                  rows = list(csv.DictReader(handle))
+              if len(rows) != expected_rows:
+                  raise SystemExit(f'{path}: expected {expected_rows} rows, found {len(rows)}')
+
+          summary = json.loads(Path('data/summary.json').read_text(encoding='utf-8'))
+          if summary.get('mapping_corpus_total') != 805:
+              raise SystemExit('summary.json mapping total is not 805')
+          if summary.get('published_accepted_pool_total') != 403:
+              raise SystemExit('summary.json strict-pool total is not 403')
+          print('Validated 805 mapping records, 403 eligible records, and 3 exclusions.')
+          PY
+
+      - name: Commit unpacked repository contents
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'Add survey evidence registers and documentation' || exit 0
-          git push
+          git push origin HEAD:${{ github.head_ref }}
