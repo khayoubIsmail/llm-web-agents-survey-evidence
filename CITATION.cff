@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Evidence Register for LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey"
+message: "Please cite the accompanying survey manuscript and the repository release."
+type: dataset
+authors:
+  - family-names: Khayoub
+    given-names: Ismail
+    orcid: "https://orcid.org/0009-0009-5677-8392"
+  - family-names: Chadi
+    given-names: Mohamed-Amine
+  - family-names: Mousannif
+    given-names: Hajar
+  - family-names: Ait Mohamed
+    given-names: Firdaous
+    orcid: "https://orcid.org/0009-0009-6131-1439"
+version: "1.0.0"
+date-released: "2026-07-26"
+repository-code: "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence"
