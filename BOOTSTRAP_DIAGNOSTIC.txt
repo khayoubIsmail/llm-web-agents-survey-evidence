@@ -1,0 +1,19 @@
+UPLOAD FILES
+READY 6 bytes
+part_000 16000 bytes
+
+cat exit: 0
+combined bytes: 16000
+first 16 chars: UEsDBAoAAAAAACuB
+last 16 chars: 3ht+54cPZPNzm3ju
+base64 exit: 0
+decoded bytes: 12000
+/tmp/repository.zip: Zip archive data, at least v1.0 to extract, compression method=store
+Archive:  /tmp/repository.zip
+  End-of-central-directory signature not found.  Either this file is not
+  a zipfile, or it constitutes one disk of a multi-part archive.  In the
+  latter case the central directory and zipfile comment will be found on
+  the last disk(s) of this archive.
+unzip:  cannot find zipfile directory in one of /tmp/repository.zip or
+        /tmp/repository.zip.zip, and cannot find /tmp/repository.zip.ZIP, period.
+unzip test exit: 9
