@@ -10,6 +10,7 @@ This repository accompanies the manuscript:
 - `data/studies_403_published_accepted_pool.csv`: the 403 studies verified as published or accepted and therefore eligible for claim-level citation if used in the manuscript.
 - `data/records_excluded_from_strict_pool.csv`: three records retained in the broader mapping landscape but excluded from the strict published/accepted pool after status verification.
 - JSON equivalents for programmatic reuse.
+- `data/summary.json`: corpus totals and category counts.
 - `docs/DATA_DICTIONARY.md`: field definitions.
 - `docs/METHODOLOGY_AND_VERSIONING.md`: relationship between the 805-study corpus and 403-study evidence pool.
 
@@ -21,6 +22,10 @@ The 403-study pool is **not** an additional screening stage. It is a publication
 
 This repository contains bibliographic metadata and review coding only. It does not redistribute third-party full-text PDFs.
 
-## Repository link in the manuscript
+## Citation
 
-After publishing this repository, replace `https://github.com/khayoubIsmail/llm-web-agents-survey-evidence` in the manuscript's Data availability statement with the public repository URL or persistent DOI.
+Citation metadata are provided in `CITATION.cff`. Please cite the accompanying survey manuscript and the repository release when reusing the registers or coding.
+
+## License
+
+The authors' original metadata, review coding, and documentation are available under the Creative Commons Attribution 4.0 International license. See `LICENSE.md`. Third-party material remains subject to its original rights.
