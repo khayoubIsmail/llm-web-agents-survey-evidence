@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "Evidence Register for LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey"
+message: "Please cite the accompanying survey manuscript and this repository release."
+type: dataset
+authors:
+  - family-names: Khayoub
+    given-names: Ismail
+    orcid: "https://orcid.org/0009-0009-5677-8392"
+  - family-names: Chadi
+    given-names: Mohamed-Amine
+    orcid: "https://orcid.org/0000-0003-3260-0978"
+  - family-names: Mousannif
+    given-names: Hajar
+    orcid: "https://orcid.org/0000-0002-1307-4215"
+  - family-names: Ait Mohamed
+    given-names: Firdaous
+    orcid: "https://orcid.org/0009-0009-6131-1439"
+version: "1.0.0"
+date-released: "2026-07-26"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence"
+abstract: >
+  Machine-readable evidence register for the survey "LLM-Based Agents for
+  Generalized Web Automation and Schema-Guided Data Extraction". Contains a
+  reconciled 805-study systematic-mapping corpus and a 403-study
+  published/accepted citation-eligibility pool, with full field-level metadata,
+  priority tiers, publication-status verification, and strict exclusion records.
+keywords:
+  - LLM agents
+  - web automation
+  - data extraction
+  - systematic mapping
+  - evidence register
+  - survey

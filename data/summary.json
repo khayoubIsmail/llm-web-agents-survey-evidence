@@ -1,0 +1,34 @@
+{
+  "mapping_corpus_total": 805,
+  "published_accepted_pool_total": 403,
+  "strict_pool_exclusions_after_validation": 3,
+  "priority_counts_mapping": {
+    "P0": 20,
+    "P1": 179,
+    "P2": 444,
+    "P3": 162
+  },
+  "priority_counts_eligible": {
+    "P0": 18,
+    "P1": 98,
+    "P2": 204,
+    "P3": 83
+  },
+  "status_category_counts_mapping": {
+    "Archival published": 374,
+    "Preprint/technical report": 367,
+    "Workshop/conditional": 12,
+    "Archival accepted": 29,
+    "Unconfirmed": 10,
+    "Workshop/non-archival": 10,
+    "Excluded after publication-status validation": 3
+  },
+  "excluded_record_ids": [
+    432,
+    656,
+    686
+  ],
+  "generated_date": "2026-07-26",
+  "scope": "LLM-based agents for generalized web automation and schema-guided data extraction",
+  "notes": "The 403-study file is a citation-eligibility layer within the 805-study mapping corpus, not a separate screening stage."
+}
