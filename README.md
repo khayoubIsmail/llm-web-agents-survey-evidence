@@ -21,7 +21,7 @@ This repository is the **evidence register** — the machine-readable, auditable
 > *LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey.*  
 > Submitted to the World Wide Web (WWW) Journal.
 
-It provides full transparency into the study selection pipeline, evidence-use tiers, publication-status verification, and strict exclusion decisions, enabling readers and reviewers to independently audit every citation in the manuscript.
+It provides transparency into the study-selection pipeline, evidence-use tiers, publication-status verification, paper-specific notes, and strict exclusion decisions. The note audit distinguishes evidence rechecked from retrieved full text in the current remediation cycle, evidence retained from the supplied review archive, and unresolved access exceptions.
 
 ---
 
@@ -71,11 +71,20 @@ llm-web-agents-survey-evidence/
 │   ├── studies_403_published_accepted_pool.csv   # 403 citation-eligible studies
 │   ├── studies_403_published_accepted_pool.json  # JSON equivalent
 │   ├── records_excluded_from_strict_pool.csv     # 3 strict exclusions (IDs: 432, 656, 686)
-│   └── bibliographic_patch_log.csv               # Bibliographic correction audit log
+│   ├── bibliographic_patch_log.csv               # Bibliographic correction audit log
+│   ├── note_source_overrides.csv                 # Manually verified title/source matches
+│   ├── note_remediation_log.csv                  # Notes created or replaced in the audit
+│   └── paper_note_audit.csv                      # One provenance/status row per included paper
+│
+├── notes/papers/                                 # 403 normalized paper-specific notes
 │
 ├── docs/
 │   ├── DATA_DICTIONARY.md                        # Field definitions for all CSV/JSON columns
-│   └── METHODOLOGY_AND_VERSIONING.md             # Screening pipeline, reading depth, version policy
+│   ├── A1_MANUSCRIPT_AND_RESPONSE_TEXT.md         # Copy-ready revision and reviewer response
+│   ├── FULL_TEXT_ACCESS_EXCEPTIONS.md            # Unresolved access attempts and synthesis rule
+│   └── METHODOLOGY_AND_VERSIONING.md             # Screening, reading depth, audit, version policy
+│
+├── scripts/                                      # Reproducible note matching and audit builders
 │
 ├── CITATION.cff                                  # Machine-readable citation metadata (CFF 1.2.0)
 ├── LICENSE.md                                    # CC BY 4.0
@@ -107,6 +116,15 @@ Audit log of all bibliographic corrections applied after the initial screening r
 ### `data/summary.json`
 Machine-readable totals and category counts. Validated and committed directly. All SHA-256 checksums for the corpus files pass independently.
 
+### `data/paper_note_audit.csv`
+One row for each of the 403 included papers, linking the register record to its normalized note, original note source, remediation provenance, required review standard, current-cycle full-text verification (when performed), and claim-use status.
+
+### `data/note_remediation_log.csv`
+The 71 paper notes created or replaced after the title/coverage audit: 68 records without a reliable paper-specific source match and three additional notes selected for deeper priority-adjusted remediation after manual review.
+
+### `notes/papers/`
+Exactly one normalized Markdown note per record in the 403-paper register. P0/P1 notes follow the deep critical-analysis standard; P2/P3 notes use a lighter but complete structure centered on relevance, method, results, contribution, and limitations. The repository does not redistribute the source PDFs.
+
 ---
 
 ## 📖 Field Definitions
@@ -127,7 +145,7 @@ See [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) for full field-by-field
 
 ## ⚙️ Methodology Summary
 
-The corpus was built through a **seven-stage pipeline**:
+The corpus was built through a staged screening and evidence-assessment pipeline:
 
 ```
 3,462 candidate records (author-approved ledger)
@@ -138,7 +156,11 @@ The corpus was built through a **seven-stage pipeline**:
                       └─ Strict exclusions ► 3 records removed
 ```
 
-P0/P1 studies received in-depth reading (methods, results, limitations, relevance). P2/P3 studies received rapid targeted reading. Screening, eligibility, coding, evidence extraction, and synthesis were conducted by **Ismail Khayoub** and **Firdaous Ait Mohamed**, cross-checked for consistency. **Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit.
+Candidate papers underwent an **initial full-text assessment used for eligibility and priority classification**. P4 records were excluded as peripheral or out of scope; the final 403-paper published/accepted pool contains P0–P3 records. P0/P1 papers received deep critical analysis and detailed notes. P2/P3 papers were read in full using a lighter structured analysis focused on relevance, method, results, contribution, and limitations.
+
+The consolidated note record contains full-text analysis for 402 papers: 134 source PDFs were independently retrieved, extracted, hashed, and title-checked during the current remediation cycle, while 268 substantive paper-specific notes were retained from the supplied review archive after title and coverage auditing. Record 249 remains an explicit access exception and is blocked from claim-level synthesis until a complete paper copy is obtained. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
+
+Screening, eligibility, coding, evidence extraction, and synthesis were conducted by **Ismail Khayoub** and **Firdaous Ait Mohamed**, cross-checked for consistency. **Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit.
 
 See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md) for the full protocol.
 
@@ -155,6 +177,10 @@ All release artifacts were independently validated before this commit:
 | Strict exclusions count | ✅ Exactly 3 (records 432, 656, 686) |
 | CSV ↔ JSON identifier agreement | ✅ All IDs match |
 | Duplicate record IDs | ✅ None |
+| Normalized paper-note count | ✅ 403 files for 403 unique register IDs |
+| Current-cycle note remediations | ✅ 71 records documented |
+| Current-cycle full-text retrieval/title check | ✅ 134 records; one documented title-version lineage case |
+| Full-text access exceptions | ⚠️ 1 (record 249; blocked from claim-level synthesis) |
 | SHA-256 checksums | ✅ All pass |
 
 ---
@@ -184,7 +210,7 @@ If you use this evidence register in your own research, please cite both the sur
   title     = {{Evidence Register for LLM-Based Agents for Generalized
                 Web Automation and Schema-Guided Data Extraction: A Survey}},
   year      = {2026},
-  version   = {1.0.0},
+  version   = {1.1.0},
   publisher = {GitHub},
   url       = {https://github.com/khayoubIsmail/llm-web-agents-survey-evidence},
   license   = {CC BY 4.0}
@@ -219,6 +245,6 @@ You may share and adapt this material for any purpose provided you give appropri
 
 <div align="center">
 
-*Evidence register v1.0.0 · Released 2026-07-26 · CC BY 4.0*
+*Evidence register v1.1.0 · Released 2026-09-08 · CC BY 4.0*
 
 </div>

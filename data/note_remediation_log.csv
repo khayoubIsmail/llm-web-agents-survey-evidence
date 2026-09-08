@@ -1,0 +1,72 @@
+record_id,title,priority,initial_note_quality,audit_computed_quality,reason,action
+74,The Rise and Potential of Large Language Model Based Agents A Survey,P1,A,A,Selected for deeper priority-adjusted remediation after manual review,Created or replaced with structured note
+176,PlanBench An Extensible Benchmark for Evaluating Large Language Models on Planning and Reasoning about Change,P3,B,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+181,Knowledge-enhanced Agents for Interactive Text Games,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+182,Language Models Meet World Models: Embodied Experiences Enhance Language Models,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+183,Automatically Correcting Large Language Models: Surveying the Landscape of Diverse Automated Correction Strategies,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+186,CRAFT: Customizing LLMs by Creating and Retrieving from Specialized Toolsets,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+187,AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+188,AlphaZero-Like Tree-Search can Guide Large Language Model Decoding and Training,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+189,AutoAgents: A Framework for Automatic Agent Generation,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+190,Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+191,L2MAC: Large Language Model Automatic Computer for Extensive Code Generation,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+192,Lemur: Harmonizing Natural Language and Code for Language Agents,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+193,LLaMA-Rider: Spurring Large Language Models to Explore the Open World,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+194,Automating the Generation of Prompts for LLM-based Action Choice in PDDL Planning,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+196,JARVIS-1: Open-World Multi-Task Agents With Memory-Augmented Multimodal Language Models,P3,C,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+198,"A Survey on LLM-Based Multi-Agent Systems: Workflow, Infrastructure, and Challenges",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+200,Self-Discover- Large Language Models Self-Compose Reasoning Structures,P3,B,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+201,"Position: Towards Unified Alignment Between Agents, Humans, and Environment",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+202,A Human-Inspired Reading Agent with Gist Memory of Very Long Contexts,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+203,When is Tree Search Useful for LLM Planning? It Depends on the Discriminator,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+204,"WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+207,Can LLM-Augmented Autonomous Agents Cooperate? An Evaluation of Their Cooperative Capabilities Through Melting Pot,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+208,Language Guided Exploration for RL Agents in Text Environments,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+209,MAGIS: LLM-Based Multi-Agent Framework for GitHub Issue Resolution,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+210,Playing NetHack with LLMs: Potential & Limitations as Zero-Shot Agents,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+212,"Toward Self-Improvement of LLMs via Imagination, Searching, and Criticizing",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+213,360°REA: Towards Reusable Experience Accumulation with 360° Assessment for Multi-Agent Systems,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+214,A Survey on Large Language Model-Based Game Agents,P3,A,C,Selected for deeper priority-adjusted remediation after manual review,Created or replaced with structured note
+215,AgentKit: Structured LLM Reasoning with Dynamic Graphs,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+216,Agent Planning with World Knowledge Model,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+219,Ask-before-Plan: Proactive Language Agents for Real-World Planning,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+220,"A Review of Prominent Paradigms for LLM-Based Agents: Tool Use (Including RAG), Planning, and Feedback Learning",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+221,Chain of Agents: Large Language Models Collaborating on Long-Context Tasks,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+222,FlowBench: Revisiting and Benchmarking Workflow-Guided Planning for LLM-based Agents,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+223,AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+230,Planning in the Dark: LLM-Symbolic Planning Pipeline without Experts,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+231,PRACT: Optimizing Principled Reasoning and Acting of LLM Agent,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+232,Steering Large Language Models between Code Execution and Textual Reasoning,P3,B,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+233,ACC-Collab: An Actor-Critic Approach to Multi-Agent LLM Collaboration,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+234,"AgentBank: Towards Generalized LLM Agents via Fine-Tuning on 50,000+ Interaction Trajectories",P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+237,OPTIMA: Optimizing Effectiveness and Efficiency for LLM-Based Multi-Agent Systems,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+238,Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+239,TaskBench: Benchmarking Large Language Models for Task Automation,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+242,EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+244,The Lighthouse of Language: Enhancing LLM Agents via Critique-Guided Improvement,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+247,LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities,P3,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+249,"Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement",P3,Missing,Missing,Full text remained unavailable after publisher and exact-title searches,Created or replaced with structured note
+433,A Long Way to Go: Investigating Length Correlations in RLHF,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+491,HEAP- HIERARCHICAL POLICIES FOR,P2,B,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+493,TRAD: Enhancing LLM Agents with Step-Wise Thought Retrieval and Aligned Decision,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+496,OSCAR: Operating System Control via State-Aware Reasoning and Re-Planning,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+498,MOBA: Multifaceted Memory-Enhanced Adaptive Planning for Efficient Mobile Task Automation,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+516,Can Language Models Serve as Text-Based World Simulators,P3,B,C,Selected for deeper priority-adjusted remediation after manual review,Created or replaced with structured note
+556,On the Multi-turn Instruction Following for Conversational Web Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+558,AutoGuide: Automated Generation and Selection of Context-Aware Guidelines for Large Language Model Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+559,Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+560,AutoManual: Constructing Instruction Manuals by LLM Agents via Interactive Environmental Learning,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+561,Navigating WebAI: Training Agents to Complete Web Tasks with Large Language Models and Reinforcement Learning,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+562,AgentGym: Evaluating and Training Large Language Model-based Agents across Diverse Environments,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+563,Re-ReST: Reflection-Reinforced Self-Training for Language Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+564,Watch Every Step LLM Agent Learning via Iterative Step-Level Process Refinement,P2,A,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+565,Auto-Intent: Automated Intent Discovery and Self-Exploration for Large Language Model Web Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+566,Synatra: Turning Indirect Knowledge into Direct Demonstrations for Digital Agents at Scale,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+568,OS-Genesis Automating GUI Agent Trajectory Construction via Reverse Task Synthesis,P2,A,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+604,WebSynthesis: World Model-Guided Monte Carlo Tree Search for Efficient WebAgent Trajectory Synthesis,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+731,R-Judge: Benchmarking Safety Risk Awareness for LLM Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+734,ToolSword: Unveiling Safety Issues of Large Language Models in Tool Learning Across Three Stages,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+736,AirGapAgent: Protecting Privacy-Conscious Conversational Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+738,GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+741,The Emerged Security and Privacy of LLM Agent: A Survey with Case Studies,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note
+751,Navigating the Risks: A Survey of Security and Privacy Threats in LLM-Based Agents,P2,Missing,Missing,No reliable paper-specific note matched the register title,Created or replaced with structured note

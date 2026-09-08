@@ -13,11 +13,47 @@
 | 7 | **Published / accepted citation-eligibility layer** | **403** |
 | 8 | Strict pool exclusions after final validation | 3 |
 
-## Reading depth
+## Full-text assessment and priority classification
 
-**Ismail Khayoub** and **Firdaous Ait Mohamed** conducted in-depth reading of P0/P1 studies (methods, results, limitations, and relevance) and rapid targeted reading of P2/P3 studies (abstract, conclusions, and key claims). They also performed and cross-checked screening, eligibility assessment, thematic coding, evidence extraction, and synthesis across the full 805-study corpus.
+Candidate papers underwent an **initial full-text assessment used for eligibility and priority classification**. The classification was not based on titles or abstracts alone and was not merely a decision about reading priority. Each paper was assessed against the survey scope and research questions, the directness of its contribution to web/GUI agents or enabling agent methods, the type and strength of evidence it could contribute, and whether it met the publication-status rule for the final synthesis.
 
-**Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit of the priority assignments, status categories, and strict exclusion decisions.
+| Tier | Predefined classification criterion | Synthesis treatment |
+|---|---|---|
+| P0 | Cornerstone work that defines the survey scope, core method, or indispensable conceptual foundation | Included; deep critical analysis and detailed notes |
+| P1 | Direct evidence for a central architecture, method, benchmark, empirical result, or risk claim | Included; deep critical analysis and detailed notes |
+| P2 | Supporting or extending evidence that materially informs a comparison, component, or adjacent design choice | Included; complete full-text reading with lighter structured analysis |
+| P3 | Historical, contextual, or peripheral-but-relevant evidence within the survey boundary | Included; complete full-text reading with lighter structured analysis |
+| P4 | Peripheral to the research questions, out of scope, or insufficiently connected to the intended synthesis | Excluded from the final synthesis |
+
+The final 403-paper published/accepted pool therefore consists only of P0–P3 records. Priority is an evidence-use and reading-depth classification, not a risk-of-bias score and not a publication-quality ranking.
+
+## Reading depth and structured notes
+
+All accessible papers in the 403-paper pool were subject to complete full-text reading at a tier-appropriate depth:
+
+- **P0/P1:** full-text reading plus deep critical analysis, detailed methods/results notes, limitations, evidentiary role, and relevance to the survey.
+- **P2/P3:** full-text reading plus a lighter structured analysis of relevance, methodology, results, contributions, and limitations.
+
+The consolidated evidence record documents full-text analysis for 402 papers. One included record (249) remains inaccessible after publisher and exact-title searches. It is retained in the publication-eligible register for traceability but is blocked from claim-level synthesis; it is not represented as fully read. Details are recorded in `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`.
+
+**Ismail Khayoub** and **Firdaous Ait Mohamed** conducted and cross-checked screening, eligibility assessment, thematic coding, evidence extraction, and synthesis. **Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit of the priority assignments, status categories, and strict exclusion decisions.
+
+## Paper-note remediation audit
+
+The supplied review archive contained 1,522 Markdown files, including individual notes, merged section notes, duplicate stubs, and verification reports. The remediation audit used normalized title matching to locate candidate source notes, followed by manual overrides for verified title variants and duplicate-stub cases. Automated matching was used as triage, not as evidence that a note was substantively complete.
+
+| Audit result | Count |
+|---|---:|
+| Included register records checked | 403 |
+| Reliable paper-specific source-note matches | 335 |
+| Records without a reliable source-note match | 68 |
+| Notes created or replaced after manual review | 71 |
+| Normalized final paper-note files | 403 |
+| PDFs independently retrieved/extracted/title-checked in this remediation cycle | 134 |
+| Substantive notes retained from the supplied archive without a new PDF check | 268 |
+| Unresolved full-text access exceptions | 1 |
+
+The 71 remediations comprise the 68 no-match records plus three matched records selected for deeper priority-adjusted remediation after manual inspection. Current-cycle PDFs are not committed; the audit records extracted page counts, SHA-256 hashes, and title similarity in local working data, while `data/paper_note_audit.csv` retains the provenance and verification status needed to distinguish current rechecks from archived review evidence.
 
 ## Publication-status verification
 
@@ -30,7 +66,7 @@ All 403 records in the published/accepted pool were individually verified agains
 - **Record IDs are stable.** Existing IDs will not be reassigned in future patch releases. New studies may receive new IDs appended to the corpus.
 - **Patch releases** document bibliographic corrections in the commit log. Major changes to scope or methodology will increment the version number.
 
-## Validation audit (v1.0.0)
+## Validation audit (v1.1.0)
 
 | Check | Result |
 |---|---|
@@ -39,3 +75,5 @@ All 403 records in the published/accepted pool were individually verified agains
 | Strict exclusion count | ✅ Exactly 3 (records 432, 656, 686) |
 | CSV ↔ JSON identifier agreement | ✅ All IDs match |
 | SHA-256 checksums for all data files | ✅ All pass |
+| One normalized note per 403-pool record | ✅ 403 files; no missing or extra IDs |
+| Access exceptions prevented from claim-level use | ✅ Record 249 explicitly blocked |

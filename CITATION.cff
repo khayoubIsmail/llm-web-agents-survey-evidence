@@ -15,8 +15,8 @@ authors:
   - family-names: Ait Mohamed
     given-names: Firdaous
     orcid: "https://orcid.org/0009-0009-6131-1439"
-version: "1.0.0"
-date-released: "2026-07-26"
+version: "1.1.0"
+date-released: "2026-09-08"
 license: "CC-BY-4.0"
 repository-code: "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence"
 abstract: >
@@ -24,7 +24,8 @@ abstract: >
   Generalized Web Automation and Schema-Guided Data Extraction". Contains a
   reconciled 805-study systematic-mapping corpus and a 403-study
   published/accepted citation-eligibility pool, with full field-level metadata,
-  priority tiers, publication-status verification, and strict exclusion records.
+  priority tiers, publication-status verification, 403 paper-specific evidence
+  notes, note-provenance/remediation audits, and strict exclusion records.
 keywords:
   - LLM agents
   - web automation

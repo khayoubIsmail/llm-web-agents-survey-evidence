@@ -1,8 +1,6 @@
 # Data Dictionary
 
-Field definitions for all columns in `data/studies_805_mapping_corpus.{csv,json}`,  
-`data/studies_403_published_accepted_pool.{csv,json}`, and  
-`data/records_excluded_from_strict_pool.{csv,json}`.
+Field definitions for the corpus registers and paper-note audit files.
 
 ---
 
@@ -35,3 +33,35 @@ Field definitions for all columns in `data/studies_805_mapping_corpus.{csv,json}
 | P1 | Primary — cited for a specific claim | 179 | 98 |
 | P2 | Supporting / extending — context or comparison | 444 | 204 |
 | P3 | Peripheral / historical / recency context | 162 | 83 |
+
+## `data/paper_note_audit.csv`
+
+| Field | Meaning |
+|---|---|
+| `record_id` | Stable ID linking the note audit to the 403-paper register. |
+| `title`, `section`, `priority` | Canonical register metadata copied for human auditability. |
+| `initial_note_quality` | Readiness label present in the register before this remediation cycle. |
+| `audit_computed_source_quality` | Heuristic coverage grade for the matched source-note segment; it is a triage aid, not a scholarly quality score. |
+| `source_match_score` | Normalized title-similarity score for the selected source note. |
+| `original_note_source` | Source-archive path selected by title audit, or an explicit no-reliable-match label. |
+| `content_provenance` | Whether the final note preserves an audited source note, is a current-cycle remediation, or is an access-exception note. |
+| `note_file` | Path to the normalized paper-specific Markdown note. |
+| `full_text_status` | Distinguishes current-cycle PDF verification, retained archive evidence, and blocked access. |
+| `full_text_basis` | Human-readable verification basis, including page count/hash for current-cycle PDFs. |
+| `pdf_pages`, `pdf_sha256`, `title_similarity` | Current-cycle full-text verification fields; blank when no PDF was rechecked in this cycle. |
+| `review_standard` | Tier-specific required reading/analysis depth. |
+| `claim_use_status` | Whether the note may support synthesis or remains blocked pending full text. |
+
+## `data/note_remediation_log.csv`
+
+| Field | Meaning |
+|---|---|
+| `record_id`, `title`, `priority` | Register identity and tier. |
+| `initial_note_quality` | Original readiness label in the 403-paper register. |
+| `audit_computed_quality` | Coverage grade of the best source-note match before the final note was materialized. |
+| `reason` | Why the record was selected for note creation or replacement. |
+| `action` | Remediation performed in the current cycle. |
+
+## `data/note_source_overrides.csv`
+
+Manual corrections for title variants or duplicate-stub cases where automatic matching did not select the best substantive note. `source_path` is relative to the supplied review archive; `reason` records the adjudication basis.

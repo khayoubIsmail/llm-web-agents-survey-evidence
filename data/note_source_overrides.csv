@@ -1,0 +1,12 @@
+record_id,source_path,reason
+13,S2/P1/2023-04-Visual Instruction Tuning.md,Individual note outranks global compilation
+14,S2/P1/2023-09 - Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.md,Individual note outranks global compilation
+70,S3/P0/2024-02 - Toolformer- Language Models Can Teach Themselves to Use Tools.md,Individual note outranks global compilation
+74,S3/P1/2023-09-The Rise and Potential of Large Language Model Based Agents A Survey.md,Individual note outranks venue report
+76,S3/P1/2025-03 - A Survey on Large Language Model based Autonomous Agents.md,Individual note outranks venue report
+115,S3/P2/S3_P2_revised_paper_first_detailed_markdown_notes/S3_P2_042_Large_Language_Model_based_Multi-Agents_A_Survey_of_Progress_and_Challenges.md,Register title contains author-text contamination
+400,S5/S5.1/P2/S5_1_P2_paper_first_detailed_markdown_notes/S5_1_P2_20_Survey_on_Evaluation_of_LLM-based_Agents.md,Title variant
+449,S5/S5.2/P1/missed_S5.2_P1_UGround_deep_paper_note.md,Deep note outranks duplicate traceability stub
+453,S5/S5.2/P1/Part_1/S5_2_P1_part1_markdowns_deep_verified_fixed/2025-03-Learning to Contextualize Web Pages for Enhanced Decision Making by LLM Agents.md,Full note outranks duplicate traceability stub
+463,S5/S5.2/P2/S5_2_P2_paper_first_detailed_markdown_notes/S5_2_P2_07_GUICourse_From_General_Vision_Language_Model_to_Versatile_GUI_Agent.md,Singular/plural title variant falls just below automatic threshold
+801,S8/P2/S8_P2_paper_first_detailed_markdown_notes/S8_P2_04_Agent_AB_Automated_and_Scalable_AB_Testing_on_Live_Websites_with_Interactive_LLM_Agents.md,Register title contains duplicate-consolidation annotation

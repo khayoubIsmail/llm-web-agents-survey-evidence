@@ -1,0 +1,4 @@
+# Local audit working material and third-party full-text derivatives.
+work/
+__pycache__/
+*.pyc
