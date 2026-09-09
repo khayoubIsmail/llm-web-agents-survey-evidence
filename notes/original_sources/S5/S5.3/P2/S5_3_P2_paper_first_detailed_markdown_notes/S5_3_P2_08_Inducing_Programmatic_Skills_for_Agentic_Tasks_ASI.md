@@ -1,0 +1,251 @@
+# S5.3 P2 Paper 08 — Inducing Programmatic Skills for Agentic Tasks / ASI
+
+## Metadata
+
+- **Title:** Inducing Programmatic Skills for Agentic Tasks / ASI
+- **Year:** 2025
+- **Verified venue/status:** arXiv 2504.06821 / OpenReview page
+- **Peer-reviewed status:** No confirmed accepted venue
+- **Thesis section:** S5.3 — Planning, Search, Memory, and Long-Horizon Decision-Making for LLM Agents
+- **Main category:** programmatic skills / agentic tasks
+- **S5.3 role:** skill learning and programmatic planning
+- **Priority:** P2
+- **Recommended citation strength:** Support/recent-trend citation
+- **Recommended reading depth:** Low to medium
+- **BibTeX key:** `inducingprogrammaticskillsagentic2025`
+
+---
+
+## Simple understanding
+
+Inducing Programmatic Skills for Agentic Tasks / ASI studies programmatic or reusable skills for agents. It matters because long web tasks often contain repeated procedures that should be abstracted instead of replanned every time.
+
+In simple terms:
+
+```text
+Problem → Web/GUI/computer-use agents fail when they act reactively, forget context, cannot recover, or explore inefficiently.
+Paper → This work adds planning, search, memory, reflection, world modeling, skill reuse, or context management.
+Goal → Make the agent more reliable on long-horizon interactive tasks.
+```
+
+The first goal is to understand **what the paper changes inside the agent decision loop**.  
+Only after that should it be connected to S5.3 and the thesis.
+
+---
+
+## Core idea
+
+Transform recurring action sequences into reusable skills, programs, or guided procedures.
+
+The paper mainly contributes to:
+
+```text
+programmatic skills / agentic tasks
+```
+
+This belongs to the agent planning layer:
+
+```text
+task instruction
+→ current observation/state
+→ planning or search
+→ candidate actions
+→ evaluation/reflection/correction
+→ execution
+→ memory/context update
+```
+
+---
+
+## Key finding / main claim
+
+Skill abstraction can improve efficiency and success, but only if skills remain interpretable, executable, and contextually appropriate.
+
+For S5.3, the important question is:
+
+```text
+How does the method improve decision-making beyond one-step ReAct-style action selection?
+```
+
+Typical S5.3 improvements include:
+
+- planning ahead,
+- exploring multiple branches,
+- reflecting on failure,
+- backtracking after mistakes,
+- using memory and replay,
+- summarizing long contexts,
+- learning reusable skills,
+- simulating action consequences,
+- and allocating interaction budget more intelligently.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these concrete evidence points:
+
+- **Skill extraction or induction method.**
+- **Skill deployment mechanism.**
+- **Performance comparison against low-level action baselines.**
+
+Also extract, if available:
+
+- planning/search algorithm,
+- memory representation,
+- action space,
+- benchmark and task horizon,
+- success-rate improvement,
+- compute/cost trade-off,
+- ablation study,
+- and failure modes.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Skills can break when interfaces change.
+- **Limitation 2:** Opaque code skills may be hard for the agent to adapt.
+- **Limitation 3:** Skill retrieval and validation become new bottlenecks.
+
+General thesis-level limitation:
+
+```text
+Better planning does not automatically mean generalized web automation is solved.
+The agent still needs perception, grounding, execution, verification, recovery, and safety.
+```
+
+Therefore, this paper should be used as **P2 support**, not as the only foundation for S5.3.
+
+---
+
+## Venue/status caution
+
+This should be cited as a preprint, technical report, position paper, or submission unless a later peer-reviewed version is confirmed.
+
+For final thesis writing:
+
+```text
+peer-reviewed main conference/journal → stronger citation
+system/demo paper → useful architecture/tooling citation
+arXiv/technical report/submission → recent trend; cite cautiously
+```
+
+---
+
+## Relation to S5.3
+
+This paper belongs in **S5.3** because S5.3 discusses the planning and decision-making layer of LLM-based agents.
+
+Its role is:
+
+```text
+Inducing Programmatic Skills for Agentic Tasks / ASI
+→ skill learning and programmatic planning
+→ P2 support for planning/search/memory/long-horizon decision-making
+```
+
+Use it after explaining its mechanism.  
+Do not introduce it only as “P2”; introduce the planning problem first.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that can handle multi-step and uncertain web tasks.
+
+For web automation and data extraction, planning is needed for:
+
+```text
+finding target pages
+navigating multi-page sites
+avoiding irrelevant branches
+recovering from wrong clicks
+remembering previous attempts
+using tools or skills
+verifying whether extraction is complete
+```
+
+This paper supports that pipeline by improving:
+
+```text
+skill learning and programmatic planning
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.3.
+- Extract one exact planning/search/memory contribution.
+- Extract one limitation or failure mode.
+- Compare it with P0/P1 planning papers and core agent architectures.
+- If the paper is a preprint, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Inducing Programmatic Skills for Agentic Tasks / ASI contributes to S5.3 by addressing **programmatic skills / agentic tasks**, showing that long-horizon web and GUI agents require more than reactive action selection: they need structured planning, exploration, memory, and feedback-driven correction.
+
+---
+
+## Comparison with nearby papers
+
+Compare this paper with:
+
+```text
+ReAct / Reflexion / Tree of Thoughts / LATS
+WebPilot / ExACT / Agent Alpha
+R2D2 / episodic memory / ReSum / AgentProg
+BacktrackAgent / ReflAct / WAC
+MANGO / global-view navigation
+WebXSkill / ASI / programmatic skills
+LiteWebAgent / OpenWebAgent-style toolkits
+```
+
+The comparison question is:
+
+```text
+Does this paper improve planning by search, memory, reflection, backtracking, world modeling, skill reuse, or context management?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.3 P2:** Yes
+- **Read fully?** Selected sections are enough unless promoted later.
+- **Depth needed:** Low to medium
+- **Main use:** Support discussion of programmatic skills / agentic tasks
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Planning/search/memory architecture
+  - Main algorithm figure
+  - Benchmark setup
+  - Main results table
+  - Ablation and limitations
+
+---
+
+## One-sentence summary
+
+Inducing Programmatic Skills for Agentic Tasks / ASI is a P2 source for S5.3 because it helps explain **programmatic skills / agentic tasks**, but it should be cited according to its verified venue/status and used mainly to enrich the planning and long-horizon decision-making discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{inducingprogrammaticskillsagentic2025,
+  title = {Inducing Programmatic Skills for Agentic Tasks / ASI},
+  year = {2025},
+  note = {arXiv 2504.06821 / OpenReview page. Verify final bibliographic metadata before thesis submission.}
+}
+```

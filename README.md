@@ -7,7 +7,7 @@
 [![Evidence Pool: 403](https://img.shields.io/badge/Published%2FAccepted%20Pool-403%20studies-2e7d32)](data/summary.json)
 [![Checksums: verified](https://img.shields.io/badge/SHA--256%20Checksums-Verified-success)](data/summary.json)
 
-**Companion data repository for the survey manuscript submitted to the World Wide Web (WWW) conference.**
+**Companion data repository for the survey manuscript under revision for the International Journal of Data Science and Analytics.**
 
 </div>
 
@@ -74,9 +74,11 @@ llm-web-agents-survey-evidence/
 │   ├── bibliographic_patch_log.csv               # Bibliographic correction audit log
 │   ├── note_source_overrides.csv                 # Manually verified title/source matches
 │   ├── note_remediation_log.csv                  # Notes created or replaced in the audit
-│   └── paper_note_audit.csv                      # One provenance/status row per included paper
+│   ├── paper_note_audit.csv                      # One provenance/status row per included paper
+│   └── original_note_source_manifest.csv         # Record-to-original-source SHA-256 mapping
 │
 ├── notes/papers/                                 # 403 normalized paper-specific notes
+├── notes/original_sources/                       # 229 exact historical source-note files
 │
 ├── docs/
 │   ├── DATA_DICTIONARY.md                        # Field definitions for all CSV/JSON columns
@@ -122,8 +124,14 @@ One row for each of the 403 included papers, linking the register record to its 
 ### `data/note_remediation_log.csv`
 The 71 paper notes created or replaced after the title/coverage audit: 68 records without a reliable paper-specific source match and three additional notes selected for deeper priority-adjusted remediation after manual review.
 
+### `data/original_note_source_manifest.csv`
+Record-level provenance for the 335 papers with a reliable original source note. It links each final note to the preserved historical source file and records the exact byte count, line count, shared/standalone layout, and SHA-256 digest. The 335 mappings resolve to 229 unique source files because 20 original documents contain notes for multiple papers.
+
 ### `notes/papers/`
 Exactly one normalized Markdown note per record in the 403-paper register. P0/P1 notes follow the deep critical-analysis standard; P2/P3 notes use a lighter but complete structure centered on relevance, method, results, contribution, and limitations. The repository does not redistribute the source PDFs.
+
+### `notes/original_sources/`
+Byte-for-byte snapshots of the 229 verified historical Markdown source files used by 335 register records. These files preserve the pre-normalization provenance trail and may contain several paper notes when the original source was a merged synthesis. They are supplementary historical evidence; `notes/papers/` remains the canonical final corpus. See [`notes/original_sources/README.md`](notes/original_sources/README.md).
 
 ---
 
@@ -160,6 +168,8 @@ Candidate papers underwent an **initial full-text assessment used for eligibilit
 
 The consolidated note record contains full-text analysis for 402 papers: 134 source PDFs were independently retrieved, extracted, hashed, and title-checked during the current remediation cycle, while 268 substantive paper-specific notes were retained from the supplied review archive after title and coverage auditing. Record 249 remains an explicit access exception and is blocked from claim-level synthesis until a complete paper copy is obtained. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
 
+For provenance inspection, the repository also preserves 229 exact historical source-note files mapped to 335 register records. Their SHA-256 digests and record links are published in `data/original_note_source_manifest.csv`. These snapshots do not replace the final 403-note corpus and do not change the full-text verification counts.
+
 Screening, eligibility, coding, evidence extraction, and synthesis were conducted by **Ismail Khayoub** and **Firdaous Ait Mohamed**, cross-checked for consistency. **Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit.
 
 See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md) for the full protocol.
@@ -180,6 +190,7 @@ All release artifacts were independently validated before this commit:
 | Normalized paper-note count | ✅ 403 files for 403 unique register IDs |
 | Current-cycle note remediations | ✅ 71 records documented |
 | Current-cycle full-text retrieval/title check | ✅ 134 records; one documented title-version lineage case |
+| Historical original-source archive | ✅ 229 files mapped to 335 records; SHA-256 verified |
 | Full-text access exceptions | ⚠️ 1 (record 249; blocked from claim-level synthesis) |
 | SHA-256 checksums | ✅ All pass |
 
@@ -210,7 +221,7 @@ If you use this evidence register in your own research, please cite both the sur
   title     = {{Evidence Register for LLM-Based Agents for Generalized
                 Web Automation and Schema-Guided Data Extraction: A Survey}},
   year      = {2026},
-  version   = {1.1.0},
+  version   = {1.1.1},
   publisher = {GitHub},
   url       = {https://github.com/khayoubIsmail/llm-web-agents-survey-evidence},
   license   = {CC BY 4.0}
@@ -245,6 +256,6 @@ You may share and adapt this material for any purpose provided you give appropri
 
 <div align="center">
 
-*Evidence register v1.1.0 · Released 2026-09-08 · CC BY 4.0*
+*Evidence register v1.1.1 · Released 2026-09-09 · CC BY 4.0*
 
 </div>

@@ -1,0 +1,289 @@
+# Paper 367 — ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents
+
+## Metadata
+
+- **Title:** ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents
+- **Authors:** Ido Levy, Ben Wiesel, Sami Marreed, Alon Oved, Avi Yaeli, Segev Shlomov
+- **Year:** 2026
+- **Venue/status:** International Conference on Learning Representations (ICLR 2026), Poster; also WCUA 2025 Poster
+- **DOI:** 10.48550/arXiv.2410.06703
+- **arXiv ID:** arXiv:2410.06703
+- **Final publication status:** Final venue/status re-checked: ICLR 2026 Poster on OpenReview; earlier WCUA 2025 Poster also listed.
+- **Verification source:** https://openreview.net/forum?id=MuCDzH0ctf ; https://openreview.net/forum?id=IIzehISTBe
+- **Thesis section:** S5.1 — Web Agent Benchmarks and Evaluation
+- **Benchmark type:** Safety/trustworthiness web-agent benchmark
+- **Priority:** P1
+- **BibTeX key:** st2026
+
+## Deep venue/status verification update
+
+Final venue/status re-checked: ICLR 2026 Poster on OpenReview; earlier WCUA 2025 Poster also listed.
+
+Verification source: https://openreview.net/forum?id=MuCDzH0ctf ; https://openreview.net/forum?id=IIzehISTBe
+
+---
+
+## Simple understanding
+
+This paper contributes to **S5.1 — Benchmarks and Evaluation** by addressing the question:
+
+```text
+How should we evaluate web/GUI/browser agents beyond simple static accuracy?
+```
+
+Its main focus is:
+
+```text
+Safety/trustworthiness web-agent benchmark
+```
+
+Scale / setting:
+
+```text
+Extends WebArena with safety templates and policy-compliance evaluation functions.
+```
+
+In simple terms, this paper matters because it adds a new evaluation angle that is not fully captured by the S5.1 P0 benchmarks. The P0 papers already cover offline real-web action prediction, executable self-hosted environments, visual grounding, and multi-turn dialogue. This P1 paper extends that landscape by making one specific benchmark pressure more visible: realism, difficulty, domain specialization, human preference, safety, long-horizon navigation, temporal robustness, or scalable benchmark generation.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Evaluate not only whether web agents complete tasks, but whether they comply with safety and trustworthiness policies.
+
+- **Key finding:**  
+  Current SOTA agents struggle with policy adherence in enterprise-relevant web scenarios.
+
+- **Main limitation connected to thesis:**  
+  Safety policies are benchmark-defined; real organizational policies can be broader and harder to operationalize.
+
+- **Use in thesis:**  
+  Use as the core S5.1/S7 bridge showing that task success alone is insufficient for deployable web agents.
+
+- **Connects to:**  
+  WebArena / Mind2Web / VisualWebArena lineage, S7 safety, trustworthiness, and deployment governance
+
+- **BibTeX key:**  
+  `st2026`
+
+---
+
+## Thesis-ready paragraph
+
+ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents extends the benchmark landscape for LLM-based web agents by focusing on **safety/trustworthiness web-agent benchmark**. Its central contribution is that it evaluates agent behavior under conditions that are underrepresented in the core S5.1 P0 benchmarks. Specifically, it introduces or analyzes the setting: **Extends WebArena with safety templates and policy-compliance evaluation functions.**. This matters for the thesis because generalized web automation and structured data extraction cannot be evaluated only by a single success score or by a single environment type. A robust web agent must generalize across websites, handle dynamic or multimodal content, maintain long-horizon context, avoid unsafe actions, and produce verifiable outputs. The paper's main finding is that **Current SOTA agents struggle with policy adherence in enterprise-relevant web scenarios.**. However, its limitation is equally important: **Safety policies are benchmark-defined; real organizational policies can be broader and harder to operationalize.**. Therefore, the paper should be used as a P1 support reference that sharpens the S5.1 benchmark taxonomy and motivates later technical sections on grounding, planning, training, failure modes, safety, and deployment.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper is relevant because your thesis is not only asking:
+
+```text
+Can an agent complete a web task?
+```
+
+It is asking a stronger question:
+
+```text
+Can an LLM-based agent operate reliably across diverse, dynamic, realistic websites
+and extract or deliver verifiable structured information?
+```
+
+This benchmark contributes one important evaluation pressure:
+
+```text
+Safety/trustworthiness web-agent benchmark
+```
+
+For generalized web automation, this matters because benchmark design determines which failures become visible. A benchmark that only checks final answer accuracy may hide trajectory errors. A benchmark that only uses static pages may hide live-web brittleness. A benchmark that only tests text may hide visual grounding failures. A benchmark that ignores safety may overestimate deployment readiness.
+
+This paper therefore helps build a richer evaluation map for S5.1.
+
+---
+
+## Important concepts to remember
+
+### 1. Evaluation setting
+
+The benchmark/evaluation setting is:
+
+```text
+Safety/trustworthiness web-agent benchmark
+```
+
+This tells us what kind of agent capability the paper mainly stresses.
+
+### 2. Scale and environment
+
+The scale/environment is:
+
+```text
+Extends WebArena with safety templates and policy-compliance evaluation functions.
+```
+
+This matters because benchmark scale affects both generalization claims and evaluation cost.
+
+### 3. Measurement philosophy
+
+This paper should be read as part of the broader S5.1 shift:
+
+```text
+static accuracy
+→ action/trajectory evaluation
+→ functional task success
+→ multimodal and live-web evaluation
+→ safety / reliability / cost / robustness evaluation
+```
+
+### 4. Thesis-relevant failure
+
+The key limitation is:
+
+```text
+Safety policies are benchmark-defined; real organizational policies can be broader and harder to operationalize.
+```
+
+This limitation should be connected directly to your thesis gap rather than left as a generic paper weakness.
+
+---
+
+## Key evidence from the paper / online verification
+
+### Publication status
+
+Venue/status was re-checked online:
+
+```text
+Final venue/status checked online: ADS/OpenReview indicate ICLR 2026.
+```
+
+Verification source:
+
+```text
+https://arxiv.org/abs/2410.06703 ; https://openreview.net/forum?id=IIzehISTBe
+```
+
+### Contribution evidence
+
+The paper's contribution can be summarized as:
+
+```text
+Evaluate not only whether web agents complete tasks, but whether they comply with safety and trustworthiness policies.
+```
+
+### Result evidence
+
+The paper's headline finding is:
+
+```text
+Current SOTA agents struggle with policy adherence in enterprise-relevant web scenarios.
+```
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to S5.1 P0 papers
+
+This P1 paper complements the S5.1 P0 benchmarks:
+
+```text
+Mind2Web        → offline real-web action prediction
+WebArena        → executable self-hosted task completion
+VisualWebArena  → visually grounded multimodal evaluation
+WebLINX         → multi-turn conversational web navigation
+```
+
+Its specific contribution is:
+
+```text
+Safety/trustworthiness web-agent benchmark
+```
+
+### Connection to later thesis sections
+
+- **S5.2 — Perception and grounding:**  
+  Relevant when the benchmark stresses screenshots, DOM, HTML, accessibility trees, multimodal cues, or UI changes.
+
+- **S5.3 — Planning and decision-making:**  
+  Relevant when tasks are long-horizon, multi-step, multi-site, or require hidden-context investigation.
+
+- **S5.4 — Training and generalization:**  
+  Relevant when the benchmark exposes transfer failure, OOD splits, temporal drift, or trajectory-data limitations.
+
+- **S5.5 — Failure modes:**  
+  Relevant because benchmark design reveals different failures: grounding failure, hallucinated evidence, poor stopping, repetitive actions, weak memory, or unsafe action selection.
+
+- **S7/S8 — Safety and deployment:**  
+  Relevant when evaluation includes live-web risks, safety policies, privacy, cost, latency, or reproducibility.
+
+---
+
+## Limitation connected to thesis
+
+The key thesis limitation is:
+
+```text
+Safety policies are benchmark-defined; real organizational policies can be broader and harder to operationalize.
+```
+
+This means the paper should not be used as proof that generalized web automation is solved. Instead, use it to show that the field is progressively expanding benchmark coverage while still leaving the central thesis gap open:
+
+```text
+No benchmark fully combines:
+large-scale real-web diversity
++ live interaction
++ multimodal grounding
++ structured extraction correctness
++ safety constraints
++ reproducibility
++ cost/latency measurement
++ robust cross-site generalization
+```
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes, but depth depends on thesis subsection.
+- **Depth needed:** Medium-high for S5.1; high if the benchmark directly supports your evaluation taxonomy.
+- **Main use:** Benchmark/evaluation support paper.
+- **Most important parts:**
+  - Abstract and introduction
+  - Benchmark construction
+  - Evaluation protocol and metrics
+  - Main results
+  - Human/agent gap or model comparison
+  - Failure analysis
+  - Limitations and reproducibility notes
+
+---
+
+## One-sentence summary
+
+ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents is a P1 benchmark/evaluation paper that contributes **safety/trustworthiness web-agent benchmark** and shows that current sota agents struggle with policy adherence in enterprise-relevant web scenarios.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{st2026,
+  title = {ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents},
+  author = {Ido Levy, Ben Wiesel, Sami Marreed, Alon Oved, Avi Yaeli, Segev Shlomov},
+  year = {2026},
+  booktitle = {International Conference on Learning Representations (ICLR 2026)},
+  doi = {10.48550/arXiv.2410.06703},
+  eprint = {2410.06703},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2410.06703}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2410.06703
+- https://openreview.net/forum?id=IIzehISTBe

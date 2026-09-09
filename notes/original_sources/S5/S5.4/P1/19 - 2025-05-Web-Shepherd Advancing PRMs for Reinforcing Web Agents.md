@@ -1,0 +1,194 @@
+# Web-Shepherd: Advancing PRMs for Reinforcing Web Agents
+
+## Metadata
+
+- **Short name:** Web-Shepherd
+- **Authors:** Hyungjoo Chae, Sunghwan Kim, Junhee Cho, Seungone Kim, Seungjun Moon, Gyeom Hwangbo, Dongha Lim, Minjin Kim, Yeonjun Hwang, Minju Gwak, Dongwook Choi, Minseok Kang, Gwanhoon Im, ByeongUng Cho, Hyojun Kim, Jun Hee Han, Taeyoon Kwon, Minju Kim, Beong-woo Kwak, Dongjin Kang, Jinyoung Yeo
+- **Year used for thesis:** 2025
+- **Venue/status:** arXiv preprint / OpenReview entry; no final peer-reviewed venue confirmed in this check
+- **DOI:** Not found
+- **arXiv ID:** arXiv:2505.15277
+- **Venue/status source:** online re-check + uploaded PDF metadata
+- **S5.4 cluster:** process reward model for web agents
+- **Priority:** P1
+- **BibTeX key:** `chae2025webshepherd`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.4 — Training Strategies and Generalization**.
+
+The central idea is:
+
+```text
+Introduces Web-Shepherd, a process reward model that evaluates web-agent trajectories at step level using annotated checklists and preference pairs.
+```
+
+For your thesis, this paper helps explain how web agents become better through training, adaptation, synthetic supervision, reward modeling, memory, distillation, environment synthesis, or reinforcement learning.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Introduces Web-Shepherd, a process reward model that evaluates web-agent trajectories at step level using annotated checklists and preference pairs.
+
+- **Key finding:**  
+  A specialized PRM is more accurate and cheaper than general MLLM-as-judge for step-level web navigation feedback.
+
+- **Limitation connected to thesis:**  
+  PRM quality depends on annotation coverage and checklist design; extraction requires field-level and source-level reward models.
+
+- **Connects to:**  
+  WebRL ORM, TGPO PRM, S5.5 failure diagnosis, S6 verification.
+
+- **Use in thesis:**  
+  Use as the reward-modeling branch of S5.4.
+
+---
+
+## Detailed notes
+
+### 1. Training signal
+
+The paper contributes one of the following S5.4 training signals:
+
+```text
+process reward model for web agents
+```
+
+This matters because web agents cannot rely only on prompt engineering. They need supervision from demonstrations, trajectories, reward models, environment interaction, synthetic tasks, or self-improvement loops.
+
+### 2. What is being learned?
+
+The agent is learning some combination of:
+
+```text
+web navigation policy
+element grounding
+action formatting
+planning routines
+recovery behavior
+memory use
+reward-guided behavior
+environment-specific procedural knowledge
+```
+
+The exact emphasis for this paper is:
+
+```text
+Introduces Web-Shepherd, a process reward model that evaluates web-agent trajectories at step level using annotated checklists and preference pairs.
+```
+
+### 3. Why it improves generalization
+
+The paper’s generalization mechanism is:
+
+```text
+A specialized PRM is more accurate and cheaper than general MLLM-as-judge for step-level web navigation feedback.
+```
+
+This is important for your thesis because generalized web automation must work across unseen pages, changing DOM structures, different visual layouts, and new workflows.
+
+### 4. Why it is not enough for your thesis
+
+The paper still leaves a thesis-specific gap:
+
+```text
+PRM quality depends on annotation coverage and checklist design; extraction requires field-level and source-level reward models.
+```
+
+For **LLM-based agents for generalized web automation and data extraction**, the missing piece is usually not only task success. The agent must also produce correct, structured, verifiable outputs.
+
+---
+
+## Thesis relevance
+
+This paper supports the argument that web-agent training is moving from isolated prompting toward data- and feedback-driven improvement.
+
+The important S5.4 claim is:
+
+```text
+web agents need training signals aligned with long-horizon interaction,
+not only language modeling or static instruction following.
+```
+
+For data extraction, this becomes:
+
+```text
+navigation training
++ grounding training
++ extraction schema training
++ source-evidence verification
++ safety-aware rewards
+```
+
+Most S5.4 papers improve the first two or three components, but they rarely optimize the full extraction pipeline.
+
+---
+
+## Limitation as thesis gap
+
+Use this paper to motivate the following gap:
+
+```text
+Current web-agent training improves task completion,
+but it usually does not jointly optimize:
+- structured extraction correctness
+- field-level schema adherence
+- source provenance
+- evidence preservation
+- safe irreversible actions
+- cross-site generalization
+- reproducible and affordable deployment
+```
+
+So this paper is useful, but it should not be presented as a complete solution for your thesis.
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.2** | Training depends on webpage representation, screenshots, DOM/AxTree, grounding, and context |
+| **S5.3** | Training improves planning, decomposition, rollback, and long-horizon behavior |
+| **S5.5** | Training changes failure modes: loops, wrong page, failure to recover, hallucinated tasks, noisy trajectories |
+| **S6** | Extraction needs training data and rewards for schema, evidence, and field correctness |
+| **S8** | Deployment depends on cost, reproducibility, safety, open data/models, and environment realism |
+
+---
+
+## Thesis-ready paragraph
+
+Web-Shepherd contributes to S5.4 by showing that web-agent behavior can be improved through a specific training or adaptation mechanism: Introduces Web-Shepherd, a process reward model that evaluates web-agent trajectories at step level using annotated checklists and preference pairs. The main result is that A specialized PRM is more accurate and cheaper than general MLLM-as-judge for step-level web navigation feedback. For the thesis, this paper is important because it moves web agents beyond prompt-only behavior and toward learned, reusable, or self-improving interaction skills. However, PRM quality depends on annotation coverage and checklist design; extraction requires field-level and source-level reward models. Therefore, it should be used as evidence for progress in web-agent training while preserving the thesis gap around generalized, source-verifiable web data extraction.
+
+---
+
+## One-sentence summary
+
+Web-Shepherd shows that **Introduces Web-Shepherd, a process reward model that evaluates web-agent trajectories at step level using annotated checklists and preference pairs**, but generalized web data extraction still needs schema-aware, source-verifiable, and safety-aware training objectives.
+
+---
+
+## BibTeX
+
+```bibtex
+@article{chae2025webshepherd,
+  title         = {Web-Shepherd: Advancing PRMs for Reinforcing Web Agents},
+  author        = {Hyungjoo Chae, Sunghwan Kim, Junhee Cho, Seungone Kim, Seungjun Moon, Gyeom Hwangbo, Dongha Lim, Minjin Kim, Yeonjun Hwang, Minju Gwak, Dongwook Choi, Minseok Kang, Gwanhoon Im, ByeongUng Cho, Hyojun Kim, Jun Hee Han, Taeyoon Kwon, Minju Kim, Beong-woo Kwak, Dongjin Kang, Jinyoung Yeo},
+  journal       = {arXiv preprint / OpenReview entry; no final peer-reviewed venue confirmed in this check},
+  year          = {2025},
+  url           = {https://arxiv.org/abs/2505.15277},
+  eprint        = {2505.15277},
+  archivePrefix = {arXiv}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2505.15277
+- https://arxiv.org/abs/2505.15277

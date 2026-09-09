@@ -1,0 +1,137 @@
+# ShowUI: One Vision-Language-Action Model for GUI Visual Agent
+
+## Metadata
+
+- **Short name:** ShowUI
+- **Authors:** Kevin Qinghong Lin, Linjie Li, Difei Gao, Zhengyuan Yang, Shiwei Wu, Zechen Bai, Weixian Lei, Lijuan Wang, Mike Zheng Shou
+- **Year:** 2025
+- **Venue/status:** CVPR 2025
+- **DOI:** Not found
+- **arXiv ID:** arXiv:2411.17465
+- **Venue/status source:** CVF Open Access / GitHub
+- **S5.2 cluster:** Vision-language-action GUI model
+- **Priority:** P1
+- **BibTeX key:** `showui2025`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.2: Perception, Grounding, and Web-State Representation**.
+
+The main idea is:
+
+```text
+Builds a lightweight vision-language-action model for GUI agents with UI-guided visual token selection and interleaved vision-language-action streaming.
+```
+
+For the thesis, the important point is that this paper helps explain how web/GUI agents represent the current interface before making a decision. It is not only about planning. It is about how the agent sees the page, selects useful information, grounds actions, and keeps the observation manageable.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Builds a lightweight vision-language-action model for GUI agents with UI-guided visual token selection and interleaved vision-language-action streaming.
+
+- **Key finding:**  
+  ShowUI reaches strong screenshot grounding with only 2B parameters and reduces redundant visual tokens by 33%, improving training efficiency.
+
+- **Limitation connected to thesis:**  
+  Efficiency and grounding improve, but the system remains benchmark-focused and does not guarantee robust live-web extraction; for the thesis, it supports cost-efficient perception as a deployment concern.
+
+- **Connects to:**  
+  UI-TARS, Magma, OS-Atlas, S8 cost efficiency.
+
+- **Use in thesis:**  
+  Use to discuss efficient visual-token processing and action modeling in GUI agents.
+
+---
+
+## Detailed notes
+
+- Models UI screenshots as connected graphs to select informative visual tokens.
+- Represents actions in JSON-like formats for unified action learning.
+- Uses a smaller high-quality GUI instruction-following dataset rather than only scaling data.
+- Important for the S8 deployment angle because visual-agent cost is a recurring bottleneck.
+
+---
+
+## Thesis relevance
+
+This paper supports the S5.2 claim that web agents require a reliable interface representation before they can act. For generalized web automation and data extraction, this matters because an agent must identify the right elements, ignore irrelevant page noise, preserve source evidence, and avoid grounding mistakes that cascade through a workflow.
+
+The direct thesis connection is:
+
+```text
+better page representation / grounding
+→ better action selection
+→ more reliable web automation
+→ more trustworthy data extraction
+```
+
+---
+
+## Limitation as thesis gap
+
+The remaining gap is not simply model accuracy. The thesis-relevant gap is that current systems still do not jointly solve:
+
+```text
+robust page perception
++ reliable element grounding
++ long-context observation reduction
++ live-web changes
++ structured extraction correctness
++ source-grounded verification
++ cost efficiency
+```
+
+So this paper should be used as part of the S5.2 technical decomposition, not as a final solution.
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.1** | Benchmark/evaluation context for web and GUI agents |
+| **S5.2** | Main relevance: perception, representation, grounding, context selection |
+| **S5.3** | Better observations improve planning and next-action decisions |
+| **S5.5** | Grounding, parsing, and context errors become failure modes |
+| **S6** | Web data extraction needs grounded fields, tables, values, and evidence |
+| **S8** | Cost, latency, live-web robustness, and deployment constraints |
+
+---
+
+## Thesis-ready paragraph
+
+ShowUI contributes to the S5.2 discussion by showing that web/GUI-agent reliability depends on how the interface is represented and grounded before action execution. Builds a lightweight vision-language-action model for GUI agents with UI-guided visual token selection and interleaved vision-language-action streaming. The main lesson for the thesis is that perception and grounding are not auxiliary modules; they directly determine whether an LLM-based agent can select the correct element, preserve the relevant page state, and execute a valid action. However, Efficiency and grounding improve, but the system remains benchmark-focused and does not guarantee robust live-web extraction; for the thesis, it supports cost-efficient perception as a deployment concern. This makes the paper useful for motivating the thesis gap around generalized, robust, and verifiable web automation and data extraction.
+
+---
+
+## One-sentence summary
+
+ShowUI shows that **Builds a lightweight vision-language-action model for GUI agents with UI-guided visual token selection and interleaved vision-language-action streaming**, but the thesis still needs robust grounding and extraction-oriented verification.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{showui2025,
+  title     = {ShowUI: One Vision-Language-Action Model for GUI Visual Agent},
+  author    = {Kevin Qinghong Lin, Linjie Li, Difei Gao, Zhengyuan Yang, Shiwei Wu, Zechen Bai, Weixian Lei, Lijuan Wang, Mike Zheng Shou},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2025},
+  url       = {https://openaccess.thecvf.com/content/CVPR2025/papers/Lin_ShowUI_One_Vision-Language-Action_Model_for_GUI_Visual_Agent_CVPR_2025_paper.pdf},
+  eprint    = {2411.17465},
+  archivePrefix = {arXiv}
+}
+```
+
+---
+
+## Source links
+
+- https://openaccess.thecvf.com/content/CVPR2025/papers/Lin_ShowUI_One_Vision-Language-Action_Model_for_GUI_Visual_Agent_CVPR_2025_paper.pdf
+- https://arxiv.org/abs/2411.17465

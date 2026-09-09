@@ -1,0 +1,232 @@
+# Paper 1 — BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
+
+## Metadata
+
+- **Title:** BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
+- **Year:** 2019 / 2020
+- **Venue / status:** ACL 2020 main conference
+- **Publication type:** Method / pretraining architecture
+- **Thesis section:** S2 — Foundations of LLMs for Agentic Tasks
+- **Cross-links:** S5.5 — Limitations and Failure Modes; S6 — Web Information Extraction
+- **Category:** FND / PRETRAINING / SEQ2SEQ
+- **Paper type:** Method / pretraining architecture
+- **Priority:** P2
+- **BibTeX key:** lewis2020bart
+
+---
+
+## Simple understanding
+
+BART is a pretraining method for sequence-to-sequence language models. It trains a model to reconstruct clean text from corrupted text. The model combines a bidirectional encoder, useful for understanding, with an autoregressive decoder, useful for generation.
+
+In simple terms, the paper can be understood like this:
+
+```text
+Problem → A limitation in language, multimodal, reasoning, grounding, or factuality capability.
+Method → A model, pretraining method, prompting method, survey, or technical system to address that limitation.
+Result → Stronger foundation capability that later supports LLM-based agents.
+```
+
+For the thesis, the first goal is to understand **what the paper itself does**.  
+Only after that, connect it to S2 and later sections.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Train an encoder-decoder Transformer as a denoising autoencoder: corrupt the input text and ask the model to reconstruct the original sequence.
+
+- **Key finding:**  
+  BART works strongly across generation and comprehension tasks, especially summarization and sequence-to-sequence tasks.
+
+- **Main limitation:**  
+  BART is not an agent. It does not plan, act, use tools, or interact with an environment.
+
+- **Additional limitation:**  
+  It is mainly a language understanding/generation model, so it does not solve grounding, browser interaction, or action feedback.
+
+- **Additional limitation:**  
+  For web automation, it can support text reconstruction or summarization, but it cannot control a website.
+
+- **Connects to:**  
+  S2 — Foundations of LLMs for Agentic Tasks.  
+  S5.5 — Limitations and Failure Modes; S6 — Web Information Extraction
+
+- **Use in thesis:**  
+  Use this paper as a **P2 supporting source**. It helps explain a foundation capability or limitation, but it should not dominate the main S2 argument.
+
+- **BibTeX key:**  
+  `lewis2020bart`
+
+---
+
+## Thesis-ready paragraph
+
+BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension contributes to the foundations of LLM-based agent systems by addressing the following idea: train an encoder-decoder transformer as a denoising autoencoder: corrupt the input text and ask the model to reconstruct the original sequence. The paper is useful for S2 because it explains a capability or limitation that later agent architectures depend on, such as reasoning, scaling, multimodal perception, grounding, retrieval, hallucination detection, or model efficiency. However, it should be used as a P2 supporting paper rather than as the central backbone of the section. Its relevance to web automation and data extraction is indirect but important: generalized web agents require strong language understanding, visual perception, reasoning, grounding, memory, and verification, and this paper helps explain one part of that foundation.
+
+---
+
+## Why this paper matters for my thesis
+
+My thesis studies:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+Such agents require foundation-level capabilities before they can operate on websites:
+
+```text
+language understanding
++ instruction following
++ reasoning
++ multimodal perception
++ grounding
++ retrieval
++ factuality checking
++ planning support
+```
+
+This paper matters because it contributes to one of these foundations.
+
+For this paper, the connection is:
+
+```text
+BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
+→ Train an encoder-decoder Transformer as a denoising autoencoder: corrupt the input text and ask the model to reconstruct the original sequence.
+→ foundation for later LLM-agent capability
+```
+
+But the paper alone does not solve generalized web automation. It must be combined with later agent architectures that include:
+
+```text
+observation → reasoning → action → feedback → memory → verification
+```
+
+---
+
+## Important concepts to remember
+
+### 1. Denoising Autoencoder
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 2. Encoder-Decoder Transformer
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 3. Text Infilling
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 4. Sentence Permutation
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 5. Sequence-To-Sequence Pretraining
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+
+---
+
+## Key evidence from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Figure/model architecture showing corrupted input reconstruction.**
+- **Experiments on summarization and generation tasks.**
+- **Comparison with BERT/GPT-style objectives.**
+
+These are the parts most likely to be useful when writing the literature review.
+
+---
+
+## Connection to earlier and later papers
+
+This paper should be positioned in the broader progression:
+
+```text
+Transformer / pretraining / scaling
+→ instruction following and reasoning
+→ multimodal perception and grounding
+→ retrieval and factuality
+→ LLM-based agents
+→ web automation and data extraction
+```
+
+For S2, the paper supports the **foundation** layer.  
+For later sections, it can be reused as background when discussing agent reasoning, perception, grounding, reliability, and limitations.
+
+---
+
+## Connection to S2
+
+This paper connects to **S2 — Foundations of LLMs for Agentic Tasks** because S2 explains the foundation-level capabilities that later make LLM-based agents possible.
+
+For this paper, the S2 connection is:
+
+```text
+Train an encoder-decoder Transformer as a denoising autoencoder: corrupt the input text and ask the model to reconstruct the original sequence.
+→ foundation capability
+→ later agent reasoning / perception / grounding / tool use / reliability
+```
+
+It should stay **P2** because it supports the section and enriches the background, but it is not necessarily the main paper that defines the whole section.
+
+---
+
+## Limitation connected to thesis
+
+- **Limitation 1:** BART is not an agent. It does not plan, act, use tools, or interact with an environment.
+- **Limitation 2:** It is mainly a language understanding/generation model, so it does not solve grounding, browser interaction, or action feedback.
+- **Limitation 3:** For web automation, it can support text reconstruction or summarization, but it cannot control a website.
+
+The general thesis limitation is:
+
+```text
+A foundation model capability is necessary but not sufficient for web agency.
+```
+
+A web agent still needs:
+
+- browser or DOM observation,
+- UI grounding,
+- action execution,
+- state tracking,
+- memory,
+- error recovery,
+- and verification of extracted data.
+
+---
+
+## Reading decision
+
+- **Read fully?** No
+- **Depth needed:** Low to medium
+- **Main use:** P2 support for S2 foundations
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main method / taxonomy / architecture figure
+  - Key result table or benchmark section
+  - Discussion and limitations
+
+---
+
+## One-sentence summary
+
+BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension is a P2 supporting paper for S2 because it explains a foundation capability or limitation that later LLM-based agents depend on, but it does not by itself solve grounded web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@misc{lewis2020bart,
+  title = {BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension},
+  year = {2019 / 2020},
+  note = {ACL 2020 main conference. Verify final bibliographic metadata before thesis submission if needed.}
+}
+```

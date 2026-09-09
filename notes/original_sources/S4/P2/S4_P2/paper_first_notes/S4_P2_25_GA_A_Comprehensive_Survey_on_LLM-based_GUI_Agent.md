@@ -1,0 +1,180 @@
+# S4 P2 Paper 25 — GA: A Comprehensive Survey on LLM-based GUI Agent
+
+## Metadata
+
+- **Title:** GA: A Comprehensive Survey on LLM-based GUI Agent
+- **Year:** 2025
+- **Venue / status:** TechRxiv / submitted manuscript
+- **Peer-reviewed status:** Not peer-reviewed in uploaded version
+- **Publication type:** TechRxiv survey / submitted preprint
+- **Thesis section:** S4 — GUI-agent taxonomy
+- **Category:** GUI-agent survey
+- **Priority:** P2
+- **BibTeX key:** `gaacomprehensivesurveyonllmbasedgui2025`
+
+---
+
+## Simple understanding
+
+This survey reviews LLM-based GUI agents across environment understanding, device control, user interaction, personalization, collaboration, and task automation pipelines.
+
+In simple terms:
+
+```text
+Problem → how can an AI agent interact with a web, GUI, mobile, desktop, or application environment?
+Method → add perception, planning, action, memory, API/tool use, state tracking, or browser control.
+Goal → complete real user tasks more flexibly than scripts or static chatbots.
+```
+
+This note explains the paper first, then connects it to S4 and your thesis.
+
+---
+
+## Core idea
+
+Summarize GUI-agent capabilities and propose a taxonomy based on how agents understand GUI environments: vision-based, text-based, and hybrid text-vision.
+
+The paper is mainly about:
+
+```text
+GUI-agent survey
+```
+
+It contributes to the larger agent loop:
+
+```text
+observe → understand state → plan → act → receive feedback → verify / recover → complete task
+```
+
+---
+
+## Key finding / main claim
+
+LLM-based GUI agents move beyond template-based automation by understanding GUI states in real time and selecting actions flexibly.
+
+For S4, the important question is not only whether the method works on its benchmark, but **which part of web/GUI agency it improves**:
+
+- perception and grounding,
+- planning and reasoning,
+- action execution,
+- API/tool use,
+- memory/state tracking,
+- recovery and verification,
+- or deployment/evaluation.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading the paper, extract these points:
+
+- **Figure 1 basic GUI-agent task automation pipeline.**
+- **Taxonomy into vision-based, text-based, and hybrid agents.**
+- **Discussion of one-stage vs two-stage exploration-to-exploitation pipelines.**
+
+These are the most useful parts for writing a literature-review paragraph.
+
+---
+
+## Limitations
+
+- **Limitation 1:** TechRxiv explicitly marks the uploaded version as not peer reviewed.
+- **Limitation 2:** Some content may change if accepted to a journal.
+- **Limitation 3:** Use only as supplementary survey support.
+
+General thesis-level limitation:
+
+```text
+Improving one agent component is not enough for generalized web automation.
+A robust web agent still needs grounding, planning, execution, verification, recovery, and safety.
+```
+
+---
+
+## Relation to S4
+
+This paper belongs in S4 because S4 discusses **LLM-based agents for web/GUI/mobile/computer automation**.
+
+Its role in S4 is:
+
+```text
+GA: A Comprehensive Survey on LLM-based GUI Agent
+→ GUI-agent survey
+→ supporting P2 source for web/GUI/computer-use agent discussion
+```
+
+Use it after explaining what the paper does. Do not introduce it only as “P2”; introduce the method or idea first.
+
+---
+
+## Relation to thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because:
+
+It can help broaden S4’s taxonomy, but should not be used as a main authoritative citation.
+
+For generalized web automation, the connection is:
+
+```text
+web / GUI / mobile / computer-use interaction
+→ agent observes a digital environment
+→ agent chooses actions
+→ agent extracts information or completes a workflow
+```
+
+Even when the paper is not directly about data extraction, it still helps explain the automation layer needed before extraction can be generalized.
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use as **P2 support**, not as the central backbone.
+- Use for one precise idea, architecture, benchmark, or limitation.
+- If peer-reviewed, it can support stronger claims.
+- If preprint/workshop/technical report, use it for recent trends and emerging directions.
+
+Suggested sentence:
+
+> GA: A Comprehensive Survey on LLM-based GUI Agent shows how GUI-agent survey contributes to the development of LLM-based agents for digital task automation, but its limitations indicate that generalized web automation still requires stronger grounding, verification, and recovery mechanisms.
+
+---
+
+## Reading decision
+
+- **Keep in S4 P2:** Yes
+- **Read fully?** No, selected sections are enough unless promoted later
+- **Depth needed:** Low to medium
+- **Main use:** Support S4 discussion of GUI-agent survey
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main architecture / method figure
+  - Dataset or benchmark section
+  - Results table
+  - Limitations / discussion
+
+---
+
+## One-sentence summary
+
+GA: A Comprehensive Survey on LLM-based GUI Agent is a P2 supporting paper for S4 because it explains **GUI-agent survey**, but it should be cited according to its venue/status and not overused beyond its evidence.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{gaacomprehensivesurveyonllmbasedgui2025,
+  title = {GA: A Comprehensive Survey on LLM-based GUI Agent},
+  year = {2025},
+  note = {TechRxiv / submitted manuscript; TechRxiv survey / submitted preprint. Verify final bibliographic metadata before thesis submission.}
+}
+```

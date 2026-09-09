@@ -1,0 +1,256 @@
+# S5.5 P2 Paper 06 — Understanding GUI Agent Localization Biases through Logit Sharpness
+
+## Metadata
+
+- **Title:** Understanding GUI Agent Localization Biases through Logit Sharpness
+- **Year:** 2025
+- **Verified venue/status:** Findings of EMNLP 2025
+- **Peer-reviewed status:** Yes
+- **Thesis section:** S5.5 — Failure Modes, Robustness, Debugging, Reliability, and Safety of LLM-based Agents
+- **Main category:** GUI localization bias and hallucination analysis
+- **S5.5 role:** perception/grounding bias and visual failure analysis
+- **Priority:** P2
+- **Recommended citation strength:** Strong citation
+- **Recommended reading depth:** Medium to high
+- **BibTeX key:** `understandinglocalizationbiasesthrough2025`
+
+---
+
+## Simple understanding
+
+This paper analyzes GUI-agent localization errors. It shows that coordinate predictions can be wrong in structured ways and proposes logit sharpness and context-aware cropping to better understand and reduce localization hallucinations.
+
+In simple terms:
+
+```text
+Problem → LLM-based agents fail in interactive environments in ways that are not captured by simple final-answer accuracy.
+Paper → This work studies, categorizes, evaluates, detects, or mitigates such failures.
+Goal → Make agent behavior more reliable, diagnosable, safe, and robust.
+```
+
+For S5.5, the first task is to understand **what type of failure the paper studies**.  
+Only after that should it be linked to P2 priority and to your thesis.
+
+---
+
+## Core idea
+
+Diagnose GUI coordinate hallucinations through fine-grained error taxonomy and Peak Sharpness Score.
+
+This paper mainly contributes to:
+
+```text
+GUI localization bias and hallucination analysis
+```
+
+In the broader agent-reliability pipeline, it fits here:
+
+```text
+agent trajectory
+→ failure observation
+→ failure classification / evaluator / judge / debugger
+→ diagnosis of root cause or risk
+→ mitigation, refinement, or safer deployment
+```
+
+---
+
+## Key finding / main claim
+
+GUI agent localization errors are not random; many incorrect coordinates lie close to the target or are biased by surrounding elements. Context-aware cropping can improve robustness without training.
+
+For S5.5, the important question is:
+
+```text
+What does this paper reveal about why agents fail, and how can that failure be detected or reduced?
+```
+
+Typical S5.5 failure/reliability dimensions include:
+
+- incorrect trajectory evaluation,
+- missing reflection or recovery,
+- hallucinated GUI localization,
+- OOD/capability-boundary errors,
+- navigation errors,
+- tool-use and verification errors,
+- agent-environment mismatch,
+- multi-agent coordination failures,
+- blind goal pursuit,
+- weak environment understanding,
+- and visual/interface bias.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Findings of EMNLP 2025 status.**
+- **Four response categories: correct, biased hallucination, misleading hallucination, confusion hallucination.**
+- **Peak Sharpness Score for coordinate logits.**
+- **Context-aware cropping intervention.**
+
+Also extract, if available:
+
+- number of tasks/traces/benchmarks,
+- failure taxonomy categories,
+- judge or evaluator agreement,
+- benchmark environment,
+- failure rates,
+- mitigation effect,
+- ablation results,
+- and authors' stated limitations.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Focuses on localization/grounding, not full long-horizon task success.
+- **Limitation 2:** Evaluation mainly targets coordinate prediction behavior.
+- **Limitation 3:** Training-free cropping helps but does not remove deeper planning or perception failures.
+
+General thesis-level limitation:
+
+```text
+Failure analysis is necessary but not sufficient.
+A taxonomy or benchmark identifies the problem, but reliable deployment also needs mitigation, verification, monitoring, and safety constraints.
+```
+
+Therefore, this paper should normally be used as **P2 support** unless it becomes central to the S5.5 subsection.
+
+---
+
+## Venue/status caution
+
+Use as a stronger source. Verified status: **Findings of EMNLP 2025**.
+
+For final thesis writing:
+
+```text
+confirmed peer-reviewed venue → stronger citation
+workshop paper → useful design/qualitative support
+arXiv / preprint / submission → recent trend, cite cautiously
+withdrawn submission → cite only as arXiv/preprint
+```
+
+---
+
+## Relation to S5.5
+
+This paper belongs in **S5.5** because S5.5 focuses on agent failure modes, reliability, debugging, and safety.
+
+Its role is:
+
+```text
+Understanding GUI Agent Localization Biases through Logit Sharpness
+→ perception/grounding bias and visual failure analysis
+→ P2 support for failure/reliability discussion
+```
+
+Use the paper after explaining the failure problem first.  
+Do not introduce it only as “P2”; introduce the failure mechanism or diagnostic gap.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that do not only act, but also:
+
+```text
+detect when they are failing
+avoid unsafe or impossible actions
+understand environment state
+recover from wrong decisions
+evaluate whether the task is actually complete
+distinguish navigation failure from extraction/tool failure
+handle UI and visual bias
+```
+
+The paper supports that pipeline by improving:
+
+```text
+perception/grounding bias and visual failure analysis
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.5.
+- Extract one precise failure category or diagnostic contribution.
+- Extract one quantitative result or qualitative insight.
+- Extract one limitation.
+- Compare it with other S5.5 failure-analysis papers.
+- If it is a preprint/workshop, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Understanding GUI Agent Localization Biases through Logit Sharpness contributes to S5.5 by addressing **GUI localization bias and hallucination analysis**, showing that LLM-based agents require explicit failure diagnosis, reliability evaluation, and safety-aware mechanisms beyond task success metrics.
+
+---
+
+## Comparison with nearby S5.5 papers
+
+Compare this paper with:
+
+```text
+Autonomous Evaluation and Refinement of Digital Agents
+MAST / Why Do Multi-Agent LLM Systems Fail?
+Aegis
+AgentDebug
+GEM OOD Detection
+Logit Sharpness / GUI localization bias
+BLIND-ACT / Blind Goal-Directedness
+Task2Quiz
+VAF visual-attribute evaluation
+The Amazing Agent Race
+```
+
+The comparison question is:
+
+```text
+Does this paper study failures in evaluation, perception, planning, environment understanding, safety, navigation, debugging, or multi-agent coordination?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.5 P2:** Yes
+- **Read fully?** Yes, if it becomes part of the S5.5 backbone.
+- **Depth needed:** Medium to high
+- **Main use:** Support discussion of GUI localization bias and hallucination analysis
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Failure taxonomy or benchmark design
+  - Evaluation setup
+  - Main results table
+  - Failure examples/case studies
+  - Mitigation or debugging method
+  - Limitations/discussion
+
+---
+
+## One-sentence summary
+
+Understanding GUI Agent Localization Biases through Logit Sharpness is a P2 source for S5.5 because it helps explain **GUI localization bias and hallucination analysis**, but it should be cited according to its verified venue/status and used mainly to enrich the failure/reliability/safety discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{understandinglocalizationbiasesthrough2025,
+  title = {Understanding GUI Agent Localization Biases through Logit Sharpness},
+  year = {2025},
+  note = {Findings of EMNLP 2025. Verify final bibliographic metadata before thesis submission.}
+}
+```

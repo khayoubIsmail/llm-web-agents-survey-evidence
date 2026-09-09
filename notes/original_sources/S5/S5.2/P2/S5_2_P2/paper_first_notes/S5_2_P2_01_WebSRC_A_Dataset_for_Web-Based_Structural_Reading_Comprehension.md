@@ -1,0 +1,249 @@
+# S5.2 P2 Paper 01 — WebSRC: A Dataset for Web-Based Structural Reading Comprehension
+
+## Metadata
+
+- **Title:** WebSRC: A Dataset for Web-Based Structural Reading Comprehension
+- **Year:** 2021
+- **Verified venue/status:** EMNLP 2021 main conference
+- **Peer-reviewed status:** Yes
+- **Venue note:** ACL Anthology confirms EMNLP 2021 proceedings, pp. 4173–4185.
+- **Thesis section:** S5.2 — Perception, Representation, and Grounding for Web/GUI Agents
+- **Main category:** webpage structural reading comprehension
+- **S5.2 role:** webpage/HTML/DOM representation and web-state understanding
+- **Priority:** P2
+- **Recommended citation strength:** Strong citation
+- **Recommended reading depth:** Medium to high
+- **BibTeX key:** `websrcwebbasedstructural2021`
+
+---
+
+## Simple understanding
+
+WebSRC introduces a dataset for web-based structural reading comprehension. It asks models to answer questions over webpages while using structural clues from HTML, layout, tables, links, and page organization.
+
+In simple terms:
+
+```text
+Problem → Agents need to understand webpages, screens, DOM trees, HTML, UI elements, or visual layouts before they can act.
+Paper → This work improves representation, perception, grounding, compression, or interface design.
+Goal → Make the environment state more usable for LLM/VLM agents.
+```
+
+For this section, the first goal is to understand **what the paper does for perception or representation**.  
+Only after that, connect it to S5.2 and to generalized web automation.
+
+---
+
+## Core idea
+
+Evaluate reading comprehension where the answer depends not only on text but also on webpage structure.
+
+The paper mainly contributes to:
+
+```text
+webpage structural reading comprehension
+```
+
+This corresponds to the environment-understanding layer of an agent:
+
+```text
+raw webpage / screenshot / UI tree / HTML / DOM
+→ cleaned or structured representation
+→ model perception and grounding
+→ action planning
+→ execution and verification
+```
+
+---
+
+## Key finding / main claim
+
+Webpage understanding requires modeling structural relations, not only extracting flat text from a page.
+
+For S5.2, the important point is not only the final benchmark score.  
+The key question is:
+
+```text
+What representation or perception bottleneck does this paper solve?
+```
+
+Common S5.2 bottlenecks include:
+
+- loss of structure when HTML is converted to text,
+- excessive DOM/accessibility-tree token cost,
+- poor GUI grounding for small UI elements,
+- high-resolution professional interfaces,
+- weak screen understanding in general VLMs,
+- lack of UI-specific training data,
+- missing memory/state representation,
+- and mismatch between human-facing UI and agent-facing action needs.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these concrete evidence points:
+
+- **Dataset design for web-based reading comprehension.**
+- **Use of webpage structural information.**
+- **Comparison of models using structural and textual signals.**
+
+Also extract, if available:
+
+- dataset size,
+- benchmark domains,
+- representation format,
+- model architecture or prompt strategy,
+- compression/token reduction,
+- grounding accuracy,
+- task success rate,
+- ablation results,
+- and stated limitations.
+
+---
+
+## Limitations
+
+- **Limitation 1:** It is a reading-comprehension dataset, not a full interactive web-agent benchmark.
+- **Limitation 2:** It does not evaluate browser actions such as click/type/scroll.
+- **Limitation 3:** It predates modern LLM/VLM agents, so its architecture assumptions are older.
+
+General thesis-level limitation:
+
+```text
+Better perception or representation is necessary but not sufficient.
+A generalized web agent also needs planning, memory, action execution, error recovery, and evaluation.
+```
+
+Therefore, this paper should be used as **P2 support** for S5.2, not as the only foundation for the whole section.
+
+---
+
+## Venue/status caution
+
+This is a safe source for stronger thesis claims because the verified venue/status is **EMNLP 2021 main conference**.
+
+For final thesis writing:
+
+```text
+peer-reviewed venue → can support stronger claims
+arXiv / technical report → useful for recent trends and system ideas
+unclear venue → verify DOI/proceedings before final bibliography
+course/report source → use only as informal background, not strong evidence
+```
+
+---
+
+## Relation to S5.2
+
+This paper belongs in **S5.2** because S5.2 discusses the perception and representation layer of LLM-based agents.
+
+Its role is:
+
+```text
+WebSRC: A Dataset for Web-Based Structural Reading Comprehension
+→ webpage/HTML/DOM representation and web-state understanding
+→ P2 support for perception / representation / grounding discussion
+```
+
+Use it after explaining what the paper actually contributes.  
+Do not introduce it only as “P2”; introduce the representation problem first.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents to transform messy digital environments into usable state representations.
+
+For web/data-extraction agents, this means:
+
+```text
+webpage / UI / screenshot / DOM / HTML
+→ preserve useful semantics and structure
+→ identify relevant elements or data
+→ ground actions and extraction targets
+→ act or extract reliably
+```
+
+This paper supports that pipeline by improving:
+
+```text
+webpage/HTML/DOM representation and web-state understanding
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.2.
+- Extract one precise representation/perception contribution.
+- Extract one limitation or failure mode.
+- Compare it with nearby works on HTML/DOM, visual screenshots, GUI grounding, or agent-facing interfaces.
+- If the paper is a preprint/technical report, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> WebSRC: A Dataset for Web-Based Structural Reading Comprehension contributes to S5.2 by addressing **webpage structural reading comprehension**, showing that the quality of environment representation strongly affects the reliability of LLM-based web and GUI agents.
+
+---
+
+## Comparison with nearby papers
+
+Compare this paper with:
+
+```text
+WebSRC / WebLM / DUAL-VCR
+HtmlRAG / DOM downsampling / UIFORMER
+ScreenAI / Ferret-UI / GUICourse / GUI-WORLD
+ScreenSpot-Pro / Phi-Ground / query-oriented pivot tasks
+AGUVIS / InfiGUIAgent / MGA / V-GEMS
+CI4A and agent-native interface proposals
+```
+
+The comparison question is:
+
+```text
+Does this paper improve text/HTML/DOM representation, visual screen understanding, GUI grounding, memory/state representation, or agent-native interaction?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.2 P2:** Yes
+- **Read fully?** Yes, if it becomes central to the representation/perception subsection.
+- **Depth needed:** Medium to high
+- **Main use:** Support discussion of webpage structural reading comprehension
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Representation/perception method
+  - Main architecture or benchmark figure
+  - Dataset/benchmark construction
+  - Main results table
+  - Ablation and limitations
+
+---
+
+## One-sentence summary
+
+WebSRC: A Dataset for Web-Based Structural Reading Comprehension is a P2 source for S5.2 because it helps explain **webpage structural reading comprehension**, but it should be cited according to its verified venue/status and used mainly to enrich the perception/representation discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{websrcwebbasedstructural2021,
+  title = {WebSRC: A Dataset for Web-Based Structural Reading Comprehension},
+  year = {2021},
+  note = {EMNLP 2021 main conference. Verify final bibliographic metadata before thesis submission.}
+}
+```

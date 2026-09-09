@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 from collections import Counter
@@ -27,12 +28,15 @@ def main() -> None:
     parser.add_argument("--audit", type=Path, required=True)
     parser.add_argument("--remediation", type=Path, required=True)
     parser.add_argument("--notes", type=Path, required=True)
+    parser.add_argument("--source-manifest", type=Path, required=True)
+    parser.add_argument("--source-archive", type=Path, required=True)
     parser.add_argument("--summary", type=Path, required=True)
     args = parser.parse_args()
 
     register = read_csv(args.register)
     audit = read_csv(args.audit)
     remediation = read_csv(args.remediation)
+    source_manifest = read_csv(args.source_manifest)
     register_json = json.loads(args.register_json.read_text(encoding="utf-8"))
     summary = json.loads(args.summary.read_text(encoding="utf-8"))
 
@@ -55,6 +59,78 @@ def main() -> None:
         fail("remediation log must contain 71 unique records")
     if not set(remediation_ids) <= set(register_ids):
         fail("remediation log contains a record outside the register")
+
+    sourced_audit = {
+        int(row["record_id"]): row
+        for row in audit
+        if row["original_note_source"] != "no reliable paper-specific source note"
+    }
+    source_manifest_ids = [int(row["record_id"]) for row in source_manifest]
+    if len(source_manifest_ids) != 335 or len(set(source_manifest_ids)) != 335:
+        fail("original-source manifest must contain 335 unique record mappings")
+    if set(source_manifest_ids) != set(sourced_audit):
+        fail("original-source manifest IDs differ from reliable audit source matches")
+
+    source_archive = args.source_archive.resolve()
+    manifest_repository_paths: set[str] = set()
+    unique_source_metadata: dict[str, tuple[str, int, int]] = {}
+    source_mapping_counts = Counter(row["original_source"] for row in source_manifest)
+    for row in source_manifest:
+        record_id = int(row["record_id"])
+        audit_row = sourced_audit[record_id]
+        if row["title"] != audit_row["title"] or row["priority"] != audit_row["priority"]:
+            fail(f"source-manifest metadata differs for record {record_id}")
+        if row["final_note"] != audit_row["note_file"]:
+            fail(f"source-manifest final-note path differs for record {record_id}")
+        if row["original_source"] != audit_row["original_note_source"]:
+            fail(f"source-manifest original path differs for record {record_id}")
+        if int(row["records_mapped_to_source"]) != source_mapping_counts[row["original_source"]]:
+            fail(f"source-manifest sharing count differs for record {record_id}")
+        expected_layout = (
+            "shared/merged" if source_mapping_counts[row["original_source"]] > 1 else "standalone"
+        )
+        if row["source_layout"] != expected_layout:
+            fail(f"source-manifest layout differs for record {record_id}")
+
+        prefix = "notes/original_sources/"
+        if not row["repository_source"].startswith(prefix):
+            fail(f"source-manifest repository path is invalid for record {record_id}")
+        relative = row["repository_source"][len(prefix) :]
+        path = (source_archive / relative).resolve()
+        try:
+            path.relative_to(source_archive)
+        except ValueError:
+            fail(f"source archive path escapes its root for record {record_id}")
+        if not path.is_file():
+            fail(f"source archive file is missing for record {record_id}")
+        content = path.read_bytes()
+        sha256 = hashlib.sha256(content).hexdigest()
+        lines = content.count(b"\n") + (1 if content and not content.endswith(b"\n") else 0)
+        if b"\x00" in content:
+            fail(f"source archive file contains null bytes: {relative}")
+        try:
+            content.decode("utf-8-sig")
+        except UnicodeDecodeError:
+            fail(f"source archive file is not valid UTF-8: {relative}")
+        if sha256 != row["source_sha256"]:
+            fail(f"source archive SHA-256 differs for record {record_id}")
+        if int(row["source_bytes"]) != len(content) or int(row["source_lines"]) != lines:
+            fail(f"source archive size/line metadata differs for record {record_id}")
+        manifest_repository_paths.add(relative)
+        metadata = (sha256, len(content), lines)
+        if relative in unique_source_metadata and unique_source_metadata[relative] != metadata:
+            fail(f"inconsistent repeated source metadata: {relative}")
+        unique_source_metadata[relative] = metadata
+
+    actual_source_paths = {
+        path.relative_to(source_archive).as_posix()
+        for path in source_archive.rglob("*.md")
+        if path.relative_to(source_archive).as_posix() != "README.md"
+    }
+    if actual_source_paths != manifest_repository_paths:
+        fail("source archive contains missing or unmanifested Markdown files")
+    if not (source_archive / "README.md").is_file():
+        fail("source archive README is missing")
 
     register_by_id = {int(row["record_id"]): row for row in register}
     audit_by_id = {int(row["record_id"]): row for row in audit}
@@ -97,6 +173,15 @@ def main() -> None:
     expected_summary = summary["paper_note_audit"]
     calculated = {
         "normalized_note_files": len(note_ids),
+        "reliable_source_note_matches": len(source_manifest_ids),
+        "original_source_note_files": len(unique_source_metadata),
+        "shared_original_source_files": sum(count > 1 for count in source_mapping_counts.values()),
+        "records_from_shared_original_sources": sum(
+            count for count in source_mapping_counts.values() if count > 1
+        ),
+        "original_source_archive_bytes": sum(
+            metadata[1] for metadata in unique_source_metadata.values()
+        ),
         "current_cycle_note_remediations": len(remediation_ids),
         "current_cycle_pdf_full_text_checks": current,
         "retained_substantive_archive_notes": archived,
@@ -111,6 +196,8 @@ def main() -> None:
     print("validation=passed")
     print("register_records=403")
     print("normalized_notes=403")
+    print("original_source_mappings=335")
+    print("unique_original_source_files=229")
     print("remediated_notes=71")
     print("current_cycle_full_texts=134")
     print("retained_archive_notes=268")

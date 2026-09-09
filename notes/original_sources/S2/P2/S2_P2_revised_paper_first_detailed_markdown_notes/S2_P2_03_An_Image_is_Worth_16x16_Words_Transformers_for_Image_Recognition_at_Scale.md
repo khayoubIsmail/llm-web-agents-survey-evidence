@@ -1,0 +1,232 @@
+# Paper 3 — An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+
+## Metadata
+
+- **Title:** An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+- **Year:** 2020 / 2021
+- **Venue / status:** ICLR 2021
+- **Publication type:** Architecture / empirical evaluation
+- **Thesis section:** S2 — Foundations of LLMs for Agentic Tasks
+- **Cross-links:** S4 — Web Agent Systems; S5.2 — Environment Observation and Grounding
+- **Category:** FND / VISION TRANSFORMER / MULTIMODAL
+- **Paper type:** Architecture / empirical evaluation
+- **Priority:** P2
+- **BibTeX key:** dosovitskiy2021vit
+
+---
+
+## Simple understanding
+
+ViT applies the Transformer architecture to images by splitting an image into patches and treating those patches like tokens. It is a foundation for later multimodal models that can understand screenshots and visual interfaces.
+
+In simple terms, the paper can be understood like this:
+
+```text
+Problem → A limitation in language, multimodal, reasoning, grounding, or factuality capability.
+Method → A model, pretraining method, prompting method, survey, or technical system to address that limitation.
+Result → Stronger foundation capability that later supports LLM-based agents.
+```
+
+For the thesis, the first goal is to understand **what the paper itself does**.  
+Only after that, connect it to S2 and later sections.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Represent images as sequences of fixed-size patch embeddings and process them with a standard Transformer encoder.
+
+- **Key finding:**  
+  When trained at large scale, a pure Transformer can perform very well on image recognition.
+
+- **Main limitation:**  
+  ViT is a vision model, not a language model or agent.
+
+- **Additional limitation:**  
+  It recognizes images but does not follow instructions, reason over goals, or execute actions.
+
+- **Additional limitation:**  
+  For web agents, it is only a perception foundation, not a complete automation method.
+
+- **Connects to:**  
+  S2 — Foundations of LLMs for Agentic Tasks.  
+  S4 — Web Agent Systems; S5.2 — Environment Observation and Grounding
+
+- **Use in thesis:**  
+  Use this paper as a **P2 supporting source**. It helps explain a foundation capability or limitation, but it should not dominate the main S2 argument.
+
+- **BibTeX key:**  
+  `dosovitskiy2021vit`
+
+---
+
+## Thesis-ready paragraph
+
+An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale contributes to the foundations of LLM-based agent systems by addressing the following idea: represent images as sequences of fixed-size patch embeddings and process them with a standard transformer encoder. The paper is useful for S2 because it explains a capability or limitation that later agent architectures depend on, such as reasoning, scaling, multimodal perception, grounding, retrieval, hallucination detection, or model efficiency. However, it should be used as a P2 supporting paper rather than as the central backbone of the section. Its relevance to web automation and data extraction is indirect but important: generalized web agents require strong language understanding, visual perception, reasoning, grounding, memory, and verification, and this paper helps explain one part of that foundation.
+
+---
+
+## Why this paper matters for my thesis
+
+My thesis studies:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+Such agents require foundation-level capabilities before they can operate on websites:
+
+```text
+language understanding
++ instruction following
++ reasoning
++ multimodal perception
++ grounding
++ retrieval
++ factuality checking
++ planning support
+```
+
+This paper matters because it contributes to one of these foundations.
+
+For this paper, the connection is:
+
+```text
+An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+→ Represent images as sequences of fixed-size patch embeddings and process them with a standard Transformer encoder.
+→ foundation for later LLM-agent capability
+```
+
+But the paper alone does not solve generalized web automation. It must be combined with later agent architectures that include:
+
+```text
+observation → reasoning → action → feedback → memory → verification
+```
+
+---
+
+## Important concepts to remember
+
+### 1. Image Patches
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 2. Patch Embeddings
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 3. Vision Transformer
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 4. Visual Tokenization
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 5. Large-Scale Vision Pretraining
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+
+---
+
+## Key evidence from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Figure 1 showing image patches as Transformer tokens.**
+- **ImageNet/JFT performance comparisons.**
+- **Discussion about data scale requirements.**
+
+These are the parts most likely to be useful when writing the literature review.
+
+---
+
+## Connection to earlier and later papers
+
+This paper should be positioned in the broader progression:
+
+```text
+Transformer / pretraining / scaling
+→ instruction following and reasoning
+→ multimodal perception and grounding
+→ retrieval and factuality
+→ LLM-based agents
+→ web automation and data extraction
+```
+
+For S2, the paper supports the **foundation** layer.  
+For later sections, it can be reused as background when discussing agent reasoning, perception, grounding, reliability, and limitations.
+
+---
+
+## Connection to S2
+
+This paper connects to **S2 — Foundations of LLMs for Agentic Tasks** because S2 explains the foundation-level capabilities that later make LLM-based agents possible.
+
+For this paper, the S2 connection is:
+
+```text
+Represent images as sequences of fixed-size patch embeddings and process them with a standard Transformer encoder.
+→ foundation capability
+→ later agent reasoning / perception / grounding / tool use / reliability
+```
+
+It should stay **P2** because it supports the section and enriches the background, but it is not necessarily the main paper that defines the whole section.
+
+---
+
+## Limitation connected to thesis
+
+- **Limitation 1:** ViT is a vision model, not a language model or agent.
+- **Limitation 2:** It recognizes images but does not follow instructions, reason over goals, or execute actions.
+- **Limitation 3:** For web agents, it is only a perception foundation, not a complete automation method.
+
+The general thesis limitation is:
+
+```text
+A foundation model capability is necessary but not sufficient for web agency.
+```
+
+A web agent still needs:
+
+- browser or DOM observation,
+- UI grounding,
+- action execution,
+- state tracking,
+- memory,
+- error recovery,
+- and verification of extracted data.
+
+---
+
+## Reading decision
+
+- **Read fully?** No
+- **Depth needed:** Low to medium
+- **Main use:** P2 support for S2 foundations
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main method / taxonomy / architecture figure
+  - Key result table or benchmark section
+  - Discussion and limitations
+
+---
+
+## One-sentence summary
+
+An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale is a P2 supporting paper for S2 because it explains a foundation capability or limitation that later LLM-based agents depend on, but it does not by itself solve grounded web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@misc{dosovitskiy2021vit,
+  title = {An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale},
+  year = {2020 / 2021},
+  note = {ICLR 2021. Verify final bibliographic metadata before thesis submission if needed.}
+}
+```

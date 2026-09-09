@@ -1,0 +1,173 @@
+# EIA: Environmental Injection Attack on Generalist Web Agents for Privacy Leakage
+
+## Metadata
+
+- **Short name:** EIA
+- **Authors:** Zeyi Liao, Lingbo Mo, Chejian Xu, Mintong Kang, Jiawei Zhang, Chaowei Xiao, Yuan Tian, Bo Li, Huan Sun
+- **Year used for thesis:** 2025
+- **Venue/status:** ICLR 2025 conference paper
+- **Venue/status check:** re-checked from paper first page and public web sources where available
+- **Priority:** S7 P1
+- **S7 cluster:** privacy leakage via environmental injection
+- **BibTeX key:** `liao2025eia`
+- **Source PDF file:** `2025-03 - EIA- Environmental Injection Attack on Generalist Web Agents for Privacy Leakage.pdf`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S7 — Security, Robustness, and Trustworthiness**.
+
+The central idea is:
+
+```text
+Injects malicious but environment-adapted web elements into webpages to trick generalist web agents into leaking PII or user requests.
+```
+
+For your thesis, this paper helps explain one part of the security stack for LLM-based web agents: malicious web content, prompt injection, dark patterns, memory poisoning, red-teaming, agent misuse, governance, or runtime defenses.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Injects malicious but environment-adapted web elements into webpages to trick generalist web agents into leaking PII or user requests.
+
+- **Key finding:**  
+  EIA achieves high ASR for stealing specific PII and demonstrates that generic defensive prompts are insufficient.
+
+- **Limitation connected to thesis:**  
+  Requires attacker influence over webpage elements; the defense discussion remains incomplete.
+
+- **Connects to:**  
+  WIPI, WASP, RedTeamCUA, WebAgentGuard, S6 extraction privacy.
+
+- **Use in thesis:**  
+  key web-agent privacy attack paper
+
+---
+
+## Detailed notes
+
+- Targets realistic web workflows involving PII.
+- Adapts injected elements to the page to reduce human detectability.
+- Distinguishes specific PII leakage from full user-request leakage.
+- Shows trade-off between autonomy and human inspection.
+- Central S7 paper for what malicious web content can do to a web agent.
+
+---
+
+## Threat model / safety model
+
+Use this paper under the following S7 attacker-model lens:
+
+```text
+privacy leakage via environmental injection
+```
+
+The important question is:
+
+```text
+Who is malicious?
+- the webpage/environment?
+- the user?
+- the agent itself?
+- the agent's memory or model supply chain?
+- the website owner defending against malicious agents?
+```
+
+This paper helps answer that question by clarifying one concrete attack or defense pathway.
+
+---
+
+## Thesis relevance
+
+For **LLM-based agents for generalized web automation and data extraction**, this paper matters because a web agent must not only complete tasks. It must also:
+
+```text
+- distinguish trusted user intent from untrusted webpage content
+- avoid leaking private data
+- avoid unsafe or unauthorized actions
+- resist deceptive UI and visual manipulation
+- handle adversarial or poisoned memory
+- respect site-owner and user permissions
+- preserve provenance and auditability
+- remain robust under real web deployment constraints
+```
+
+The specific relevance of this paper is:
+
+```text
+key web-agent privacy attack paper
+```
+
+---
+
+## Limitation as thesis gap
+
+The thesis-relevant limitation is:
+
+```text
+Requires attacker influence over webpage elements; the defense discussion remains incomplete.
+```
+
+Use this limitation to support the S7 gap:
+
+```text
+Current web-agent security research exposes many attack vectors,
+but no unified architecture yet provides robust protection across:
+malicious webpage content,
+visual and DOM-level manipulation,
+dark patterns,
+privacy leakage,
+memory poisoning,
+agent misuse,
+permission governance,
+and safe deployment.
+```
+
+---
+
+## Cross-links
+
+| Thesis section | Connection |
+|---|---|
+| **S5.1** | security benchmarks and evaluation realism |
+| **S5.2** | visual/DOM/a11y representation as an attack surface |
+| **S5.3** | planning and action execution under adversarial conditions |
+| **S5.4** | training or fine-tuning safer agents and guards |
+| **S5.5** | reliability/failure modes exposed by security stress tests |
+| **S6** | extraction privacy, scraping misuse, provenance, and source trust |
+| **S8** | deployment governance, legal/ethical constraints, permission systems |
+
+---
+
+## Thesis-ready paragraph
+
+EIA contributes to S7 by showing that Injects malicious but environment-adapted web elements into webpages to trick generalist web agents into leaking PII or user requests. The main result is that EIA achieves high ASR for stealing specific PII and demonstrates that generic defensive prompts are insufficient. This is important for the thesis because generalized web automation and web data extraction must operate on an adversarial, dynamic, and partially trusted web. However, Requires attacker influence over webpage elements; the defense discussion remains incomplete. Therefore, this paper should be used as evidence that web-agent security must be treated as a system-level property involving representation, planning, memory, permissions, monitoring, and verification.
+
+---
+
+## One-sentence summary
+
+EIA shows that **Injects malicious but environment-adapted web elements into webpages to trick generalist web agents into leaking PII or user requests**, but robust web-agent deployment still requires unified defenses across representation, action control, privacy, memory, and governance.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{liao2025eia,
+  title     = {EIA: Environmental Injection Attack on Generalist Web Agents for Privacy Leakage},
+  author    = {Zeyi Liao, Lingbo Mo, Chejian Xu, Mintong Kang, Jiawei Zhang, Chaowei Xiao, Yuan Tian, Bo Li, Huan Sun},
+  booktitle = {ICLR 2025},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=xMOLUzo2Lk}
+}
+```
+
+---
+
+## Source links
+
+- https://openreview.net/forum?id=xMOLUzo2Lk

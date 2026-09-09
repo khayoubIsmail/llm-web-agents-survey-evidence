@@ -1,0 +1,168 @@
+# WebRollback: Enhancing Web Agents with Explicit Rollback Mechanisms
+
+## Metadata
+
+- **Short name:** WebRollback
+- **Authors:** Zhisong Zhang, Tianqing Fang, Kaixin Ma, Wenhao Yu, Hongming Zhang, Haitao Mi, Dong Yu
+- **Year:** 2026
+- **Venue/status:** EACL 2026 Short Papers
+- **DOI:** 10.18653/v1/2026.eacl-short.12
+- **arXiv ID:** arXiv:2504.11788
+- **Venue/status source:** ACL Anthology
+- **S5.3 cluster:** Rollback and recovery planning
+- **Priority:** P1
+- **BibTeX key:** `webrollback2026`
+- **Section role:** rollback/recovery
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.3 — Planning and Reasoning for Web Tasks**.
+
+The main idea is:
+
+```text
+Enhances web agents with an explicit rollback mechanism that lets the model decide when and where to revert to a previous state.
+```
+
+For the thesis, this paper helps explain how web agents move from **single-step reaction** to **long-horizon planning**, including decomposition, retrieval, branching, search, rollback, world models, context management, and planning-oriented training.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Enhances web agents with an explicit rollback mechanism that lets the model decide when and where to revert to a previous state.
+
+- **Key finding:**  
+  Improves efficiency and performance over one-way greedy search and reduces excessive switching compared with best-first search on live web benchmarks.
+
+- **Limitation connected to thesis:**  
+  Rollback is only possible when the environment can be reset safely; for the thesis, it helps recovery but does not solve irreversible actions or extraction verification.
+
+- **Connects to:**  
+  Tree Search, WebDreamer, WebCoT, S5.5 recovery failures, S8 safety.
+
+- **Use in thesis:**  
+  Use as the main S5.3 paper for explicit recovery and rollback planning.
+
+---
+
+## Detailed notes
+
+- Adds a critique module that decides whether the current state is erroneous or unpromising.
+- Adds a rollback module that chooses which previous state to return to.
+- Supports multi-step rollback in one operation instead of only a single browser back action.
+- Maintains a mostly serialized search process, making it more efficient than broad parallel search.
+- Important for web agents because greedy one-way execution easily gets trapped in erroneous states.
+
+---
+
+## Visual / figure to remember
+
+Page 1 Figure 1 compares OneWay, BestFirst, and explicit Rollback strategies; page 2 Figure 2 shows action, critique, and rollback components.
+
+---
+
+## Thesis relevance
+
+This paper supports the S5.3 claim that web-agent success depends on planning mechanisms that can handle:
+
+```text
+long-horizon tasks
+dynamic page changes
+uncertain search spaces
+partial observability
+error recovery
+context saturation
+irreversible actions
+subtask decomposition
+```
+
+For generalized web automation and data extraction, this matters because the agent must often:
+
+```text
+navigate to the right source
+apply filters or constraints
+extract candidate data
+compare and rank results
+backtrack after mistakes
+preserve evidence
+avoid unsafe actions
+```
+
+So S5.3 is the bridge between S5.2 grounding and S6 extraction.
+
+---
+
+## Limitation as thesis gap
+
+The thesis-relevant limitation is:
+
+```text
+planning improves action selection and long-horizon behavior,
+but it does not automatically guarantee structured extraction correctness,
+source provenance, safety, or deployment reliability.
+```
+
+This paper should therefore be used as one component in a larger thesis argument:
+
+```text
+good planning
++ reliable grounding
++ extraction schema
++ verification
++ safe deployment
+= generalized web automation and data extraction
+```
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.2** | Planning depends on observation quality and grounding reliability |
+| **S5.3** | Main relevance: decomposition, search, planning, rollback, world models, context management |
+| **S5.4** | Training/RL/distillation of planning behavior |
+| **S5.5** | Planning failures, recovery failures, context failures, irreversible-action failures |
+| **S6** | Extraction workflows require navigation + extraction + execution planning |
+| **S8** | Cost, safety, live-web deployment, human-in-the-loop, reproducibility |
+
+---
+
+## Thesis-ready paragraph
+
+WebRollback contributes to S5.3 by addressing the planning and reasoning layer of LLM-based web agents. Enhances web agents with an explicit rollback mechanism that lets the model decide when and where to revert to a previous state. The main lesson for the thesis is that web automation cannot be reduced to direct next-action prediction: agents need mechanisms for decomposing goals, managing history, anticipating outcomes, recovering from errors, and adapting to newly observed webpages. Improves efficiency and performance over one-way greedy search and reduces excessive switching compared with best-first search on live web benchmarks. However, Rollback is only possible when the environment can be reset safely; for the thesis, it helps recovery but does not solve irreversible actions or extraction verification. This makes the paper useful for motivating the thesis gap around robust, safe, and extraction-aware planning for generalized web automation.
+
+---
+
+## One-sentence summary
+
+WebRollback shows that **Enhances web agents with an explicit rollback mechanism that lets the model decide when and where to revert to a previous state**, but the thesis still needs extraction-oriented verification, provenance, and deployment safety.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{webrollback2026,
+  title     = {WebRollback: Enhancing Web Agents with Explicit Rollback Mechanisms},
+  author    = {Zhisong Zhang, Tianqing Fang, Kaixin Ma, Wenhao Yu, Hongming Zhang, Haitao Mi, Dong Yu},
+  booktitle = {Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 2: Short Papers)},
+  year      = {2026},
+  pages     = {187--197},
+  doi       = {10.18653/v1/2026.eacl-short.12},
+  eprint    = {2504.11788},
+  archivePrefix = {arXiv},
+  url       = {https://aclanthology.org/2026.eacl-short.12/}
+}
+```
+
+---
+
+## Source links
+
+- https://aclanthology.org/2026.eacl-short.12/
+- https://arxiv.org/abs/2504.11788

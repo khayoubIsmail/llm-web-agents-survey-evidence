@@ -1,0 +1,251 @@
+# S5.3 P2 Paper 13 — Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction
+
+## Metadata
+
+- **Title:** Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction
+- **Year:** 2025
+- **Verified venue/status:** arXiv 2506.07976 / OpenReview page
+- **Peer-reviewed status:** No confirmed accepted venue
+- **Thesis section:** S5.3 — Planning, Search, Memory, and Long-Horizon Decision-Making for LLM Agents
+- **Main category:** test-time interaction scaling
+- **S5.3 role:** planning and decision-making for LLM agents
+- **Priority:** P2
+- **Recommended citation strength:** Support/recent-trend citation
+- **Recommended reading depth:** Low to medium
+- **BibTeX key:** `thinkingvsdoingthat2025`
+
+---
+
+## Simple understanding
+
+Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction supports S5.3 by addressing planning, decision-making, memory, exploration, or long-horizon control in LLM-based agents.
+
+In simple terms:
+
+```text
+Problem → Web/GUI/computer-use agents fail when they act reactively, forget context, cannot recover, or explore inefficiently.
+Paper → This work adds planning, search, memory, reflection, world modeling, skill reuse, or context management.
+Goal → Make the agent more reliable on long-horizon interactive tasks.
+```
+
+The first goal is to understand **what the paper changes inside the agent decision loop**.  
+Only after that should it be connected to S5.3 and the thesis.
+
+---
+
+## Core idea
+
+Improve the agent planning loop beyond one-step reactive action selection.
+
+The paper mainly contributes to:
+
+```text
+test-time interaction scaling
+```
+
+This belongs to the agent planning layer:
+
+```text
+task instruction
+→ current observation/state
+→ planning or search
+→ candidate actions
+→ evaluation/reflection/correction
+→ execution
+→ memory/context update
+```
+
+---
+
+## Key finding / main claim
+
+Long-horizon agents need more structured planning and feedback than standard ReAct-style interaction.
+
+For S5.3, the important question is:
+
+```text
+How does the method improve decision-making beyond one-step ReAct-style action selection?
+```
+
+Typical S5.3 improvements include:
+
+- planning ahead,
+- exploring multiple branches,
+- reflecting on failure,
+- backtracking after mistakes,
+- using memory and replay,
+- summarizing long contexts,
+- learning reusable skills,
+- simulating action consequences,
+- and allocating interaction budget more intelligently.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these concrete evidence points:
+
+- **Planning architecture.**
+- **Benchmark results.**
+- **Ablation or failure analysis.**
+
+Also extract, if available:
+
+- planning/search algorithm,
+- memory representation,
+- action space,
+- benchmark and task horizon,
+- success-rate improvement,
+- compute/cost trade-off,
+- ablation study,
+- and failure modes.
+
+---
+
+## Limitations
+
+- **Limitation 1:** The method may be benchmark-specific.
+- **Limitation 2:** Planning improvements can increase compute cost.
+- **Limitation 3:** Success in controlled environments may not transfer fully to live web automation.
+
+General thesis-level limitation:
+
+```text
+Better planning does not automatically mean generalized web automation is solved.
+The agent still needs perception, grounding, execution, verification, recovery, and safety.
+```
+
+Therefore, this paper should be used as **P2 support**, not as the only foundation for S5.3.
+
+---
+
+## Venue/status caution
+
+This should be cited as a preprint, technical report, position paper, or submission unless a later peer-reviewed version is confirmed.
+
+For final thesis writing:
+
+```text
+peer-reviewed main conference/journal → stronger citation
+system/demo paper → useful architecture/tooling citation
+arXiv/technical report/submission → recent trend; cite cautiously
+```
+
+---
+
+## Relation to S5.3
+
+This paper belongs in **S5.3** because S5.3 discusses the planning and decision-making layer of LLM-based agents.
+
+Its role is:
+
+```text
+Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction
+→ planning and decision-making for LLM agents
+→ P2 support for planning/search/memory/long-horizon decision-making
+```
+
+Use it after explaining its mechanism.  
+Do not introduce it only as “P2”; introduce the planning problem first.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that can handle multi-step and uncertain web tasks.
+
+For web automation and data extraction, planning is needed for:
+
+```text
+finding target pages
+navigating multi-page sites
+avoiding irrelevant branches
+recovering from wrong clicks
+remembering previous attempts
+using tools or skills
+verifying whether extraction is complete
+```
+
+This paper supports that pipeline by improving:
+
+```text
+planning and decision-making for LLM agents
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.3.
+- Extract one exact planning/search/memory contribution.
+- Extract one limitation or failure mode.
+- Compare it with P0/P1 planning papers and core agent architectures.
+- If the paper is a preprint, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction contributes to S5.3 by addressing **test-time interaction scaling**, showing that long-horizon web and GUI agents require more than reactive action selection: they need structured planning, exploration, memory, and feedback-driven correction.
+
+---
+
+## Comparison with nearby papers
+
+Compare this paper with:
+
+```text
+ReAct / Reflexion / Tree of Thoughts / LATS
+WebPilot / ExACT / Agent Alpha
+R2D2 / episodic memory / ReSum / AgentProg
+BacktrackAgent / ReflAct / WAC
+MANGO / global-view navigation
+WebXSkill / ASI / programmatic skills
+LiteWebAgent / OpenWebAgent-style toolkits
+```
+
+The comparison question is:
+
+```text
+Does this paper improve planning by search, memory, reflection, backtracking, world modeling, skill reuse, or context management?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.3 P2:** Yes
+- **Read fully?** Selected sections are enough unless promoted later.
+- **Depth needed:** Low to medium
+- **Main use:** Support discussion of test-time interaction scaling
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Planning/search/memory architecture
+  - Main algorithm figure
+  - Benchmark setup
+  - Main results table
+  - Ablation and limitations
+
+---
+
+## One-sentence summary
+
+Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction is a P2 source for S5.3 because it helps explain **test-time interaction scaling**, but it should be cited according to its verified venue/status and used mainly to enrich the planning and long-horizon decision-making discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{thinkingvsdoingthat2025,
+  title = {Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction},
+  year = {2025},
+  note = {arXiv 2506.07976 / OpenReview page. Verify final bibliographic metadata before thesis submission.}
+}
+```

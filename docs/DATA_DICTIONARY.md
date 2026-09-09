@@ -65,3 +65,20 @@ Field definitions for the corpus registers and paper-note audit files.
 ## `data/note_source_overrides.csv`
 
 Manual corrections for title variants or duplicate-stub cases where automatic matching did not select the best substantive note. `source_path` is relative to the supplied review archive; `reason` records the adjudication basis.
+
+## `data/original_note_source_manifest.csv`
+
+One row per register record with a reliable original note-source match. Because
+some historical files contain notes for multiple papers, the 335 rows resolve to
+229 unique Markdown files.
+
+| Field | Meaning |
+|---|---|
+| `record_id`, `title`, `priority` | Register identity and evidence tier. |
+| `final_note` | Canonical normalized note in `notes/papers/`. |
+| `original_source` | Path recorded in the supplied historical review archive. |
+| `repository_source` | Preserved source snapshot under `notes/original_sources/`. |
+| `source_sha256` | SHA-256 digest of the exact exported source bytes. |
+| `source_bytes`, `source_lines` | File size and line count of the preserved source. |
+| `records_mapped_to_source` | Number of register records linked to the same historical file. |
+| `source_layout` | `standalone` for a one-record source or `shared/merged` for a multi-record source. |

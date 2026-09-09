@@ -1,0 +1,217 @@
+# Paper 96 — From language to action: a review of large language models as autonomous agents and tool users
+
+## Metadata
+
+- **Title:** From language to action: a review of large language models as autonomous agents and tool users
+- **Year:** 2026
+- **Venue / status:** Artificial Intelligence Review 2026
+- **Peer-reviewed status:** Yes
+- **Publication type:** Peer-reviewed journal article
+- **Thesis section:** S3 — LLM Agent Architectures
+- **Cross-links:** S5.3 — Planning and Decision-Making; S5.4 — Tool Use and Action; S5.5 — Limitations and Failure Modes; S6 — Web Automation and Data Extraction
+- **Category:** TOOL-USE / API-CALLING / ACTION SPACE
+- **Paper type:** Survey / taxonomy / roadmap
+- **Priority:** P2
+- **BibTeX key:** languageactionreview2026
+
+---
+
+## Simple understanding
+
+This peer-reviewed review surveys LLMs as autonomous agents and tool users, focusing on architectures, tool integration, reasoning, planning, memory, and evaluation.
+
+In very simple terms:
+
+```text
+Problem → The paper studies a limitation of ordinary LLMs.
+Method/System → It adds an agentic mechanism such as reasoning, planning, memory, tools, search, or collaboration.
+Goal → Make the model more useful for multi-step tasks than a normal one-shot chatbot.
+```
+
+This paper should be understood first as a contribution to **tool-use / api-calling / action space**, before connecting it to the thesis section.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Synthesize recent high-quality literature on LLM agents and tool use across single-agent and multi-agent systems.
+
+- **Key finding / main claim:**  
+  LLM agents combine reasoning, planning, memory, and tool use, but still face reliability, generalization, alignment, and evaluation challenges.
+
+- **Main limitation:**  
+  It is a survey, not a new method.
+
+- **Additional limitation:**  
+  It focuses on papers from selected venues and may miss fast-moving preprints.
+
+- **Additional limitation:**  
+  Broad coverage means less depth on web automation specifically.
+
+- **Venue/status caution:**  
+  This is a safer source for thesis citation because its status is marked as peer-reviewed or accepted.
+
+- **Use in thesis:**  
+  Use this paper as a supporting source for S3 when discussing **tool-use / api-calling / action space**. It can provide an example, limitation, benchmark, taxonomy, or recent system trend.
+
+- **BibTeX key:**  
+  `languageactionreview2026`
+
+---
+
+## Thesis-ready paragraph
+
+From language to action: a review of large language models as autonomous agents and tool users contributes to the literature on **tool-use / api-calling / action space** by showing how LLM-based systems can move beyond isolated text generation toward more agentic behavior. The paper's central value is its focus on: synthesize recent high-quality literature on llm agents and tool use across single-agent and multi-agent systems. For the thesis, it can be used as a P2 supporting source in S3 to illustrate one architectural direction in LLM-based agents. However, it should not be overused as a central foundation unless its venue/status and empirical evidence are strong. Its main limitation for generalized web automation and data extraction is that the reported method or synthesis does not by itself guarantee robust grounding, reliable action execution, long-horizon recovery, or faithful extraction across dynamic websites.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because the thesis studies:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+A generalized web agent needs several components:
+
+```text
+instruction understanding
+→ task decomposition
+→ state observation
+→ reasoning / planning
+→ tool or browser action
+→ memory / context update
+→ feedback and verification
+→ final extraction or task completion
+```
+
+This paper helps explain one part of this larger architecture:
+
+```text
+TOOL-USE / API-CALLING / ACTION SPACE
+```
+
+So the thesis connection is not only “this paper is about agents.”  
+The deeper connection is that it helps explain **which mechanism makes an LLM more agent-like**.
+
+---
+
+## Important concepts to remember
+
+### 1. Llms As Agents
+
+This concept is important because it helps describe the mechanism by which the paper contributes to LLM-agent behavior.
+
+### 2. Tool Users
+
+This concept is important because it helps describe the mechanism by which the paper contributes to LLM-agent behavior.
+
+### 3. Single-Agent Systems
+
+This concept is important because it helps describe the mechanism by which the paper contributes to LLM-agent behavior.
+
+### 4. Multi-Agent Systems
+
+This concept is important because it helps describe the mechanism by which the paper contributes to LLM-agent behavior.
+
+### 5. Evaluation Benchmarks
+
+This concept is important because it helps describe the mechanism by which the paper contributes to LLM-agent behavior.
+
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this survey, extract the following evidence:
+
+1. **Taxonomy figure/table:** this is usually the most useful part for thesis structure.
+2. **Comparison table of methods or benchmarks:** use it to position S3 papers relative to each other.
+3. **Definitions:** extract the paper's definition of agent, tool use, memory, planning, or evaluation.
+4. **Open challenges:** use these as support for your later discussion of research gaps.
+
+
+---
+
+## Connection to earlier and later papers
+
+This paper should be positioned relative to the following research line:
+
+```text
+LLM prompting and instruction following
+→ reasoning methods such as CoT/ReAct/reflection
+→ tool-using and memory-augmented agents
+→ multi-agent and environment-interactive systems
+→ web, GUI, OS, mobile, software, and deep-research agents
+```
+
+Possible connections:
+
+- **Earlier foundation:** instruction following, chain-of-thought reasoning, tool use, or memory mechanisms.
+- **Later agent systems:** web agents, GUI agents, OS agents, software agents, mobile agents, or deep-research agents.
+- **Evaluation connection:** benchmarks measuring task success, tool correctness, trajectory quality, or long-horizon reliability.
+
+---
+
+## Connection to S3
+
+S3 uses this paper to explain the action/tool layer of agent architectures: how the LLM moves from text generation to executable tool use.
+
+In S3, use it after explaining the paper's own contribution. Do not start from “it is P2.” Start from what the paper does, then connect it to the section.
+
+Suggested S3 usage:
+
+```text
+This paper can support a paragraph about tool-use / api-calling / action space as one component of LLM-agent architecture.
+```
+
+---
+
+## Limitation connected to thesis
+
+- **Limitation 1:** It is a survey, not a new method.
+- **Limitation 2:** It focuses on papers from selected venues and may miss fast-moving preprints.
+- **Limitation 3:** Broad coverage means less depth on web automation specifically.
+
+For generalized web automation, the most important limitation is:
+
+```text
+A method can improve one agent capability, but web automation requires the full closed loop:
+observe → reason → act → verify → recover.
+```
+
+Therefore, this paper is useful but partial.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes, if this paper is promoted to P1 later.
+- **Depth needed:** Medium to high
+- **Main use:** Support S3 discussion of tool-use / api-calling / action space
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main architecture/method figure
+  - Evaluation setup or taxonomy table
+  - Limitations / discussion section
+
+---
+
+## One-sentence summary
+
+From language to action: a review of large language models as autonomous agents and tool users is a P2 supporting paper for S3 because it helps explain **tool-use / api-calling / action space** in LLM-based agents, but it should be cited with attention to its venue/status and its limits for grounded, reliable web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@misc{languageactionreview2026,
+  title = {From language to action: a review of large language models as autonomous agents and tool users},
+  year = {2026},
+  note = {Artificial Intelligence Review 2026; Peer-reviewed journal article. Verify full bibliographic metadata before final thesis submission.}
+}
+```

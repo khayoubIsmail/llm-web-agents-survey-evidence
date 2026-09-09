@@ -1,0 +1,137 @@
+# SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents
+
+## Metadata
+
+- **Short name:** SeeClick
+- **Authors:** Kanzhi Cheng, Qiushi Sun, Yougang Chu, Fangzhi Xu, Yantao Li, Jianbing Zhang, Zhiyong Wu
+- **Year:** 2024
+- **Venue/status:** ACL 2024 Long Papers
+- **DOI:** 10.18653/v1/2024.acl-long.505
+- **arXiv ID:** arXiv:2401.10935
+- **Venue/status source:** ACL Anthology
+- **S5.2 cluster:** GUI grounding pretraining
+- **Priority:** P1
+- **BibTeX key:** `seeclick2024`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.2: Perception, Grounding, and Web-State Representation**.
+
+The main idea is:
+
+```text
+Builds a screenshot-only visual GUI agent and argues that GUI grounding is the key capability behind downstream GUI-agent performance.
+```
+
+For the thesis, the important point is that this paper helps explain how web/GUI agents represent the current interface before making a decision. It is not only about planning. It is about how the agent sees the page, selects useful information, grounds actions, and keeps the observation manageable.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Builds a screenshot-only visual GUI agent and argues that GUI grounding is the key capability behind downstream GUI-agent performance.
+
+- **Key finding:**  
+  Grounding pretraining improves ScreenSpot and downstream MiniWob, AITW, and Mind2Web performance; better grounding correlates with better agent task execution.
+
+- **Limitation connected to thesis:**  
+  Vision-only coordinate prediction still struggles with complex dynamic pages and fine-grained web semantics; for the thesis, grounding improves automation but extraction still needs verification and schema awareness.
+
+- **Connects to:**  
+  ScreenSpot, UGround, OS-Atlas, GUI-Actor, SeeAct.
+
+- **Use in thesis:**  
+  Use as a major S5.2 P1 paper showing that grounding is not a small module but a core capability.
+
+---
+
+## Detailed notes
+
+- Creates ScreenSpot, a realistic GUI grounding benchmark across mobile, desktop, and web.
+- Automates GUI grounding data construction from web and mobile data.
+- Shows screenshots can replace structured text in some agent settings.
+- Supports the thesis claim that grounding quality directly drives web-agent success.
+
+---
+
+## Thesis relevance
+
+This paper supports the S5.2 claim that web agents require a reliable interface representation before they can act. For generalized web automation and data extraction, this matters because an agent must identify the right elements, ignore irrelevant page noise, preserve source evidence, and avoid grounding mistakes that cascade through a workflow.
+
+The direct thesis connection is:
+
+```text
+better page representation / grounding
+→ better action selection
+→ more reliable web automation
+→ more trustworthy data extraction
+```
+
+---
+
+## Limitation as thesis gap
+
+The remaining gap is not simply model accuracy. The thesis-relevant gap is that current systems still do not jointly solve:
+
+```text
+robust page perception
++ reliable element grounding
++ long-context observation reduction
++ live-web changes
++ structured extraction correctness
++ source-grounded verification
++ cost efficiency
+```
+
+So this paper should be used as part of the S5.2 technical decomposition, not as a final solution.
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.1** | Benchmark/evaluation context for web and GUI agents |
+| **S5.2** | Main relevance: perception, representation, grounding, context selection |
+| **S5.3** | Better observations improve planning and next-action decisions |
+| **S5.5** | Grounding, parsing, and context errors become failure modes |
+| **S6** | Web data extraction needs grounded fields, tables, values, and evidence |
+| **S8** | Cost, latency, live-web robustness, and deployment constraints |
+
+---
+
+## Thesis-ready paragraph
+
+SeeClick contributes to the S5.2 discussion by showing that web/GUI-agent reliability depends on how the interface is represented and grounded before action execution. Builds a screenshot-only visual GUI agent and argues that GUI grounding is the key capability behind downstream GUI-agent performance. The main lesson for the thesis is that perception and grounding are not auxiliary modules; they directly determine whether an LLM-based agent can select the correct element, preserve the relevant page state, and execute a valid action. However, Vision-only coordinate prediction still struggles with complex dynamic pages and fine-grained web semantics; for the thesis, grounding improves automation but extraction still needs verification and schema awareness. This makes the paper useful for motivating the thesis gap around generalized, robust, and verifiable web automation and data extraction.
+
+---
+
+## One-sentence summary
+
+SeeClick shows that **Builds a screenshot-only visual GUI agent and argues that GUI grounding is the key capability behind downstream GUI-agent performance**, but the thesis still needs robust grounding and extraction-oriented verification.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{seeclick2024,
+  title     = {SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents},
+  author    = {Kanzhi Cheng, Qiushi Sun, Yougang Chu, Fangzhi Xu, Yantao Li, Jianbing Zhang, Zhiyong Wu},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  year      = {2024},
+  url       = {https://aclanthology.org/2024.acl-long.505/},
+  eprint    = {2401.10935},
+  archivePrefix = {arXiv}
+}
+```
+
+---
+
+## Source links
+
+- https://aclanthology.org/2024.acl-long.505/
+- https://arxiv.org/abs/2401.10935

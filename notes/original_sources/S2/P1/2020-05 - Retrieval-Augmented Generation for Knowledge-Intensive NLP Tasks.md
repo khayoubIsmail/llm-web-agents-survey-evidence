@@ -1,0 +1,172 @@
+# Paper 8 — Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+
+## Metadata
+
+- **Title:** Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+- **Authors:** Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela
+- **Year:** 2020
+- **Venue:** Advances in Neural Information Processing Systems 33 (NeurIPS 2020)
+- **DOI:** 10.48550/arXiv.2005.11401
+- **arXiv ID:** arXiv:2005.11401
+- **Thesis section:** S2 — Foundations of LLMs for Agentic Tasks
+- **Cross-links:** S6 — LLM-Based Web Information Extraction; S7 — Trustworthiness; S8 — Deployment
+- **Category:** FND / RAG / KNOWLEDGE
+- **Paper type:** Method / retrieval-augmented generation
+- **Priority:** P1
+- **BibTeX key:** lewis2020retrieval
+
+---
+
+## Simple understanding
+
+This paper introduced RAG, a framework that combines a pretrained generator with an external retriever. The model does not rely only on knowledge stored in its parameters. It retrieves relevant passages from a non-parametric memory, such as Wikipedia, and conditions generation on those passages.
+
+For the thesis, this is important because web agents often need fresh, external, and verifiable information. A pure LLM may hallucinate or use outdated knowledge, while a retrieval-augmented system can consult documents, pages, search results, or databases. RAG is therefore a foundation for grounded question answering, web information extraction, and agent verification.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Combines parametric memory in a seq2seq model with non-parametric memory from dense retrieval, enabling generation conditioned on retrieved evidence.
+
+- **Key finding:**
+  RAG improves open-domain QA and knowledge-intensive generation, setting strong results on several QA tasks and producing more specific, diverse, and factual outputs than a parametric-only seq2seq baseline.
+
+- **Limitation:**
+- RAG depends on retrieval quality. For web agents, this matters because if the retriever selects irrelevant, stale, duplicated, or noisy web content, the agent may reason from wrong evidence and extract incorrect data. This motivates retrieval evaluation, source ranking, and evidence verification in S6/S7.
+- RAG retrieves static passages rather than interacting with dynamic web pages. For web agents, this matters because automation often requires clicking, scrolling, submitting forms, and observing page changes, not only retrieving documents.
+- RAG provides provenance for generated answers, but provenance alone does not guarantee correct action. For web agents, retrieved evidence must be connected to DOM elements, UI actions, and final extraction verification.
+
+- **Connects to:**
+  Connects foundation LLMs to retrieval, grounding, provenance, and factuality. It is essential for web extraction and agent systems that need external evidence.
+
+- **Use in thesis:**
+  Use as the core foundation for retrieval-augmented web agents and extraction systems. It supports the argument that agents need external memory and verifiable evidence, not only parametric knowledge.
+
+- **BibTeX key:**
+  lewis2020retrieval
+
+---
+
+## Thesis-ready paragraph
+
+Lewis et al. introduced retrieval-augmented generation, a framework that combines a pretrained parametric generator with a non-parametric memory accessed through dense retrieval. Instead of relying only on knowledge stored in model parameters, RAG retrieves relevant passages and conditions generation on them. This is foundational for LLM-based web agents because generalized web automation and data extraction often require current, source-grounded, and verifiable information. However, RAG alone does not solve interactive web automation: retrieval quality can fail, retrieved passages may be noisy or stale, and the model does not execute browser actions or verify outcomes through the environment. Thus, RAG provides an important grounding mechanism but must be integrated with agent loops, DOM grounding, action execution, and evidence-based verification.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because it adds one important capability to the foundation of LLM-based agents.
+
+For my thesis, the important question is not only:
+
+```text
+What can the model do?
+```
+
+but also:
+
+```text
+What is still missing for generalized web automation and data extraction?
+```
+
+This paper supports the S2 narrative because it helps explain how LLMs became useful as the cognitive core of agents. At the same time, its limitations show why a pure language model or prompting method is not enough. A web agent must connect language understanding and reasoning to browser perception, grounded actions, feedback, memory, safety, and verification.
+
+---
+
+## Important concepts to remember
+
+- Parametric memory: knowledge stored in model weights.
+- Non-parametric memory: external corpus/index that can be retrieved and updated.
+- RAG-Sequence: conditions the whole generated sequence on retrieved passages.
+- RAG-Token: can condition different generated tokens on different retrieved passages.
+- Provenance: retrieved documents can be inspected as evidence for outputs.
+
+---
+
+## Connection to Section S2 narrative
+
+This paper fits into S2 as part of the transition from general language modeling to agent-relevant capabilities.
+
+The broad S2 arc is:
+
+```text
+Transformer architecture
+→ pretraining
+→ transfer learning
+→ in-context learning
+→ instruction following
+→ reasoning
+→ retrieval / grounding
+→ multimodal and long-context models
+```
+
+This paper contributes to one part of that arc and helps prepare the transition toward S3 and S5, where LLMs are embedded inside agent architectures for planning, tool use, memory, browser control, and web-specific grounding.
+
+---
+
+## Limitation connected to thesis
+
+The most important thesis-relevant limitation is:
+
+```text
+This work improves an LLM capability, but it does not by itself create a reliable grounded web agent.
+```
+
+For generalized web automation and data extraction, the system must still solve:
+
+```text
+instruction understanding
+→ web/page observation
+→ DOM or visual grounding
+→ reasoning and planning
+→ action execution
+→ feedback interpretation
+→ error recovery
+→ structured extraction
+→ verification
+```
+
+Therefore, this paper should be used as a foundation, not as a complete web-agent solution.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes, as a P1 paper
+- **Depth needed:** High. Focus on abstract, Figure 1, Sections 1–2, results on QA/generation, and discussion of provenance/updating knowledge.
+- **Main use:** Strengthen S2 foundation and support later S3/S5/S6/S7 links
+- **Read after:** S2 P0 papers
+- **Use while writing:** S2 foundation narrative and relevant cross-linked sections
+
+---
+
+## One-sentence summary
+
+Combines parametric memory in a seq2seq model with non-parametric memory from dense retrieval, enabling generation conditioned on retrieved evidence. Its main thesis relevance is that it strengthens the LLM foundation, but still requires agent-level grounding, interaction, and verification for web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{lewis2020retrieval,
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks},
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and Kuttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rocktaschel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {33},
+  year      = {2020},
+  eprint    = {2005.11401},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  doi       = {10.48550/arXiv.2005.11401}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2005.11401
+- https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html

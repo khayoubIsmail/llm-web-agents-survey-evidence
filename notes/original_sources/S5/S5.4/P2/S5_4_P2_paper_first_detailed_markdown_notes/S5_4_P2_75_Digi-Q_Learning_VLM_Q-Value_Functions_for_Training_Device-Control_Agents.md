@@ -1,0 +1,251 @@
+# S5.4 P2 Paper 75 — Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents
+
+## Metadata
+
+- **Title:** Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents
+- **Year:** 2026-02 / 2025
+- **Verified venue/status:** ICLR 2025 Poster
+- **Peer-reviewed status:** Confirmed peer-reviewed conference
+- **Thesis section:** S5.4 — Learning, Training, Self-Improvement, and Optimization of LLM-based Agents
+- **Main category:** offline Q-value learning for device-control agents
+- **S5.4 role:** reinforcement learning / policy optimization
+- **Priority:** P2
+- **Recommended citation strength:** Strong citation
+- **Recommended reading depth:** Medium to high
+- **BibTeX key:** `digiqlearningvlm2026`
+
+---
+
+## Simple understanding
+
+Digi-Q trains an offline VLM-based Q-function for mobile/device-control agents. It ranks candidate actions using learned Q-values and trains the policy from the best-ranked actions without extra environment interaction.
+
+In simple terms:
+
+```text
+Problem → LLM-based agents cannot rely only on prompting.
+Paper → This work improves how agents learn, train, adapt, or self-improve.
+Goal → Make agents more reliable for long-horizon web/GUI/mobile/computer-use tasks.
+```
+
+The first goal is to understand **what training or learning mechanism the paper proposes**.  
+Only after that should it be linked to S5.4 and P2.
+
+---
+
+## Core idea
+
+Offline TD learning of VLM Q-functions plus Best-of-N policy extraction.
+
+This paper mainly contributes to:
+
+```text
+offline Q-value learning for device-control agents
+```
+
+In the broader agent-learning pipeline, it fits here:
+
+```text
+tasks / demonstrations / interaction logs / environments
+→ data synthesis or experience collection
+→ reward / feedback / verification
+→ SFT, distillation, RL, RFT, self-improvement, or memory update
+→ improved web/GUI/mobile agent behavior
+```
+
+---
+
+## Key finding / main claim
+
+Digi-Q reports 21.2% improvement over the previous best offline method on Android-in-the-Wild and can match some interaction-based RL approaches.
+
+For S5.4, the important question is:
+
+```text
+What new learning signal or training mechanism does this paper add?
+```
+
+Typical S5.4 mechanisms include:
+
+- synthetic task and trajectory generation,
+- supervised fine-tuning and distillation,
+- reinforcement learning and reinforcement fine-tuning,
+- process rewards and progress rewards,
+- reward modeling and verifiable feedback,
+- self-improvement from experience,
+- memory and hint reuse,
+- environment scaling and world-model simulation,
+- and human-in-the-loop or weakly supervised adaptation.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Figure 1: Digi-Q versus policy-based methods.**
+- **Intermediate VLM feature freezing and initial representation fine-tuning.**
+- **Best-of-N policy extraction objective.**
+- **Android-in-the-Wild results.**
+
+Also extract, if available:
+
+- training data size,
+- source of trajectories,
+- reward definition,
+- optimization objective,
+- base model and agent scaffold,
+- benchmarks used,
+- strongest result,
+- ablation study,
+- cost/efficiency result,
+- and stated limitations.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Focused on mobile device control, not directly on browser-only web automation.
+- **Limitation 2:** Q-function quality depends on the coverage and quality of offline rollouts.
+- **Limitation 3:** Best-of-N inference increases compute.
+
+General thesis-level limitation:
+
+```text
+Training improvements in one environment do not automatically imply generalized web automation.
+Agent learning still depends on perception, action grounding, evaluation validity, safety, and environment realism.
+```
+
+Therefore, use this paper as **P2 support** unless it becomes central to the S5.4 subsection.
+
+---
+
+## Venue/status caution
+
+Use as a stronger source. Verified status: **ICLR 2025 Poster**.
+
+For final thesis writing:
+
+```text
+confirmed peer-reviewed venue → stronger citation
+workshop paper → useful emerging evidence
+arXiv / technical report → recent trend, cite cautiously
+submission / unclear status → verify before final bibliography
+```
+
+---
+
+## Relation to S5.4
+
+This paper belongs in **S5.4** because S5.4 discusses how LLM-based agents are trained, optimized, adapted, or improved after initial prompting.
+
+Its role is:
+
+```text
+Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents
+→ reinforcement learning / policy optimization
+→ P2 support for agent learning/training discussion
+```
+
+Use the paper after explaining the learning problem first.  
+Do not introduce it only as “P2”; introduce the mechanism.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because a generalized web/data-extraction agent needs to learn from:
+
+```text
+web interaction traces
++ user demonstrations
++ synthetic tasks
++ rewards and validators
++ mistakes and failures
++ environment feedback
++ memory/experience reuse
+```
+
+The paper supports that pipeline by improving:
+
+```text
+reinforcement learning / policy optimization
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.4.
+- Extract the exact learning signal or training recipe.
+- Extract one concrete result or ablation.
+- Extract one limitation.
+- Compare it with P0/P1 agent-learning papers.
+- If it is a preprint, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents contributes to S5.4 by addressing **offline Q-value learning for device-control agents**, showing that agent learning increasingly depends on specialized data, rewards, environments, and self-improvement mechanisms rather than prompt engineering alone.
+
+---
+
+## Comparison with nearby S5.4 papers
+
+Compare this paper with:
+
+```text
+WebRL / WebAgent-R1 / MobileRL / DigiRL
+Digi-Q / GUI-Libra / AgentPRM / ProgRM
+WebShaper / WebSynthesis / AgentSynth / ProgSearch
+DynaWeb / WEBSERV / GEM / UI-Simulator
+JEF-Hinter / ExpSeek / WebATLAS / ColorBrowserAgent
+Agent Data Protocol / Scaling Environments survey
+```
+
+The comparison question is:
+
+```text
+Does this paper improve agent learning through data, reward, RL, environment, memory, or self-improvement?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.4 P2:** Yes
+- **Read fully?** Yes, if it becomes part of the S5.4 backbone.
+- **Depth needed:** Medium to high
+- **Main use:** Support discussion of offline Q-value learning for device-control agents
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Method/training pipeline
+  - Reward or data construction
+  - Main results table
+  - Ablation study
+  - Limitations/discussion
+
+---
+
+## One-sentence summary
+
+Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents is a P2 source for S5.4 because it helps explain **offline Q-value learning for device-control agents**, but it should be cited according to its verified venue/status and used mainly to enrich the agent-learning discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{digiqlearningvlm2026,
+  title = {Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents},
+  year = {2026-02 / 2025},
+  note = {ICLR 2025 Poster. Verify final bibliographic metadata before thesis submission.}
+}
+```

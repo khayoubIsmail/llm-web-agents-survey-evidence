@@ -1,0 +1,213 @@
+# S7 P2 Paper 40 — Reliable Weak-to-Strong Monitoring of LLM Agents
+
+## Metadata
+
+- **Title:** Reliable Weak-to-Strong Monitoring of LLM Agents
+- **Year:** 2025/2026
+- **Verified venue/status:** ICLR 2026 Oral
+- **Peer-reviewed status:** Yes
+- **Thesis section:** S7 — Security, Safety, Robustness, Privacy, Governance, and Trustworthiness of LLM-based Agents
+- **Main category:** weak-to-strong monitoring and monitor red teaming
+- **S7 role:** monitoring, guardrails, and runtime enforcement
+- **Priority:** P2
+- **Recommended citation strength:** Strong citation
+- **Recommended reading depth:** Medium to high
+- **BibTeX key:** `reliableweakstrongmonitoring2025`
+
+---
+
+## Simple understanding
+
+Reliable Weak-to-Strong Monitoring of LLM Agents addresses weak-to-strong monitoring and monitor red teaming. It is relevant to S7 because deployed LLM-based agents interact with tools, webpages, memory, users, and other agents, creating security and safety risks beyond ordinary chatbot behavior.
+
+In simple terms:
+
+```text
+Problem → LLM-based agents interact with webpages, tools, APIs, memory, users, and other agents.
+Risk → These interactions create security and safety risks beyond normal LLM prompting.
+Paper → This work studies, benchmarks, attacks, defends, monitors, or governs one of those risks.
+Goal → Make agentic systems safer, more secure, more observable, and more reliable.
+```
+
+---
+
+## Core idea
+
+Identify or mitigate adversarial instructions, jailbreaks, prompt injections, backdoors, or red-team failures in agent pipelines.
+
+This paper mainly contributes to:
+
+```text
+weak-to-strong monitoring and monitor red teaming
+```
+
+In the broader S7 security pipeline, it fits here:
+
+```text
+untrusted input / tool / webpage / memory / agent communication
+→ vulnerability or policy gap
+→ attack, benchmark, monitoring, guardrail, or runtime control
+→ safer or more measurable agent behavior
+```
+
+---
+
+## Key finding / main claim
+
+Agentic attacks are severe because malicious instructions can become external actions, tool calls, data leakage, or multi-agent propagation.
+
+For S7, the important question is:
+
+```text
+What security/safety risk does this paper reveal, and what control or evaluation does it propose?
+```
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Attack construction.**
+- **Benchmark/evaluation setup.**
+- **Attack success rates and defense results.**
+
+Also extract, if available:
+
+- threat model,
+- attacker and defender capabilities,
+- benchmark size,
+- attack success rate or safety metric,
+- defense or monitoring result,
+- affected agent architectures,
+- assumptions and limitations,
+- deployment implications.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Attack transfer depends on agent scaffold and tool/action space.
+- **Limitation 2:** Defenses may overblock benign tasks.
+- **Limitation 3:** Adaptive attackers can bypass static filters.
+
+General thesis-level limitation:
+
+```text
+A security paper may expose one attack surface, but generalized web automation needs layered defense:
+input filtering, tool authorization, runtime policy enforcement, memory isolation, monitoring, auditing, and human oversight.
+```
+
+---
+
+## Venue/status caution
+
+Use as a stronger source. Verified status: **ICLR 2026 Oral**.
+
+For final thesis writing:
+
+```text
+confirmed conference/journal/ACM record → stronger citation
+workshop/poster/position paper → useful emerging evidence
+technical report/preprint → recent direction, cite cautiously
+submission/placeholder metadata → verify again before final bibliography
+```
+
+---
+
+## Relation to S7
+
+This paper belongs in **S7** because S7 discusses security, safety, robustness, privacy, and governance of LLM-based agents.
+
+Its role is:
+
+```text
+Reliable Weak-to-Strong Monitoring of LLM Agents
+→ monitoring, guardrails, and runtime enforcement
+→ P2 support for security/safety/trustworthiness discussion
+```
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that can safely:
+
+```text
+read untrusted webpages
+use tools and APIs
+handle credentials and private data
+store and retrieve memory
+navigate dynamic interfaces
+interact with other agents
+avoid malicious instructions
+verify actions before execution
+log and audit decisions
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S7.
+- Extract one precise threat model or defense mechanism.
+- Extract one concrete result, benchmark, or taxonomy.
+- Extract one limitation.
+- Compare it with nearby S7 security papers.
+- If it is a preprint/workshop/report, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Reliable Weak-to-Strong Monitoring of LLM Agents contributes to S7 by addressing **weak-to-strong monitoring and monitor red teaming**, showing that LLM-based web agents require layered security controls across perception, tools, memory, protocols, and runtime action execution.
+
+---
+
+## Comparison with nearby S7 papers
+
+Compare this paper with:
+
+```text
+ToolEmu / ASB / AgentHarm / AgentAuditor
+AgentDojo / Task Shield / Conseca / AgentSpec / VeriSafe Agent
+MCP Security Bench / SMCP / MCP Landscape
+MINJA / ADAM / contextual privacy audits
+Agent Smith / BadAgent / Hidden Ghost Hand / backdoor threats
+Active Environmental Injection / SnapGuard / fine-print injection / VPI-Bench
+Goal-aware misinformation / Web Fraud / IP leakage / MAS attacks
+Reliable Weak-to-Strong Monitoring / SHADE-Arena
+```
+
+---
+
+## Reading decision
+
+- **Keep in S7 P2:** Yes
+- **Read fully?** Yes, if it becomes part of the S7 backbone.
+- **Depth needed:** Medium to high
+- **Main use:** Support discussion of weak-to-strong monitoring and monitor red teaming
+
+---
+
+## One-sentence summary
+
+Reliable Weak-to-Strong Monitoring of LLM Agents is a P2 source for S7 because it helps explain **weak-to-strong monitoring and monitor red teaming**, but it should be cited according to its verified venue/status and used mainly to enrich the agent security, safety, privacy, and governance discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{reliableweakstrongmonitoring2025,
+  title = {Reliable Weak-to-Strong Monitoring of LLM Agents},
+  year = {2025/2026},
+  note = {ICLR 2026 Oral. Verify final bibliographic metadata before thesis submission.}
+}
+```

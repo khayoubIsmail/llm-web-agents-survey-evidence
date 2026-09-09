@@ -1,0 +1,250 @@
+# S5.4 P2 Paper 54 — Don’t Just Fine-tune the Agent, Tune the Environment
+
+## Metadata
+
+- **Title:** Don’t Just Fine-tune the Agent, Tune the Environment
+- **Year:** 2025-10/2026
+- **Verified venue/status:** ICLR 2026 Poster
+- **Peer-reviewed status:** Confirmed peer-reviewed conference
+- **Thesis section:** S5.4 — Learning, Training, Self-Improvement, and Optimization of LLM-based Agents
+- **Main category:** environment tuning for tool-use agents
+- **S5.4 role:** environment scaling and simulator/world-model learning
+- **Priority:** P2
+- **Recommended citation strength:** Strong citation
+- **Recommended reading depth:** Medium to high
+- **BibTeX key:** `dontjustfine2025`
+
+---
+
+## Simple understanding
+
+This paper argues that improving agent performance is not only about fine-tuning the policy; the environment and tool interface can also be optimized to make learning and execution easier.
+
+In simple terms:
+
+```text
+Problem → LLM-based agents cannot rely only on prompting.
+Paper → This work improves how agents learn, train, adapt, or self-improve.
+Goal → Make agents more reliable for long-horizon web/GUI/mobile/computer-use tasks.
+```
+
+The first goal is to understand **what training or learning mechanism the paper proposes**.  
+Only after that should it be linked to S5.4 and P2.
+
+---
+
+## Core idea
+
+Environment tuning for tool-use agents.
+
+This paper mainly contributes to:
+
+```text
+environment tuning for tool-use agents
+```
+
+In the broader agent-learning pipeline, it fits here:
+
+```text
+tasks / demonstrations / interaction logs / environments
+→ data synthesis or experience collection
+→ reward / feedback / verification
+→ SFT, distillation, RL, RFT, self-improvement, or memory update
+→ improved web/GUI/mobile agent behavior
+```
+
+---
+
+## Key finding / main claim
+
+The central idea is that agent-environment co-design can improve capability and reliability, especially in tool-use settings.
+
+For S5.4, the important question is:
+
+```text
+What new learning signal or training mechanism does this paper add?
+```
+
+Typical S5.4 mechanisms include:
+
+- synthetic task and trajectory generation,
+- supervised fine-tuning and distillation,
+- reinforcement learning and reinforcement fine-tuning,
+- process rewards and progress rewards,
+- reward modeling and verifiable feedback,
+- self-improvement from experience,
+- memory and hint reuse,
+- environment scaling and world-model simulation,
+- and human-in-the-loop or weakly supervised adaptation.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Environment/tool-interface optimization.**
+- **ICLR 2026 poster status.**
+- **S5.4 relevance to agent learning beyond model-only training.**
+
+Also extract, if available:
+
+- training data size,
+- source of trajectories,
+- reward definition,
+- optimization objective,
+- base model and agent scaffold,
+- benchmarks used,
+- strongest result,
+- ablation study,
+- cost/efficiency result,
+- and stated limitations.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Environment changes may not be available in third-party websites.
+- **Limitation 2:** Improvements may be interface-specific.
+- **Limitation 3:** Need to separate agent improvement from environment simplification.
+
+General thesis-level limitation:
+
+```text
+Training improvements in one environment do not automatically imply generalized web automation.
+Agent learning still depends on perception, action grounding, evaluation validity, safety, and environment realism.
+```
+
+Therefore, use this paper as **P2 support** unless it becomes central to the S5.4 subsection.
+
+---
+
+## Venue/status caution
+
+Use as a stronger source. Verified status: **ICLR 2026 Poster**.
+
+For final thesis writing:
+
+```text
+confirmed peer-reviewed venue → stronger citation
+workshop paper → useful emerging evidence
+arXiv / technical report → recent trend, cite cautiously
+submission / unclear status → verify before final bibliography
+```
+
+---
+
+## Relation to S5.4
+
+This paper belongs in **S5.4** because S5.4 discusses how LLM-based agents are trained, optimized, adapted, or improved after initial prompting.
+
+Its role is:
+
+```text
+Don’t Just Fine-tune the Agent, Tune the Environment
+→ environment scaling and simulator/world-model learning
+→ P2 support for agent learning/training discussion
+```
+
+Use the paper after explaining the learning problem first.  
+Do not introduce it only as “P2”; introduce the mechanism.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because a generalized web/data-extraction agent needs to learn from:
+
+```text
+web interaction traces
++ user demonstrations
++ synthetic tasks
++ rewards and validators
++ mistakes and failures
++ environment feedback
++ memory/experience reuse
+```
+
+The paper supports that pipeline by improving:
+
+```text
+environment scaling and simulator/world-model learning
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.4.
+- Extract the exact learning signal or training recipe.
+- Extract one concrete result or ablation.
+- Extract one limitation.
+- Compare it with P0/P1 agent-learning papers.
+- If it is a preprint, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> Don’t Just Fine-tune the Agent, Tune the Environment contributes to S5.4 by addressing **environment tuning for tool-use agents**, showing that agent learning increasingly depends on specialized data, rewards, environments, and self-improvement mechanisms rather than prompt engineering alone.
+
+---
+
+## Comparison with nearby S5.4 papers
+
+Compare this paper with:
+
+```text
+WebRL / WebAgent-R1 / MobileRL / DigiRL
+Digi-Q / GUI-Libra / AgentPRM / ProgRM
+WebShaper / WebSynthesis / AgentSynth / ProgSearch
+DynaWeb / WEBSERV / GEM / UI-Simulator
+JEF-Hinter / ExpSeek / WebATLAS / ColorBrowserAgent
+Agent Data Protocol / Scaling Environments survey
+```
+
+The comparison question is:
+
+```text
+Does this paper improve agent learning through data, reward, RL, environment, memory, or self-improvement?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.4 P2:** Yes
+- **Read fully?** Yes, if it becomes part of the S5.4 backbone.
+- **Depth needed:** Medium to high
+- **Main use:** Support discussion of environment tuning for tool-use agents
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Method/training pipeline
+  - Reward or data construction
+  - Main results table
+  - Ablation study
+  - Limitations/discussion
+
+---
+
+## One-sentence summary
+
+Don’t Just Fine-tune the Agent, Tune the Environment is a P2 source for S5.4 because it helps explain **environment tuning for tool-use agents**, but it should be cited according to its verified venue/status and used mainly to enrich the agent-learning discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{dontjustfine2025,
+  title = {Don’t Just Fine-tune the Agent, Tune the Environment},
+  year = {2025-10/2026},
+  note = {ICLR 2026 Poster. Verify final bibliographic metadata before thesis submission.}
+}
+```

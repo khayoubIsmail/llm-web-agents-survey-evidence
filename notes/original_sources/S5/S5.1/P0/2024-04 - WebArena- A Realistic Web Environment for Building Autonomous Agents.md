@@ -1,0 +1,279 @@
+# Paper 301 — WebArena: A Realistic Web Environment for Building Autonomous Agents
+
+## Metadata
+
+- **Title:** WebArena: A Realistic Web Environment for Building Autonomous Agents
+- **Authors:** Shuyan Zhou, Frank F. Xu, Hao Zhu, Xuhui Zhou, Robert Lo, Abishek Sridhar, Xianyi Cheng, Tianyue Ou, Yonatan Bisk, Daniel Fried, Uri Alon, Graham Neubig
+- **Year:** 2024
+- **Venue:** International Conference on Learning Representations (ICLR 2024), Poster
+- **DOI:** 10.48550/arXiv.2307.13854
+- **arXiv ID:** arXiv:2307.13854
+- **Final publication status:** Final venue verified online: ICLR 2024 poster.
+- **Verification source:** OpenReview: https://openreview.net/forum?id=oKn9c6ytLx
+- **Thesis section:** S5.1 — Benchmarks and Evaluation
+- **Cross-links:** S4 live-web systems; S5.2 observation/action space; S5.3 long-horizon planning; S5.5 failure recovery; S7 safe task execution; S8 reproducible deployment
+- **Category:** WEB AGENT BENCHMARK / SELF-HOSTED ENVIRONMENT / FUNCTIONAL EVALUATION
+- **Paper type:** Benchmark environment + evaluation suite
+- **Priority:** P0
+- **BibTeX key:** zhou2024webarena
+
+
+---
+
+## Simple understanding
+
+WebArena is a realistic and reproducible environment for evaluating web agents.
+
+Mind2Web gives offline snapshots and action traces. WebArena instead creates fully functional, self-hosted websites where an agent can actually interact and complete tasks.
+
+WebArena contains:
+
+```text
+e-commerce site
+social forum site
+collaborative software development site
+content management system
+tools such as map, calculator, scratchpad
+knowledge resources such as Wikipedia and manuals
+812 long-horizon tasks
+functional success validators
+```
+
+The key evaluation idea is not to compare an agent's action sequence to a reference path. Instead, WebArena checks whether the final state actually satisfies the goal.
+
+For my thesis, WebArena is central because it defines realistic interactive benchmark evaluation for autonomous web agents.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Build a realistic, reproducible, self-hosted web environment with functional evaluation of long-horizon web tasks.
+
+- **Key finding:**
+  The best GPT-4-based baseline achieves only 14.41% task success, far below human performance of 78.24%, showing that realistic web automation remains hard.
+
+- **Limitation:**
+  WebArena is self-hosted and reproducible, but it is still not the full live open web. For generalized deployment, agents must handle changing websites, accounts, CAPTCHAs, and real permissions.
+
+- **Additional limitation:**
+  The benchmark uses selected domains and tasks; it cannot represent every website category or UI pattern.
+
+- **Additional limitation:**
+  Functional validators are stronger than trajectory matching, but they require manual/programmatic task-specific design.
+
+- **Additional limitation:**
+  Some tasks depend on text/accessibility tree representations, so visual grounding is not fully tested until VisualWebArena.
+
+- **Connects to:**
+  Mind2Web, VisualWebArena, WebVoyager, WALT, AutoWebGLM, and functional evaluation for web agents.
+
+- **Use in thesis:**
+  Use as the main benchmark showing realistic, executable, reproducible web-agent evaluation and the human-agent performance gap.
+
+---
+
+## Thesis-ready paragraph
+
+WebArena introduces a realistic and reproducible benchmark environment for autonomous web agents. It provides self-hosted web applications across e-commerce, social forums, collaborative software development, and content management, together with tools and knowledge resources such as maps, calculators, scratchpads, Wikipedia, and manuals. Unlike offline action-prediction datasets, WebArena evaluates whether an agent actually completes high-level natural-language tasks in an executable environment. Its benchmark contains 812 long-horizon tasks and uses functional validators to check final task correctness rather than comparing an agent to a single reference trajectory. For this thesis, WebArena is a cornerstone S5.1 paper because it shifts evaluation toward realistic interaction and functional success. However, the benchmark also shows how far current agents are from robust automation: the best GPT-4 baseline reaches only 14.41% task success compared with 78.24% human performance.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because it fixes a major weakness in earlier benchmark design.
+
+A real web agent should not only predict the next action. It should complete the task.
+
+WebArena evaluates:
+
+```text
+Did the task actually succeed?
+```
+
+not only:
+
+```text
+Did the agent imitate the reference action sequence?
+```
+
+This is critical for generalized automation because many valid paths may solve the same task. WebArena therefore introduces a stronger evaluation philosophy:
+
+```text
+functional correctness > trajectory imitation
+```
+
+
+---
+
+## Important concepts to remember
+
+### 1. Self-hosted environment
+
+A reproducible local set of web applications that mimics real web functionality.
+
+### 2. Functional correctness
+
+Evaluation based on whether the final state satisfies the task goal.
+
+### 3. High-level intent
+
+A natural-language user goal rather than step-by-step instruction.
+
+### 4. Long-horizon task
+
+A task requiring many web actions across pages, tools, or websites.
+
+### 5. Accessibility tree
+
+A compact structured representation of visible and interactable webpage elements.
+
+### 6. Unachievable tasks
+
+Tasks that cannot be completed and require the agent to stop rather than hallucinate.
+
+### 7. Programmatic validator
+
+A function that checks database state, webpage content, URL, or output correctness.
+
+---
+
+## Key evidence from the paper
+
+### Environment design
+
+WebArena provides fully operational self-hosted websites from four domains plus tools and knowledge resources.
+
+### Task suite
+
+The paper releases 812 long-horizon web tasks with high-level natural-language intents.
+
+### Observation space
+
+The environment supports HTML/DOM, screenshots, and accessibility-tree observations.
+
+### Action space
+
+The environment includes clicking, typing, hovering, scrolling, tab actions, navigation, and URL operations.
+
+### Functional evaluation
+
+WebArena uses programmatic validators and answer-checking functions instead of only matching reference trajectories.
+
+### Performance gap
+
+GPT-4 reaches 14.41% success while humans reach 78.24%, demonstrating large headroom.
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to Mind2Web
+
+Mind2Web evaluates offline next-action prediction on real website snapshots.
+
+WebArena evaluates live/executable interaction in a reproducible environment.
+
+```text
+Mind2Web = scale and real websites
+WebArena = executable environment and functional validation
+```
+
+### Connection to VisualWebArena
+
+VisualWebArena builds on WebArena but adds visually grounded tasks and multimodal evaluation.
+
+### Connection to WebVoyager
+
+WebVoyager acts on live websites; WebArena is self-hosted and reproducible. They represent two sides of the realism/evaluation trade-off.
+
+### Connection to WALT
+
+WALT uses WebArena as a benchmark and argues that tools can reduce brittle UI action sequences.
+
+---
+
+## Connection to later thesis sections
+
+- **S5.1 — Benchmarks and Evaluation:**
+  Core example of executable, functional web-agent evaluation.
+- **S5.2 — Perception and Grounding:**
+  Observation modes: DOM, screenshot, accessibility tree.
+- **S5.3 — Planning:**
+  Long-horizon tasks requiring multi-step reasoning.
+- **S5.5 — Failure Modes:**
+  Active exploration, early stopping, inability to recover, and poor long-horizon success.
+- **S7 — Trustworthiness:**
+  Unachievable tasks, hallucination avoidance, and safe stopping.
+- **S8 — Deployment:**
+  Reproducibility vs live open-web realism.
+
+---
+
+## Limitation connected to thesis
+
+WebArena is more realistic than offline datasets, but it still does not fully solve generalized web-agent evaluation.
+
+It improves:
+
+```text
+interactive execution + reproducibility + functional correctness
+```
+
+but it still has limits:
+
+- self-hosted websites are not the entire live web,
+- functional validators are labor-intensive,
+- visual grounding is limited compared with VisualWebArena,
+- safety/privacy constraints are simplified,
+- and real-world deployment issues such as accounts, CAPTCHAs, changing pages, and irreversible actions remain outside the benchmark.
+
+For the thesis, WebArena motivates S5.1 but also shows why evaluation must include grounding, safety, and deployment realism.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes
+- **Depth needed:** Very high
+- **Main use:** S5.1 P0 benchmark/evaluation cornerstone paper
+- **Most important parts:**
+  - Abstract
+  - Figure 1 overview
+  - Observation space
+  - Action space
+  - Task/evaluation design
+  - Table 2 main results
+  - Error analysis
+  - Limitations
+
+---
+
+## One-sentence summary
+
+WebArena shifts web-agent evaluation from offline action prediction to reproducible executable environments with functional success metrics, revealing a large gap between GPT-4 agents and humans.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{zhou2024webarena,
+  title     = {WebArena: A Realistic Web Environment for Building Autonomous Agents},
+  author    = {Zhou, Shuyan and Xu, Frank F. and Zhu, Hao and Zhou, Xuhui and Lo, Robert and Sridhar, Abishek and Cheng, Xianyi and Ou, Tianyue and Bisk, Yonatan and Fried, Daniel and Alon, Uri and Neubig, Graham},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2024},
+  eprint    = {2307.13854},
+  archivePrefix = {arXiv},
+  doi       = {10.48550/arXiv.2307.13854},
+  url       = {https://openreview.net/forum?id=oKn9c6ytLx}
+}
+```
+
+---
+
+## Source links
+
+- https://openreview.net/forum?id=oKn9c6ytLx
+- https://arxiv.org/abs/2307.13854
+- https://webarena.dev/

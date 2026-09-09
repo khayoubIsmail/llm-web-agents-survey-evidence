@@ -1,0 +1,283 @@
+# Paper 356 — Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge
+
+## Metadata
+
+- **Title:** Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge
+- **Authors:** Boyu Gou, Zanming Huang, Yuting Ning, Yu Gu, Michael Lin, Weijian Qi, Andrei Kopanev, Botao Yu, Bernal Jiménez Gutiérrez, Yiheng Shu, Chan Hee Song, Jiaman Wu, Shijie Chen, Hanane Nour Moussa, Tianshu Zhang, Jian Xie, Yifei Li, Tianci Xue, Zeyi Liao, Kai Zhang, Boyuan Zheng, Zhaowei Cai, Viktor Rozgic, Morteza Ziyadi, Huan Sun, Yu Su
+- **Year:** 2025
+- **Venue/status:** NeurIPS 2025 Datasets and Benchmarks Track
+- **DOI:** 10.48550/arXiv.2506.21506
+- **arXiv ID:** arXiv:2506.21506
+- **Final publication status:** Final venue/status checked online: GitHub/project page labels NeurIPS 2025 D&B; arXiv paper available.
+- **Verification source:** https://arxiv.org/abs/2506.21506 ; https://github.com/OSU-NLP-Group/Mind2Web-2
+- **Thesis section:** S5.1 — Web Agent Benchmarks and Evaluation
+- **Benchmark type:** Agentic search / deep research benchmark
+- **Priority:** P1
+- **BibTeX key:** mind2web2025
+
+---
+
+## Simple understanding
+
+This paper contributes to **S5.1 — Benchmarks and Evaluation** by addressing the question:
+
+```text
+How should we evaluate web/GUI/browser agents beyond simple static accuracy?
+```
+
+Its main focus is:
+
+```text
+Agentic search / deep research benchmark
+```
+
+Scale / setting:
+
+```text
+130 long-horizon tasks with over 1,000 hours of human labor; task-specific Agent-as-a-Judge evaluation.
+```
+
+In simple terms, this paper matters because it adds a new evaluation angle that is not fully captured by the S5.1 P0 benchmarks. The P0 papers already cover offline real-web action prediction, executable self-hosted environments, visual grounding, and multi-turn dialogue. This P1 paper extends that landscape by making one specific benchmark pressure more visible: realism, difficulty, domain specialization, human preference, safety, long-horizon navigation, temporal robustness, or scalable benchmark generation.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Evaluate deep-research-style agents that browse the web, synthesize information, and provide citation-backed answers.
+
+- **Key finding:**  
+  Best systems approach 50–70% of human performance while spending less time, but full reliability remains unsolved.
+
+- **Main limitation connected to thesis:**  
+  Primarily evaluates information synthesis and source attribution, not DOM-level interactive automation or state-changing tasks.
+
+- **Use in thesis:**  
+  Use for agentic search evaluation and source-attribution metrics relevant to web information extraction.
+
+- **Connects to:**  
+  WebArena / Mind2Web / VisualWebArena lineage, S6 web information extraction and source-grounded retrieval
+
+- **BibTeX key:**  
+  `mind2web2025`
+
+---
+
+## Thesis-ready paragraph
+
+Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge extends the benchmark landscape for LLM-based web agents by focusing on **agentic search / deep research benchmark**. Its central contribution is that it evaluates agent behavior under conditions that are underrepresented in the core S5.1 P0 benchmarks. Specifically, it introduces or analyzes the setting: **130 long-horizon tasks with over 1,000 hours of human labor; task-specific Agent-as-a-Judge evaluation.**. This matters for the thesis because generalized web automation and structured data extraction cannot be evaluated only by a single success score or by a single environment type. A robust web agent must generalize across websites, handle dynamic or multimodal content, maintain long-horizon context, avoid unsafe actions, and produce verifiable outputs. The paper's main finding is that **Best systems approach 50–70% of human performance while spending less time, but full reliability remains unsolved.**. However, its limitation is equally important: **Primarily evaluates information synthesis and source attribution, not DOM-level interactive automation or state-changing tasks.**. Therefore, the paper should be used as a P1 support reference that sharpens the S5.1 benchmark taxonomy and motivates later technical sections on grounding, planning, training, failure modes, safety, and deployment.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper is relevant because your thesis is not only asking:
+
+```text
+Can an agent complete a web task?
+```
+
+It is asking a stronger question:
+
+```text
+Can an LLM-based agent operate reliably across diverse, dynamic, realistic websites
+and extract or deliver verifiable structured information?
+```
+
+This benchmark contributes one important evaluation pressure:
+
+```text
+Agentic search / deep research benchmark
+```
+
+For generalized web automation, this matters because benchmark design determines which failures become visible. A benchmark that only checks final answer accuracy may hide trajectory errors. A benchmark that only uses static pages may hide live-web brittleness. A benchmark that only tests text may hide visual grounding failures. A benchmark that ignores safety may overestimate deployment readiness.
+
+This paper therefore helps build a richer evaluation map for S5.1.
+
+---
+
+## Important concepts to remember
+
+### 1. Evaluation setting
+
+The benchmark/evaluation setting is:
+
+```text
+Agentic search / deep research benchmark
+```
+
+This tells us what kind of agent capability the paper mainly stresses.
+
+### 2. Scale and environment
+
+The scale/environment is:
+
+```text
+130 long-horizon tasks with over 1,000 hours of human labor; task-specific Agent-as-a-Judge evaluation.
+```
+
+This matters because benchmark scale affects both generalization claims and evaluation cost.
+
+### 3. Measurement philosophy
+
+This paper should be read as part of the broader S5.1 shift:
+
+```text
+static accuracy
+→ action/trajectory evaluation
+→ functional task success
+→ multimodal and live-web evaluation
+→ safety / reliability / cost / robustness evaluation
+```
+
+### 4. Thesis-relevant failure
+
+The key limitation is:
+
+```text
+Primarily evaluates information synthesis and source attribution, not DOM-level interactive automation or state-changing tasks.
+```
+
+This limitation should be connected directly to your thesis gap rather than left as a generic paper weakness.
+
+---
+
+## Key evidence from the paper / online verification
+
+### Publication status
+
+Venue/status was re-checked online:
+
+```text
+Final venue/status checked online: GitHub/project page labels NeurIPS 2025 D&B; arXiv paper available.
+```
+
+Verification source:
+
+```text
+https://arxiv.org/abs/2506.21506 ; https://github.com/OSU-NLP-Group/Mind2Web-2
+```
+
+### Contribution evidence
+
+The paper's contribution can be summarized as:
+
+```text
+Evaluate deep-research-style agents that browse the web, synthesize information, and provide citation-backed answers.
+```
+
+### Result evidence
+
+The paper's headline finding is:
+
+```text
+Best systems approach 50–70% of human performance while spending less time, but full reliability remains unsolved.
+```
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to S5.1 P0 papers
+
+This P1 paper complements the S5.1 P0 benchmarks:
+
+```text
+Mind2Web        → offline real-web action prediction
+WebArena        → executable self-hosted task completion
+VisualWebArena  → visually grounded multimodal evaluation
+WebLINX         → multi-turn conversational web navigation
+```
+
+Its specific contribution is:
+
+```text
+Agentic search / deep research benchmark
+```
+
+### Connection to later thesis sections
+
+- **S5.2 — Perception and grounding:**  
+  Relevant when the benchmark stresses screenshots, DOM, HTML, accessibility trees, multimodal cues, or UI changes.
+
+- **S5.3 — Planning and decision-making:**  
+  Relevant when tasks are long-horizon, multi-step, multi-site, or require hidden-context investigation.
+
+- **S5.4 — Training and generalization:**  
+  Relevant when the benchmark exposes transfer failure, OOD splits, temporal drift, or trajectory-data limitations.
+
+- **S5.5 — Failure modes:**  
+  Relevant because benchmark design reveals different failures: grounding failure, hallucinated evidence, poor stopping, repetitive actions, weak memory, or unsafe action selection.
+
+- **S7/S8 — Safety and deployment:**  
+  Relevant when evaluation includes live-web risks, safety policies, privacy, cost, latency, or reproducibility.
+
+---
+
+## Limitation connected to thesis
+
+The key thesis limitation is:
+
+```text
+Primarily evaluates information synthesis and source attribution, not DOM-level interactive automation or state-changing tasks.
+```
+
+This means the paper should not be used as proof that generalized web automation is solved. Instead, use it to show that the field is progressively expanding benchmark coverage while still leaving the central thesis gap open:
+
+```text
+No benchmark fully combines:
+large-scale real-web diversity
++ live interaction
++ multimodal grounding
++ structured extraction correctness
++ safety constraints
++ reproducibility
++ cost/latency measurement
++ robust cross-site generalization
+```
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes, but depth depends on thesis subsection.
+- **Depth needed:** Medium-high for S5.1; high if the benchmark directly supports your evaluation taxonomy.
+- **Main use:** Benchmark/evaluation support paper.
+- **Most important parts:**
+  - Abstract and introduction
+  - Benchmark construction
+  - Evaluation protocol and metrics
+  - Main results
+  - Human/agent gap or model comparison
+  - Failure analysis
+  - Limitations and reproducibility notes
+
+---
+
+## One-sentence summary
+
+Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge is a P1 benchmark/evaluation paper that contributes **agentic search / deep research benchmark** and shows that best systems approach 50–70% of human performance while spending less time, but full reliability remains unsolved.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{mind2web2025,
+  title = {Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge},
+  author = {Boyu Gou, Zanming Huang, Yuting Ning, Yu Gu, Michael Lin, Weijian Qi, Andrei Kopanev, Botao Yu, Bernal Jiménez Gutiérrez, Yiheng Shu, Chan Hee Song, Jiaman Wu, Shijie Chen, Hanane Nour Moussa, Tianshu Zhang, Jian Xie, Yifei Li, Tianci Xue, Zeyi Liao, Kai Zhang, Boyuan Zheng, Zhaowei Cai, Viktor Rozgic, Morteza Ziyadi, Huan Sun, Yu Su},
+  year = {2025},
+  booktitle = {NeurIPS 2025 Datasets and Benchmarks Track},
+  doi = {10.48550/arXiv.2506.21506},
+  eprint = {2506.21506},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2506.21506}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2506.21506
+- https://github.com/OSU-NLP-Group/Mind2Web-2

@@ -1,0 +1,271 @@
+# Paper 299 — WALT: Web Agents that Learn Tools
+
+## Metadata
+
+- **Title:** WALT: Web Agents that Learn Tools
+- **Authors:** Viraj Prabhu, Yutong Dai, Matthew Fernandez, Jing Gu, Krithika Ramakrishnan, Yanqi Luo, Silvio Savarese, Caiming Xiong, Junnan Li, Zeyuan Chen, Ran Xu
+- **Year:** 2025
+- **Venue:** arXiv preprint / under review
+- **DOI:** 10.48550/arXiv.2510.01524
+- **arXiv ID:** arXiv:2510.01524
+- **Thesis section:** S4 — Evolution of Web Agent Systems
+- **Cross-links:** S5.2 site-function abstraction; S5.3 tool-based planning; S5.4 tool learning; S5.5 brittle UI-action failures; S6 extraction/tools; S8 efficient deployment
+- **Category:** WEB AGENT / TOOL LEARNING / ACTION ABSTRACTION
+- **Paper type:** Method / tool-learning web agent
+- **Priority:** P1
+- **BibTeX key:** prabhu2025walt
+
+---
+
+## Simple understanding
+
+WALT is a forward-looking web-agent paper that shifts from step-by-step UI actions to **learned website tools**.
+
+Most web agents operate like this:
+
+```text
+click → type → click → scroll → click → inspect → click
+```
+
+WALT argues that humans often think at a higher level:
+
+```text
+search(query)
+filter(criteria)
+sort(order)
+create(listing)
+edit(item)
+delete(item)
+comment(text)
+upvote(item)
+```
+
+The system reverse-engineers website-provided functionality into reusable invocable tools. These tools expose robust functions already built into websites.
+
+For my thesis, WALT matters because it suggests a next-generation direction for web automation: agents should not always reason over primitive clicks; they should discover and call higher-level website tools when possible.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Reverse-engineer website functionality into reusable invocable tools, reducing brittle step-by-step UI reasoning.
+
+- **Key finding:**
+  WALT reports state-of-the-art success on WebArena and VisualWebArena, with fewer steps and less LLM-dependent reasoning.
+
+- **Limitation:**
+  Tool discovery must be performed per website and may require expensive upfront exploration.
+
+- **Additional limitation:**
+  Learned tools can break when websites change.
+
+- **Additional limitation:**
+  Reverse-engineering URL parameters or hidden functionality may raise security, privacy, or terms-of-service concerns.
+
+- **Additional limitation:**
+  Tool abstraction helps repeated functions but may not help rare one-off interactions.
+
+- **Connects to:**
+  Toolformer, MRKL, WebArena, VisualWebArena, skill discovery, API-using agents, and deployment efficiency.
+
+- **Use in thesis:**
+  Use as a forward-looking paper showing the transition from primitive UI actions to site-level tool abstraction.
+
+---
+
+## Thesis-ready paragraph
+
+Prabhu et al. introduce WALT, a framework for web agents that learn reusable tools by reverse-engineering website-provided functionality. Instead of executing long fragile sequences of primitive UI actions, WALT exposes high-level operations such as search, filter, sort, create, edit, delete, comment, or upvote as callable tools with validated schemas. This is highly relevant to generalized web automation because it shifts the burden from step-by-step UI interaction toward robust, reusable site-level abstractions. WALT’s results on WebArena and VisualWebArena suggest that tool-based abstraction can improve success and efficiency. However, the approach also introduces new challenges: tools must be discovered, validated, maintained, and used safely as websites change. For this thesis, WALT provides an important future direction: combining LLM planning with learned website-specific tools for more reliable automation.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because it addresses one of the biggest practical problems in web automation:
+
+```text
+primitive UI trajectories are brittle
+```
+
+A small website change can break:
+
+```text
+click element 4 → type → click element 9
+```
+
+But a high-level tool can be more stable:
+
+```text
+search(query="blue kayak", category="Boats", sort_by="price")
+```
+
+For data extraction, this is important because many websites already provide useful functions:
+
+```text
+search
+filter
+sort
+export
+download
+next page
+open details
+```
+
+A future web agent should discover and use these functions instead of always clicking manually.
+
+---
+
+## Important concepts to remember
+
+### 1. Website-provided functionality
+
+Built-in operations such as search, filter, sort, post, edit, delete, comment, or vote.
+
+### 2. Tool discovery
+
+Identifying reusable site functions and exposing them as callable tools.
+
+### 3. Demonstrate-generate-validate loop
+
+Explore functionality, generate tools, then test and validate them.
+
+### 4. URL-parameter promotion
+
+Replacing UI sequences with robust URL/API-like parameterized operations when possible.
+
+### 5. Tool-based abstraction
+
+Replacing many primitive UI steps with one high-level operation.
+
+### 6. Agentic fallback
+
+Using limited agentic steps when deterministic tool execution is insufficient.
+
+---
+
+## Key evidence from the paper
+
+### Figure 1
+
+Contrasts fragile primitive UI action sequences with one high-level tool call.
+
+### Tool coverage
+
+The paper describes tools for discovery, communication, and content management.
+
+### Reported results
+
+The paper reports strong results on WebArena and VisualWebArena.
+
+### Efficiency
+
+It reports fewer steps on average and improved success through discovered tools, multimodal DOM parsing, and external verification.
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to Toolformer
+
+Toolformer teaches models to use tools.
+
+WALT discovers website-specific tools for web automation.
+
+```text
+Toolformer = language model learns API calls
+WALT = web agent learns site tools
+```
+
+### Connection to MRKL
+
+MRKL argues for modular expert systems.
+
+WALT creates website-specific modules/tools.
+
+### Connection to WebAgent and AutoWebGLM
+
+WebAgent/AutoWebGLM operate through programmatic actions or trained policies.
+
+WALT abstracts common website functionality into reusable tools.
+
+---
+
+## Connection to later thesis sections
+
+- **S5.2 — Representation:**
+  Website-function abstraction and action representation.
+- **S5.3 — Planning:**
+  Planning over tools instead of primitive UI actions.
+- **S5.4 — Training/Learning:**
+  Tool discovery and validation.
+- **S5.5 — Failure Modes:**
+  Brittle UI trajectories and maintenance failure.
+- **S6 — Extraction:**
+  Website tools for search, filtering, sorting, and data access.
+- **S8 — Deployment:**
+  Tool maintenance, monitoring, efficiency, and safety.
+
+---
+
+## Limitation connected to thesis
+
+WALT is promising but introduces a new maintenance problem.
+
+It improves:
+
+```text
+primitive UI actions → reusable site tools
+```
+
+but it still needs:
+
+- safe tool discovery,
+- validation,
+- monitoring after website changes,
+- permission and privacy controls,
+- fallback actions,
+- and extraction verification.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes
+- **Depth needed:** High
+- **Main use:** S4 P1 support paper for the evolution of web-agent systems
+- **Most important parts:**
+  - Abstract
+  - Figure 1
+  - Tool discovery method
+  - Demonstrate-generate-validate loop
+  - WebArena results
+  - VisualWebArena results
+  - Ablations
+  - Limitations
+
+---
+
+## One-sentence summary
+
+WALT reframes web automation from brittle UI-step reasoning to reusable website-tool invocation, but tool discovery and maintenance become new deployment challenges.
+
+---
+
+## BibTeX
+
+```bibtex
+@article{prabhu2025walt,
+  title   = {WALT: Web Agents that Learn Tools},
+  author  = {Prabhu, Viraj and Dai, Yutong and Fernandez, Matthew and Gu, Jing and Ramakrishnan, Krithika and Luo, Yanqi and Savarese, Silvio and Xiong, Caiming and Li, Junnan and Chen, Zeyuan and Xu, Ran},
+  journal = {arXiv preprint arXiv:2510.01524},
+  year    = {2025},
+  doi     = {10.48550/arXiv.2510.01524}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2510.01524

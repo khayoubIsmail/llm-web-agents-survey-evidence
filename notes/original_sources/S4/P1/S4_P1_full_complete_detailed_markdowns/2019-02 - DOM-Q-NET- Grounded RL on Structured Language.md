@@ -1,0 +1,245 @@
+# Paper 286 — DOM-Q-NET: Grounded RL on Structured Language
+
+## Metadata
+
+- **Title:** DOM-Q-NET: Grounded RL on Structured Language
+- **Authors:** Sheng Jia, Jamie Kiros, Jimmy Ba
+- **Year:** 2019
+- **Venue:** International Conference on Learning Representations (ICLR 2019)
+- **DOI:** 10.48550/arXiv.1902.07257
+- **arXiv ID:** arXiv:1902.07257
+- **Thesis section:** S4 — Evolution of Web Agent Systems
+- **Cross-links:** S5.1 MiniWoB evaluation; S5.2 DOM representation; S5.4 RL/multitask learning; S5.5 large variable action-space failure
+- **Category:** WEB-RL / DOM REPRESENTATION / GRAPH NEURAL NETWORK
+- **Paper type:** Method / RL architecture
+- **Priority:** P1
+- **BibTeX key:** jia2019domqnet
+
+---
+
+## Simple understanding
+
+This paper introduces **DOM-Q-NET**, a reinforcement-learning architecture for web navigation.
+
+The central idea is that a webpage should not be represented only as pixels or flat text. A webpage has structure: the HTML document is a **DOM tree**. Buttons, inputs, labels, tables, links, and containers are arranged in a hierarchy.
+
+DOM-Q-NET uses a graph neural network to represent this DOM structure. It then learns Q-values for different types of actions, such as clicking and typing.
+
+For my thesis, the paper matters because DOM representation is still one of the central problems in LLM web agents. Even modern agents must decide which DOM element corresponds to a user instruction or visual target.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Represent the webpage as a DOM graph and use graph neural networks with factorized Q-functions to learn grounded web actions.
+
+- **Key finding:**
+  DOM-Q-NET performs competitively on MiniWoB tasks without expert demonstrations and improves sample efficiency in multi-task training.
+
+- **Limitation:**
+  The evaluation is mainly on MiniWoB-like tasks, which are much simpler than live websites.
+
+- **Additional limitation:**
+  The model lacks LLM-style natural-language reasoning and cannot flexibly interpret complex user instructions.
+
+- **Additional limitation:**
+  DOM structure helps but does not solve visual layout grounding; many real websites require both DOM and screenshot understanding.
+
+- **Additional limitation:**
+  The action space remains restricted compared with arbitrary browser operations.
+
+- **Connects to:**
+  World of Bits, WGE, HTML-T5, WebAgent, AutoWebGLM, Mind2Web, and modern DOM-aware LLM agents.
+
+- **Use in thesis:**
+  Use as a key pre-LLM DOM grounding paper showing why structured page representation is essential.
+
+---
+
+## Thesis-ready paragraph
+
+Jia et al. introduced DOM-Q-NET, a reinforcement-learning architecture for web navigation that explicitly represents webpages through their DOM structure. By using graph neural networks over DOM nodes and factorizing Q-functions over action categories, DOM-Q-NET addresses the variable and structured action space of web interfaces. This paper is important for the evolution of web agents because it establishes the DOM as a central representation for grounding actions. Although the method predates LLM agents and is evaluated on simplified MiniWoB tasks, the problem it addresses remains fundamental: a web agent must map instructions and decisions to concrete webpage elements. Its limitations motivate later HTML-aware, multimodal, and LLM-based web agents that combine structural DOM representations with language reasoning and visual grounding.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because a web agent needs to know **where to act**.
+
+A webpage is not a simple text document. It contains:
+
+```text
+buttons
+forms
+links
+tables
+dropdowns
+hidden elements
+nested containers
+labels
+attributes
+```
+
+The DOM gives the agent structure.
+
+For example, if the instruction is:
+
+```text
+Click the search button.
+```
+
+the agent must identify the right DOM node among many possible clickable elements.
+
+DOM-Q-NET is an early attempt to solve this with deep RL and graph neural networks. Modern LLM agents often use different models, but they still face the same grounding problem.
+
+---
+
+## Important concepts to remember
+
+### 1. DOM tree
+
+The browser's structured representation of the HTML document.
+
+### 2. Grounded RL
+
+RL where actions correspond to actual interface elements.
+
+### 3. Graph neural network
+
+A neural network that propagates information across linked DOM nodes.
+
+### 4. Factorized Q-function
+
+A Q-value design split across action categories.
+
+### 5. Variable action space
+
+The set of possible actions changes depending on the webpage state.
+
+### 6. Multi-task training
+
+Training across several web tasks to improve generalization.
+
+---
+
+## Key evidence from the paper
+
+### Motivation
+
+The paper highlights that web navigation has large discrete action spaces and a changing number of valid actions.
+
+### DOM representation
+
+The model uses DOM graph structure instead of treating the page only as pixels.
+
+### MiniWoB evaluation
+
+It evaluates on MiniWoB tasks, linking it to the World of Bits benchmark line.
+
+### Sample efficiency
+
+The paper reports improved sample efficiency in multi-task settings.
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to World of Bits
+
+World of Bits introduced pixel + DOM observations.
+
+DOM-Q-NET makes DOM structure the central modeling object.
+
+### Connection to WebAgent and AutoWebGLM
+
+WebAgent and AutoWebGLM later continue the DOM/HTML representation line, but with LLMs and HTML simplification.
+
+```text
+DOM-Q-NET: DOM graph + RL
+WebAgent: long HTML + HTML-T5 + program synthesis
+AutoWebGLM: simplified HTML + trained LLM policy
+```
+
+### Connection to SeeAct and WebVoyager
+
+SeeAct and WebVoyager show that DOM alone is not enough. Visual screenshots and element labels are also important.
+
+---
+
+## Connection to later thesis sections
+
+- **S5.2 — Perception and Grounding:**
+  DOM representation and element selection.
+- **S5.4 — Training Strategies:**
+  RL and multi-task learning on web tasks.
+- **S5.5 — Failure Modes:**
+  Large variable action spaces and incorrect element grounding.
+- **S8 — Deployment:**
+  Gap between simplified DOM benchmarks and live websites.
+
+---
+
+## Limitation connected to thesis
+
+DOM-Q-NET improves structured web representation, but it does not solve generalized web automation.
+
+It mainly improves:
+
+```text
+webpage representation → DOM-based action selection
+```
+
+It does not solve:
+
+- complex natural-language instructions,
+- live dynamic websites,
+- visual layout understanding,
+- long-horizon planning,
+- structured extraction verification,
+- or safe web action execution.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes
+- **Depth needed:** Medium-high
+- **Main use:** S4 P1 support paper for the evolution of web-agent systems
+- **Most important parts:**
+  - Abstract
+  - Problem formulation
+  - DOM graph representation
+  - Action factorization
+  - MiniWoB experiments
+  - Multi-task results
+  - Limitations
+
+---
+
+## One-sentence summary
+
+DOM-Q-NET shows that DOM structure is a useful inductive bias for web agents, but RL on simplified DOM tasks is not sufficient for generalized web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{jia2019domqnet,
+  title     = {DOM-Q-NET: Grounded RL on Structured Language},
+  author    = {Jia, Sheng and Kiros, Jamie and Ba, Jimmy},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2019},
+  eprint    = {1902.07257},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  doi       = {10.48550/arXiv.1902.07257}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/1902.07257

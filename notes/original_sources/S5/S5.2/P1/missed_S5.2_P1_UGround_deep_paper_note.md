@@ -1,0 +1,354 @@
+# S5.2 P1 Deep Paper Note — UGround / Universal Visual Grounding for GUI Agents
+
+## 1. Venue / Status Verification
+
+| Field | Verified value |
+|---|---|
+| Paper title | **Navigating the Digital World as Humans Do: Universal Visual Grounding for GUI Agents** |
+| Authors | Boyu Gou, Ruohan Wang, Boyuan Zheng, Yanan Xie, Cheng Chang, Yiheng Shu, Huan Sun, Yu Su |
+| First public version | arXiv v1 submitted 2024-10-07 |
+| Latest arXiv version checked | arXiv v3, revised 2025-06-17 |
+| arXiv ID | arXiv:2410.05243 |
+| arXiv DOI | 10.48550/arXiv.2410.05243 |
+| Final venue | **ICLR 2025 — The Thirteenth International Conference on Learning Representations** |
+| Venue status | **Peer-reviewed conference paper** |
+| Presentation type | **ICLR 2025 Oral** |
+| OpenReview status | Published 2025-01-22; last modified 2025-03-15; listed as “ICLR 2025 Oral” |
+| Proceedings status | Listed in ICLR 2025 proceedings as a conference paper |
+| Code / artifact status | Official GitHub repository exists; model weights, demo, and training data links are provided by the authors |
+| Citation recommendation | Cite as ICLR 2025 conference paper, not only as arXiv preprint. Use arXiv only as supplementary access/version reference. |
+
+### Verification conclusion
+
+This paper is **not just an arXiv preprint**. It has a confirmed final peer-reviewed venue: **ICLR 2025 Oral**. For the thesis bibliography, cite it as an **ICLR 2025 conference paper**. The arXiv version should be used only to indicate the public PDF/version history.
+
+### BibTeX
+
+```bibtex
+@inproceedings{gou2025uground,
+  title     = {Navigating the Digital World as Humans Do: Universal Visual Grounding for {GUI} Agents},
+  author    = {Boyu Gou and Ruohan Wang and Boyuan Zheng and Yanan Xie and Cheng Chang and Yiheng Shu and Huan Sun and Yu Su},
+  booktitle = {The Thirteenth International Conference on Learning Representations},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=kxnoqaisCT}
+}
+```
+
+---
+
+## 2. Bibliographic Information
+
+| Field | Details |
+|---|---|
+| Title | Navigating the Digital World as Humans Do: Universal Visual Grounding for GUI Agents |
+| Short name | UGround |
+| Year | 2025 |
+| Venue | ICLR 2025 |
+| Status | Published peer-reviewed conference paper; Oral |
+| Paper type | Method + Dataset + System + Evaluation |
+| Priority | P1 |
+| Thesis section | S5.2 — Web Perception & Representation |
+| Secondary sections | S5.1 Benchmarks; S5.3 Planning and Reasoning; S4 Web Agent Foundations; S8 Open Challenges |
+| Main tags | GUI grounding; visual grounding; vision-only agents; screenshot-based perception; pixel-level actions; MLLM agents; web/mobile/desktop automation |
+
+---
+
+## 3. One-Sentence Summary
+
+The paper proposes **UGround**, a universal visual grounding model for GUI agents, and **SeeAct-V**, a vision-only agent framework where an MLLM planner produces textual action descriptions and a specialized grounding model maps those descriptions to pixel coordinates on web, desktop, and mobile interfaces.
+
+---
+
+## 4. Core Idea
+
+The central idea is that GUI agents can operate more like humans if they rely primarily on **visual screenshots** and **pixel-level actions**, rather than requiring HTML, DOM, accessibility trees, candidate element lists, or Set-of-Mark labels.
+
+The paper argues that the main missing capability for such agents is **robust visual grounding**: the ability to map a natural-language referring expression, such as “the search bar at the top of the page,” to exact screen coordinates. To solve this, the authors train UGround using a large synthetic GUI grounding dataset and integrate it into SeeAct-V as a specialized grounding module.
+
+---
+
+## 5. Problem Addressed
+
+Most existing web and GUI agents rely on extra structured representations:
+
+- HTML / DOM trees for web pages;
+- accessibility trees for mobile/desktop UIs;
+- candidate element lists;
+- Set-of-Mark visual labels;
+- OCR/object-detection modules.
+
+These representations can improve grounding, but they create several problems:
+
+1. **Noise** — HTML contains many irrelevant elements.
+2. **Incompleteness** — accessibility trees often miss labels or contain wrong annotations.
+3. **Cost and latency** — encoding HTML or accessibility trees increases token usage and slows long-horizon interaction.
+4. **Limited generality** — DOM access is web-specific; accessibility trees vary by platform and application.
+5. **Non-human embodiment** — selecting from backend element lists differs from how humans perceive and interact with interfaces.
+
+The paper addresses this gap by asking: how far can GUI agents go with only **visual observation** and **direct pixel-level operation**?
+
+---
+
+## 6. Method / System / Approach
+
+### 6.1 SeeAct-V framework
+
+The paper adapts the earlier SeeAct framework into **SeeAct-V**, a two-stage modular system:
+
+1. **Planning**
+   - An MLLM observes the screenshot and task instruction.
+   - It generates a textual plan/action description.
+   - Example: `CLICK` + “the search bar at the top of the page”.
+
+2. **Grounding**
+   - UGround receives the screenshot plus the element description.
+   - It outputs pixel coordinates, e.g., `(556, 26)`.
+   - The agent then executes the action through mouse/keyboard/touchscreen operations.
+
+This makes the agent **vision-only** at observation time and **pixel-level** at execution time.
+
+### 6.2 UGround model
+
+UGround is trained as a GUI visual grounding model. Given:
+
+```text
+Screenshot + referring expression → pixel coordinates
+```
+
+It returns a coordinate point corresponding to the target UI element.
+
+The model is based on a modified **LLaVA-NeXT 7B** architecture with adaptations for GUI grounding:
+
+- high-resolution GUI screenshots;
+- dynamic aspect ratios;
+- absolute pixel coordinate prediction;
+- long visual context handling with Vicuna-1.5-7B-16K;
+- modified AnyRes strategy for larger UI screenshots.
+
+### 6.3 Data construction
+
+The authors build a large GUI visual grounding dataset using web-based synthetic data plus supplementary Android/UI datasets.
+
+Main training sources:
+
+| Dataset | Annotation | Elements | Screenshots | Platform |
+|---|---:|---:|---:|---|
+| Web-Hybrid | Rule + LLM | 9M | 773K | Web |
+| Web-Direct | GPT | 408K | 408K | Web |
+| GUIAct | GPT + Human | 140K | 13K | Web |
+| AndroidControl | Human | 47K | 47K | Android |
+| Widget Caption | Human | 41K | 15K | Android |
+| UIBert | Human | 16K | 5K | Android |
+| AITZ | GPT + Human | 8K | 8K | Android |
+| **Total** | Mixed | **10M** | **1.3M** | Web + Android |
+
+The core insight is that web pages provide both:
+
+- visual screenshots;
+- structured HTML metadata with element coordinates.
+
+This allows large-scale automatic generation of screenshot–referring expression–coordinate triples.
+
+### 6.4 Referring expression taxonomy
+
+The paper is useful for S5.2 because it formalizes different types of GUI referring expressions:
+
+| Type | Meaning | Example |
+|---|---|---|
+| Visual RE | Refers to visible appearance/text/icon | “red icon labeled UNIQLO” |
+| Positional RE | Refers to absolute or relative location | “button at the top left corner” |
+| Functional RE | Refers to what the element does | “navigate back to the homepage” |
+| Composite RE | Combines visual, position, and function | “heart button under the Pokémon shirt to add to favorite” |
+
+This taxonomy is directly relevant to **web perception and representation**, because it shows that grounding is not only OCR or object detection; it also requires spatial, semantic, and functional UI understanding.
+
+---
+
+## 7. Key Contributions
+
+1. **Vision-only GUI agent framework**
+   - Proposes SeeAct-V, a GUI agent framework that uses screenshots only and directly performs pixel-level operations.
+
+2. **Universal GUI visual grounding model**
+   - Introduces UGround, a specialized model that maps natural-language element descriptions to GUI coordinates.
+
+3. **Large-scale GUI grounding dataset**
+   - Builds a dataset of around 10M GUI elements over 1.3M screenshots.
+
+4. **Cross-platform grounding evaluation**
+   - Evaluates on web, desktop, and mobile settings.
+
+5. **Agent-level evaluation**
+   - Goes beyond isolated grounding and tests whether UGround improves offline and online GUI agents.
+
+6. **Evidence for modular agent design**
+   - Shows that a specialized grounding module can improve MLLM-based agents without relying on DOM/accessibility-tree inputs.
+
+---
+
+## 8. Experiments and Evaluation
+
+| Evaluation category | Benchmarks | Platforms | Main metric |
+|---|---|---|---|
+| Visual grounding | ScreenSpot | Web, desktop, mobile | Grounding accuracy |
+| Offline agent evaluation | Multimodal-Mind2Web, AndroidControl, OmniACT | Web, mobile, desktop | Element / step / action accuracy |
+| Online agent evaluation | Mind2Web-Live, AndroidWorld | Web, mobile | Completion / success rate |
+
+### Main results
+
+1. On **ScreenSpot standard setting**, UGround substantially improves over GPT-4, GPT-4o, CogAgent, and SeeClick.
+2. On **ScreenSpot agent setting**, UGround is especially strong when grounding planner-generated referring expressions.
+3. On **Multimodal-Mind2Web**, SeeAct-V with UGround outperforms SeeClick and is competitive with or better than methods that use image + text representations.
+4. On **AndroidControl**, UGround improves step accuracy over SeeClick and text-only Choice baselines.
+5. On **OmniACT**, UGround improves desktop action scores, despite not relying on OCR/icon-detection candidate pipelines.
+6. On **Mind2Web-Live** and **AndroidWorld**, SeeAct-V with UGround achieves comparable or better online performance than text-based or SoM-based agents.
+
+---
+
+## 9. Key Findings
+
+- **Grounding is a major bottleneck** for GUI agents.
+- Vision-only agents become much more viable when supported by a strong grounding module.
+- Synthetic web-based grounding data can generalize surprisingly well to mobile and desktop UIs.
+- Referring expressions in GUI tasks are diverse: visual, positional, functional, and composite.
+- UGround performs particularly well on icons/widgets compared with earlier visual grounding models.
+- In many failure cases, the bottleneck shifts from grounding to **planning**: the planner describes the wrong element or gives an ambiguous description.
+- Long-tail icons with idiosyncratic semantics remain difficult.
+
+---
+
+## 10. Strengths
+
+1. **Highly relevant to S5.2**
+   - The paper directly addresses GUI/web perception and representation through screenshot-based visual grounding.
+
+2. **Strong empirical coverage**
+   - Evaluates grounding, offline agents, and online agents across web, mobile, and desktop.
+
+3. **Clear modular architecture**
+   - Separates planning from grounding, making the framework easier to analyze and compare.
+
+4. **Large-scale dataset**
+   - The 10M-element dataset is a major contribution for GUI grounding research.
+
+5. **Good thesis relevance**
+   - Supports the argument that generalized web automation requires robust perception and grounding, not only LLM reasoning.
+
+---
+
+## 11. Weaknesses / Limitations
+
+1. **Still depends on an external planner**
+   - UGround is not a complete autonomous agent. It only grounds element descriptions.
+
+2. **Synthetic-data dependency**
+   - Large-scale synthetic web data is central to performance. Data efficiency is still an open issue.
+
+3. **Limited desktop training data**
+   - The paper reports cross-platform generalization, but no desktop UI data is included in training.
+
+4. **Long-tail UI semantics**
+   - Rare icons and application-specific UI conventions remain challenging.
+
+5. **Planning remains a bottleneck**
+   - Even with strong grounding, the planner may hallucinate elements, choose the wrong element, or produce vague descriptions.
+
+6. **Data extraction is indirect**
+   - The paper focuses on action grounding, not structured data extraction from web pages. It is relevant to extraction only through the perception layer.
+
+---
+
+## 12. Limitation Connected to Thesis Gap
+
+For the thesis **“LLM-based agents for generalized web automation and data extraction”**, this paper is important but incomplete.
+
+It strongly addresses the **perception/grounding layer** of web automation: how an agent sees an interface and maps language to actionable coordinates. However, it does not fully solve generalized web automation or data extraction because:
+
+- the planner is still external and may fail;
+- the model does not reason about complete task workflows by itself;
+- it does not provide a general framework for extracting structured data from heterogeneous pages;
+- it does not deeply handle robustness under dynamic page changes, authentication, pop-ups, anti-bot systems, or adversarial UI layouts;
+- it evaluates task completion and grounding more than extraction quality, schema consistency, provenance, or repeatability.
+
+This motivates a thesis gap: **generalized web automation requires integrating robust visual grounding with planning, data extraction, verification, and governance mechanisms.**
+
+---
+
+## 13. Relevance to My Thesis
+
+This paper is highly relevant because generalized web automation requires agents to perceive web pages in a way that is robust across layouts, websites, and modalities.
+
+For the thesis, the paper supports three key claims:
+
+1. **DOM-only web agents are insufficient**
+   - HTML and accessibility-tree inputs are noisy, incomplete, costly, and not always available.
+
+2. **Visual grounding is central to web-agent reliability**
+   - An agent cannot complete browser tasks if it cannot correctly map intended actions to UI elements.
+
+3. **Vision-only or vision-first agents are a serious direction**
+   - With strong grounding, screenshot-based agents can compete with systems using additional structured text inputs.
+
+---
+
+## 14. Connection to Literature Review Sections
+
+| Thesis section | How to use this paper |
+|---|---|
+| S4 Web Agents Foundations | Use as evidence of the shift from DOM/action-candidate agents toward vision-centric GUI agents. |
+| S5.1 Benchmarks | Discuss its evaluation over ScreenSpot, Multimodal-Mind2Web, AndroidControl, OmniACT, Mind2Web-Live, and AndroidWorld. |
+| **S5.2 Web Perception & Representation** | Main placement. Use it as a key paper for visual grounding, screenshot representation, and mapping natural-language references to coordinates. |
+| S5.3 Planning and Reasoning | Use to show the separation between planner and grounding module; also use error analysis showing planner errors dominate after grounding improves. |
+| S5.5 Generalization / Failure Modes | Use long-tail icon semantics and cross-platform generalization as examples of remaining failures. |
+| S6 Web Data Extraction | Mention indirectly: robust visual grounding can support extraction workflows, but this paper does not itself solve structured extraction. |
+| S8 Open Challenges | Use for open challenges: long-tail semantics, data efficiency, external planner dependence, and full end-to-end reliability. |
+
+---
+
+## 15. Comparison with Related Papers
+
+| Paper | Similarity | Difference |
+|---|---|---|
+| Mind2Web | Both concern web agents and grounding | Mind2Web relies more on web task trajectories/HTML; UGround focuses on vision-only grounding. |
+| SeeAct | UGround adapts SeeAct into SeeAct-V | SeeAct uses HTML/SoM grounding candidates; SeeAct-V uses screenshot-only grounding. |
+| SeeClick | Both train GUI grounding models | UGround uses larger/more diverse synthetic data and stronger cross-platform evaluation. |
+| CogAgent | Both address GUI agents with visual-language models | CogAgent is more monolithic; UGround argues for modular planning + grounding. |
+| VisualWebArena | Both evaluate multimodal web agents | VisualWebArena is a benchmark; UGround is a grounding model and agent framework. |
+| WebVoyager | Both use visual web navigation | WebVoyager focuses on end-to-end web navigation; UGround isolates and strengthens grounding. |
+| OmniParser | Both support vision-based GUI agents | OmniParser parses UI elements; UGround directly maps descriptions to coordinates. |
+
+---
+
+## 16. How to Use This Paper in the Literature Review
+
+### Best placement
+
+Use this paper in **S5.2 Web Perception & Representation** as a core P1 paper.
+
+### Suggested paragraph
+
+Recent work has increasingly questioned the dependence of web agents on DOM, HTML, or accessibility-tree representations. Gou et al. (2025) propose UGround, a universal GUI visual grounding model, and SeeAct-V, a vision-only GUI-agent framework that maps textual element descriptions to pixel-level coordinates. Their results show that screenshot-based perception, when paired with a specialized grounding model, can achieve competitive or superior performance to agents that rely on additional structured textual inputs. This work is important because it reframes perception in web agents as a visual grounding problem rather than only a DOM parsing problem.
+
+### Suggested critical sentence
+
+However, UGround mainly solves the coordinate-level grounding problem; generalized web automation and data extraction still require stronger planning, state tracking, extraction verification, and robustness against dynamic or adversarial web environments.
+
+---
+
+## 17. Final Summary
+
+UGround is a strong P1 paper for S5.2 because it directly advances the perception and grounding layer of GUI/web agents. It argues for a human-like agent embodiment based on screenshot-only observation and pixel-level action. Its main technical contribution is a universal visual grounding model trained on a large synthetic dataset of 10M GUI elements across 1.3M screenshots. Evaluation across six benchmarks shows that UGround substantially improves grounding and can make vision-only agents competitive with systems using HTML or accessibility-tree inputs. For the thesis, the paper is valuable because it identifies visual grounding as a core bottleneck for generalized web automation, while also leaving open the larger problem of end-to-end reliable automation and structured data extraction.
+
+---
+
+## 18. Final Classification for Dataset
+
+| Field | Value |
+|---|---|
+| Primary_Category | WEB-R / GUI visual grounding |
+| Secondary_Category | WEB-F; WEB-B; WEB-P; EVAL; AGT |
+| Thesis_Section | S5.2 |
+| Paper_Type | Method + Dataset + System + Evaluation |
+| Priority | P1 |
+| Use in synthesis | Core evidence for vision-only GUI/web perception and visual grounding as a bottleneck for browser agents |
+| Keep / Exclude | Keep |

@@ -1,0 +1,448 @@
+# Paper 72 — Cognitive Architectures for Language Agents
+
+## Metadata
+
+- **Title:** Cognitive Architectures for Language Agents
+- **Authors:** Theodore R. Sumers, Shunyu Yao, Karthik Narasimhan, Thomas L. Griffiths
+- **Year:** 2024
+- **First arXiv version:** 2023
+- **Venue:** Transactions on Machine Learning Research (TMLR), 02/2024
+- **OpenReview ID:** 1i6ZCvflQJ
+- **DOI:** Not listed in the uploaded paper / no DOI found in the paper
+- **arXiv ID:** arXiv:2309.02427
+- **Thesis section:** S3 — LLM Agent Architectures
+- **Cross-links:** S5.2 — Grounding and Interface Representation; S5.3 — Planning and Decision-Making; S5.4 — Training and Learning; S5.5 — Failure Modes; S8 — Deployment
+- **Category:** AGT / COGNITIVE ARCHITECTURE / SURVEY
+- **Paper type:** Conceptual framework / survey / architecture
+- **Priority:** P1
+- **BibTeX key:** sumers2024cognitive
+
+---
+
+## Simple understanding
+
+This paper introduces **CoALA**: **Cognitive Architectures for Language Agents**.
+
+The paper is not mainly a new benchmark or a new agent system. It is a conceptual framework for organizing language agents.
+
+The authors argue that recent LLM agents are becoming more complex, but the field lacks common vocabulary and design principles. Different papers use words such as “tool use,” “actions,” “memory,” “grounding,” “reasoning,” and “planning” in inconsistent ways.
+
+CoALA solves this by borrowing ideas from cognitive science and symbolic AI. It defines a language agent in terms of:
+
+```text
+memory
+action space
+decision-making procedure
+```
+
+It divides actions into:
+
+```text
+internal actions: reasoning, retrieval, learning
+external actions: grounding actions in the world
+```
+
+For my thesis, CoALA is very important because it gives a clean conceptual structure for discussing web agents. A web agent is not just an LLM with a browser. It is a cognitive architecture with memory, internal reasoning, external actions, perception, grounding, and decision cycles.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Proposes CoALA, a conceptual framework that organizes language agents around modular memories, structured action spaces, and repeated decision-making cycles.
+
+- **Key finding:**
+  CoALA shows that many recent LLM agents can be described using a small set of architectural concepts: working memory, long-term memory, internal actions, external actions, grounding, retrieval, reasoning, learning, planning, and execution.
+
+- **Limitation:**
+  CoALA is a conceptual framework rather than an implemented web-agent system.
+  For web agents, this matters because it helps organize the literature, but it does not by itself solve DOM grounding, UI control, verification, or deployment reliability.
+
+- **Additional limitation:**
+  CoALA is broad and abstract.
+  For web agents, this matters because the thesis must instantiate the framework into web-specific components such as browser observations, DOM memory, screenshot grounding, click/type actions, extraction schemas, and verification rules.
+
+- **Additional limitation:**
+  CoALA emphasizes architecture but not benchmark-level performance.
+  For web agents, this matters because a clear architecture must still be evaluated on realistic websites, dynamic pages, long-horizon workflows, and extraction tasks.
+
+- **Additional limitation:**
+  CoALA’s memory/action categories do not automatically solve memory selection.
+  For web agents, this matters because long web histories, repeated observations, and noisy pages require relevance filtering, summarization, and evidence tracking.
+
+- **Additional limitation:**
+  CoALA does not fully specify safety constraints for external actions.
+  For web agents, this matters because actions such as submitting forms, logging in, sending messages, and making purchases require permission and risk controls.
+
+- **Connects to:**
+  ReAct, Reflexion, Toolformer, MRKL, Generative Agents, Voyager, WebGPT, web navigation systems, memory-augmented agents, and modular agent frameworks.
+
+- **Use in thesis:**
+  Use CoALA as the organizing conceptual framework for S3. It can help define what an LLM-based web agent is: an LLM embedded in a cognitive architecture with memory, internal actions, external actions, grounding, retrieval, learning, and decision-making.
+
+- **BibTeX key:**
+  sumers2024cognitive
+
+---
+
+## Thesis-ready paragraph
+
+Sumers et al. proposed Cognitive Architectures for Language Agents (CoALA), a conceptual framework that organizes LLM-based agents using ideas from cognitive science and symbolic AI. CoALA represents language agents as systems with memory components, structured action spaces, and repeated decision-making procedures. It distinguishes between internal actions, such as reasoning, retrieval, and learning over memory, and external actions, such as interacting with environments through grounding. This framework is highly relevant for web automation because a web agent must maintain working memory, retrieve prior information, reason over page state, execute browser actions, and update its internal state after observations. However, CoALA remains a general conceptual framework rather than a complete web-agent implementation. Its thesis-relevant value is that it provides a vocabulary and architecture for organizing later work, while leaving web-specific problems—DOM grounding, visual interface representation, action safety, verification, and deployment constraints—to be solved by specialized systems.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because it gives me a vocabulary for describing LLM agents clearly.
+
+Without a framework, many papers look different:
+
+```text
+ReAct talks about thoughts/actions/observations.
+Reflexion talks about memory/reflection.
+Toolformer talks about tool calls.
+MRKL talks about routers and experts.
+WebGPT talks about browsing.
+Voyager talks about skill memory.
+```
+
+CoALA helps unify them.
+
+For web agents, I can describe the system as:
+
+```text
+Working memory:
+current page, current task, recent actions, extracted fields
+
+Long-term memory:
+past websites, prior failures, reusable workflows, user preferences
+
+Internal actions:
+reason, retrieve memory, reflect, update plan
+
+External actions:
+click, type, scroll, search, call API, extract table
+
+Decision-making:
+propose actions → evaluate actions → select action → execute → observe
+```
+
+This is extremely useful for writing the S3 section and connecting it to S5.
+
+---
+
+## Important concepts to remember
+
+### 1. Cognitive architecture
+
+A cognitive architecture is a structured model of how an intelligent system stores information, selects actions, learns, and interacts with its environment.
+
+For web agents, this means the architecture should specify:
+
+```text
+what the agent remembers,
+what actions it can take,
+how it chooses actions,
+how it learns from outcomes,
+and how it grounds actions in the web environment.
+```
+
+### 2. CoALA
+
+CoALA means:
+
+```text
+Cognitive Architectures for Language Agents
+```
+
+It is a framework for describing and designing LLM-based agents.
+
+### 3. Memory
+
+CoALA distinguishes:
+
+```text
+working memory
+long-term memory
+```
+
+Long-term memory can include:
+
+```text
+episodic memory
+semantic memory
+procedural memory
+```
+
+For web agents:
+
+```text
+episodic memory = past action trajectories
+semantic memory = facts about websites/tasks
+procedural memory = reusable workflows or skills
+```
+
+### 4. Action space
+
+CoALA divides actions into:
+
+```text
+internal actions
+external actions
+```
+
+Internal actions modify the agent’s internal state.
+
+External actions interact with the world.
+
+### 5. Internal actions
+
+Internal actions include:
+
+```text
+reasoning
+retrieval
+learning
+```
+
+For a web agent:
+
+```text
+reasoning = decide next step
+retrieval = recall previous page/task info
+learning = store a new workflow or failure lesson
+```
+
+### 6. External actions
+
+External actions are grounded interactions with the environment.
+
+For web agents:
+
+```text
+click
+type
+scroll
+submit
+open URL
+download file
+call browser tool
+extract DOM
+```
+
+### 7. Decision cycle
+
+CoALA describes the agent as running repeated decision cycles:
+
+```text
+observe
+retrieve/reason
+propose action
+evaluate action
+select action
+execute action
+observe again
+```
+
+This is directly aligned with web automation.
+
+---
+
+## Key evidence from the paper
+
+### Figure 1 — NLP model vs language agent vs cognitive language agent
+
+Figure 1 distinguishes:
+
+```text
+A. LLM as text input-output model
+B. Language agent in environment feedback loop
+C. Cognitive language agent with memory, retrieval, learning, reasoning, actions
+```
+
+This figure is useful for the thesis because it visually explains the move from S2 to S3.
+
+### Figure 4 — CoALA framework
+
+Figure 4 presents the full CoALA architecture:
+
+```text
+decision procedure
+working memory
+procedural memory
+semantic memory
+episodic memory
+retrieval
+learning
+reasoning
+grounding
+external environment
+```
+
+This is one of the most important figures for S3.
+
+### Figure 5 — Action space
+
+Figure 5 divides agent actions into:
+
+```text
+internal actions: reasoning, retrieval, learning
+external actions: grounding
+```
+
+This distinction is useful for web agents because browser actions are external while reasoning and memory operations are internal.
+
+### Section 4 — CoALA framework
+
+Section 4 is the core section. It defines memory, action, and decision-making as the main architectural dimensions.
+
+### Section 6 — Actionable insights
+
+Section 6 argues that language agents should be modular, with reusable abstractions such as Memory, Action, and Agent classes.
+
+This is very relevant for deployment and software engineering of web agents.
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to ReAct
+
+ReAct is one example inside CoALA:
+
+```text
+working memory: current observation and reasoning trace
+external action: environment action
+decision cycle: thought → action → observation
+```
+
+### Connection to Reflexion
+
+Reflexion fits CoALA as:
+
+```text
+episodic memory
+learning action
+reflection over failed trajectories
+```
+
+### Connection to Toolformer
+
+Toolformer fits CoALA as tool/external action selection, but with tool calls embedded in language generation.
+
+### Connection to MRKL
+
+MRKL fits CoALA as a modular action/expert architecture with routing.
+
+### Connection to LATS
+
+LATS adds explicit planning/search to CoALA’s decision procedure.
+
+### Connection to web agents
+
+Web agents instantiate CoALA with:
+
+```text
+external environment = browser/web
+external actions = click/type/scroll/search/extract
+working memory = page state and task state
+long-term memory = prior web knowledge and trajectories
+grounding = DOM nodes, screenshots, coordinates
+```
+
+---
+
+## Connection to later thesis sections
+
+- **S3 — LLM Agent Architectures:**
+  CoALA provides the conceptual vocabulary for the whole section.
+
+- **S5.2 — Perception, Grounding, and Interface Representation:**
+  CoALA’s grounding action concept maps directly to DOM and visual grounding.
+
+- **S5.3 — Planning and Decision-Making:**
+  CoALA’s decision procedure organizes planning, proposal, evaluation, selection, and execution.
+
+- **S5.4 — Training Strategies and Generalization:**
+  CoALA’s learning actions connect to procedural, semantic, and episodic memory updates.
+
+- **S5.5 — Failure Modes:**
+  The framework helps localize failure: memory failure, retrieval failure, reasoning failure, grounding failure, or decision failure.
+
+- **S8 — Deployment Realities:**
+  CoALA’s modular design supports reusable engineering abstractions for real agents.
+
+---
+
+## Limitation connected to thesis
+
+CoALA provides the architecture language, but not the web-agent solution.
+
+For my thesis, the full web-agent problem is:
+
+```text
+instruction → perception → working memory → reasoning/retrieval → planning → grounded browser action → observation → learning/reflection → extraction → verification
+```
+
+CoALA helps describe this loop, but it does not implement:
+
+- DOM parsing,
+- screenshot interpretation,
+- web benchmarks,
+- browser action execution,
+- extraction validation,
+- safe submission policies,
+- anti-loop mechanisms,
+- cost control,
+- or robust deployment.
+
+Therefore, CoALA should be used as the **conceptual backbone** of S3, while web-specific papers in S4/S5 provide concrete implementations and evaluations.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes
+- **Depth needed:** High
+- **Main use:** Organizing framework for agent architecture
+- **Most important parts:**
+  - Abstract
+  - Figure 1
+  - Section 3.3
+  - Section 4: CoALA framework
+  - Figure 4
+  - Figure 5
+  - Section 4.1 memory
+  - Section 4.2–4.6 actions and decision-making
+  - Section 5 case studies
+  - Section 6 actionable insights
+
+---
+
+## One-sentence summary
+
+CoALA gives a cognitive-architecture framework for LLM agents based on memory, internal/external actions, and decision cycles, making it a strong conceptual backbone for web-agent architecture but not a full solution to web grounding and verification.
+
+---
+
+## BibTeX
+
+```bibtex
+@article{sumers2024cognitive,
+  title   = {Cognitive Architectures for Language Agents},
+  author  = {Sumers, Theodore R. and Yao, Shunyu and Narasimhan, Karthik and Griffiths, Thomas L.},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2024},
+  eprint  = {2309.02427},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url     = {https://openreview.net/forum?id=1i6ZCvflQJ}
+}
+```
+
+---
+
+## Source links
+
+- arXiv: https://arxiv.org/abs/2309.02427
+- OpenReview: https://openreview.net/forum?id=1i6ZCvflQJ

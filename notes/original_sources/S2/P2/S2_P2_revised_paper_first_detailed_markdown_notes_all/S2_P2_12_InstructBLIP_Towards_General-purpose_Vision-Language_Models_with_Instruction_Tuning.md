@@ -1,0 +1,232 @@
+# Paper 12 — InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning
+
+## Metadata
+
+- **Title:** InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning
+- **Year:** 2023
+- **Venue / status:** NeurIPS 2023
+- **Publication type:** Model / instruction tuning study
+- **Thesis section:** S2 — Foundations of LLMs for Agentic Tasks
+- **Cross-links:** S4 — Web Agent Systems; S5.2 — Observation and Grounding
+- **Category:** FND / MULTIMODAL / INSTRUCTION TUNING
+- **Paper type:** Model / instruction tuning study
+- **Priority:** P2
+- **BibTeX key:** dai2023instructblip
+
+---
+
+## Simple understanding
+
+InstructBLIP applies instruction tuning to vision-language models. It makes visual models better at following natural-language instructions.
+
+In simple terms, the paper can be understood like this:
+
+```text
+Problem → A limitation in language, multimodal, reasoning, grounding, or factuality capability.
+Method → A model, pretraining method, prompting method, survey, or technical system to address that limitation.
+Result → Stronger foundation capability that later supports LLM-based agents.
+```
+
+For the thesis, the first goal is to understand **what the paper itself does**.  
+Only after that, connect it to S2 and later sections.
+
+---
+
+## Notes
+
+- **Core idea:**  
+  Convert vision-language tasks into instruction-following data and train an instruction-aware visual-language architecture.
+
+- **Key finding:**  
+  Instruction tuning improves zero-shot and general-purpose vision-language performance.
+
+- **Main limitation:**  
+  It is not an autonomous agent.
+
+- **Additional limitation:**  
+  It does not plan, click, type, or verify web tasks.
+
+- **Additional limitation:**  
+  Instruction following over images is necessary for visual agents but not sufficient for web automation.
+
+- **Connects to:**  
+  S2 — Foundations of LLMs for Agentic Tasks.  
+  S4 — Web Agent Systems; S5.2 — Observation and Grounding
+
+- **Use in thesis:**  
+  Use this paper as a **P2 supporting source**. It helps explain a foundation capability or limitation, but it should not dominate the main S2 argument.
+
+- **BibTeX key:**  
+  `dai2023instructblip`
+
+---
+
+## Thesis-ready paragraph
+
+InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning contributes to the foundations of LLM-based agent systems by addressing the following idea: convert vision-language tasks into instruction-following data and train an instruction-aware visual-language architecture. The paper is useful for S2 because it explains a capability or limitation that later agent architectures depend on, such as reasoning, scaling, multimodal perception, grounding, retrieval, hallucination detection, or model efficiency. However, it should be used as a P2 supporting paper rather than as the central backbone of the section. Its relevance to web automation and data extraction is indirect but important: generalized web agents require strong language understanding, visual perception, reasoning, grounding, memory, and verification, and this paper helps explain one part of that foundation.
+
+---
+
+## Why this paper matters for my thesis
+
+My thesis studies:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+Such agents require foundation-level capabilities before they can operate on websites:
+
+```text
+language understanding
++ instruction following
++ reasoning
++ multimodal perception
++ grounding
++ retrieval
++ factuality checking
++ planning support
+```
+
+This paper matters because it contributes to one of these foundations.
+
+For this paper, the connection is:
+
+```text
+InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning
+→ Convert vision-language tasks into instruction-following data and train an instruction-aware visual-language architecture.
+→ foundation for later LLM-agent capability
+```
+
+But the paper alone does not solve generalized web automation. It must be combined with later agent architectures that include:
+
+```text
+observation → reasoning → action → feedback → memory → verification
+```
+
+---
+
+## Important concepts to remember
+
+### 1. Instruction Tuning
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 2. Vision-Language Model
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 3. Instruction-Aware Q-Former
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 4. Zero-Shot Generalization
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+### 5. Visual Instruction Following
+
+This concept is important because it explains the mechanism or capability introduced by the paper.
+
+
+---
+
+## Key evidence from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Instruction-aware architecture figure.**
+- **Dataset conversion strategy.**
+- **Held-out vision-language benchmark results.**
+
+These are the parts most likely to be useful when writing the literature review.
+
+---
+
+## Connection to earlier and later papers
+
+This paper should be positioned in the broader progression:
+
+```text
+Transformer / pretraining / scaling
+→ instruction following and reasoning
+→ multimodal perception and grounding
+→ retrieval and factuality
+→ LLM-based agents
+→ web automation and data extraction
+```
+
+For S2, the paper supports the **foundation** layer.  
+For later sections, it can be reused as background when discussing agent reasoning, perception, grounding, reliability, and limitations.
+
+---
+
+## Connection to S2
+
+This paper connects to **S2 — Foundations of LLMs for Agentic Tasks** because S2 explains the foundation-level capabilities that later make LLM-based agents possible.
+
+For this paper, the S2 connection is:
+
+```text
+Convert vision-language tasks into instruction-following data and train an instruction-aware visual-language architecture.
+→ foundation capability
+→ later agent reasoning / perception / grounding / tool use / reliability
+```
+
+It should stay **P2** because it supports the section and enriches the background, but it is not necessarily the main paper that defines the whole section.
+
+---
+
+## Limitation connected to thesis
+
+- **Limitation 1:** It is not an autonomous agent.
+- **Limitation 2:** It does not plan, click, type, or verify web tasks.
+- **Limitation 3:** Instruction following over images is necessary for visual agents but not sufficient for web automation.
+
+The general thesis limitation is:
+
+```text
+A foundation model capability is necessary but not sufficient for web agency.
+```
+
+A web agent still needs:
+
+- browser or DOM observation,
+- UI grounding,
+- action execution,
+- state tracking,
+- memory,
+- error recovery,
+- and verification of extracted data.
+
+---
+
+## Reading decision
+
+- **Read fully?** No
+- **Depth needed:** Low to medium
+- **Main use:** P2 support for S2 foundations
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main method / taxonomy / architecture figure
+  - Key result table or benchmark section
+  - Discussion and limitations
+
+---
+
+## One-sentence summary
+
+InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning is a P2 supporting paper for S2 because it explains a foundation capability or limitation that later LLM-based agents depend on, but it does not by itself solve grounded web automation.
+
+---
+
+## BibTeX
+
+```bibtex
+@misc{dai2023instructblip,
+  title = {InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning},
+  year = {2023},
+  note = {NeurIPS 2023. Verify final bibliographic metadata before thesis submission if needed.}
+}
+```

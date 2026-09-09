@@ -1,0 +1,166 @@
+# WebCoT: Enhancing Web Agent Reasoning by Reconstructing Chain-of-Thought in Reflection, Branching, and Rollback
+
+## Metadata
+
+- **Short name:** WebCoT
+- **Authors:** Minda Hu, Tianqing Fang, Jianshu Zhang, Junyu Ma, Zhisong Zhang, Jingyan Zhou, Hongming Zhang, Haitao Mi, Dong Yu, Irwin King
+- **Year:** 2025
+- **Venue/status:** Findings of EMNLP 2025
+- **DOI:** Not found in this check
+- **arXiv ID:** arXiv:2505.20013
+- **Venue/status source:** ACL Anthology + arXiv
+- **S5.3 cluster:** Reasoning-skill distillation for web agents
+- **Priority:** P1
+- **BibTeX key:** `webcot2025`
+- **Section role:** reasoning distillation
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.3 — Planning and Reasoning for Web Tasks**.
+
+The main idea is:
+
+```text
+Reconstructs inference-time reasoning algorithms into chain-of-thought rationales for reflection/lookahead, branching, and rollback, then fine-tunes the agent model on these reasoning patterns.
+```
+
+For the thesis, this paper helps explain how web agents move from **single-step reaction** to **long-horizon planning**, including decomposition, retrieval, branching, search, rollback, world models, context management, and planning-oriented training.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Reconstructs inference-time reasoning algorithms into chain-of-thought rationales for reflection/lookahead, branching, and rollback, then fine-tunes the agent model on these reasoning patterns.
+
+- **Key finding:**  
+  Distilling targeted reasoning skills improves web agents on WebVoyager, Mind2Web-Live, and SimpleQA.
+
+- **Limitation connected to thesis:**  
+  It depends on curated reasoning traces and CoT reconstruction quality; for the thesis, it improves reasoning behavior but does not by itself guarantee faithful extraction or safe deployment.
+
+- **Connects to:**  
+  Reflexion, WebDreamer, WebRollback, OpenWebVoyager, S5.4 training, S5.5 recovery.
+
+- **Use in thesis:**  
+  Use as the bridge from planning algorithms to training: reasoning patterns can be distilled into the model.
+
+---
+
+## Detailed notes
+
+- Identifies three key web-agent reasoning skills: reflection/lookahead, branching, and rollback.
+- Reflection/lookahead distills corrected trajectories into structured planning steps.
+- Branching samples multiple actions and verbalizes action selection with simulated outcomes and scores.
+- Rollback constructs examples where the model detects wrong paths and uses go-back/rollback behavior.
+- The method targets predictable agent reasoning instead of hoping that RL or generic LRMs discover the right behaviors.
+
+---
+
+## Visual / figure to remember
+
+Page 1 Figure 1 maps inference-time reasoning algorithms into reconstructed CoT for lookahead, branching, and rollback.
+
+---
+
+## Thesis relevance
+
+This paper supports the S5.3 claim that web-agent success depends on planning mechanisms that can handle:
+
+```text
+long-horizon tasks
+dynamic page changes
+uncertain search spaces
+partial observability
+error recovery
+context saturation
+irreversible actions
+subtask decomposition
+```
+
+For generalized web automation and data extraction, this matters because the agent must often:
+
+```text
+navigate to the right source
+apply filters or constraints
+extract candidate data
+compare and rank results
+backtrack after mistakes
+preserve evidence
+avoid unsafe actions
+```
+
+So S5.3 is the bridge between S5.2 grounding and S6 extraction.
+
+---
+
+## Limitation as thesis gap
+
+The thesis-relevant limitation is:
+
+```text
+planning improves action selection and long-horizon behavior,
+but it does not automatically guarantee structured extraction correctness,
+source provenance, safety, or deployment reliability.
+```
+
+This paper should therefore be used as one component in a larger thesis argument:
+
+```text
+good planning
++ reliable grounding
++ extraction schema
++ verification
++ safe deployment
+= generalized web automation and data extraction
+```
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.2** | Planning depends on observation quality and grounding reliability |
+| **S5.3** | Main relevance: decomposition, search, planning, rollback, world models, context management |
+| **S5.4** | Training/RL/distillation of planning behavior |
+| **S5.5** | Planning failures, recovery failures, context failures, irreversible-action failures |
+| **S6** | Extraction workflows require navigation + extraction + execution planning |
+| **S8** | Cost, safety, live-web deployment, human-in-the-loop, reproducibility |
+
+---
+
+## Thesis-ready paragraph
+
+WebCoT contributes to S5.3 by addressing the planning and reasoning layer of LLM-based web agents. Reconstructs inference-time reasoning algorithms into chain-of-thought rationales for reflection/lookahead, branching, and rollback, then fine-tunes the agent model on these reasoning patterns. The main lesson for the thesis is that web automation cannot be reduced to direct next-action prediction: agents need mechanisms for decomposing goals, managing history, anticipating outcomes, recovering from errors, and adapting to newly observed webpages. Distilling targeted reasoning skills improves web agents on WebVoyager, Mind2Web-Live, and SimpleQA. However, It depends on curated reasoning traces and CoT reconstruction quality; for the thesis, it improves reasoning behavior but does not by itself guarantee faithful extraction or safe deployment. This makes the paper useful for motivating the thesis gap around robust, safe, and extraction-aware planning for generalized web automation.
+
+---
+
+## One-sentence summary
+
+WebCoT shows that **Reconstructs inference-time reasoning algorithms into chain-of-thought rationales for reflection/lookahead, branching, and rollback, then fine-tunes the agent model on these reasoning patterns**, but the thesis still needs extraction-oriented verification, provenance, and deployment safety.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{webcot2025,
+  title     = {WebCoT: Enhancing Web Agent Reasoning by Reconstructing Chain-of-Thought in Reflection, Branching, and Rollback},
+  author    = {Minda Hu, Tianqing Fang, Jianshu Zhang, Junyu Ma, Zhisong Zhang, Jingyan Zhou, Hongming Zhang, Haitao Mi, Dong Yu, Irwin King},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
+  year      = {2025},
+  eprint    = {2505.20013},
+  archivePrefix = {arXiv},
+  url       = {https://aclanthology.org/2025.findings-emnlp.276/}
+}
+```
+
+---
+
+## Source links
+
+- https://aclanthology.org/2025.findings-emnlp.276/
+- https://arxiv.org/abs/2505.20013

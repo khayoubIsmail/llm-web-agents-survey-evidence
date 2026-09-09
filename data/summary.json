@@ -31,6 +31,10 @@
   "paper_note_audit": {
     "normalized_note_files": 403,
     "reliable_source_note_matches": 335,
+    "original_source_note_files": 229,
+    "shared_original_source_files": 20,
+    "records_from_shared_original_sources": 126,
+    "original_source_archive_bytes": 16173785,
     "current_cycle_note_remediations": 71,
     "current_cycle_pdf_full_text_checks": 134,
     "retained_substantive_archive_notes": 268,
@@ -42,7 +46,8 @@
   },
   "generated_date": "2026-07-26",
   "evidence_note_audit_date": "2026-09-08",
-  "release_version": "1.1.0",
+  "original_source_archive_date": "2026-09-09",
+  "release_version": "1.1.1",
   "scope": "LLM-based agents for generalized web automation and schema-guided data extraction",
   "notes": "The 403-study file is a citation-eligibility layer within the 805-study mapping corpus, not a separate screening stage."
 }

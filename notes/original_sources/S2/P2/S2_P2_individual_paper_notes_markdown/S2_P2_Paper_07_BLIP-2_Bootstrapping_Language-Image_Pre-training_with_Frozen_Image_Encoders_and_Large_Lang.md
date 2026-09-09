@@ -1,0 +1,65 @@
+# Paper 7 — BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+
+## Metadata
+
+- **Title:** BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+- **Authors:** Junnan Li, Dongxu Li, Silvio Savarese, Steven Hoi
+- **Year:** 2023
+- **Venue / status:** ICML 2023
+- **Publication type:** Peer-reviewed conference paper
+- **arXiv ID:** arXiv:2301.12597
+- **Thesis section:** S2 — Foundations of LLMs for Agentic Tasks
+- **Cross-links:** S5.2 — Observation and Grounding; S6 — Web Information Extraction
+- **Category:** FND / MULTIMODAL / VISION-LANGUAGE ALIGNMENT
+- **Paper type:** Model architecture / pretraining strategy
+- **Priority:** P2
+- **BibTeX key:** li2023blip2
+
+## Simple understanding
+
+BLIP-2 is a vision-language pretraining method that connects frozen image encoders with frozen large language models using a lightweight module called **Q-Former**.
+
+The goal is to make vision-language training more compute-efficient by reusing strong pretrained unimodal models.
+
+For the thesis, BLIP-2 matters because it shows how visual perception can be connected to LLM reasoning without training everything from scratch.
+
+## Notes
+
+- **Core idea:**  
+  Use a lightweight Querying Transformer to bridge frozen vision encoders and frozen LLMs.
+
+- **Key contribution:**  
+  Provides an efficient architecture for vision-language alignment.
+
+- **Key finding:**  
+  BLIP-2 achieves strong performance with far fewer trainable parameters than some larger multimodal models.
+
+- **Thesis limitation:**  
+  BLIP-2 focuses on image-to-text and VQA-style tasks, not browser action execution.
+
+- **Connection to web automation:**  
+  Efficient vision-language alignment is important for web agents that need to interpret screenshots, documents, charts, and interface elements.
+
+- **Use in thesis:**  
+  Use BLIP-2 to explain the modular approach to building multimodal LLMs.
+
+## Thesis-ready paragraph
+
+Li et al. proposed BLIP-2, an efficient vision-language pretraining framework that connects frozen image encoders and frozen LLMs through a lightweight Q-Former. This design reduces the cost of multimodal training while preserving strong visual representation and language generation capabilities. For web agents, BLIP-2 is relevant because it illustrates how visual perception can be aligned with LLM-based reasoning. However, it remains primarily a vision-language understanding model and does not itself implement planning, tool use, browser control, or feedback-driven action execution.
+
+## Why this paper matters for my thesis
+
+BLIP-2 matters because it explains a practical architecture for connecting visual inputs with LLMs. This is directly relevant to multimodal agents that must understand web screenshots and documents.
+
+## Reading decision
+
+- **Read fully?** No
+- **Depth needed:** Medium
+- **Main use:** Multimodal alignment foundation
+- **Most important parts:** Abstract, Figure 1, Q-Former, two-stage training
+
+## One-sentence summary
+
+BLIP-2 efficiently connects frozen vision models and frozen LLMs, supporting later multimodal agents but not providing agent execution itself.
+
+---

@@ -55,6 +55,12 @@ The supplied review archive contained 1,522 Markdown files, including individual
 
 The 71 remediations comprise the 68 no-match records plus three matched records selected for deeper priority-adjusted remediation after manual inspection. Current-cycle PDFs are not committed; the audit records extracted page counts, SHA-256 hashes, and title similarity in local working data, while `data/paper_note_audit.csv` retains the provenance and verification status needed to distinguish current rechecks from archived review evidence.
 
+## Historical source-note preservation
+
+The 335 reliable source-note mappings resolve to 229 unique historical Markdown files. Twenty are shared or merged source documents covering 126 mapped records; the remaining source files map to one register record each. The files are preserved byte-for-byte under `notes/original_sources/`, including complete merged documents rather than reconstructed fragments. `data/original_note_source_manifest.csv` maps every sourced record to its canonical final note and historical snapshot and records the snapshot's byte count, line count, layout, and SHA-256 digest.
+
+These historical snapshots provide provenance but are not the canonical synthesis corpus. The one-record-per-file notes in `notes/papers/` remain authoritative. A preserved merged file may contain batch-level synthesis or additional historical entries; their presence does not add records to the 403-paper register or authorize claim-level use. A historical source file also does not imply that its paper was independently re-downloaded in the current cycle; the current-cycle, retained-archive, and blocked-access statuses remain those recorded in `data/paper_note_audit.csv`. No historical source is fabricated for the 68 records without a reliable match.
+
 ## Publication-status verification
 
 All 403 records in the published/accepted pool were individually verified against at least one canonical source (ACM DL, IEEE Xplore, Springer, OpenReview, Semantic Scholar, or direct author confirmation). Three records (IDs: 432, 656, 686) could not be confirmed as archival-published or formally accepted and were retained in the 805-study mapping corpus but excluded from the strict citation-eligibility pool.
@@ -66,7 +72,7 @@ All 403 records in the published/accepted pool were individually verified agains
 - **Record IDs are stable.** Existing IDs will not be reassigned in future patch releases. New studies may receive new IDs appended to the corpus.
 - **Patch releases** document bibliographic corrections in the commit log. Major changes to scope or methodology will increment the version number.
 
-## Validation audit (v1.1.0)
+## Validation audit (v1.1.1)
 
 | Check | Result |
 |---|---|
@@ -76,4 +82,5 @@ All 403 records in the published/accepted pool were individually verified agains
 | CSV ↔ JSON identifier agreement | ✅ All IDs match |
 | SHA-256 checksums for all data files | ✅ All pass |
 | One normalized note per 403-pool record | ✅ 403 files; no missing or extra IDs |
+| Historical source-note archive | ✅ 229 exact files mapped to 335 records; SHA-256 verified |
 | Access exceptions prevented from claim-level use | ✅ Record 249 explicitly blocked |

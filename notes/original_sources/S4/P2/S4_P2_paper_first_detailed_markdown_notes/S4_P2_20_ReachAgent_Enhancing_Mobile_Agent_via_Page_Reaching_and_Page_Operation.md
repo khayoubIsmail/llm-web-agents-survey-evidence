@@ -1,0 +1,180 @@
+# S4 P2 Paper 20 — ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation
+
+## Metadata
+
+- **Title:** ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation
+- **Year:** 2025
+- **Venue / status:** NAACL 2025 long paper
+- **Peer-reviewed status:** Yes
+- **Publication type:** Peer-reviewed conference paper
+- **Thesis section:** S4 — mobile GUI agent training
+- **Category:** mobile agent training / page reaching and operation
+- **Priority:** P2
+- **BibTeX key:** `reachagentenhancingmobileagentviapa2025`
+
+---
+
+## Simple understanding
+
+ReachAgent improves mobile agents by decomposing tasks into page-reaching and page-operation subtasks. It focuses on the whole GUI flow, not just the most relevant current element.
+
+In simple terms:
+
+```text
+Problem → how can an AI agent interact with a web, GUI, mobile, desktop, or application environment?
+Method → add perception, planning, action, memory, API/tool use, state tracking, or browser control.
+Goal → complete real user tasks more flexibly than scripts or static chatbots.
+```
+
+This note explains the paper first, then connects it to S4 and your thesis.
+
+---
+
+## Core idea
+
+Train mobile agents to reach target pages and perform specified operations, using MobileReach and reward-based preference GUI flows.
+
+The paper is mainly about:
+
+```text
+mobile agent training / page reaching and operation
+```
+
+It contributes to the larger agent loop:
+
+```text
+observe → understand state → plan → act → receive feedback → verify / recover → complete task
+```
+
+---
+
+## Key finding / main claim
+
+ReachAgent improves step-level and task-level action accuracy over prior mobile agents by focusing on subtask completion and GUI flow quality.
+
+For S4, the important question is not only whether the method works on its benchmark, but **which part of web/GUI agency it improves**:
+
+- perception and grounding,
+- planning and reasoning,
+- action execution,
+- API/tool use,
+- memory/state tracking,
+- recovery and verification,
+- or deployment/evaluation.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading the paper, extract these points:
+
+- **Figure 1/2 showing task decomposition into Reach and Operate subtasks.**
+- **MobileReach dataset.**
+- **Reported IoU and text accuracy improvements over SOTA.**
+
+These are the most useful parts for writing a literature-review paragraph.
+
+---
+
+## Limitations
+
+- **Limitation 1:** It is mobile-specific, not a general web-browser agent.
+- **Limitation 2:** Training data and action alignment may depend on mobile app structure.
+- **Limitation 3:** Page reaching/operation helps but does not solve all long-horizon planning failures.
+
+General thesis-level limitation:
+
+```text
+Improving one agent component is not enough for generalized web automation.
+A robust web agent still needs grounding, planning, execution, verification, recovery, and safety.
+```
+
+---
+
+## Relation to S4
+
+This paper belongs in S4 because S4 discusses **LLM-based agents for web/GUI/mobile/computer automation**.
+
+Its role in S4 is:
+
+```text
+ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation
+→ mobile agent training / page reaching and operation
+→ supporting P2 source for web/GUI/computer-use agent discussion
+```
+
+Use it after explaining what the paper does. Do not introduce it only as “P2”; introduce the method or idea first.
+
+---
+
+## Relation to thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because:
+
+It is a strong peer-reviewed paper for the mobile-agent subsection of S4.
+
+For generalized web automation, the connection is:
+
+```text
+web / GUI / mobile / computer-use interaction
+→ agent observes a digital environment
+→ agent chooses actions
+→ agent extracts information or completes a workflow
+```
+
+Even when the paper is not directly about data extraction, it still helps explain the automation layer needed before extraction can be generalized.
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use as **P2 support**, not as the central backbone.
+- Use for one precise idea, architecture, benchmark, or limitation.
+- If peer-reviewed, it can support stronger claims.
+- If preprint/workshop/technical report, use it for recent trends and emerging directions.
+
+Suggested sentence:
+
+> ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation shows how mobile agent training / page reaching and operation contributes to the development of LLM-based agents for digital task automation, but its limitations indicate that generalized web automation still requires stronger grounding, verification, and recovery mechanisms.
+
+---
+
+## Reading decision
+
+- **Keep in S4 P2:** Yes
+- **Read fully?** Yes or selected sections carefully
+- **Depth needed:** Medium to high
+- **Main use:** Support S4 discussion of mobile agent training / page reaching and operation
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main architecture / method figure
+  - Dataset or benchmark section
+  - Results table
+  - Limitations / discussion
+
+---
+
+## One-sentence summary
+
+ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation is a P2 supporting paper for S4 because it explains **mobile agent training / page reaching and operation**, but it should be cited according to its venue/status and not overused beyond its evidence.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{reachagentenhancingmobileagentviapa2025,
+  title = {ReachAgent: Enhancing Mobile Agent via Page Reaching and Page Operation},
+  year = {2025},
+  note = {NAACL 2025 long paper; Peer-reviewed conference paper. Verify final bibliographic metadata before thesis submission.}
+}
+```

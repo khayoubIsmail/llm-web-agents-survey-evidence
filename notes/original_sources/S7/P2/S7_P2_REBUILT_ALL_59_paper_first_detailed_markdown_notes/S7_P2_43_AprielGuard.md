@@ -1,0 +1,213 @@
+# S7 P2 Paper 43 — AprielGuard
+
+## Metadata
+
+- **Title:** AprielGuard
+- **Year:** 2025
+- **Verified venue/status:** arXiv 2512.20293 / ServiceNow technical report
+- **Peer-reviewed status:** No confirmed accepted venue
+- **Thesis section:** S7 — Security, Safety, Robustness, Privacy, Governance, and Trustworthiness of LLM-based Agents
+- **Main category:** guardrail model for safety/adversarial/agentic workflows
+- **S7 role:** monitoring, guardrails, and runtime enforcement
+- **Priority:** P2
+- **Recommended citation strength:** Survey/report/context citation
+- **Recommended reading depth:** Low to medium
+- **BibTeX key:** `aprielguard2025`
+
+---
+
+## Simple understanding
+
+AprielGuard addresses guardrail model for safety/adversarial/agentic workflows. It is relevant to S7 because deployed LLM-based agents interact with tools, webpages, memory, users, and other agents, creating security and safety risks beyond ordinary chatbot behavior.
+
+In simple terms:
+
+```text
+Problem → LLM-based agents interact with webpages, tools, APIs, memory, users, and other agents.
+Risk → These interactions create security and safety risks beyond normal LLM prompting.
+Paper → This work studies, benchmarks, attacks, defends, monitors, or governs one of those risks.
+Goal → Make agentic systems safer, more secure, more observable, and more reliable.
+```
+
+---
+
+## Core idea
+
+Add monitoring, auditing, guardrails, runtime enforcement, or verification around agent behavior.
+
+This paper mainly contributes to:
+
+```text
+guardrail model for safety/adversarial/agentic workflows
+```
+
+In the broader S7 security pipeline, it fits here:
+
+```text
+untrusted input / tool / webpage / memory / agent communication
+→ vulnerability or policy gap
+→ attack, benchmark, monitoring, guardrail, or runtime control
+→ safer or more measurable agent behavior
+```
+
+---
+
+## Key finding / main claim
+
+Safe deployment requires controls over trajectories and actions, not only safer model responses.
+
+For S7, the important question is:
+
+```text
+What security/safety risk does this paper reveal, and what control or evaluation does it propose?
+```
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these evidence points:
+
+- **Guardrail/monitor architecture.**
+- **Policy or specification mechanism.**
+- **Safety/utility trade-off.**
+
+Also extract, if available:
+
+- threat model,
+- attacker and defender capabilities,
+- benchmark size,
+- attack success rate or safety metric,
+- defense or monitoring result,
+- affected agent architectures,
+- assumptions and limitations,
+- deployment implications.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Monitors can be evaded.
+- **Limitation 2:** Policies may be incomplete.
+- **Limitation 3:** Runtime enforcement can reduce task completion or require human oversight.
+
+General thesis-level limitation:
+
+```text
+A security paper may expose one attack surface, but generalized web automation needs layered defense:
+input filtering, tool authorization, runtime policy enforcement, memory isolation, monitoring, auditing, and human oversight.
+```
+
+---
+
+## Venue/status caution
+
+Use cautiously unless a final venue is later confirmed. Current status: **arXiv 2512.20293 / ServiceNow technical report**.
+
+For final thesis writing:
+
+```text
+confirmed conference/journal/ACM record → stronger citation
+workshop/poster/position paper → useful emerging evidence
+technical report/preprint → recent direction, cite cautiously
+submission/placeholder metadata → verify again before final bibliography
+```
+
+---
+
+## Relation to S7
+
+This paper belongs in **S7** because S7 discusses security, safety, robustness, privacy, and governance of LLM-based agents.
+
+Its role is:
+
+```text
+AprielGuard
+→ monitoring, guardrails, and runtime enforcement
+→ P2 support for security/safety/trustworthiness discussion
+```
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that can safely:
+
+```text
+read untrusted webpages
+use tools and APIs
+handle credentials and private data
+store and retrieve memory
+navigate dynamic interfaces
+interact with other agents
+avoid malicious instructions
+verify actions before execution
+log and audit decisions
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S7.
+- Extract one precise threat model or defense mechanism.
+- Extract one concrete result, benchmark, or taxonomy.
+- Extract one limitation.
+- Compare it with nearby S7 security papers.
+- If it is a preprint/workshop/report, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> AprielGuard contributes to S7 by addressing **guardrail model for safety/adversarial/agentic workflows**, showing that LLM-based web agents require layered security controls across perception, tools, memory, protocols, and runtime action execution.
+
+---
+
+## Comparison with nearby S7 papers
+
+Compare this paper with:
+
+```text
+ToolEmu / ASB / AgentHarm / AgentAuditor
+AgentDojo / Task Shield / Conseca / AgentSpec / VeriSafe Agent
+MCP Security Bench / SMCP / MCP Landscape
+MINJA / ADAM / contextual privacy audits
+Agent Smith / BadAgent / Hidden Ghost Hand / backdoor threats
+Active Environmental Injection / SnapGuard / fine-print injection / VPI-Bench
+Goal-aware misinformation / Web Fraud / IP leakage / MAS attacks
+Reliable Weak-to-Strong Monitoring / SHADE-Arena
+```
+
+---
+
+## Reading decision
+
+- **Keep in S7 P2:** Yes
+- **Read fully?** Selected sections are enough unless promoted later.
+- **Depth needed:** Low to medium
+- **Main use:** Support discussion of guardrail model for safety/adversarial/agentic workflows
+
+---
+
+## One-sentence summary
+
+AprielGuard is a P2 source for S7 because it helps explain **guardrail model for safety/adversarial/agentic workflows**, but it should be cited according to its verified venue/status and used mainly to enrich the agent security, safety, privacy, and governance discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{aprielguard2025,
+  title = {AprielGuard},
+  year = {2025},
+  note = {arXiv 2512.20293 / ServiceNow technical report. Verify final bibliographic metadata before thesis submission.}
+}
+```

@@ -1,0 +1,180 @@
+# S4 P2 Paper 34 — Agent-SAMA: State-Aware Mobile Assistant
+
+## Metadata
+
+- **Title:** Agent-SAMA: State-Aware Mobile Assistant
+- **Year:** 2025
+- **Venue / status:** arXiv preprint
+- **Peer-reviewed status:** No confirmed archival venue
+- **Publication type:** Preprint
+- **Thesis section:** S4 — state-aware GUI/mobile agents
+- **Category:** state-aware mobile agents / FSM memory
+- **Priority:** P2
+- **BibTeX key:** `agentsamastateawaremobileassistant2025`
+
+---
+
+## Simple understanding
+
+Agent-SAMA is a state-aware mobile assistant that models mobile app execution as a finite state machine. It uses app states and transitions for planning, verification, and recovery.
+
+In simple terms:
+
+```text
+Problem → how can an AI agent interact with a web, GUI, mobile, desktop, or application environment?
+Method → add perception, planning, action, memory, API/tool use, state tracking, or browser control.
+Goal → complete real user tasks more flexibly than scripts or static chatbots.
+```
+
+This note explains the paper first, then connects it to S4 and your thesis.
+
+---
+
+## Core idea
+
+Use four agents to build and exploit FSMs in real time: planning, screen parsing/state modeling, acting, reflection/recovery, and memory retention.
+
+The paper is mainly about:
+
+```text
+state-aware mobile agents / FSM memory
+```
+
+It contributes to the larger agent loop:
+
+```text
+observe → understand state → plan → act → receive feedback → verify / recover → complete task
+```
+
+---
+
+## Key finding / main claim
+
+Agent-SAMA reports higher success and recovery rates on Mobile-Eval-E, SPA-Bench, and AndroidWorld by using structured state modeling.
+
+For S4, the important question is not only whether the method works on its benchmark, but **which part of web/GUI agency it improves**:
+
+- perception and grounding,
+- planning and reasoning,
+- action execution,
+- API/tool use,
+- memory/state tracking,
+- recovery and verification,
+- or deployment/evaluation.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading the paper, extract these points:
+
+- **FSM formulation: UI screens as states and actions as transitions.**
+- **Reported 84.0% success and 71.9% recovery on Mobile-Eval-E.**
+- **Four phases: planning, execution, error recovery/verification, and knowledge retention.**
+
+These are the most useful parts for writing a literature-review paragraph.
+
+---
+
+## Limitations
+
+- **Limitation 1:** Preprint status.
+- **Limitation 2:** FSM construction may be imperfect when screens are visually similar or highly dynamic.
+- **Limitation 3:** Mobile app state modeling may not directly transfer to web pages with complex DOM states.
+
+General thesis-level limitation:
+
+```text
+Improving one agent component is not enough for generalized web automation.
+A robust web agent still needs grounding, planning, execution, verification, recovery, and safety.
+```
+
+---
+
+## Relation to S4
+
+This paper belongs in S4 because S4 discusses **LLM-based agents for web/GUI/mobile/computer automation**.
+
+Its role in S4 is:
+
+```text
+Agent-SAMA: State-Aware Mobile Assistant
+→ state-aware mobile agents / FSM memory
+→ supporting P2 source for web/GUI/computer-use agent discussion
+```
+
+Use it after explaining what the paper does. Do not introduce it only as “P2”; introduce the method or idea first.
+
+---
+
+## Relation to thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because:
+
+It is useful for discussing memory/state tracking as a solution to reactive GUI-agent limitations.
+
+For generalized web automation, the connection is:
+
+```text
+web / GUI / mobile / computer-use interaction
+→ agent observes a digital environment
+→ agent chooses actions
+→ agent extracts information or completes a workflow
+```
+
+Even when the paper is not directly about data extraction, it still helps explain the automation layer needed before extraction can be generalized.
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use as **P2 support**, not as the central backbone.
+- Use for one precise idea, architecture, benchmark, or limitation.
+- If peer-reviewed, it can support stronger claims.
+- If preprint/workshop/technical report, use it for recent trends and emerging directions.
+
+Suggested sentence:
+
+> Agent-SAMA: State-Aware Mobile Assistant shows how state-aware mobile agents / FSM memory contributes to the development of LLM-based agents for digital task automation, but its limitations indicate that generalized web automation still requires stronger grounding, verification, and recovery mechanisms.
+
+---
+
+## Reading decision
+
+- **Keep in S4 P2:** Yes
+- **Read fully?** No, selected sections are enough unless promoted later
+- **Depth needed:** Low to medium
+- **Main use:** Support S4 discussion of state-aware mobile agents / FSM memory
+- **Most important parts:**
+  - Abstract
+  - Introduction
+  - Main architecture / method figure
+  - Dataset or benchmark section
+  - Results table
+  - Limitations / discussion
+
+---
+
+## One-sentence summary
+
+Agent-SAMA: State-Aware Mobile Assistant is a P2 supporting paper for S4 because it explains **state-aware mobile agents / FSM memory**, but it should be cited according to its venue/status and not overused beyond its evidence.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{agentsamastateawaremobileassistant2025,
+  title = {Agent-SAMA: State-Aware Mobile Assistant},
+  year = {2025},
+  note = {arXiv preprint; Preprint. Verify final bibliographic metadata before thesis submission.}
+}
+```

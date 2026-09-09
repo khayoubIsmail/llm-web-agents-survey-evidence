@@ -1,0 +1,249 @@
+# S5.2 P2 Paper 16 — ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use
+
+## Metadata
+
+- **Title:** ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use
+- **Year:** 2025
+- **Verified venue/status:** arXiv 2504.07981 / OpenReview submission page
+- **Peer-reviewed status:** No confirmed accepted venue
+- **Venue note:** Keep as preprint/benchmark.
+- **Thesis section:** S5.2 — Perception, Representation, and Grounding for Web/GUI Agents
+- **Main category:** professional high-resolution GUI grounding benchmark
+- **S5.2 role:** screen/GUI perception and grounding
+- **Priority:** P2
+- **Recommended citation strength:** Support/recent-trend citation
+- **Recommended reading depth:** Low to medium
+- **BibTeX key:** `screenspotproguigrounding2025`
+
+---
+
+## Simple understanding
+
+ScreenSpot-Pro is a GUI grounding benchmark for professional high-resolution computer-use scenarios such as VSCode, AutoCAD, Photoshop, MATLAB, Office, and OS interfaces.
+
+In simple terms:
+
+```text
+Problem → Agents need to understand webpages, screens, DOM trees, HTML, UI elements, or visual layouts before they can act.
+Paper → This work improves representation, perception, grounding, compression, or interface design.
+Goal → Make the environment state more usable for LLM/VLM agents.
+```
+
+For this section, the first goal is to understand **what the paper does for perception or representation**.  
+Only after that, connect it to S5.2 and to generalized web automation.
+
+---
+
+## Core idea
+
+Evaluate whether MLLMs can ground natural-language instructions to precise UI locations in high-resolution professional applications.
+
+The paper mainly contributes to:
+
+```text
+professional high-resolution GUI grounding benchmark
+```
+
+This corresponds to the environment-understanding layer of an agent:
+
+```text
+raw webpage / screenshot / UI tree / HTML / DOM
+→ cleaned or structured representation
+→ model perception and grounding
+→ action planning
+→ execution and verification
+```
+
+---
+
+## Key finding / main claim
+
+Existing GUI grounding models perform poorly; the best model reaches only 18.9%, while ScreenSeekeR improves to 48.1% by narrowing the search area.
+
+For S5.2, the important point is not only the final benchmark score.  
+The key question is:
+
+```text
+What representation or perception bottleneck does this paper solve?
+```
+
+Common S5.2 bottlenecks include:
+
+- loss of structure when HTML is converted to text,
+- excessive DOM/accessibility-tree token cost,
+- poor GUI grounding for small UI elements,
+- high-resolution professional interfaces,
+- weak screen understanding in general VLMs,
+- lack of UI-specific training data,
+- missing memory/state representation,
+- and mismatch between human-facing UI and agent-facing action needs.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these concrete evidence points:
+
+- **1,581 instructions from 23 applications across five industries and three operating systems.**
+- **Figures showing high-resolution distribution and small target-size difficulty.**
+- **ScreenSeekeR visual search method and benchmark results.**
+
+Also extract, if available:
+
+- dataset size,
+- benchmark domains,
+- representation format,
+- model architecture or prompt strategy,
+- compression/token reduction,
+- grounding accuracy,
+- task success rate,
+- ablation results,
+- and stated limitations.
+
+---
+
+## Limitations
+
+- **Limitation 1:** No confirmed accepted venue was found.
+- **Limitation 2:** It evaluates grounding, not full task completion.
+- **Limitation 3:** Professional software screenshots may not represent all consumer web/mobile tasks.
+
+General thesis-level limitation:
+
+```text
+Better perception or representation is necessary but not sufficient.
+A generalized web agent also needs planning, memory, action execution, error recovery, and evaluation.
+```
+
+Therefore, this paper should be used as **P2 support** for S5.2, not as the only foundation for the whole section.
+
+---
+
+## Venue/status caution
+
+This should be cited as a preprint, technical report, or non-archival source unless a later peer-reviewed version is found.
+
+For final thesis writing:
+
+```text
+peer-reviewed venue → can support stronger claims
+arXiv / technical report → useful for recent trends and system ideas
+unclear venue → verify DOI/proceedings before final bibliography
+course/report source → use only as informal background, not strong evidence
+```
+
+---
+
+## Relation to S5.2
+
+This paper belongs in **S5.2** because S5.2 discusses the perception and representation layer of LLM-based agents.
+
+Its role is:
+
+```text
+ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use
+→ screen/GUI perception and grounding
+→ P2 support for perception / representation / grounding discussion
+```
+
+Use it after explaining what the paper actually contributes.  
+Do not introduce it only as “P2”; introduce the representation problem first.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents to transform messy digital environments into usable state representations.
+
+For web/data-extraction agents, this means:
+
+```text
+webpage / UI / screenshot / DOM / HTML
+→ preserve useful semantics and structure
+→ identify relevant elements or data
+→ ground actions and extraction targets
+→ act or extract reliably
+```
+
+This paper supports that pipeline by improving:
+
+```text
+screen/GUI perception and grounding
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.2.
+- Extract one precise representation/perception contribution.
+- Extract one limitation or failure mode.
+- Compare it with nearby works on HTML/DOM, visual screenshots, GUI grounding, or agent-facing interfaces.
+- If the paper is a preprint/technical report, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use contributes to S5.2 by addressing **professional high-resolution GUI grounding benchmark**, showing that the quality of environment representation strongly affects the reliability of LLM-based web and GUI agents.
+
+---
+
+## Comparison with nearby papers
+
+Compare this paper with:
+
+```text
+WebSRC / WebLM / DUAL-VCR
+HtmlRAG / DOM downsampling / UIFORMER
+ScreenAI / Ferret-UI / GUICourse / GUI-WORLD
+ScreenSpot-Pro / Phi-Ground / query-oriented pivot tasks
+AGUVIS / InfiGUIAgent / MGA / V-GEMS
+CI4A and agent-native interface proposals
+```
+
+The comparison question is:
+
+```text
+Does this paper improve text/HTML/DOM representation, visual screen understanding, GUI grounding, memory/state representation, or agent-native interaction?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.2 P2:** Yes
+- **Read fully?** Selected sections are enough unless promoted later.
+- **Depth needed:** Low to medium
+- **Main use:** Support discussion of professional high-resolution GUI grounding benchmark
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Representation/perception method
+  - Main architecture or benchmark figure
+  - Dataset/benchmark construction
+  - Main results table
+  - Ablation and limitations
+
+---
+
+## One-sentence summary
+
+ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use is a P2 source for S5.2 because it helps explain **professional high-resolution GUI grounding benchmark**, but it should be cited according to its verified venue/status and used mainly to enrich the perception/representation discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{screenspotproguigrounding2025,
+  title = {ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use},
+  year = {2025},
+  note = {arXiv 2504.07981 / OpenReview submission page. Verify final bibliographic metadata before thesis submission.}
+}
+```

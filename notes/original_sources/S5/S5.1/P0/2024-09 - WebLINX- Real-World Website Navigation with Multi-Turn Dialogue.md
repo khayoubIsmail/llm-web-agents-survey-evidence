@@ -1,0 +1,300 @@
+# Paper 304 — WebLINX: Real-World Website Navigation with Multi-Turn Dialogue
+
+## Metadata
+
+- **Title:** WebLINX: Real-World Website Navigation with Multi-Turn Dialogue
+- **Authors:** Xing Han Lù, Zdeněk Kasner, Siva Reddy
+- **Year:** 2024
+- **Venue:** Proceedings of the 41st International Conference on Machine Learning (ICML 2024), PMLR Vol. 235, pp. 33007-33056
+- **DOI:** Not listed
+- **arXiv ID:** arXiv:2402.05930
+- **Final publication status:** Final venue verified online: ICML 2024 conference paper, PMLR 235.
+- **Verification source:** PMLR: https://proceedings.mlr.press/v235/lu24e.html
+- **Thesis section:** S5.1 — Benchmarks and Evaluation
+- **Cross-links:** S4 web-agent systems; S5.2 HTML pruning and multimodal representations; S5.3 dialogue-conditioned planning; S5.4 fine-tuning; S5.5 OOD generalization; S8 human-in-the-loop deployment
+- **Category:** CONVERSATIONAL WEB NAVIGATION BENCHMARK / MULTI-TURN DIALOGUE / REAL-WORLD WEBSITES
+- **Paper type:** Dataset + benchmark + modeling/evaluation framework
+- **Priority:** P0
+- **BibTeX key:** lu2024weblinx
+
+
+---
+
+## Simple understanding
+
+WebLINX introduces conversational web navigation.
+
+Most web-agent benchmarks give the agent a single high-level task. WebLINX instead models a more realistic setting:
+
+```text
+user and navigator communicate through multi-turn dialogue
+navigator controls the browser
+task goal can be clarified or changed during interaction
+agent must predict actions and utterances
+```
+
+WebLINX contains:
+
+```text
+2,337 expert demonstrations
+over 100K actions/utterances
+155 real-world websites
+average 43 turns per demonstration
+DOM trees, screenshots, and action history
+```
+
+The paper also introduces Dense Markup Ranking (DMR), a retrieval-inspired way to prune HTML pages by selecting relevant elements.
+
+For my thesis, WebLINX is important because generalized web automation is not always a single-turn command. In real use, users steer agents through dialogue, correct them, and provide missing details.
+
+---
+
+## Notes
+
+- **Core idea:**
+  Define and benchmark conversational web navigation, where agents control a browser while communicating with users over multi-turn dialogue.
+
+- **Key finding:**
+  Fine-tuned smaller text decoders outperform zero-shot proprietary LLMs and even larger multimodal models, but all fine-tuned models struggle to generalize to unseen websites and settings.
+
+- **Limitation:**
+  WebLINX is based on static demonstrations. For generalized automation, this means alternative valid trajectories and live recovery behavior are not fully evaluated.
+
+- **Additional limitation:**
+  Turn-level similarity metrics are useful for dialogue/navigation traces but do not fully measure final task success or structured extraction correctness.
+
+- **Additional limitation:**
+  Models cannot process full DOM trees in real time, so DMR pruning is necessary. This again shows that representation cost is central.
+
+- **Additional limitation:**
+  All models struggle on OOD splits, especially new subcategories and unseen settings, showing that generalization remains unsolved.
+
+- **Connects to:**
+  Mind2Web, WebArena, VisualWebArena, conversational agents, HTML pruning, dense retrieval, and human-in-the-loop automation.
+
+- **Use in thesis:**
+  Use as the main S5.1 P0 benchmark for multi-turn conversational web navigation and human-steered automation.
+
+---
+
+## Thesis-ready paragraph
+
+WebLINX introduces the problem of conversational web navigation, where an agent controls a web browser while interacting with a user through multi-turn dialogue. The benchmark contains 2,337 expert demonstrations, more than 100K actions and utterances, and 155 real-world websites. Each state can include candidate elements, DOM trees, screenshots, user utterances, viewport information, and action history. The paper also proposes Dense Markup Ranking, a retrieval-inspired method for pruning large HTML pages into relevant elements for efficient action prediction. For this thesis, WebLINX is important because generalized web automation is not always a single-shot instruction-following problem: users often clarify, correct, and guide agents through dialogue. However, WebLINX also reveals key limitations: static demonstrations cannot fully evaluate alternative live trajectories, turn-level similarity metrics do not guarantee final task completion, and fine-tuned models still struggle to generalize to unseen websites and user scenarios.
+
+---
+
+## Why this paper matters for my thesis
+
+This paper matters because it adds the missing conversational dimension.
+
+Many benchmarks assume:
+
+```text
+one instruction → autonomous execution
+```
+
+But real users often interact like this:
+
+```text
+user asks task
+agent asks clarification
+user gives more detail
+agent acts
+user corrects
+agent continues
+```
+
+WebLINX therefore connects web automation with task-oriented dialogue and human-in-the-loop control.
+
+For deployment, this is crucial because dialogue can improve safety and steerability:
+
+```text
+do not guess → ask user → confirm → act
+```
+
+
+---
+
+## Important concepts to remember
+
+### 1. Conversational web navigation
+
+A task where the agent navigates websites while communicating with the user through dialogue.
+
+### 2. Instructor and navigator
+
+The user provides natural-language instructions; the navigator controls the browser.
+
+### 3. Dense Markup Ranking
+
+A dual-encoder/retrieval-inspired method for ranking relevant DOM elements efficiently.
+
+### 4. Turn-level evaluation
+
+Evaluation of each predicted action/utterance relative to the reference turn.
+
+### 5. Intent Match
+
+Metric checking whether predicted action type matches the reference action type.
+
+### 6. Element IoU
+
+Metric comparing selected UI element bounding boxes for element actions.
+
+### 7. Text F1 / URLF
+
+Metrics for text or URL argument similarity.
+
+### 8. OOD splits
+
+Evaluation on unseen websites, categories, geographies, or settings where the instructor lacks visual access.
+
+---
+
+## Key evidence from the paper
+
+### Dataset scale
+
+WebLINX reports 2,337 demonstrations, over 100K interactions, 155 websites, and average 43 turns.
+
+### Unique benchmark setting
+
+The paper emphasizes that WebLINX is the first large-scale benchmark featuring real-world websites with multi-turn dialogue.
+
+### DMR motivation
+
+Full DOM trees can contain thousands of elements, making direct LLM input too slow or infeasible.
+
+### Model comparison
+
+The paper evaluates 19 models across 8 architectures.
+
+### Main result
+
+Fine-tuned smaller decoders surpass zero-shot LLMs such as GPT-4V, but all models struggle to generalize to unseen websites/settings.
+
+### Safety/deployment relevance
+
+The paper’s impact statement emphasizes human supervision and warns against deploying autonomous navigation models without safeguards.
+
+---
+
+## Connection to earlier and later papers
+
+### Connection to Mind2Web
+
+Both Mind2Web and WebLINX use real websites and action traces.
+
+Mind2Web focuses on single-task action prediction.
+
+WebLINX adds dialogue and human steering.
+
+### Connection to WebArena
+
+WebArena focuses on executable functional evaluation.
+
+WebLINX focuses on large-scale demonstrations and turn-level action/utterance prediction.
+
+### Connection to VisualWebArena
+
+VisualWebArena adds visual grounding.
+
+WebLINX combines DOM, screenshots, dialogue, and history.
+
+### Connection to real deployment
+
+WebLINX is closer to assistant-like workflows because the user can clarify, correct, and guide the agent.
+
+---
+
+## Connection to later thesis sections
+
+- **S5.1 — Benchmarks and Evaluation:**
+  Use as the core multi-turn conversational web navigation benchmark.
+- **S5.2 — Perception and Grounding:**
+  Dense Markup Ranking and multimodal state representation.
+- **S5.3 — Planning:**
+  Dialogue-conditioned task evolution and action prediction.
+- **S5.4 — Training:**
+  Fine-tuning on expert demonstrations.
+- **S5.5 — Failure Modes:**
+  OOD generalization failure, wrong clicks, situational unawareness, incomplete context.
+- **S7 — Safety:**
+  Human supervision, clarification, and unintended action mitigation.
+- **S8 — Deployment:**
+  Conversational human-in-the-loop agents for real web tasks.
+
+---
+
+## Limitation connected to thesis
+
+WebLINX advances benchmark design but does not fully solve generalized web automation.
+
+It improves:
+
+```text
+multi-turn user-agent interaction + real website demonstrations + action-specific metrics
+```
+
+but it does not fully solve:
+
+- live alternative trajectories,
+- final functional task validation,
+- robust OOD generalization,
+- structured data extraction verification,
+- safe execution of irreversible actions,
+- and long-term deployment reliability.
+
+For the thesis, WebLINX supports the claim that generalized web automation should include human-in-the-loop dialogue and not only autonomous single-shot control.
+
+---
+
+## Reading decision
+
+- **Read fully?** Yes
+- **Depth needed:** Very high
+- **Main use:** S5.1 P0 benchmark/evaluation cornerstone paper
+- **Most important parts:**
+  - Abstract
+  - Table 1 comparison with benchmarks
+  - Dataset and dialogue setup
+  - Evaluation splits
+  - Dense Markup Ranking
+  - Evaluation metrics
+  - Main results
+  - Qualitative error analysis
+  - Impact statement
+
+---
+
+## One-sentence summary
+
+WebLINX extends web-agent benchmarks to real-world multi-turn dialogue, showing that human-steered navigation is important but OOD generalization and live task success remain unsolved.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{lu2024weblinx,
+  title     = {WebLINX: Real-World Website Navigation with Multi-Turn Dialogue},
+  author    = {L{\`u}, Xing Han and Kasner, Zden{{e}}k and Reddy, Siva},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  pages     = {33007--33056},
+  year      = {2024},
+  volume    = {235},
+  series    = {Proceedings of Machine Learning Research},
+  publisher = {PMLR},
+  eprint    = {2402.05930},
+  archivePrefix = {arXiv},
+  url       = {https://proceedings.mlr.press/v235/lu24e.html}
+}
+```
+
+---
+
+## Source links
+
+- https://proceedings.mlr.press/v235/lu24e.html
+- https://arxiv.org/abs/2402.05930
+- https://mcgill-nlp.github.io/weblinx/

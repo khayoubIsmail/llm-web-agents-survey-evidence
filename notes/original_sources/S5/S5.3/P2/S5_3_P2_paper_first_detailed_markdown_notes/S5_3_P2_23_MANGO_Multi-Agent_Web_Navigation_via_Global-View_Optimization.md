@@ -1,0 +1,251 @@
+# S5.3 P2 Paper 23 — MANGO: Multi-Agent Web Navigation via Global-View Optimization
+
+## Metadata
+
+- **Title:** MANGO: Multi-Agent Web Navigation via Global-View Optimization
+- **Year:** 2026
+- **Verified venue/status:** arXiv 2604.18779
+- **Peer-reviewed status:** No confirmed accepted venue
+- **Thesis section:** S5.3 — Planning, Search, Memory, and Long-Horizon Decision-Making for LLM Agents
+- **Main category:** global-view optimization / Thompson sampling for web navigation
+- **S5.3 role:** global-view navigation and budget allocation
+- **Priority:** P2
+- **Recommended citation strength:** Support/recent-trend citation
+- **Recommended reading depth:** Low to medium
+- **BibTeX key:** `mangomultiwebnavigation2026`
+
+---
+
+## Simple understanding
+
+MANGO improves web navigation by giving agents a global view of the website before navigation. Instead of always starting from the homepage, it crawls/searches for candidate URLs and uses Thompson Sampling to allocate navigation attempts.
+
+In simple terms:
+
+```text
+Problem → Web/GUI/computer-use agents fail when they act reactively, forget context, cannot recover, or explore inefficiently.
+Paper → This work adds planning, search, memory, reflection, world modeling, skill reuse, or context management.
+Goal → Make the agent more reliable on long-horizon interactive tasks.
+```
+
+The first goal is to understand **what the paper changes inside the agent decision loop**.  
+Only after that should it be connected to S5.3 and the thesis.
+
+---
+
+## Core idea
+
+Use global website structure, URL candidate generation, multi-armed bandit URL selection, and episodic memory to improve web navigation efficiency.
+
+The paper mainly contributes to:
+
+```text
+global-view optimization / Thompson sampling for web navigation
+```
+
+This belongs to the agent planning layer:
+
+```text
+task instruction
+→ current observation/state
+→ planning or search
+→ candidate actions
+→ evaluation/reflection/correction
+→ execution
+→ memory/context update
+```
+
+---
+
+## Key finding / main claim
+
+MANGO reports higher success on WebVoyager and WebWalkerQA, especially for complex websites where starting from the root URL wastes budget.
+
+For S5.3, the important question is:
+
+```text
+How does the method improve decision-making beyond one-step ReAct-style action selection?
+```
+
+Typical S5.3 improvements include:
+
+- planning ahead,
+- exploring multiple branches,
+- reflecting on failure,
+- backtracking after mistakes,
+- using memory and replay,
+- summarizing long contexts,
+- learning reusable skills,
+- simulating action consequences,
+- and allocating interaction budget more intelligently.
+
+---
+
+## Key evidence to extract from the paper
+
+When reading this paper, extract these concrete evidence points:
+
+- **Figure 1 shows global structure analysis, MAB URL selection, web navigation, reflection, and episodic memory.**
+- **Thompson Sampling over candidate URLs with Beta distributions.**
+- **Reported 63.6% success on WebVoyager with GPT-5-mini and 52.5% on WebWalkerQA.**
+
+Also extract, if available:
+
+- planning/search algorithm,
+- memory representation,
+- action space,
+- benchmark and task horizon,
+- success-rate improvement,
+- compute/cost trade-off,
+- ablation study,
+- and failure modes.
+
+---
+
+## Limitations
+
+- **Limitation 1:** It is an arXiv preprint with no confirmed accepted venue.
+- **Limitation 2:** It depends on crawling/search access and may be limited by dynamic or private websites.
+- **Limitation 3:** It optimizes URL starting points, but still relies on a downstream navigation agent.
+
+General thesis-level limitation:
+
+```text
+Better planning does not automatically mean generalized web automation is solved.
+The agent still needs perception, grounding, execution, verification, recovery, and safety.
+```
+
+Therefore, this paper should be used as **P2 support**, not as the only foundation for S5.3.
+
+---
+
+## Venue/status caution
+
+This should be cited as a preprint, technical report, position paper, or submission unless a later peer-reviewed version is confirmed.
+
+For final thesis writing:
+
+```text
+peer-reviewed main conference/journal → stronger citation
+system/demo paper → useful architecture/tooling citation
+arXiv/technical report/submission → recent trend; cite cautiously
+```
+
+---
+
+## Relation to S5.3
+
+This paper belongs in **S5.3** because S5.3 discusses the planning and decision-making layer of LLM-based agents.
+
+Its role is:
+
+```text
+MANGO: Multi-Agent Web Navigation via Global-View Optimization
+→ global-view navigation and budget allocation
+→ P2 support for planning/search/memory/long-horizon decision-making
+```
+
+Use it after explaining its mechanism.  
+Do not introduce it only as “P2”; introduce the planning problem first.
+
+---
+
+## Relation to the thesis topic
+
+Your thesis topic is:
+
+```text
+LLM-based agents for generalized web automation and data extraction
+```
+
+This paper matters because generalized web automation requires agents that can handle multi-step and uncertain web tasks.
+
+For web automation and data extraction, planning is needed for:
+
+```text
+finding target pages
+navigating multi-page sites
+avoiding irrelevant branches
+recovering from wrong clicks
+remembering previous attempts
+using tools or skills
+verifying whether extraction is complete
+```
+
+This paper supports that pipeline by improving:
+
+```text
+global-view navigation and budget allocation
+```
+
+---
+
+## How to use this paper in the literature review
+
+Recommended use:
+
+- Use it as **P2 support** in S5.3.
+- Extract one exact planning/search/memory contribution.
+- Extract one limitation or failure mode.
+- Compare it with P0/P1 planning papers and core agent architectures.
+- If the paper is a preprint, phrase claims cautiously.
+
+Suggested thesis sentence:
+
+> MANGO: Multi-Agent Web Navigation via Global-View Optimization contributes to S5.3 by addressing **global-view optimization / Thompson sampling for web navigation**, showing that long-horizon web and GUI agents require more than reactive action selection: they need structured planning, exploration, memory, and feedback-driven correction.
+
+---
+
+## Comparison with nearby papers
+
+Compare this paper with:
+
+```text
+ReAct / Reflexion / Tree of Thoughts / LATS
+WebPilot / ExACT / Agent Alpha
+R2D2 / episodic memory / ReSum / AgentProg
+BacktrackAgent / ReflAct / WAC
+MANGO / global-view navigation
+WebXSkill / ASI / programmatic skills
+LiteWebAgent / OpenWebAgent-style toolkits
+```
+
+The comparison question is:
+
+```text
+Does this paper improve planning by search, memory, reflection, backtracking, world modeling, skill reuse, or context management?
+```
+
+---
+
+## Reading decision
+
+- **Keep in S5.3 P2:** Yes
+- **Read fully?** Selected sections are enough unless promoted later.
+- **Depth needed:** Low to medium
+- **Main use:** Support discussion of global-view optimization / Thompson sampling for web navigation
+- **Most important parts to read:**
+  - Abstract and introduction
+  - Planning/search/memory architecture
+  - Main algorithm figure
+  - Benchmark setup
+  - Main results table
+  - Ablation and limitations
+
+---
+
+## One-sentence summary
+
+MANGO: Multi-Agent Web Navigation via Global-View Optimization is a P2 source for S5.3 because it helps explain **global-view optimization / Thompson sampling for web navigation**, but it should be cited according to its verified venue/status and used mainly to enrich the planning and long-horizon decision-making discussion.
+
+---
+
+## BibTeX placeholder
+
+```bibtex
+@misc{mangomultiwebnavigation2026,
+  title = {MANGO: Multi-Agent Web Navigation via Global-View Optimization},
+  year = {2026},
+  note = {arXiv 2604.18779. Verify final bibliographic metadata before thesis submission.}
+}
+```

@@ -1,0 +1,194 @@
+# SynthAgent: Adapting Web Agents with Synthetic Supervision
+
+## Metadata
+
+- **Short name:** SynthAgent
+- **Authors:** Zhaoyang Wang, Yiming Liang, Xuchao Zhang, Qianhui Wu, Siwei Han, Anson Bastos, Rujia Wang, Chetan Bansal, Baolin Peng, Jianfeng Gao, Saravan Rajmohan, Huaxiu Yao
+- **Year used for thesis:** 2026
+- **Venue/status:** arXiv preprint / Microsoft Research publication page; no final peer-reviewed venue confirmed in this check
+- **DOI:** Not found
+- **arXiv ID:** arXiv:2511.06101
+- **Venue/status source:** online re-check + uploaded PDF metadata
+- **S5.4 cluster:** synthetic supervision / task and trajectory refinement
+- **Priority:** P1
+- **BibTeX key:** `wang2026synthagent`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.4 — Training Strategies and Generalization**.
+
+The central idea is:
+
+```text
+Adapts web agents to new websites through fully synthetic supervision with categorized exploration, task refinement, trajectory refinement, and fine-tuning.
+```
+
+For your thesis, this paper helps explain how web agents become better through training, adaptation, synthetic supervision, reward modeling, memory, distillation, environment synthesis, or reinforcement learning.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Adapts web agents to new websites through fully synthetic supervision with categorized exploration, task refinement, trajectory refinement, and fine-tuning.
+
+- **Key finding:**  
+  Dual refinement improves synthetic data quality by reducing hallucinated tasks and noisy/misaligned trajectories.
+
+- **Limitation connected to thesis:**  
+  Synthetic adaptation still depends on the quality of exploration, conflict detection, and trajectory refinement; extraction requires verifiable field-level outputs.
+
+- **Connects to:**  
+  Explorer, OS-Genesis, Agent-as-Annotators, INFINITEWEB.
+
+- **Use in thesis:**  
+  Use as the main citation for the 'Adapting Web Agents with Synthetic Supervision' line.
+
+---
+
+## Detailed notes
+
+### 1. Training signal
+
+The paper contributes one of the following S5.4 training signals:
+
+```text
+synthetic supervision / task and trajectory refinement
+```
+
+This matters because web agents cannot rely only on prompt engineering. They need supervision from demonstrations, trajectories, reward models, environment interaction, synthetic tasks, or self-improvement loops.
+
+### 2. What is being learned?
+
+The agent is learning some combination of:
+
+```text
+web navigation policy
+element grounding
+action formatting
+planning routines
+recovery behavior
+memory use
+reward-guided behavior
+environment-specific procedural knowledge
+```
+
+The exact emphasis for this paper is:
+
+```text
+Adapts web agents to new websites through fully synthetic supervision with categorized exploration, task refinement, trajectory refinement, and fine-tuning.
+```
+
+### 3. Why it improves generalization
+
+The paper’s generalization mechanism is:
+
+```text
+Dual refinement improves synthetic data quality by reducing hallucinated tasks and noisy/misaligned trajectories.
+```
+
+This is important for your thesis because generalized web automation must work across unseen pages, changing DOM structures, different visual layouts, and new workflows.
+
+### 4. Why it is not enough for your thesis
+
+The paper still leaves a thesis-specific gap:
+
+```text
+Synthetic adaptation still depends on the quality of exploration, conflict detection, and trajectory refinement; extraction requires verifiable field-level outputs.
+```
+
+For **LLM-based agents for generalized web automation and data extraction**, the missing piece is usually not only task success. The agent must also produce correct, structured, verifiable outputs.
+
+---
+
+## Thesis relevance
+
+This paper supports the argument that web-agent training is moving from isolated prompting toward data- and feedback-driven improvement.
+
+The important S5.4 claim is:
+
+```text
+web agents need training signals aligned with long-horizon interaction,
+not only language modeling or static instruction following.
+```
+
+For data extraction, this becomes:
+
+```text
+navigation training
++ grounding training
++ extraction schema training
++ source-evidence verification
++ safety-aware rewards
+```
+
+Most S5.4 papers improve the first two or three components, but they rarely optimize the full extraction pipeline.
+
+---
+
+## Limitation as thesis gap
+
+Use this paper to motivate the following gap:
+
+```text
+Current web-agent training improves task completion,
+but it usually does not jointly optimize:
+- structured extraction correctness
+- field-level schema adherence
+- source provenance
+- evidence preservation
+- safe irreversible actions
+- cross-site generalization
+- reproducible and affordable deployment
+```
+
+So this paper is useful, but it should not be presented as a complete solution for your thesis.
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.2** | Training depends on webpage representation, screenshots, DOM/AxTree, grounding, and context |
+| **S5.3** | Training improves planning, decomposition, rollback, and long-horizon behavior |
+| **S5.5** | Training changes failure modes: loops, wrong page, failure to recover, hallucinated tasks, noisy trajectories |
+| **S6** | Extraction needs training data and rewards for schema, evidence, and field correctness |
+| **S8** | Deployment depends on cost, reproducibility, safety, open data/models, and environment realism |
+
+---
+
+## Thesis-ready paragraph
+
+SynthAgent contributes to S5.4 by showing that web-agent behavior can be improved through a specific training or adaptation mechanism: Adapts web agents to new websites through fully synthetic supervision with categorized exploration, task refinement, trajectory refinement, and fine-tuning. The main result is that Dual refinement improves synthetic data quality by reducing hallucinated tasks and noisy/misaligned trajectories. For the thesis, this paper is important because it moves web agents beyond prompt-only behavior and toward learned, reusable, or self-improving interaction skills. However, Synthetic adaptation still depends on the quality of exploration, conflict detection, and trajectory refinement; extraction requires verifiable field-level outputs. Therefore, it should be used as evidence for progress in web-agent training while preserving the thesis gap around generalized, source-verifiable web data extraction.
+
+---
+
+## One-sentence summary
+
+SynthAgent shows that **Adapts web agents to new websites through fully synthetic supervision with categorized exploration, task refinement, trajectory refinement, and fine-tuning**, but generalized web data extraction still needs schema-aware, source-verifiable, and safety-aware training objectives.
+
+---
+
+## BibTeX
+
+```bibtex
+@article{wang2026synthagent,
+  title         = {SynthAgent: Adapting Web Agents with Synthetic Supervision},
+  author        = {Zhaoyang Wang, Yiming Liang, Xuchao Zhang, Qianhui Wu, Siwei Han, Anson Bastos, Rujia Wang, Chetan Bansal, Baolin Peng, Jianfeng Gao, Saravan Rajmohan, Huaxiu Yao},
+  journal       = {arXiv preprint / Microsoft Research publication page; no final peer-reviewed venue confirmed in this check},
+  year          = {2026},
+  url           = {https://arxiv.org/abs/2511.06101},
+  eprint        = {2511.06101},
+  archivePrefix = {arXiv}
+}
+```
+
+---
+
+## Source links
+
+- https://arxiv.org/abs/2511.06101
+- https://arxiv.org/abs/2511.06101

@@ -1,0 +1,137 @@
+# From Pixels to UI Actions: Learning to Follow Instructions via Graphical User Interfaces
+
+## Metadata
+
+- **Short name:** Pix2Act
+- **Authors:** Peter Shaw, Mandar Joshi, James Cohan, Jonathan Berant, Panupong Pasupat, Hexiang Hu, Urvashi Khandelwal, Kenton Lee, Kristina Toutanova
+- **Year:** 2023
+- **Venue/status:** NeurIPS 2023
+- **DOI:** Not listed in NeurIPS page
+- **arXiv ID:** arXiv:2306.00245
+- **Venue/status source:** NeurIPS proceedings
+- **S5.2 cluster:** Pixel-only GUI action model
+- **Priority:** P1
+- **BibTeX key:** `pix2act2023`
+
+---
+
+## Simple understanding
+
+This paper belongs to **S5.2: Perception, Grounding, and Web-State Representation**.
+
+The main idea is:
+
+```text
+Builds a GUI agent using only screenshots and generic mouse/keyboard actions, without DOM, HTML, or task-specific action spaces.
+```
+
+For the thesis, the important point is that this paper helps explain how web/GUI agents represent the current interface before making a decision. It is not only about planning. It is about how the agent sees the page, selects useful information, grounds actions, and keeps the observation manageable.
+
+---
+
+## Four-note template
+
+- **Core idea:**  
+  Builds a GUI agent using only screenshots and generic mouse/keyboard actions, without DOM, HTML, or task-specific action spaces.
+
+- **Key finding:**  
+  With Pix2Struct pretraining and tree-search policy improvement, Pix2Act can outperform human crowdworkers on MiniWoB++ in the proposed pixel-only setting.
+
+- **Limitation connected to thesis:**  
+  Strong mainly on controlled GUI benchmarks and weaker on broader web tasks such as WebShop; for the thesis, it proves pixel-only action is possible but not yet enough for generalized web extraction.
+
+- **Connects to:**  
+  Pix2Struct, SeeClick, CogAgent, UGround, OS-Atlas, UI-TARS.
+
+- **Use in thesis:**  
+  Use to explain the shift from DOM-based web agents to human-like pixel-based GUI agents.
+
+---
+
+## Detailed notes
+
+- Observation is a screenshot augmented with instruction and cursor state.
+- Action space is generic: click, drag, key press, scroll.
+- Does not use DOM or structured interface metadata.
+- Shows pretraining on screenshot parsing is highly valuable for downstream GUI action learning.
+
+---
+
+## Thesis relevance
+
+This paper supports the S5.2 claim that web agents require a reliable interface representation before they can act. For generalized web automation and data extraction, this matters because an agent must identify the right elements, ignore irrelevant page noise, preserve source evidence, and avoid grounding mistakes that cascade through a workflow.
+
+The direct thesis connection is:
+
+```text
+better page representation / grounding
+→ better action selection
+→ more reliable web automation
+→ more trustworthy data extraction
+```
+
+---
+
+## Limitation as thesis gap
+
+The remaining gap is not simply model accuracy. The thesis-relevant gap is that current systems still do not jointly solve:
+
+```text
+robust page perception
++ reliable element grounding
++ long-context observation reduction
++ live-web changes
++ structured extraction correctness
++ source-grounded verification
++ cost efficiency
+```
+
+So this paper should be used as part of the S5.2 technical decomposition, not as a final solution.
+
+---
+
+## Cross-links
+
+| Later section | Connection |
+|---|---|
+| **S5.1** | Benchmark/evaluation context for web and GUI agents |
+| **S5.2** | Main relevance: perception, representation, grounding, context selection |
+| **S5.3** | Better observations improve planning and next-action decisions |
+| **S5.5** | Grounding, parsing, and context errors become failure modes |
+| **S6** | Web data extraction needs grounded fields, tables, values, and evidence |
+| **S8** | Cost, latency, live-web robustness, and deployment constraints |
+
+---
+
+## Thesis-ready paragraph
+
+Pix2Act contributes to the S5.2 discussion by showing that web/GUI-agent reliability depends on how the interface is represented and grounded before action execution. Builds a GUI agent using only screenshots and generic mouse/keyboard actions, without DOM, HTML, or task-specific action spaces. The main lesson for the thesis is that perception and grounding are not auxiliary modules; they directly determine whether an LLM-based agent can select the correct element, preserve the relevant page state, and execute a valid action. However, Strong mainly on controlled GUI benchmarks and weaker on broader web tasks such as WebShop; for the thesis, it proves pixel-only action is possible but not yet enough for generalized web extraction. This makes the paper useful for motivating the thesis gap around generalized, robust, and verifiable web automation and data extraction.
+
+---
+
+## One-sentence summary
+
+Pix2Act shows that **Builds a GUI agent using only screenshots and generic mouse/keyboard actions, without DOM, HTML, or task-specific action spaces**, but the thesis still needs robust grounding and extraction-oriented verification.
+
+---
+
+## BibTeX
+
+```bibtex
+@inproceedings{pix2act2023,
+  title     = {From Pixels to UI Actions: Learning to Follow Instructions via Graphical User Interfaces},
+  author    = {Peter Shaw, Mandar Joshi, James Cohan, Jonathan Berant, Panupong Pasupat, Hexiang Hu, Urvashi Khandelwal, Kenton Lee, Kristina Toutanova},
+  booktitle = {Advances in Neural Information Processing Systems 36},
+  year      = {2023},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/6c52a8a4fadc9129c6e1d1745f2dfd0f-Abstract-Conference.html},
+  eprint    = {2306.00245},
+  archivePrefix = {arXiv}
+}
+```
+
+---
+
+## Source links
+
+- https://proceedings.neurips.cc/paper_files/paper/2023/hash/6c52a8a4fadc9129c6e1d1745f2dfd0f-Abstract-Conference.html
+- https://arxiv.org/abs/2306.00245
