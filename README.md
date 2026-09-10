@@ -6,7 +6,7 @@
 [![Studies: 805](https://img.shields.io/badge/Mapping%20Corpus-805%20studies-4c8cbf)](data/summary.json)
 [![Evidence Pool: 403](https://img.shields.io/badge/Published%2FAccepted%20Pool-403%20studies-2e7d32)](data/summary.json)
 [![Paper notes: 403](https://img.shields.io/badge/Normalized%20Notes-403-success)](notes/papers/)
-[![Synthesis sources: 403](https://img.shields.io/badge/Paper--Specific%20Sources-403-success)](notes/original_sources/)
+[![A1 status](https://img.shields.io/badge/A1%20Full--Text%20Audit-In%20Progress-orange)](data/a1_live_note_audit_summary.json)
 
 **Companion evidence repository for the survey manuscript under revision for the International Journal of Data Science and Analytics.**
 
@@ -21,7 +21,7 @@ This repository is the machine-readable and auditable evidence register supporti
 > **Khayoub, I., Chadi, M.-A., Mousannif, H., & Ait Mohamed, F. (2026).**  
 > *LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey.*
 
-It exposes the systematic-mapping corpus, the strict published/accepted evidence pool, paper-level reading notes, paper-specific synthesis sources, note-remediation provenance, historical note snapshots, and explicit access exceptions.
+It exposes the systematic-mapping corpus, the strict published/accepted evidence pool, paper-level notes, paper-specific synthesis sources, remediation provenance, historical source-note snapshots, and explicit access exceptions.
 
 ## Corpus at a glance
 
@@ -51,16 +51,16 @@ llm-web-agents-survey-evidence/
 │   ├── summary.json
 │   ├── studies_805_mapping_corpus.{csv,json}
 │   ├── studies_403_published_accepted_pool.{csv,json}
-│   ├── records_excluded_from_strict_pool.csv
-│   ├── bibliographic_patch_log.csv
-│   ├── note_source_overrides.csv
-│   ├── note_remediation_log.csv
 │   ├── paper_note_audit.csv
+│   ├── a1_fulltext_rechecks.csv              # papers explicitly re-read in A1 cycle
+│   ├── a1_live_note_audit.csv                # current 403-note remediation state
+│   ├── a1_live_note_audit_summary.json       # current aggregate A1 status
+│   ├── note_remediation_log.csv
 │   └── historical_original_note_source_manifest.csv
 ├── notes/
-│   ├── papers/                          # 403 normalized paper notes
-│   ├── original_sources/                # 403 one-paper-per-file synthesis sources
-│   └── historical_source_snapshots/     # 229 exact historical source files
+│   ├── papers/                               # 403 live normalized paper notes
+│   ├── original_sources/                     # 403 generated paper-specific source records
+│   └── historical_source_snapshots/          # 229 exact historical source files
 ├── docs/
 │   ├── A1_MANUSCRIPT_AND_RESPONSE_TEXT.md
 │   ├── DATA_DICTIONARY.md
@@ -68,72 +68,88 @@ llm-web-agents-survey-evidence/
 │   ├── METHODOLOGY_AND_VERSIONING.md
 │   └── PAPER_SYNTHESIS_SOURCES.md
 ├── scripts/
+│   ├── audit_a1_live_notes.py
+│   ├── apply_a1_fulltext_rechecks.py
+│   └── materialize_paper_synthesis_sources.py
 ├── CITATION.cff
 ├── LICENSE.md
 └── README.md
 ```
 
-## 403 normalized notes + 403 paper-specific synthesis sources
+## A1 remediation status — important
 
-The current release deliberately exposes two one-to-one paper-level layers:
+The repository is currently undergoing a **paper-by-paper A1 full-text remediation**. Earlier versions overstated the evidence state by describing historical source-note matches as if they established completed full-text reading for all accessible papers. The reviewer-facing audit showed that some live notes still contained prospective language such as `When reading this paper, extract...`, and many records still carried the status `existing review archive audited; no current-cycle PDF verification`.
 
-- **`notes/papers/` — 403 normalized notes.** Exactly one canonical note for every record in the published/accepted pool.
-- **`notes/original_sources/` — 403 paper-specific synthesis source records.** Exactly one source record for every one of the same 403 register IDs. The filenames match `notes/papers/` by stable record ID.
+Those conditions are now treated as **unresolved**, not as completed reading evidence. This repository therefore **does not currently claim that all 403 included papers have been independently re-read in the current A1 remediation cycle**.
 
-The synthesis-source files contain the detailed paper-specific analysis and provenance used by the audit. They are review artifacts, not copies of copyrighted publisher PDFs.
+The current status is generated from the live notes and should be read directly from:
 
-### Where the source material came from
+- [`data/a1_live_note_audit_summary.json`](data/a1_live_note_audit_summary.json) — aggregate live state;
+- [`data/a1_live_note_audit.csv`](data/a1_live_note_audit.csv) — one audit row per included paper;
+- [`data/a1_fulltext_rechecks.csv`](data/a1_fulltext_rechecks.csv) — explicit log of papers actually re-read/reverified during the A1 remediation.
 
-The historical note audit found **335 reliable source-note mappings**. Those mappings originally resolved to only **229 unique Markdown files** because 20 historical files were merged syntheses covering 126 records. Release v1.2.0 separates the paper-specific synthesis layer from that historical storage layout so a reviewer can inspect one source record per paper without following merged multi-paper files.
+**Closure rule:** A1 is not closed until the live audit contains zero prospective reading-TODO/template blocks and zero unresolved `no current-cycle ... verification` records, except any explicitly documented full-text access exception.
 
-**68 records had no reliable historical paper-specific source match.** They were selected for remediation rather than being assigned invented historical provenance. Where full text was obtainable, the paper was independently retrieved, extracted, title-checked, and synthesized; current-cycle page counts, SHA-256 hashes, and title-similarity evidence are recorded in `data/paper_note_audit.csv`. Across the audit, **134 papers** received current-cycle PDF verification.
+## What counts as a remediated paper
 
-The repository documents full-text analysis for **402 of the 403 records**. **Record 249** (*Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement*) remains the sole access exception. It is publication-eligible for traceability but blocked from claim-level synthesis until a complete paper copy is obtained. The 403rd source file records that exception rather than fabricating a full-text reading. See `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`.
+A file being present in `notes/papers/` or `notes/original_sources/` does **not** by itself prove that the paper was read. A record moves out of the A1 remediation queue only when its live note contains evidence actually checked against the paper at the tier-appropriate depth.
+
+For **P0/P1**, that means deep full-text critical analysis with concrete methods/results, limitations, evidentiary role, survey relevance, and evidence locations. For **P2/P3**, it means complete full-text reading with a structured synthesis of relevance, methodology, concrete results or benchmark properties where applicable, contributions, limitations, and evidence locations. Generic summaries and future-reading checklists do not qualify.
+
+## 403 normalized notes + 403 paper-specific synthesis files
+
+The repository exposes two one-to-one file layers:
+
+- **`notes/papers/` — 403 live normalized notes**, one per published/accepted register record.
+- **`notes/original_sources/` — 403 generated paper-specific synthesis-source files**, keyed by the same stable record IDs.
+
+The second layer improves traceability but is generated from the live note corpus; it does not independently establish reading completion. When a live note is remediated from full text, the materialization workflow updates the corresponding paper-specific source file.
 
 ## Historical provenance
 
-The byte-for-byte historical Markdown sources from the previous provenance release are retained under `notes/historical_source_snapshots/`. The frozen historical mapping is `data/historical_original_note_source_manifest.csv`:
+The historical note audit found **335 reliable title/source mappings** resolving to **229 unique Markdown files** because 20 historical files were shared/merged syntheses. Exact historical snapshots are retained under `notes/historical_source_snapshots/` and in the immutable provenance commit `83aca98913e2202d912778917ff7c5b92ff67399`.
 
-- 335 register records with reliable historical source mappings;
-- 229 unique historical source files;
-- 20 shared/merged historical files;
-- 126 records represented within those shared files.
+Historical source-note matching establishes where prior review material came from; it **does not prove a current-cycle full-text reread**. This distinction is why the historical archive is kept separate from the current A1 reread ledger.
 
-The exact v1.1.1 provenance state is permanently recoverable at commit `83aca98913e2202d912778917ff7c5b92ff67399`.
+The earlier structural audit also identified 68 records without a reliable historical source-note match and performed a remediation pass based on independently retrieved/title-checked papers where available. Those historical counts remain reproducible, but the current A1 audit applies a stricter standard to all 403 live notes.
 
-## Reading protocol
+## Full-text access exception
 
-Candidate studies underwent an initial full-text assessment for eligibility and P0–P4 priority classification. P4 records were excluded as peripheral/out of scope. All accessible P0–P3 papers in the 403-study pool were then read in full at tier-appropriate depth:
+**Record 249**, *Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement*, remains the explicit unresolved access exception. Publisher/bibliographic metadata and the authors' public implementation are available, but a complete verifiable manuscript has not been obtained. The record is therefore blocked from claim-level synthesis rather than reconstructed from metadata or code. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
 
-- **P0/P1:** deep critical analysis and detailed methods/results/limitations/evidence notes.
-- **P2/P3:** complete full-text reading with lighter structured analysis focused on relevance, method, results, contributions, and limitations.
+## Methodological intent
 
-Priority governs analytical depth and evidence use; it is not a risk-of-bias or publication-quality score. See `docs/METHODOLOGY_AND_VERSIONING.md`.
+The intended review protocol classifies papers P0–P4 after full-text eligibility assessment. P4 records are excluded. P0/P1 are intended for deep critical reading; P2/P3 for complete full-text reading with lighter structured synthesis. Priority is an evidence-use/analysis-depth classification, not a risk-of-bias score.
+
+Because the A1 audit found live evidence inconsistent with claiming that this protocol had been fully documented for every record, the repository now distinguishes **intended protocol**, **historical source provenance**, and **currently verified rereading evidence**. See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md).
 
 ## Key audit artifacts
 
 | Artifact | Purpose |
 |---|---|
-| `data/paper_note_audit.csv` | One provenance/full-text/claim-use row per included paper |
-| `data/note_remediation_log.csv` | 71 notes created or replaced during remediation |
-| `notes/papers/` | 403 canonical normalized notes |
-| `notes/original_sources/` | 403 one-paper-per-file synthesis-source records |
+| `data/a1_live_note_audit_summary.json` | Current aggregate A1 remediation state |
+| `data/a1_live_note_audit.csv` | One current A1 status row per live paper note |
+| `data/a1_fulltext_rechecks.csv` | Explicit ledger of papers actually re-read in the A1 cycle |
+| `data/paper_note_audit.csv` | Paper-level provenance/full-text/claim-use state |
+| `notes/papers/` | 403 canonical live notes |
+| `notes/original_sources/` | 403 generated one-paper-per-file synthesis records |
 | `notes/historical_source_snapshots/` | Exact historical provenance snapshots |
-| `docs/PAPER_SYNTHESIS_SOURCES.md` | Semantics of the new 403-file source layer |
-| `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md` | Record 249 retrieval history and synthesis restriction |
+| `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md` | Access-exception evidence and synthesis restriction |
 
-## Validation summary — v1.2.0
+## Validation status
 
-| Check | Result |
+| Check | Status |
 |---|---|
 | 805-study corpus unique IDs | ✅ 805 |
 | Published/accepted pool | ✅ 403 |
-| Normalized paper notes | ✅ 403 |
-| Paper-specific synthesis-source records | ✅ 403 |
+| Normalized paper-note files | ✅ 403 |
+| Generated paper-specific source files | ✅ 403 |
 | Historical source mappings | ✅ 335 mappings → 229 exact files |
-| Current-cycle PDF checks | ✅ 134 |
-| Documented full-text analyses | ✅ 402 |
-| Full-text access exceptions | ⚠️ 1 — record 249, blocked from claim-level use |
+| Live TODO/template-free evidence corpus | 🔄 **A1 remediation in progress** |
+| Current-cycle full-text verification for every accessible paper | 🔄 **A1 remediation in progress** |
+| Full-text access exception | ⚠️ Record 249 blocked from claim-level use |
+
+Do not infer A1 completion from the 403/403 file counts. **The generated A1 audit is authoritative for completion status.**
 
 ## Citation
 
@@ -159,6 +175,6 @@ Repository-authored bibliographic metadata, review coding, documentation, and sy
 
 <div align="center">
 
-*Evidence register v1.2.0 · Released 2026-09-10 · CC BY 4.0*
+*Evidence register v1.2.0 · A1 evidence remediation active · CC BY 4.0*
 
 </div>
