@@ -45,10 +45,10 @@
     "access_exception_record_ids": [
       249
     ],
-    "current_cycle_full_text_rechecks_or_pdf_checks": 161,
-    "records_still_without_current_cycle_full_text_verification": 241,
-    "retained_archive_only_records": 241,
-    "a1_verified_rereads_logged": 27
+    "current_cycle_full_text_rechecks_or_pdf_checks": 169,
+    "records_still_without_current_cycle_full_text_verification": 233,
+    "retained_archive_only_records": 233,
+    "a1_verified_rereads_logged": 60
   },
   "generated_date": "2026-07-26",
   "evidence_note_audit_date": "2026-09-08",
