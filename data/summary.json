@@ -23,7 +23,11 @@
     "Workshop/non-archival": 10,
     "Excluded after publication-status validation": 3
   },
-  "excluded_record_ids": [432, 656, 686],
+  "excluded_record_ids": [
+    432,
+    656,
+    686
+  ],
   "paper_note_audit": {
     "normalized_note_files": 403,
     "paper_specific_synthesis_source_files": 403,
@@ -38,7 +42,13 @@
     "retained_substantive_archive_notes": 268,
     "full_text_analysis_documented": 402,
     "full_text_access_exceptions": 1,
-    "access_exception_record_ids": [249]
+    "access_exception_record_ids": [
+      249
+    ],
+    "current_cycle_full_text_rechecks_or_pdf_checks": 136,
+    "records_still_without_current_cycle_full_text_verification": 266,
+    "retained_archive_only_records": 266,
+    "a1_verified_rereads_logged": 2
   },
   "generated_date": "2026-07-26",
   "evidence_note_audit_date": "2026-09-08",
