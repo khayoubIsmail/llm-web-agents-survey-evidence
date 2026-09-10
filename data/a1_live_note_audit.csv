@@ -1,20 +1,20 @@
 record_id,title,section_priority,has_exact_when_reading_todo,has_template_evidence_block,no_current_cycle_verification,has_concrete_numeric_evidence_signal,claim_use_status,a1_status,note_file
-1,Attention Is All You Need,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0001.md
-2,BERT- Pre-training of Deep Bidirectional Transformers for Language Understanding,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0002.md
-3,Language Models are Few-Shot Learners,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0003.md
-4,Self-consistency improves chain of thought reasoning in language models,S2 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0004.md
-5,Training language models to follow instructions with human feedback,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0005.md
+1,Attention Is All You Need,S2 / P0,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0001.md
+2,BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding,S2 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0002.md
+3,Language Models are Few-Shot Learners,S2 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0003.md
+4,Self-Consistency Improves Chain of Thought Reasoning in Language Models,S2 / P0,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0004.md
+5,Training language models to follow instructions with human feedback,S2 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0005.md
 6,Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,S2 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0006.md
-7,Improving Language Understanding by Generative Pre-Training,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0007.md
-8,Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0008.md
-9,Finetuned Language Models Are Zero-Shot Learners,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0009.md
-11,Large Language Models are Zero-Shot Reasoners,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0011.md
-12,Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0012.md
-13,Visual Instruction Tuning,S2 / P1,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0013.md
-14,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0014.md
+7,Improving Language Understanding by Generative Pre-Training,S2 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0007.md
+8,Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,S2 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0008.md
+9,Finetuned Language Models Are Zero-Shot Learners,S2 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0009.md
+11,Large Language Models are Zero-Shot Reasoners,S2 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0011.md
+12,Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,S2 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0012.md
+13,Visual Instruction Tuning,S2 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0013.md
+14,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,S2 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0014.md
 17,"BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",S2 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0017.md
 19,An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale,S2 / P2,True,True,False,False,paper-specific note ready for synthesis,needs-a1-full-text-remediation,notes/papers/0019.md
-20,Training Compute-Optimal Large Language Models,S2 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0020.md
+20,Training Compute-Optimal Large Language Models,S2 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0020.md
 21,Flamingo: a Visual Language Model for Few-Shot Learning,S2 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0021.md
 22,Emergent Abilities of Large Language Models,S2 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0022.md
 23,BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models,S2 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0023.md
@@ -45,13 +45,13 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 63,Thinking LLMs: General Instruction Following with Thought Generation,S2 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0063.md
 64,PRefLexOR: Preference-based Recursive Language Modeling for Exploratory Optimization of Reasoning and Agentic Thinking,S2 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0064.md
 65,Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-Adaptive Planning Agent,S2 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0065.md
-68,ReAct- Synergizing Reasoning and Acting in Language Models,S3 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0068.md
-69,Reflexion- Language Agents with Verbal Reinforcement Learning,S3 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0069.md
-70,Toolformer- Language Models Can Teach Themselves to Use Tools,S3 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0070.md
-73,Cognitive Architectures for Language Agents,S3 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0073.md
+68,ReAct: Synergizing Reasoning and Acting in Language Models,S3 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0068.md
+69,Reflexion: Language Agents with Verbal Reinforcement Learning,S3 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0069.md
+70,Toolformer: Language Models Can Teach Themselves to Use Tools,S3 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0070.md
+73,Cognitive Architectures for Language Agents,S3 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0073.md
 74,The Rise and Potential of Large Language Model Based Agents A Survey,S3 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0074.md
-75,Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models,S3 / P1,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0075.md
-76,A Survey on Large Language Model based Autonomous Agents,S3 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0076.md
+75,"Language Agent Tree Search Unifies Reasoning, Acting, and Planning in Language Models",S3 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0075.md
+76,A Survey on Large Language Model based Autonomous Agents,S3 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0076.md
 78,Self-Refine: Iterative Refinement with Self-Feedback,S3 / P2,True,True,False,False,paper-specific note ready for synthesis,needs-a1-full-text-remediation,notes/papers/0078.md
 79,ART: Automatic Multi-step Reasoning and Tool-use for Large Language Models,S3 / P2,True,True,False,False,paper-specific note ready for synthesis,needs-a1-full-text-remediation,notes/papers/0079.md
 80,HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face,S3 / P2,True,True,False,False,paper-specific note ready for synthesis,needs-a1-full-text-remediation,notes/papers/0080.md

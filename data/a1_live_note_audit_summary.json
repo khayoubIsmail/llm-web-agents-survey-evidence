@@ -1,10 +1,10 @@
 {
   "live_notes": 403,
-  "exact_when_reading_todo": 146,
-  "template_evidence_block": 170,
-  "no_current_cycle_verification": 260,
-  "numeric_evidence_signal": 114,
-  "needs_a1_full_text_remediation": 285,
+  "exact_when_reading_todo": 145,
+  "template_evidence_block": 169,
+  "no_current_cycle_verification": 241,
+  "numeric_evidence_signal": 122,
+  "needs_a1_full_text_remediation": 266,
   "blocked_full_text_unavailable": 1,
   "audit_rule": "A note containing a reading TODO/template or lacking current-cycle verification is not counted here as A1-remediated."
 }
