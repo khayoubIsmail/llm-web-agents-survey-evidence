@@ -1,3 +1,3 @@
-# Historical note snapshots must retain their exact source bytes. Disable line-
-# ending normalization and whitespace warnings for this provenance-only archive.
-notes/original_sources/** -text -whitespace
+# Exact historical note snapshots are retained under a dedicated provenance-only
+# archive. Disable line-ending normalization and whitespace warnings for it.
+notes/historical_source_snapshots/** -text -whitespace

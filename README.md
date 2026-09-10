@@ -5,215 +5,138 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightblue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Studies: 805](https://img.shields.io/badge/Mapping%20Corpus-805%20studies-4c8cbf)](data/summary.json)
 [![Evidence Pool: 403](https://img.shields.io/badge/Published%2FAccepted%20Pool-403%20studies-2e7d32)](data/summary.json)
-[![Checksums: verified](https://img.shields.io/badge/SHA--256%20Checksums-Verified-success)](data/summary.json)
+[![Paper notes: 403](https://img.shields.io/badge/Normalized%20Notes-403-success)](notes/papers/)
+[![Synthesis sources: 403](https://img.shields.io/badge/Paper--Specific%20Sources-403-success)](notes/original_sources/)
 
-**Companion data repository for the survey manuscript under revision for the International Journal of Data Science and Analytics.**
+**Companion evidence repository for the survey manuscript under revision for the International Journal of Data Science and Analytics.**
 
 </div>
 
 ---
 
-## 📋 About
+## About
 
-This repository is the **evidence register** — the machine-readable, auditable corpus — that underpins all empirical claims made in the survey:
+This repository is the machine-readable and auditable evidence register supporting the survey:
 
 > **Khayoub, I., Chadi, M.-A., Mousannif, H., & Ait Mohamed, F. (2026).**  
-> *LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey.*  
-> Submitted to the World Wide Web (WWW) Journal.
+> *LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey.*
 
-It provides transparency into the study-selection pipeline, evidence-use tiers, publication-status verification, paper-specific notes, and strict exclusion decisions. The note audit distinguishes evidence rechecked from retrieved full text in the current remediation cycle, evidence retained from the supplied review archive, and unresolved access exceptions.
+It exposes the systematic-mapping corpus, the strict published/accepted evidence pool, paper-level reading notes, paper-specific synthesis sources, note-remediation provenance, historical note snapshots, and explicit access exceptions.
 
----
-
-## 📊 Corpus at a Glance
+## Corpus at a glance
 
 | Layer | Count |
-|---|---|
-| Identification ledger (author-approved) | 3,462 |
-| After normalization & deduplication | 3,455 |
-| Excluded during screening / eligibility | 2,643 |
+|---|---:|
+| Identification ledger | 3,462 |
+| After normalization and deduplication | 3,455 |
 | Provisional inclusions | 812 |
-| Post-inclusion reconciliation (duplicates / artifacts removed) | −7 |
 | **Final systematic-mapping corpus** | **805** |
-| Published / accepted citation-eligibility pool | **403** |
+| **Published/accepted citation-eligibility pool** | **403** |
 | Strict pool exclusions after final validation | 3 |
 
-### Priority tier distribution
+### Priority tiers
 
 | Tier | Meaning | Mapping (805) | Eligible (403) |
-|---|---|---|---|
-| **P0** | Cornerstone — directly defines scope or method | 20 | 18 |
-| **P1** | Primary — directly cited for a specific claim | 179 | 98 |
-| **P2** | Supporting / extending — cited for context or comparison | 444 | 204 |
-| **P3** | Peripheral / historical / recency context | 162 | 83 |
+|---|---|---:|---:|
+| P0 | Cornerstone | 20 | 18 |
+| P1 | Primary evidence | 179 | 98 |
+| P2 | Supporting/extending evidence | 444 | 204 |
+| P3 | Contextual/historical evidence | 162 | 83 |
 
-### Publication status (mapping corpus)
+## Repository structure
 
-| Status category | Count |
-|---|---|
-| Archival published | 374 |
-| Preprint / technical report | 367 |
-| Workshop / conditional | 12 |
-| Archival accepted | 29 |
-| Unconfirmed / other | 23 |
-
----
-
-## 🗂️ Repository Structure
-
-```
+```text
 llm-web-agents-survey-evidence/
-│
 ├── data/
-│   ├── summary.json                              # Corpus totals and category counts
-│   ├── studies_805_mapping_corpus.csv            # Full 805-study reconciled corpus
-│   ├── studies_805_mapping_corpus.json           # JSON equivalent
-│   ├── studies_403_published_accepted_pool.csv   # 403 citation-eligible studies
-│   ├── studies_403_published_accepted_pool.json  # JSON equivalent
-│   ├── records_excluded_from_strict_pool.csv     # 3 strict exclusions (IDs: 432, 656, 686)
-│   ├── bibliographic_patch_log.csv               # Bibliographic correction audit log
-│   ├── note_source_overrides.csv                 # Manually verified title/source matches
-│   ├── note_remediation_log.csv                  # Notes created or replaced in the audit
-│   ├── paper_note_audit.csv                      # One provenance/status row per included paper
-│   └── original_note_source_manifest.csv         # Record-to-original-source SHA-256 mapping
-│
-├── notes/papers/                                 # 403 normalized paper-specific notes
-├── notes/original_sources/                       # 229 exact historical source-note files
-│
+│   ├── summary.json
+│   ├── studies_805_mapping_corpus.{csv,json}
+│   ├── studies_403_published_accepted_pool.{csv,json}
+│   ├── records_excluded_from_strict_pool.csv
+│   ├── bibliographic_patch_log.csv
+│   ├── note_source_overrides.csv
+│   ├── note_remediation_log.csv
+│   ├── paper_note_audit.csv
+│   └── historical_original_note_source_manifest.csv
+├── notes/
+│   ├── papers/                          # 403 normalized paper notes
+│   ├── original_sources/                # 403 one-paper-per-file synthesis sources
+│   └── historical_source_snapshots/     # 229 exact historical source files
 ├── docs/
-│   ├── DATA_DICTIONARY.md                        # Field definitions for all CSV/JSON columns
-│   ├── A1_MANUSCRIPT_AND_RESPONSE_TEXT.md         # Copy-ready revision and reviewer response
-│   ├── FULL_TEXT_ACCESS_EXCEPTIONS.md            # Unresolved access attempts and synthesis rule
-│   └── METHODOLOGY_AND_VERSIONING.md             # Screening, reading depth, audit, version policy
-│
-├── scripts/                                      # Reproducible note matching and audit builders
-│
-├── CITATION.cff                                  # Machine-readable citation metadata (CFF 1.2.0)
-├── LICENSE.md                                    # CC BY 4.0
-└── README.md                                     # This file
+│   ├── A1_MANUSCRIPT_AND_RESPONSE_TEXT.md
+│   ├── DATA_DICTIONARY.md
+│   ├── FULL_TEXT_ACCESS_EXCEPTIONS.md
+│   ├── METHODOLOGY_AND_VERSIONING.md
+│   └── PAPER_SYNTHESIS_SOURCES.md
+├── scripts/
+├── CITATION.cff
+├── LICENSE.md
+└── README.md
 ```
 
----
+## 403 normalized notes + 403 paper-specific synthesis sources
 
-## 🔍 Data Files
+The current release deliberately exposes two one-to-one paper-level layers:
 
-### `data/studies_805_mapping_corpus.{csv,json}`
-The **complete systematic-mapping corpus** of 805 unique studies. Every study that passed eligibility screening is represented here regardless of publication status — including preprints and workshop papers. This file is the authoritative source for all mapping claims in the manuscript.
+- **`notes/papers/` — 403 normalized notes.** Exactly one canonical note for every record in the published/accepted pool.
+- **`notes/original_sources/` — 403 paper-specific synthesis source records.** Exactly one source record for every one of the same 403 register IDs. The filenames match `notes/papers/` by stable record ID.
 
-### `data/studies_403_published_accepted_pool.{csv,json}`
-The **strict citation-eligibility subset**: 403 studies confirmed as archival-published or formally accepted for publication. These are the only records eligible to support direct, citeable empirical claims in the final manuscript. This pool is a proper subset of the 805-study corpus.
+The synthesis-source files contain the detailed paper-specific analysis and provenance used by the audit. They are review artifacts, not copies of copyrighted publisher PDFs.
 
-### `data/records_excluded_from_strict_pool.csv`
-Three records retained in the broader mapping landscape but removed from the strict published/accepted pool after final validation:
+### Where the source material came from
 
-| Record ID | Exclusion reason |
+The historical note audit found **335 reliable source-note mappings**. Those mappings originally resolved to only **229 unique Markdown files** because 20 historical files were merged syntheses covering 126 records. Release v1.2.0 separates the paper-specific synthesis layer from that historical storage layout so a reviewer can inspect one source record per paper without following merged multi-paper files.
+
+**68 records had no reliable historical paper-specific source match.** They were selected for remediation rather than being assigned invented historical provenance. Where full text was obtainable, the paper was independently retrieved, extracted, title-checked, and synthesized; current-cycle page counts, SHA-256 hashes, and title-similarity evidence are recorded in `data/paper_note_audit.csv`. Across the audit, **134 papers** received current-cycle PDF verification.
+
+The repository documents full-text analysis for **402 of the 403 records**. **Record 249** (*Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement*) remains the sole access exception. It is publication-eligible for traceability but blocked from claim-level synthesis until a complete paper copy is obtained. The 403rd source file records that exception rather than fabricating a full-text reading. See `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`.
+
+## Historical provenance
+
+The byte-for-byte historical Markdown sources from the previous provenance release are retained under `notes/historical_source_snapshots/`. The frozen historical mapping is `data/historical_original_note_source_manifest.csv`:
+
+- 335 register records with reliable historical source mappings;
+- 229 unique historical source files;
+- 20 shared/merged historical files;
+- 126 records represented within those shared files.
+
+The exact v1.1.1 provenance state is permanently recoverable at commit `83aca98913e2202d912778917ff7c5b92ff67399`.
+
+## Reading protocol
+
+Candidate studies underwent an initial full-text assessment for eligibility and P0–P4 priority classification. P4 records were excluded as peripheral/out of scope. All accessible P0–P3 papers in the 403-study pool were then read in full at tier-appropriate depth:
+
+- **P0/P1:** deep critical analysis and detailed methods/results/limitations/evidence notes.
+- **P2/P3:** complete full-text reading with lighter structured analysis focused on relevance, method, results, contributions, and limitations.
+
+Priority governs analytical depth and evidence use; it is not a risk-of-bias or publication-quality score. See `docs/METHODOLOGY_AND_VERSIONING.md`.
+
+## Key audit artifacts
+
+| Artifact | Purpose |
 |---|---|
-| 432 | Could not confirm archival published / accepted status |
-| 656 | Could not confirm archival published / accepted status |
-| 686 | Could not confirm archival published / accepted status |
+| `data/paper_note_audit.csv` | One provenance/full-text/claim-use row per included paper |
+| `data/note_remediation_log.csv` | 71 notes created or replaced during remediation |
+| `notes/papers/` | 403 canonical normalized notes |
+| `notes/original_sources/` | 403 one-paper-per-file synthesis-source records |
+| `notes/historical_source_snapshots/` | Exact historical provenance snapshots |
+| `docs/PAPER_SYNTHESIS_SOURCES.md` | Semantics of the new 403-file source layer |
+| `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md` | Record 249 retrieval history and synthesis restriction |
 
-### `data/bibliographic_patch_log.csv`
-Audit log of all bibliographic corrections applied after the initial screening round — including title normalizations, venue canonicalizations, year corrections, and identifier updates. Provides a full traceable history of metadata changes.
-
-### `data/summary.json`
-Machine-readable totals and category counts. Validated and committed directly. All SHA-256 checksums for the corpus files pass independently.
-
-### `data/paper_note_audit.csv`
-One row for each of the 403 included papers, linking the register record to its normalized note, original note source, remediation provenance, required review standard, current-cycle full-text verification (when performed), and claim-use status.
-
-### `data/note_remediation_log.csv`
-The 71 paper notes created or replaced after the title/coverage audit: 68 records without a reliable paper-specific source match and three additional notes selected for deeper priority-adjusted remediation after manual review.
-
-### `data/original_note_source_manifest.csv`
-Record-level provenance for the 335 papers with a reliable original source note. It links each final note to the preserved historical source file and records the exact byte count, line count, shared/standalone layout, and SHA-256 digest. The 335 mappings resolve to 229 unique source files because 20 original documents contain notes for multiple papers.
-
-### `notes/papers/`
-Exactly one normalized Markdown note per record in the 403-paper register. P0/P1 notes follow the deep critical-analysis standard; P2/P3 notes use a lighter but complete structure centered on relevance, method, results, contribution, and limitations. The repository does not redistribute the source PDFs.
-
-### `notes/original_sources/`
-Byte-for-byte snapshots of the 229 verified historical Markdown source files used by 335 register records. These files preserve the pre-normalization provenance trail and may contain several paper notes when the original source was a merged synthesis. They are supplementary historical evidence; `notes/papers/` remains the canonical final corpus. See [`notes/original_sources/README.md`](notes/original_sources/README.md).
-
----
-
-## 📖 Field Definitions
-
-See [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) for full field-by-field definitions. Key fields:
-
-| Field | Description |
-|---|---|
-| `record_id` | Stable integer ID within the 805-study corpus |
-| `priority` | Evidence tier: P0 / P1 / P2 / P3 (not a risk-of-bias score) |
-| `publication_status` | Full verified status (published, accepted, preprint, workshop, etc.) |
-| `status_category` | Normalized category used in summary statistics |
-| `bibliography_eligibility` | Whether record enters the strict 403 pool |
-| `identifier` | DOI, OpenReview URL, arXiv ID, or other canonical identifier |
-| `verification_source` | Audit trail for the metadata/status confirmation |
-
----
-
-## ⚙️ Methodology Summary
-
-The corpus was built through a staged screening and evidence-assessment pipeline:
-
-```
-3,462 candidate records (author-approved ledger)
-  └─ Normalization & deduplication ──► 3,455
-       └─ Screening & eligibility ────► 812 provisional inclusions
-            └─ Post-inclusion audit ──► 805 final unique studies
-                 └─ Status verification ► 403 published/accepted pool
-                      └─ Strict exclusions ► 3 records removed
-```
-
-Candidate papers underwent an **initial full-text assessment used for eligibility and priority classification**. P4 records were excluded as peripheral or out of scope; the final 403-paper published/accepted pool contains P0–P3 records. P0/P1 papers received deep critical analysis and detailed notes. P2/P3 papers were read in full using a lighter structured analysis focused on relevance, method, results, contribution, and limitations.
-
-The consolidated note record contains full-text analysis for 402 papers: 134 source PDFs were independently retrieved, extracted, hashed, and title-checked during the current remediation cycle, while 268 substantive paper-specific notes were retained from the supplied review archive after title and coverage auditing. Record 249 remains an explicit access exception and is blocked from claim-level synthesis until a complete paper copy is obtained. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
-
-For provenance inspection, the repository also preserves 229 exact historical source-note files mapped to 335 register records. Their SHA-256 digests and record links are published in `data/original_note_source_manifest.csv`. These snapshots do not replace the final 403-note corpus and do not change the full-text verification counts.
-
-Screening, eligibility, coding, evidence extraction, and synthesis were conducted by **Ismail Khayoub** and **Firdaous Ait Mohamed**, cross-checked for consistency. **Mohamed-Amine Chadi** and **Hajar Mousannif** performed final analytical verification and audit.
-
-See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md) for the full protocol.
-
----
-
-## 🏷️ Validation Summary
-
-All release artifacts were independently validated before this commit:
+## Validation summary — v1.2.0
 
 | Check | Result |
 |---|---|
-| 805-study corpus — record count | ✅ 805 unique IDs, no duplicates |
-| 403-pool — subset of 805 | ✅ Fully contained within the 805-study corpus |
-| Strict exclusions count | ✅ Exactly 3 (records 432, 656, 686) |
-| CSV ↔ JSON identifier agreement | ✅ All IDs match |
-| Duplicate record IDs | ✅ None |
-| Normalized paper-note count | ✅ 403 files for 403 unique register IDs |
-| Current-cycle note remediations | ✅ 71 records documented |
-| Current-cycle full-text retrieval/title check | ✅ 134 records; one documented title-version lineage case |
-| Historical original-source archive | ✅ 229 files mapped to 335 records; SHA-256 verified |
-| Full-text access exceptions | ⚠️ 1 (record 249; blocked from claim-level synthesis) |
-| SHA-256 checksums | ✅ All pass |
+| 805-study corpus unique IDs | ✅ 805 |
+| Published/accepted pool | ✅ 403 |
+| Normalized paper notes | ✅ 403 |
+| Paper-specific synthesis-source records | ✅ 403 |
+| Historical source mappings | ✅ 335 mappings → 229 exact files |
+| Current-cycle PDF checks | ✅ 134 |
+| Documented full-text analyses | ✅ 402 |
+| Full-text access exceptions | ⚠️ 1 — record 249, blocked from claim-level use |
 
----
+## Citation
 
-## 📝 How to Cite
-
-If you use this evidence register in your own research, please cite both the survey manuscript and this repository:
-
-### Survey manuscript (BibTeX)
-```bibtex
-@article{khayoub2026llmwebagents,
-  author    = {Khayoub, Ismail and Chadi, Mohamed-Amine and
-               Mousannif, Hajar and {Ait Mohamed}, Firdaous},
-  title     = {{LLM-Based Agents for Generalized Web Automation
-                and Schema-Guided Data Extraction: A Survey}},
-  journal   = {World Wide Web},
-  year      = {2026},
-  note      = {Submitted}
-}
-```
-
-### Evidence register (BibTeX)
 ```bibtex
 @dataset{khayoub2026evidenceregister,
   author    = {Khayoub, Ismail and Chadi, Mohamed-Amine and
@@ -221,41 +144,21 @@ If you use this evidence register in your own research, please cite both the sur
   title     = {{Evidence Register for LLM-Based Agents for Generalized
                 Web Automation and Schema-Guided Data Extraction: A Survey}},
   year      = {2026},
-  version   = {1.1.1},
+  version   = {1.2.0},
   publisher = {GitHub},
   url       = {https://github.com/khayoubIsmail/llm-web-agents-survey-evidence},
   license   = {CC BY 4.0}
 }
 ```
 
-Or use the `CITATION.cff` file in the root of this repository for automatic citation via GitHub's **Cite this repository** button.
+## License
 
----
-
-## 👥 Authors
-
-| Name | Role | ORCID |
-|---|---|---|
-| **Ismail Khayoub** | Lead author, corpus construction, screening, coding, evidence extraction | [0009-0009-5677-8392](https://orcid.org/0009-0009-5677-8392) |
-| **Mohamed-Amine Chadi** | Co-author, analytical verification | [0000-0003-3260-0978](https://orcid.org/0000-0003-3260-0978) |
-| **Hajar Mousannif** | Co-author, analytical verification | [0000-0002-1307-4215](https://orcid.org/0000-0002-1307-4215) |
-| **Firdaous Ait Mohamed** | Co-author, screening, coding, evidence extraction | [0009-0009-6131-1439](https://orcid.org/0009-0009-6131-1439) |
-
----
-
-## ⚖️ License
-
-The bibliographic metadata, review coding, documentation, and other original material in this repository are licensed under the  
-**[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)** license.
-
-You may share and adapt this material for any purpose provided you give appropriate credit, supply a link to the license, and indicate changes.
-
-> **Note:** This license does **not** apply to third-party works, abstracts, DOIs, or other identifiers for which the authors hold no copyright. No full-text papers are redistributed in this repository.
+Repository-authored bibliographic metadata, review coding, documentation, and synthesis material are licensed under **CC BY 4.0**. This license does not apply to third-party papers or other material for which the repository authors do not hold copyright. No publisher full-text PDFs are redistributed.
 
 ---
 
 <div align="center">
 
-*Evidence register v1.1.1 · Released 2026-09-09 · CC BY 4.0*
+*Evidence register v1.2.0 · Released 2026-09-10 · CC BY 4.0*
 
 </div>
