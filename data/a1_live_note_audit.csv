@@ -4,7 +4,7 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 3,Language Models are Few-Shot Learners,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0003.md
 4,Self-consistency improves chain of thought reasoning in language models,S2 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0004.md
 5,Training language models to follow instructions with human feedback,S2 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0005.md
-6,Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,S2 / P0,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0006.md
+6,Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,S2 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0006.md
 7,Improving Language Understanding by Generative Pre-Training,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0007.md
 8,Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0008.md
 9,Finetuned Language Models Are Zero-Shot Learners,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0009.md
@@ -12,7 +12,7 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 12,Least-to-Most Prompting Enables Complex Reasoning in Large Language Models,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0012.md
 13,Visual Instruction Tuning,S2 / P1,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0013.md
 14,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,S2 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0014.md
-17,BART Denoising Sequence-to-Sequence Pre-training for Natural Language Generation Translation and Comprehension,S2 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0017.md
+17,"BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",S2 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0017.md
 19,An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale,S2 / P2,True,True,False,False,paper-specific note ready for synthesis,needs-a1-full-text-remediation,notes/papers/0019.md
 20,Training Compute-Optimal Large Language Models,S2 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0020.md
 21,Flamingo: a Visual Language Model for Few-Shot Learning,S2 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0021.md
@@ -196,7 +196,7 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 388,WebOlympus- An Open Platform for Web Agents on Live Websites,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0388.md
 389,A3- Android Agent Arena for Mobile GUI Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0389.md
 391,SWE-bench Goes Live!,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0391.md
-392,UI-Vision- A Desktop-centric GUI Benchmark for Visual Perception and Interaction,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0392.md
+392,UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0392.md
 394,Open CaptchaWorld: A Comprehensive Web-based Platform for Testing and Benchmarking Multimodal LLM Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0394.md
 395,X-WebAgentBench: A Multilingual Interactive Web Benchmark for Evaluating Global Agentic System,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0395.md
 396,"Agent-RewardBench: Towards a Unified Benchmark for Reward Modeling across Perception, Planning, and Safety in Real-World Multimodal Agents",S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0396.md
