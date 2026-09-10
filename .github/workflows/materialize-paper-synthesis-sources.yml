@@ -1,0 +1,47 @@
+name: Materialize paper synthesis sources
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "notes/papers/**"
+      - "scripts/materialize_paper_synthesis_sources.py"
+      - ".github/workflows/materialize-paper-synthesis-sources.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build 403 paper-specific synthesis sources
+        run: python scripts/materialize_paper_synthesis_sources.py
+
+      - name: Validate and commit generated source layer
+        shell: bash
+        run: |
+          test "$(find notes/papers -maxdepth 1 -type f -name '*.md' | wc -l)" -eq 403
+          test "$(find notes/original_sources -maxdepth 1 -type f -name '*.md' | wc -l)" -eq 403
+          python - <<'PY'
+          from pathlib import Path
+          a = {p.name for p in Path('notes/papers').glob('*.md')}
+          b = {p.name for p in Path('notes/original_sources').glob('*.md')}
+          assert a == b, (len(a), len(b), sorted(a-b)[:10], sorted(b-a)[:10])
+          print('validated 403/403 one-to-one filenames')
+          PY
+          if git diff --quiet -- notes/original_sources data/paper_synthesis_source_manifest.csv; then
+            echo "Source layer already materialized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notes/original_sources data/paper_synthesis_source_manifest.csv
+          git commit -m "Materialize clean 403-paper synthesis source corpus"
+          git push
