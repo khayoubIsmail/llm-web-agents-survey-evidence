@@ -1,0 +1,39 @@
+name: A1 evidence audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/a1_fulltext_rechecks.csv"
+      - "scripts/apply_a1_fulltext_rechecks.py"
+      - "scripts/audit_a1_live_notes.py"
+      - ".github/workflows/a1-evidence-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply only explicitly verified rereads
+        run: python scripts/apply_a1_fulltext_rechecks.py
+      - name: Audit the 403 live notes
+        run: python scripts/audit_a1_live_notes.py
+      - name: Commit reviewer-facing audit outputs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/paper_note_audit.csv data/summary.json data/a1_live_note_audit.csv data/a1_live_note_audit_summary.json
+          if git diff --cached --quiet; then
+            echo "No audit changes."
+            exit 0
+          fi
+          git commit -m "A1: update verified reread and live-note audit status"
+          git pull --rebase origin main
+          git push
