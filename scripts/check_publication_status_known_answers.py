@@ -40,8 +40,8 @@ for rid, verdict in expected.items():
     if got != verdict:
         failed.append(f'{rid} expected {verdict} got {got}')
 
-# Global invariant: every resolved external record must describe the same paper
-# as the register row. This catches false arXiv/OpenAlex identifier links.
+# Global invariant: every selected external record must describe the same paper
+# as the register row. This catches false identifier/title links.
 for rid, row in rows.items():
     how = row.get('resolved_via', '')
     found = row.get('found_title', '')
@@ -53,11 +53,11 @@ for rid, row in rows.items():
                 f'{score:.3f} -> {found!r}'
             )
 
-# Require provenance columns emitted only by the hardened resolver, so an older
+# Require the provenance/confidence columns emitted only by v2.2, so an older
 # verifier cannot accidentally pass this stronger gate.
 required_cols = {
     'candidate_sources', 'candidate_count', 'archival_candidate_count',
-    'rejected_title_mismatches'
+    'strong_archival_candidate_count', 'rejected_title_mismatches'
 }
 header = set(next(iter(rows.values())).keys()) if rows else set()
 missing = sorted(required_cols - header)
@@ -66,4 +66,4 @@ if missing:
 
 if failed:
     raise SystemExit('Known-answer verification failed: ' + '; '.join(failed))
-print('All publication-status known-answer and title-consistency checks passed.')
+print('All publication-status known-answer, confidence, and title-consistency checks passed.')
