@@ -47,19 +47,39 @@ with AUDIT.open('w', encoding='utf-8', newline='') as fh:
     writer.writeheader()
     writer.writerows(rows)
 
-# Recompute only note-audit counts from the actual audit rows.
+# Recompute note-audit counts from the actual audit rows. Keep full-text access
+# exceptions distinct from records that were read in full but are blocked for a
+# separate bibliographic/publication-status reason.
 no_current = sum('no current-cycle PDF verification' in r['full_text_status'] for r in rows)
-blocked = sum(r['claim_use_status'].startswith('blocked') for r in rows)
 current_cycle = sum(r['full_text_status'].startswith('current-cycle') for r in rows)
 retained = sum('existing review archive audited' in r['full_text_status'] for r in rows)
+access_exception_ids = sorted(
+    int(r['record_id'])
+    for r in rows
+    if r['claim_use_status'].startswith('blocked pending full text')
+)
+publication_status_block_ids = sorted(
+    int(r['record_id'])
+    for r in rows
+    if 'blocked pending publication-status revalidation' in r['claim_use_status']
+)
+
 with SUMMARY.open(encoding='utf-8') as fh:
     summary = json.load(fh)
 pa = summary.setdefault('paper_note_audit', {})
 pa['current_cycle_full_text_rechecks_or_pdf_checks'] = current_cycle
 pa['records_still_without_current_cycle_full_text_verification'] = no_current
 pa['retained_archive_only_records'] = retained
-pa['full_text_access_exceptions'] = blocked
+pa['full_text_access_exceptions'] = len(access_exception_ids)
+pa['access_exception_record_ids'] = access_exception_ids
+pa['publication_status_revalidation_blocks'] = len(publication_status_block_ids)
+pa['publication_status_revalidation_record_ids'] = publication_status_block_ids
 pa['a1_verified_rereads_logged'] = len(rechecks)
 SUMMARY.write_text(json.dumps(summary, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
-print(f'applied {len(rechecks)} verified rereads; remaining no-current-cycle records: {no_current}')
+print(
+    f'applied {len(rechecks)} verified rereads; '
+    f'remaining no-current-cycle records: {no_current}; '
+    f'full-text access exceptions: {len(access_exception_ids)}; '
+    f'publication-status revalidation blocks: {len(publication_status_block_ids)}'
+)
