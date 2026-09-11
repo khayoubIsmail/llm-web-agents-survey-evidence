@@ -1,0 +1,60 @@
+name: Verify publication status v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verify_publication_status_v2.py"
+      - "scripts/check_publication_status_known_answers.py"
+      - ".github/workflows/verify-publication-status-v2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: pip install requests
+      - name: Cross-check all 805 records with v2
+        run: |
+          python scripts/verify_publication_status_v2.py \
+            --corpus data/studies_805_mapping_corpus.csv \
+            --out data/publication_status_verification_v2.csv \
+            --cache data/verification_cache_v2 \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Known-answer gates
+        run: python scripts/check_publication_status_known_answers.py data/publication_status_verification_v2.csv
+      - name: Build verdict summary
+        run: |
+          python - <<'PY'
+          import csv, json
+          from collections import Counter
+          rows=list(csv.DictReader(open('data/publication_status_verification_v2.csv', encoding='utf-8-sig')))
+          c=Counter(r['VERDICT'] for r in rows)
+          resolved=sum(v for k,v in c.items() if k!='NO_MATCH')
+          out={'rows':len(rows),'verdict_counts':dict(sorted(c.items())),'resolved':resolved,'no_match':c.get('NO_MATCH',0),'known_answer_gate':'passed'}
+          open('data/publication_status_verification_v2_summary.json','w',encoding='utf-8').write(json.dumps(out,indent=2)+'\n')
+          print(json.dumps(out,indent=2))
+          PY
+      - name: Commit v2 verification evidence and raw cache
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_verification_v2.csv data/publication_status_verification_v2_summary.json data/verification_cache_v2
+          if git diff --cached --quiet; then
+            echo "No v2 verification changes."
+            exit 0
+          fi
+          git commit -m "Add validated 805-study publication-status verification v2"
+          git pull --rebase origin main
+          git push
