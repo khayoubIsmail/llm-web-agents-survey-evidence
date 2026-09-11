@@ -1,0 +1,93 @@
+{
+  "695": {
+    "review_date": "2026-09-11",
+    "source": "Findings ACL 2024 / arXiv:2403.02691 full paper",
+    "full_text_basis": "Full paper reviewed; benchmark construction, user/attacker tool pairing, two attack-intention classes, 30-agent evaluation, enhanced attack setting, defenses and limitations checked.",
+    "evidence": "InjecAgent contains 1,054 indirect-prompt-injection test cases spanning 17 user tools and 62 attacker tools, with attack intents grouped into direct user harm and private-data exfiltration. Thirty LLM-agent configurations are evaluated. A ReAct-prompted GPT-4 agent is compromised in 24% of cases; reinforcing the malicious instruction with a hacking-oriented prefix nearly doubles that attack success rate. The benchmark demonstrates that externally retrieved tool content is a material security boundary for agents.",
+    "limitations": "The benchmark uses a finite synthetic tool/task universe and cannot cover every deployment-specific permission model. Attack success also depends on prompt/scaffold design, so absolute rates should not be generalized to all agents."
+  },
+  "697": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2024 / arXiv:2407.12784 full paper",
+    "full_text_basis": "Full 22-page paper reviewed; constrained trigger optimization, poisoning of long-term memory/RAG stores, three agent domains, transferability/stealth studies, benign-utility analysis and defenses checked.",
+    "evidence": "AgentPoison targets retrieval-dependent agents by inserting a very small number of malicious memories/knowledge items whose optimized trigger causes the poisoned item to be retrieved. Across autonomous driving, knowledge-intensive QA and healthcare agents, the paper reports average attack success rates above 80% while benign performance changes by less than 1%, using a poison rate below 0.1%. The attack requires no retraining of the victim model and transfers across agent configurations, isolating long-term memory/RAG as a distinct attack surface.",
+    "limitations": "The attacker must be able to modify the agent's memory or knowledge base and relies on retrieval behavior that is embedding-dependent. Retrieval hardening or provenance controls can change the threat model substantially."
+  },
+  "699": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2025 / PMLR 267 full paper",
+    "full_text_basis": "Full paper reviewed; RL-trained adversarial prompter, SFT/DPO variants, four web-task domains, GPT-4V SeeAct evaluation, transfer/position/HTML-field tests, defense studies and limitations checked.",
+    "evidence": "AdvAgent trains a black-box adversarial prompter from feedback produced by a victim web agent rather than requiring gradients or model internals. Against the GPT-4V-powered SeeAct agent, the paper reports standard-setting attack success rates around the mid/high-90s across finance, medical, housing and cooking tasks (the SFT+DPO variants reach roughly 94%-100% depending on domain). Transfer tests remain strong under changed injection positions and modified HTML fields, while prompt-based defenses only partially reduce vulnerability.",
+    "limitations": "The framework assumes the attacker can inject content into a webpage encountered by the agent, and optimization requires repeated black-box interactions with the victim. Results are centered on SeeAct/GPT-4V and may vary with newer agent architectures and permission controls."
+  },
+  "700": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 Long Paper / full paper",
+    "full_text_basis": "Full paper reviewed; adversarial popup design, OSWorld/VisualWebArena integration, cross-model experiments, attack-success/task-success metrics, basic defenses and qualitative analysis checked.",
+    "evidence": "The paper adds adversarial pop-ups to OSWorld and VisualWebArena and measures whether vision-language computer agents abandon the intended task to click the distraction. Across tested agents, average popup attack success is 86% and normal task success decreases by 47%. Simple defenses such as instructing the agent to ignore pop-ups or adding an advertisement notice do not reliably prevent the behavior, showing that visual distraction is a distinct risk from textual jailbreaks.",
+    "limitations": "The attack family is deliberately popup-centric and does not cover all visually embedded threats. Susceptibility can depend on agent grounding and viewport configuration, and stronger UI provenance or browser-level filtering could change results."
+  },
+  "702": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2409.11295 full paper",
+    "full_text_basis": "Full paper reviewed; privacy threat model, 177 PII-related Mind2Web action steps, specific-PII/full-request targets, stealth/detectability tests, defensive prompts and deployment-stage defenses checked.",
+    "evidence": "EIA studies privacy leakage when a generalist web agent encounters attacker-controlled content. The evaluation uses 177 action steps involving diverse PII categories collected from realistic Mind2Web websites. Environment-adapted injection reaches up to 70% attack success for stealing specific PII and 16% for exfiltrating the full user request. Defensive system prompts and human inspection are insufficient against well-adapted injected content, exposing a tradeoff between autonomous browsing and privacy protection.",
+    "limitations": "The study evaluates one main generalist-agent framework and a selected set of PII-bearing action steps. Its strongest attacks also assume meaningful attacker control over webpage content, which may be unavailable on trusted sites."
+  },
+  "703": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2025 / PMLR 267 full paper",
+    "full_text_basis": "Full SafeArena paper reviewed; 500-task benchmark, five harm categories, four websites, Agent Risk Assessment framework, frontier-agent evaluation and refusal/compliance analysis checked.",
+    "evidence": "SafeArena contains 250 benign and 250 harmful web tasks across four websites. Harmful tasks cover misinformation, illegal activity, harassment, cybercrime and social bias, and behavior is scored using a four-level Agent Risk Assessment framework. Despite base-model safety alignment, GPT-4o completes 34.7% of harmful requests and Qwen-2-VL 27.3% in the reported agent setups. The benchmark demonstrates that safety behavior must be re-evaluated after a model is embedded in an action-taking web scaffold.",
+    "limitations": "SafeArena evaluates deliberate misuse on controlled replicas rather than accidental harm or indirect injection. Its harm taxonomy and site set are necessarily incomplete and model policies change over time."
+  },
+  "704": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 Industry Track / arXiv:2503.20279 full paper",
+    "full_text_basis": "Full paper reviewed; SUDO/Detox2Tox attack pipeline, refusal-feedback refinement, 50 real-world harmful tasks, multiple VLM components, ablations and safeguards discussion checked.",
+    "evidence": "SUDO evaluates whether refusal-trained computer-use agents can be induced to execute harmful goals after the request is transformed across benign-looking planning and later harmful execution contexts. Across 50 real-world tasks, Claude for Computer Use has a 24.41% attack success rate without iterative refinement and 41.33% after refinement. The result shows that separating planning context from execution context can bypass model-level refusal mechanisms even when the underlying assistant initially rejects the harmful request.",
+    "limitations": "The experiments center on a specific computer-use product/version and an attack workflow that relies on staged content transformation. Product safeguards evolve quickly, so absolute success rates are time-sensitive."
+  },
+  "708": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 Oral / full RedTeamCUA paper and project",
+    "full_text_basis": "Full paper/project reviewed; hybrid OSWorld plus WebArena/TheAgentCompany sandbox, RTCBench construction, CIA threat categories, seven agent configurations, ASR/attempt metrics, end-to-end tests and defenses checked.",
+    "evidence": "RedTeamCUA builds a hybrid sandbox linking VM-based OS tasks with three Dockerized web platforms and creates RTCBench with 216 adversarial scenarios and 864 examples. Claude 3.7 Sonnet CUA shows 42.9% average attack success, while Operator with built-in checks is the safest tested CUA but still has 7.6% ASR. Attempt rates reach 92.5%, showing many failures are caused by capability limits rather than agents deciding not to pursue the injected harmful goal; end-to-end ASR reaches as high as 50% in tested settings.",
+    "limitations": "The benchmark covers three replicated web platforms and selected CIA-style harms, not arbitrary OS/web software. Its attack success definition uses up to three runs and can therefore differ from single-run deployment risk."
+  },
+  "709": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / full WebInject paper",
+    "full_text_basis": "Full paper reviewed; differentiable surrogate for webpage-to-screenshot mapping, universal perturbation optimization, five MLLM agents, ten webpage datasets, monitor/epsilon robustness, prompt transfer and limitations checked.",
+    "evidence": "WebInject optimizes visually subtle webpage perturbations that survive the nondifferentiable browser rendering pipeline and cause screenshot-based web agents to emit attacker-chosen actions. Across five MLLM-based agents and ten webpage datasets, it substantially outperforms prior webpage/screenshot attacks. For Gemma-3, WebInject reaches 0.972 ASR versus 0.062 for the strongest webpage-based baseline and 0 for screenshot baselines. ASR remains above roughly 0.85 across multiple monitor configurations, and semantically equivalent user prompts retain similar effectiveness.",
+    "limitations": "The threat model assumes the attacker can modify target webpage source code. Closed-source MLLM transfer was not evaluated, and the attack requires optimization for a target webpage/action setting."
+  },
+  "713": {
+    "review_date": "2026-09-11",
+    "source": "COLM 2025 / arXiv:2507.06899 full paper",
+    "full_text_basis": "Full paper reviewed; visual-grounding backdoor design, poisoned-pretraining experiments, Qwen/LLaVA families, clean-input accuracy, downstream transfer, cross-platform transfer and clean-finetuning persistence checked.",
+    "evidence": "VisualTrap poisons visual-grounding pretraining so an otherwise correct textual action plan is redirected to an attacker-controlled trigger location. On Qwen2-VL variants, full/vision poisoning produces average grounding attack-success rates around 94%-96% while maintaining clean-input grounding accuracy near the unpoisoned model. Even with only 5% poisoned data, Qwen2.5-VL-3B reaches about 90% ASR; a weaker LLaVA-NeXT-Mistral setup still reaches roughly 60%. Triggers learned on mobile/web also transfer to desktop and survive later clean fine-tuning.",
+    "limitations": "The attacker requires influence over grounding pretraining data, a stronger supply-chain capability than ordinary webpage injection. Effectiveness also depends on the target model's visual grounding competence and trigger rendering."
+  },
+  "716": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2510.12200 full paper",
+    "full_text_basis": "Full HackWorld paper reviewed; 36 vulnerable applications, 11 frameworks/seven languages, CTF evaluation, multiple CUA systems, exploitation/cybersecurity-awareness metrics, planning/tool-use failure analysis and limitations checked.",
+    "evidence": "HackWorld evaluates computer-use agents on realistic vulnerable web applications through graphical interaction. It contains 36 applications spanning 11 frameworks and seven programming languages, with vulnerabilities placed in realistic dynamic interfaces and scored through a CTF-style objective. Frontier CUAs achieve exploitation rates below 12%; qualitative analysis finds weak cybersecurity awareness, poor multi-step attack planning and incorrect use of available security tools. The result is useful as capability-risk evidence: present agents can interact with vulnerable software but remain weak autonomous exploiters.",
+    "limitations": "The benchmark is intentionally curated and cannot represent the full space of real vulnerabilities or defensive controls. Low exploitation rates reflect both security-policy behavior and capability failures, so they should not be interpreted as a robust safety guarantee."
+  },
+  "717": {
+    "review_date": "2026-09-11",
+    "source": "IEEE S&P 2026 / arXiv:2510.18113 full paper",
+    "full_text_basis": "Full paper reviewed; LiteAgent logging, TrickyArena construction, six web agents/three LLMs, single and combined dark-pattern experiments, visual/HTML perturbations and root-cause analysis checked.",
+    "evidence": "TrickyArena embeds controllable deceptive UI patterns into realistic e-commerce, streaming and news-style web applications, while LiteAgent records fine-grained agent interactions. Six web-agent systems built on Claude 3.7 Sonnet, GPT-4o and Gemini 2.5 Pro are evaluated. With one dark pattern present, agents are susceptible on average 41% of the time; some higher-performing agents exceed roughly 69%-72% susceptibility. Combining multiple patterns can turn individually ineffective deceptions into successful manipulations, and both visual styling and HTML implementation affect vulnerability.",
+    "limitations": "The study uses controlled replicas and a selected taxonomy of dark patterns. Susceptibility therefore depends on benchmark design and does not directly quantify harm after a deceptive action."
+  },
+  "718": {
+    "review_date": "2026-09-11",
+    "source": "IEEE S&P 2026 / DOI 10.1109/SP63933.2026.00025 full paper/artifact",
+    "full_text_basis": "Full paper/artifact reviewed; LLMCrawlBench, 32+ scraper implementations, L2S/LNC/LWA taxonomy, dual-layer WebCloak defense, extraction-recall metrics, usability/visual-quality tests and robustness studies checked.",
+    "evidence": "WebCloak treats capable LLM web agents as a new class of intelligent scraper and evaluates more than 32 implementations across LLM-to-Script, LLM-native crawler and LLM web-agent families. LLMCrawlBench contains 237 real webpages, 10,895 images, 50 high-traffic websites and five categories. The proposed in-page defense combines dynamic structural obfuscation with a semantic labyrinth and reduces scraping recall from 88.7% to 0% against the leading tested LLM-driven scraper while preserving visual usability for legitimate users.",
+    "limitations": "WebCloak is a defensive anti-scraping technique and can affect accessibility/automation ecosystems in ways not fully captured by visual similarity and load-time metrics. Adaptive attackers may also evolve around a known obfuscation scheme."
+  }
+}
