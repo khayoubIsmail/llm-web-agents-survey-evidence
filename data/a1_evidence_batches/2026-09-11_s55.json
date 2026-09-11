@@ -1,0 +1,65 @@
+{
+  "639": {
+    "review_date": "2026-09-11",
+    "source": "TMLR 2026 / arXiv:2510.03285 full paper",
+    "full_text_basis": "Full WAREX paper reviewed; injected network/server/client failure models, WebArena/WebVoyager/REAL evaluations, recovery variants, efficiency metrics and failure-recovery training checked.",
+    "evidence": "WAREX injects realistic infrastructure and webpage faults into existing web-agent benchmarks instead of evaluating only under deterministic clean conditions. Under network errors, success falls from 12.4% to 3.7% on WebArena (-70%), 17.0% to 4.5% on REAL (-73%), and 42.0% to 2.0% on WebVoyager (-95%). Server errors also cause large drops. Fine-tuning Qwen3-8B on WAREX-generated recovery trajectories improves error-recovery rate by 88.9% relatively, showing that robustness failures are both measurable and trainable.",
+    "limitations": "Fault injection covers a selected set of infrastructure/page perturbations and cannot reproduce the full diversity of production failures or adversarial websites. Reliability under WAREX therefore remains a lower-dimensional proxy for real-world robustness."
+  },
+  "640": {
+    "review_date": "2026-09-11",
+    "source": "COLM 2025 / arXiv:2504.01382 full paper",
+    "full_text_basis": "Full paper reviewed; Online-Mind2Web construction, six-agent human evaluation, WebVoyager shortcut analysis, WebJudge design, agreement study and benchmark limitations checked.",
+    "evidence": "The paper introduces Online-Mind2Web with 300 realistic live tasks across 136 websites and re-evaluates frontier agents under human judgment. It finds prior progress substantially overstated: several newer agents do not outperform the much earlier SeeAct baseline, while even the strongest Operator result in the paper reaches only about 61% task success. The WebJudge automatic evaluator reaches roughly 85%-87% agreement with humans (the updated o4-mini configuration is 85.7% with a 3.8-point success-rate gap), materially above prior automatic judging schemes.",
+    "limitations": "Live tasks age as sites change and can become impossible or CAPTCHA-blocked, requiring active benchmark maintenance. Human evaluation is costly, while LLM judging—although improved—still disagrees with humans on a nontrivial minority of tasks."
+  },
+  "641": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2026 Long Paper / arXiv:2603.14248 full paper",
+    "full_text_basis": "Full 24-page paper reviewed; hierarchical planning framework, Mind2Web-Live extension, PDDL versus natural-language planning, oracle high-level plans, execution failure taxonomy, replanning experiments and limitations checked.",
+    "evidence": "The study decomposes web-agent performance into high-level planning, low-level execution and replanning. PDDL plans are more concise and aligned with expert goals than natural-language plans, but execution remains the dominant bottleneck: even gpt-5-nano following expert high-level plans achieves only about 36.4% final task success. Error analysis finds hallucinated actions/elements, redundant actions and loops among major low-level failures. A single feedback-informed replanning round improves both subgoal completion and overall task success across all three tested model families.",
+    "limitations": "The analysis permits only one replanning round and uses LLM-based postcondition/task judges. It studies a Mind2Web-Live-derived task set, so the relative contribution of planning versus execution may differ in other web environments."
+  },
+  "643": {
+    "review_date": "2026-09-11",
+    "source": "COLM 2024 / arXiv:2404.06474 full paper",
+    "full_text_basis": "Full conference paper reviewed; domain-general evaluator designs, web/device benchmarks, oracle-agreement studies, fine-tuning and inference-time evaluator guidance experiments checked.",
+    "evidence": "This paper treats automatic evaluation as an active agent-improvement component rather than a post-hoc metric. Its domain-general evaluators achieve 74.4%-92.9% agreement with oracle evaluation metrics across digital-agent benchmarks. Using evaluator feedback without additional external supervision improves state-of-the-art WebArena performance by 29% relatively and yields roughly 75% relative improvement in device-control settings through fine-tuning and inference-time guidance.",
+    "limitations": "Evaluator mistakes can become policy-training mistakes, and high oracle agreement does not imply calibrated feedback on rare failure states. More powerful evaluators also add inference cost and can make agent performance dependent on another model."
+  },
+  "645": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / arXiv:2503.13657 full paper",
+    "full_text_basis": "Full paper and appendices reviewed; grounded-theory annotation, 1,642-trace MAST-Data, taxonomy construction, inter-annotator agreement, seven-system failure analysis and intervention case studies checked.",
+    "evidence": "MAST-Data contains 1,642 annotated multi-agent execution traces from seven frameworks. Six experts derive 14 failure modes grouped into system-design issues, inter-agent misalignment and task verification; the taxonomy-development study reaches Cohen's kappa 0.88, and the scalable LLM annotator reaches kappa 0.77 against expert labels (0.79 on two unseen systems). The evaluated multi-agent systems exhibit 41%-86.7% failure rates. A targeted ChatDev workflow fix guided by the taxonomy improves overall task success by 9.4%, but many failures require structural rather than prompt-only changes.",
+    "limitations": "The taxonomy is empirically grounded but explicitly not exhaustive. Failure frequencies depend on the selected seven frameworks/tasks, and LLM-generated large-scale annotations remain noisier than expert labels."
+  },
+  "646": {
+    "review_date": "2026-09-11",
+    "source": "Proc. ACM Software Engineering / ISSTA 2025 / DOI 10.1145/3728879 full paper",
+    "full_text_basis": "Full 23-page paper reviewed; three offline web apps, 113 professional test cases, SeeAct-ATA/pinATA designs, verdict metrics, quantitative comparison and qualitative failure analysis checked.",
+    "evidence": "The paper tests whether general autonomous web agents can serve as natural-language software testers. Its benchmark contains three offline applications and 113 manual test cases written by professional testers, including both passing and failing tests. The advanced pinATA design improves test execution by about 50% over the SeeAct-ATA baseline, but still produces only around 60% correct verdicts; specificity can reach 94%. More than half of the benchmark tests can be executed in a human-like way, yet misinterpreted actions and assertions remain major reliability barriers.",
+    "limitations": "Only three applications and 113 cases are evaluated, so application diversity is limited. The study also shows that executing UI steps and correctly judging test assertions are distinct problems; success at navigation does not guarantee trustworthy test verdicts."
+  },
+  "647": {
+    "review_date": "2026-09-11",
+    "source": "AAAI 2026 / arXiv:2505.12842 full paper",
+    "full_text_basis": "Full GEM paper reviewed; embedding-distance analysis, Gaussian mixture capability-boundary model, eight-dataset evaluation, nine-backbone generalization, cloud-escalation experiment and efficiency analysis checked.",
+    "evidence": "GEM detects GUI instructions that are outside an agent's learned capability by modeling distances in its semantic embedding space with a Gaussian mixture. Across eight smartphone, computer and browser datasets, it improves OOD-detection accuracy by an average 23.70% over the strongest baseline, while adding 4.9% training time and 6.5% test time. Across nine backbones the pattern generalizes, and escalating detected OOD cases to a cloud model improves step-wise task success by 9.40%.",
+    "limitations": "Capability boundaries inferred from embedding clusters can shift after model updates or interface changes. Escalation also assumes access to a stronger external model and does not prevent failures on in-distribution instructions that the base agent still executes incorrectly."
+  },
+  "648": {
+    "review_date": "2026-09-11",
+    "source": "Findings EMNLP 2025 / arXiv:2506.15425 full paper",
+    "full_text_basis": "Full paper reviewed; four-way localization-error taxonomy, coordinate-logit analysis, Peak Sharpness Score, model/dataset comparisons, Context-Aware Cropping and robustness analysis checked.",
+    "evidence": "The paper shows that a single point-accuracy score hides qualitatively different GUI grounding failures. Predictions are separated into four localization categories, and Peak Sharpness Score (PSS) measures whether coordinate-token logits form a semantically coherent peak rather than an arbitrary high-confidence point. The analysis exposes systematic spatial/localization biases across GUI models. Context-Aware Cropping then uses the uncertainty/bias diagnosis to adaptively narrow visual context and consistently improves grounding robustness without retraining.",
+    "limitations": "PSS relies on access to coordinate-token logits and therefore is not available for many closed models. Cropping can also remove context needed to disambiguate visually similar targets, and better localization does not by itself solve task planning."
+  },
+  "650": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2510.01670 full paper",
+    "full_text_basis": "Full paper reviewed; BLIND-ACT benchmark construction, three blind-goal-directedness categories, nine-frontier-model study, human/judge agreement, prompting interventions and qualitative failure analysis checked.",
+    "evidence": "BLIND-ACT contains 90 OSWorld-based tasks testing whether computer-use agents should refuse, clarify or reconsider infeasible/ambiguous goals instead of blindly executing. Its LLM judge agrees with human annotations 93.75% of the time. Across nine frontier models, the average Blind Goal-Directedness rate is 80.8%, including failures from missing context, unjustified assumptions and contradictory goals. Prompting interventions reduce but do not eliminate the behavior; qualitative analysis identifies execution-first bias, thought-action disconnect and request-primacy.",
+    "limitations": "The benchmark deliberately targets a narrow safety/reliability pathology rather than broad task competence, and results can depend on how ambiguity/infeasibility is operationalized. LLM judging also remains imperfect."
+  }
+}
