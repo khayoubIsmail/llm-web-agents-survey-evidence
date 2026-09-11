@@ -15,7 +15,7 @@ The four reviewer-sensitive terms are:
 3. cross-site transfer; and
 4. joint evaluation.
 
-For G1 completeness, G2 also defines the two companion requirements already present in C1-11: unfamiliar-site navigation, explicit schema coverage, and unsupported-value control.
+For G1 completeness, G2 also defines the three companion requirements already present in C1-11: unfamiliar-site navigation, explicit schema coverage, and unsupported-value control.
 
 ## Coding states
 
