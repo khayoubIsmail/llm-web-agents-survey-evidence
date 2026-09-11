@@ -1,0 +1,26 @@
+name: C1 claim evidence audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/c1_claim_evidence_matrix.csv'
+      - 'data/studies_805_mapping_corpus.csv'
+      - 'notes/papers/**'
+      - 'scripts/check_c1_claim_evidence_matrix.py'
+      - '.github/workflows/c1-claim-evidence-audit.yml'
+
+jobs:
+  validate-c1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate C1 claim evidence matrix
+        run: python scripts/check_c1_claim_evidence_matrix.py
