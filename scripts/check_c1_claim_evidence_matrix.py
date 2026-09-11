@@ -3,6 +3,14 @@
 
 This is a structural/current-register gate. Final N_SYNTH membership must be checked
 separately after publication-status adjudication and synthesis-set reconciliation.
+
+Boundary evidence is split deliberately:
+- within_study_boundary_ids may overlap primary evidence, but only with an explicit
+  justification explaining why the study's own scope/limitations bound its result;
+- independent_boundary_study_ids MUST NOT overlap primary evidence.
+
+C1-11 is a traceability row only. The universal absence claim is not considered closed
+until the separate G1 system×requirement coverage matrix is built and audited.
 """
 
 from __future__ import annotations
@@ -22,7 +30,10 @@ REQUIRED_COLUMNS = {
     "normalized_claim",
     "primary_study_ids",
     "corroborating_study_ids",
-    "boundary_study_ids",
+    "within_study_boundary_ids",
+    "independent_boundary_study_ids",
+    "boundary_overlap_justification",
+    "boundary_rationale",
     "quantitative_evidence",
     "source_locations_checked",
     "evidence_strength",
@@ -86,6 +97,8 @@ def main() -> None:
             raise SystemExit(f"C1 FAIL: {claim_id} claim text is missing/too short")
         if not row["source_locations_checked"].strip():
             raise SystemExit(f"C1 FAIL: {claim_id} missing source-location evidence")
+        if not row["boundary_rationale"].strip():
+            raise SystemExit(f"C1 FAIL: {claim_id} missing claim-specific boundary rationale")
         if not row["evidence_strength"].strip():
             raise SystemExit(f"C1 FAIL: {claim_id} missing evidence strength")
         if not row["verification_status"].strip():
@@ -94,14 +107,42 @@ def main() -> None:
         try:
             primary = parse_ids(row["primary_study_ids"])
             corroborating = parse_ids(row["corroborating_study_ids"])
-            boundary = parse_ids(row["boundary_study_ids"])
+            within_boundary = parse_ids(row["within_study_boundary_ids"])
+            independent_boundary = parse_ids(row["independent_boundary_study_ids"])
         except ValueError as exc:
             raise SystemExit(f"C1 FAIL: {claim_id}: {exc}") from exc
 
         if not primary:
             raise SystemExit(f"C1 FAIL: {claim_id} has no primary study IDs")
+        if not independent_boundary:
+            raise SystemExit(
+                f"C1 FAIL: {claim_id} has no independent boundary/counter-direction study"
+            )
 
-        ids = set(primary + corroborating + boundary)
+        primary_set = set(primary)
+        within_set = set(within_boundary)
+        independent_set = set(independent_boundary)
+
+        if not within_set.issubset(primary_set):
+            raise SystemExit(
+                f"C1 FAIL: {claim_id} within-study boundary IDs must be a subset of primary IDs; "
+                f"extra IDs: {sorted(within_set - primary_set)}"
+            )
+
+        if within_set and len(row["boundary_overlap_justification"].strip()) < 30:
+            raise SystemExit(
+                f"C1 FAIL: {claim_id} reuses primary evidence as within-study boundary evidence "
+                "without an explicit justification"
+            )
+
+        primary_independent_overlap = primary_set & independent_set
+        if primary_independent_overlap:
+            raise SystemExit(
+                f"C1 FAIL: {claim_id} primary evidence cannot also count as independent boundary "
+                f"evidence: {sorted(primary_independent_overlap)}"
+            )
+
+        ids = set(primary + corroborating + within_boundary + independent_boundary)
         all_evidence_ids.update(ids)
 
         forbidden = ids & FORBIDDEN_EVIDENCE_IDS
@@ -125,10 +166,35 @@ def main() -> None:
         if re.search(r"\b(TODO|TBD|FIXME)\b", row["source_locations_checked"], re.I):
             raise SystemExit(f"C1 FAIL: {claim_id} has unresolved source-location TODO")
 
+        # Every primary and independent-boundary study must have an explicit location
+        # token in the source-location field. Corroborators are allowed to inherit a
+        # manuscript citation until the final membership pass, but the load-bearing and
+        # counter-direction evidence cannot.
+        source_locations = row["source_locations_checked"]
+        for rid in sorted(primary_set | independent_set):
+            if not re.search(rf"(?<!\d){rid}(?!\d)", source_locations):
+                raise SystemExit(
+                    f"C1 FAIL: {claim_id} study {rid} lacks an explicit checked-source-location entry"
+                )
+
+    c111 = rows[-1]
+    if c111["claim_id"].strip() != "C1-11":
+        raise SystemExit("C1 FAIL: final row is not C1-11")
+    if "requires_G1" not in c111["evidence_strength"]:
+        raise SystemExit("C1 FAIL: C1-11 must remain explicitly provisional pending G1")
+    if "G1" not in c111["verification_status"]:
+        raise SystemExit("C1 FAIL: C1-11 verification status must explicitly depend on G1")
+
     print(
         "C1 structural gate PASS: "
-        f"{len(rows)} claims, {len(all_evidence_ids)} unique evidence records, "
-        "all IDs resolve to the 805 register, normalized notes exist, and record 249 is absent."
+        f"{len(rows)} claims, {len(all_evidence_ids)} unique evidence records; "
+        "within-study boundaries are explicitly justified, independent boundary evidence "
+        "does not overlap primary evidence, required source locations resolve, all IDs exist "
+        "in the 805 register, normalized notes exist, and record 249 is absent."
+    )
+    print(
+        "C1-11 remains PROVISIONAL: G1 system×requirement coverage audit is required before "
+        "the universal absence claim can be retained."
     )
     print(
         "Final gate still required: revalidate all evidence IDs against final N_SYNTH "
