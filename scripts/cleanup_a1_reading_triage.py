@@ -47,26 +47,28 @@ for p in notes:
         r"^- \*\*Recommended reading depth:\*\*.*\n?",
         "",
         text,
-        flags=re.M,
+        flags=re.M | re.I,
     )
 
     # Any line retaining this phrase is prospective partial-reading guidance.
-    # Replace the whole line irrespective of small wording/Markdown variants.
+    # Replace the whole line irrespective of wording/case/Markdown variants.
     text = re.sub(
-        r"^.*Selected sections are enough.*$",
+        r"^.*selected sections are enough.*$",
         "- **Full-text review status:** Completed; see the current-cycle verification in the audit metadata above.",
         text,
-        flags=re.M,
+        flags=re.M | re.I,
     )
     text = re.sub(
         r"^- \*\*Depth needed:\*\* Low to medium\s*$",
         "- **Analysis depth:** Tier-appropriate structured analysis consistent with the review protocol.",
         text,
-        flags=re.M,
+        flags=re.M | re.I,
     )
-    text = text.replace(
-        "- **Most important parts to read:**",
+    text = re.sub(
+        r"^- \*\*Most important parts to read:\*\*",
         "- **Sections emphasized in synthesis:**",
+        text,
+        flags=re.M | re.I,
     )
 
     if text != old:
