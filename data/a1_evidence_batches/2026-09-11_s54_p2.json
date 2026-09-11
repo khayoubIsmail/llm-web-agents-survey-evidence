@@ -1,0 +1,184 @@
+{
+  "569": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2405.13935 full paper",
+    "full_text_basis": "Full paper reviewed; documentation-driven task synthesis, backward construction, filtering, training and in-context retrieval, OSWorld/WebArena experiments and ablations checked.",
+    "evidence": "Learn-by-interact generates agent training data from environment documentation and executable interaction, using backward construction and filtering rather than manually labeled trajectories. In the paper's main comparisons, Claude on OSWorld improves from 12.4% to 22.5% with retrieved interaction knowledge, while Codestral-22B on WebArena improves from 4.7% to 24.2% after training on synthesized interaction data. The experiments show that environment-derived supervision can substantially improve both in-context and fine-tuned agents without hand-authoring every trajectory.",
+    "limitations": "The quality of synthesized tasks is bounded by documentation coverage and the backward-construction/filtering pipeline. Environments with sparse documentation or hidden state can yield incomplete supervision, and generated interactions may not reflect real user distributions."
+  },
+  "570": {
+    "review_date": "2026-09-11",
+    "source": "COLM 2025 / full CollabUIAgents paper",
+    "full_text_basis": "Full paper reviewed; multi-agent RL formulation, credit re-assignment, process rewards, preference optimization, communication-edge updates and cross-environment GUI evaluations checked.",
+    "evidence": "CollabUIAgents trains multiple GUI agents with explicit credit re-assignment so local agents receive process-level signals that better reflect their contribution to a joint trajectory. Preference optimization and communication-edge updates further stabilize collaboration. The reported 7B system reaches 45.2% on AndroidWorld compared with 38.1% for GPT-4 in the paper's comparison and 52.8% on MobileMiniWoB++ versus 49.3%, while also transferring learned collaboration behavior across environment types.",
+    "limitations": "Credit re-assignment depends on accurately attributing global success or failure to individual agents. Communication policies and reward models can introduce additional coordination errors, and cross-agent training increases rollout cost."
+  },
+  "571": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 / arXiv:2502.18407 full paper",
+    "full_text_basis": "Full paper reviewed; explicit/implicit/judge reward-model formulations, nine-task evaluation, Best-of-N and beam search experiments, weak-to-strong transfer and ablations checked.",
+    "evidence": "AgentRM studies reward models that generalize across agent tasks rather than being trained for one environment. Its 8B reward model is evaluated over nine tasks in four categories and is used for Best-of-N and beam-search policy improvement. The paper reports an average 8.8-point gain for non-finetuned 8B agents, about four points over the strongest general reward-model comparison, and a 12.6-point weak-to-strong improvement when guiding Llama-3-70B. Specialized task reward models improve by about 11.4 points on average.",
+    "limitations": "Reward-model generalization is still imperfect across qualitatively different environments, and search gains depend on candidate diversity. A reward model that systematically mis-scores a failure mode can amplify that error through Best-of-N selection."
+  },
+  "575": {
+    "review_date": "2026-09-11",
+    "source": "WWW 2025 / arXiv:2410.17236 full paper",
+    "full_text_basis": "Full personalized-web-agent paper reviewed; PersonalWAB benchmark construction, memory retrieval, PUMA training, single/multi-turn evaluations and ablations checked.",
+    "evidence": "The paper introduces PersonalWAB to test web agents that must use persistent user-specific information across three personalized task families and both single-turn and multi-turn interactions. PUMA retrieves compact user memory and combines supervised/preference training so the agent can use relevant personal facts without injecting the entire history. Across the reported function- and result-accuracy evaluations, PUMA is the strongest system and outperforms ReAct/Reflexion-style baselines while using a smaller, selectively retrieved memory context.",
+    "limitations": "Personalization introduces privacy and stale-memory risks, and retrieval errors can cause either missing preferences or inappropriate disclosure. The benchmark covers a finite set of personalization patterns rather than arbitrary long-term user histories."
+  },
+  "576": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / arXiv:2504.03160 full paper",
+    "full_text_basis": "Full DeepResearcher paper reviewed; real-web multi-agent browsing environment, end-to-end RL objective, search/reasoning behaviors, benchmark evaluations and ablations checked.",
+    "evidence": "DeepResearcher trains a deep-research agent end to end in real web environments rather than optimizing only retrieval or answer generation. Its multi-agent browsing setup exposes the policy to live search, reading, evidence aggregation and final synthesis under reinforcement learning. The paper reports gains of up to 28.9 percentage points over prompting baselines and up to 7.2 points over RAG-oriented RL approaches, with qualitative evidence of emergent planning, cross-source validation, self-reflection and explicit uncertainty handling.",
+    "limitations": "Real-web RL is expensive and nonstationary, and reward design for long-form research can conflate answer quality with citation/evidence quality. Search-engine and site changes also reduce reproducibility."
+  },
+  "577": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 / arXiv:2504.19298 full paper",
+    "full_text_basis": "Full AndroidGen paper reviewed; task collection without manually labeled trajectories, autonomous rollout/filtering, Android-agent training, AndroidWorld/AITW experiments and ablations checked.",
+    "evidence": "AndroidGen addresses trajectory scarcity by starting from human-written task goals rather than manually annotated action sequences. An agent executes those tasks in the Android environment, the resulting trajectories are automatically filtered, and accepted traces supervise an open-source mobile agent. AndroidWorld and AITW experiments show that the generated demonstrations materially improve the trained agent relative to the base model and ordinary synthetic-data baselines, demonstrating that executable environments can replace much of manual trajectory labeling.",
+    "limitations": "Generated traces inherit the exploration policy's blind spots, and automatic filters can accept superficially successful but semantically wrong trajectories. Coverage is also limited to actions executable in the available Android environments."
+  },
+  "578": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2505.21496 full paper",
+    "full_text_basis": "Full Breaking the Data Barrier paper reviewed; eleven-task mid-training curriculum, multimodal/text reasoning mixtures, WebArena/AndroidWorld experiments and task-mixture ablations checked.",
+    "evidence": "This work uses a mid-training stage on data-rich reasoning tasks before GUI-agent post-training, testing eleven auxiliary tasks to determine which capabilities transfer to computer use. Multimodal mathematical reasoning alone improves AndroidWorld by 6.3 points; text-only math improves WebArena by 5.6 and AndroidWorld by 5.4; the mixed curriculum yields gains of 8.0 on WebArena and 12.2 on AndroidWorld. GUI-perception-only mid-training gives much smaller gains, suggesting that transferable reasoning data can be more valuable than narrow GUI imitation.",
+    "limitations": "Transfer depends strongly on the auxiliary-task mixture and can introduce negative transfer. Improvements do not imply that mid-training covers environment-specific grounding, long-horizon recovery or safety."
+  },
+  "580": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / PC Agent-E full paper",
+    "full_text_basis": "Full paper reviewed; 312 human trajectories, Claude-3.7 synthetic action decisions, compact training recipe, WindowsAgentArena-V2/OSWorld experiments and ablations checked.",
+    "evidence": "PC Agent-E studies data-efficient computer-use training from only 312 human-annotated trajectories supplemented with synthetic action decisions generated by Claude-3.7. Despite the small human set, the trained agent achieves a 141% relative improvement over its starting point and surpasses Claude-3.7 extended-thinking in the paper's WindowsAgentArena-V2 evaluation, while also transferring to OSWorld. The result shows that carefully structured decision supervision can be more efficient than collecting large raw trajectory corpora.",
+    "limitations": "The synthetic supervision depends on a strong proprietary teacher and may transfer its systematic mistakes. A few hundred demonstrations also cannot cover the long tail of desktop applications and safety-sensitive workflows."
+  },
+  "581": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / arXiv:2505.22501 full paper",
+    "full_text_basis": "Full paper reviewed; iterative SFT plus RL search training, self-evolving query/trajectory construction, seven multi-hop QA benchmarks and ablations checked.",
+    "evidence": "EvolveSearch alternates supervised fine-tuning and reinforcement learning so a search agent improves from its own progressively harder search trajectories without human-authored reasoning labels. Across seven multi-hop QA/search benchmarks, the paper reports an average improvement of about 4.7 points over the strongest prior system in its comparison. The training loop explicitly co-evolves search difficulty with agent capability rather than using a fixed query distribution.",
+    "limitations": "Self-evolution can drift toward the generator's preferred query patterns, and QA-based rewards do not directly measure browser-side safety, interaction cost or source quality."
+  },
+  "582": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2505.10978 full paper",
+    "full_text_basis": "Full GiGPO paper reviewed; episode-level and anchor-state grouping, relative-advantage estimator, ALFWorld/WebShop experiments, compute comparison and ablations checked.",
+    "evidence": "Group-in-Group Policy Optimization (GiGPO) improves multi-turn credit assignment by combining a macro group of complete trajectories with micro groups of alternative actions from shared anchor states. The micro groups identify which local decisions caused divergence without requiring a learned critic. Relative to GRPO, the paper reports gains above 12% on ALFWorld and above 9% on WebShop while using the same rollout/GPU-memory regime and little additional wall-clock cost.",
+    "limitations": "Useful micro groups require repeated or deliberately sampled anchor states; sparse state overlap reduces the benefit. Relative advantages can also be noisy when downstream outcomes are highly stochastic."
+  },
+  "584": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2505.12299 full paper",
+    "full_text_basis": "Full MobileIPL paper reviewed; Chain-of-Action-Thought tree construction, rule-based leaf scoring, back-propagated feedback, trajectory-DPO pairs, instruction evolution and three mobile benchmark evaluations checked.",
+    "evidence": "MobileIPL improves mobile-agent reasoning by constructing a tree of candidate action-thought trajectories, scoring terminal branches with executable rules, back-propagating outcome feedback, and converting good/bad branches into trajectory-level DPO preferences. It also evolves task instructions in three stages using screenshot-grounded GPT-4o generation. The resulting model is reported state of the art on three mobile GUI benchmarks and improves out-of-distribution performance relative to OS-ATLAS/UI-TARS comparisons.",
+    "limitations": "Preference quality depends on rule-based terminal scoring and tree coverage. The task-evolution generator may also introduce unrealistic instructions or overrepresent visually salient workflows."
+  },
+  "586": {
+    "review_date": "2026-09-11",
+    "source": "CVPR 2025 / MONDAY full paper",
+    "full_text_basis": "Full paper reviewed; video-to-trajectory pipeline, scene/OCR/UI detectors, 20,320-sequence dataset, cross-platform training, unseen-OS evaluation and detector ablations checked.",
+    "evidence": "MONDAY converts mobile interaction videos into scalable GUI-agent supervision. Its released data contains 20,320 action sequences and about 312,754 frames. The scene-text detector reaches 95.04 F1 and UI element detection a 99.87 hit ratio in the reported pipeline. Training on the video-derived corpus improves average performance on an unseen mobile operating system by 18.11 percentage points, showing that video can provide transferable cross-platform interaction supervision.",
+    "limitations": "Video-derived trajectories must infer hidden action semantics from pixels and may miss keyboard/system state not visible in frames. Detector errors and editing cuts propagate into the generated labels."
+  },
+  "587": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / full paper",
+    "full_text_basis": "Full paper reviewed; self-generated successful examples, example database maintenance, utility-based retrieval, ALFWorld/Wordcraft/InterCode-SQL experiments and ablations checked.",
+    "evidence": "This work lets agents retain their own successful trajectories as in-context demonstrations and selects examples according to estimated utility rather than relying on a fixed human exemplar set. Naively adding successful self-generated examples raises ALFWorld from 73% to 89%, Wordcraft from 55% to 64%, and InterCode-SQL from 75% to 79%; the full curated method reaches 93% on ALFWorld in the final NeurIPS version. The result demonstrates a lightweight self-improvement route that requires no parameter update.",
+    "limitations": "Self-generated memory can become biased toward tasks the agent already solves, leaving hard failure modes underrepresented. Incorrectly judged successes can also poison the demonstration database."
+  },
+  "589": {
+    "review_date": "2026-09-11",
+    "source": "AAMAS 2026 / arXiv full paper",
+    "full_text_basis": "Full Structured Agent Distillation paper reviewed; separate REASON/ACT supervision losses, teacher-student distillation, ALFWorld/HotPotQA-ReAct/WebShop experiments and compression ablations checked.",
+    "evidence": "Structured Agent Distillation distinguishes reasoning tokens from action tokens and applies span-specific distillation objectives instead of treating an agent trajectory as homogeneous text. Across ALFWorld, HotPotQA-ReAct and WebShop, the structured loss consistently improves over ordinary token-level imitation/distillation and preserves much of the teacher's agent performance in a smaller student. The study isolates action/reasoning structure as useful supervision during model compression.",
+    "limitations": "The method assumes trajectories can be cleanly partitioned into reasoning and action spans and inherits the teacher's policy biases. Distillation alone does not provide new exploration beyond teacher behavior."
+  },
+  "590": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2025 / arXiv:2505.03792 full paper",
+    "full_text_basis": "Full CoSo paper reviewed; counterfactual token influence, soft reinforcement-learning objective, theoretical analysis, Android/card-game/embodied-agent experiments and ablations checked.",
+    "evidence": "Counterfactual Soft Reinforcement Learning (CoSo) estimates which language-model tokens causally influence the post-processed environment action and concentrates policy updates on those action-critical tokens. This reduces wasted exploration over reasoning tokens that do not change behavior. The paper proves policy-improvement/convergence properties under its formulation and reports consistent gains across Android control, card-game and embodied-agent tasks relative to conventional token-level online tuning.",
+    "limitations": "Counterfactual influence must be approximated and can be unstable when many token sequences map to the same action. The method also assumes a differentiable/tractable relation between generated text and the environment action parser."
+  },
+  "593": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / arXiv full paper",
+    "full_text_basis": "Full UI-Genie paper reviewed; unified step/task reward model, rule validation, hard-negative and corrupted-trajectory generation, 517K reward data, 16K agent data, iterative self-improvement and benchmark evaluations checked.",
+    "evidence": "UI-Genie trains a multimodal reward model on interleaved screenshot/text trajectories and uses it to drive iterative GUI-agent self-improvement. The released training resources include about 517K reward-model instances and 16K agent trajectories. Reward data combines rule validation, trajectory corruption and hard negatives so the same model can score local steps and whole-task outcomes. Across three self-improvement generations, the agent improves consistently and reaches state-of-the-art results on multiple mobile/GUI benchmarks reported in the paper.",
+    "limitations": "The self-training loop can amplify reward-model blind spots, and automatically corrupted trajectories may not represent natural real-world mistakes. Strong benchmark performance therefore still depends on reward calibration."
+  },
+  "594": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / arXiv:2505.22648 full paper",
+    "full_text_basis": "Full WebDancer paper reviewed; data synthesis, trajectory sampling, SFT cold start, reinforcement learning, GAIA/WebWalkerQA/BrowseComp experiments and ablations checked.",
+    "evidence": "WebDancer uses a four-stage training pipeline: synthetic data generation, web-trajectory sampling, supervised cold start and reinforcement learning for autonomous information seeking. For the QwQ-32B backbone, the paper reports GAIA improving from 37.8% for vanilla ReAct to 51.5% and WebWalkerQA from 24.1% to 47.9%. For Qwen-7B, GAIA improves from 18.4% to 31.0% and WebWalkerQA from 24.2% to 36.0%, showing that the training recipe transfers across model scales.",
+    "limitations": "The pipeline is optimized for information seeking rather than arbitrary transactional web control, and final quality remains sensitive to synthetic-query difficulty, search-engine availability and reward correctness."
+  },
+  "595": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2506.14205 full paper",
+    "full_text_basis": "Full AgentSynth paper reviewed; compositional task generation, controllable difficulty levels, 6K+ task corpus, trajectory generation cost and agent performance by difficulty checked.",
+    "evidence": "AgentSynth automatically creates compositional computer-use tasks from reusable subtasks and explicitly controls difficulty by increasing composition depth. The benchmark/training corpus contains more than 6,000 tasks. In the paper's evaluation, leading agents fall from about 18% success at level 1 to about 4% at level 6, quantifying the long-horizon composition gap. Generated trajectories cost roughly $0.60 each in the reported pipeline, making controlled difficulty scaling substantially cheaper than manual authoring.",
+    "limitations": "Synthetic composition can create tasks that are structurally difficult but less representative of real user intent. Difficulty level is also partly determined by the generator's subtask library rather than a universal complexity metric."
+  },
+  "599": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 System Demonstrations / AgentCPM-GUI full paper",
+    "full_text_basis": "Full 26-page paper reviewed; 12M grounding pretraining examples, 55K Chinese trajectories/470K steps, 6.9M SFT instances, GRPO reinforcement fine-tuning, benchmark tables and efficiency analysis checked.",
+    "evidence": "AgentCPM-GUI is an 8B mobile-use model trained through large grounding pretraining, supervised agent training and GRPO-based reinforcement fine-tuning. The paper reports about 12M grounding pretraining examples, 55K Chinese interaction trajectories containing roughly 470K steps, and 6.9M SFT instances. On the CAGUI benchmark it reaches 96.9 task-matching and 91.3 exact-matching scores, while its compact action format averages only about 9.7 generated tokens per action.",
+    "limitations": "The very large pretraining mixture makes it difficult to isolate which data source drives transfer, and mobile/Chinese-heavy data may not generalize uniformly to desktop/web applications or other languages."
+  },
+  "601": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 / Contextual Experience Replay full paper",
+    "full_text_basis": "Full paper reviewed; training-free distilled environment dynamics/skills memory, retrieval strategy, WebArena/VisualWebArena experiments and ablations checked.",
+    "evidence": "Contextual Experience Replay (CER) is a training-free self-improvement method that distills interaction experience into reusable environment dynamics and skills, then retrieves the relevant distilled context on later tasks. On WebArena, CER-hybrid reaches 36.7% average success versus 24.3% for the BrowserGym baseline, about a 51% relative improvement. On VisualWebArena it reaches 31.9% versus 26.2%, about a 21.8% relative gain.",
+    "limitations": "Distilled experience can become stale as interfaces change and retrieval may inject irrelevant rules. Since the model parameters do not change, performance is bounded by the base agent's ability to follow retrieved experience."
+  },
+  "612": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / Agent Data Protocol full paper",
+    "full_text_basis": "Full paper reviewed; unified interlingua representation, conversion of 13 heterogeneous agent datasets, joint SFT, coding/browsing/tool/research evaluations and ablations checked.",
+    "evidence": "Agent Data Protocol (ADP) defines a common interlingua for observations, reasoning, tool calls and environment feedback so heterogeneous agent datasets can be jointly fine-tuned instead of requiring environment-specific formatting. The paper converts 13 datasets spanning coding, browsing, tool use and deep research. Joint SFT improves average performance by roughly 20% over the base model and reaches state-of-the-art or near-state-of-the-art results across several domains without domain-specific tuning.",
+    "limitations": "A common schema can erase environment-specific semantics, and dataset mixture weights strongly affect transfer. Format unification also does not by itself resolve conflicting supervision among source datasets."
+  },
+  "615": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2510.10197 full paper",
+    "full_text_basis": "Full paper reviewed; environment augmentation, curriculum design, fine-grained progress rewards, 400 BFCL training instances, in-domain/OOD evaluations and ablations checked.",
+    "evidence": "This work argues that agent learning can improve by tuning the training environment rather than only the policy. It constructs a curriculum over 400 BFCL problem instances, adds actionable environment feedback and uses fine-grained progress rewards. The resulting agents remain competitive in-domain but show stronger out-of-distribution behavior than straightforward SFT, supporting environment design as a distinct optimization lever.",
+    "limitations": "Environment shaping can unintentionally leak task structure or reward shortcuts. Results from function-calling environments may not transfer directly to visually grounded browser interaction."
+  },
+  "619": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / Search Self-play full paper",
+    "full_text_basis": "Full paper reviewed; proposer/solver self-play, answerability validation with retrieval, multi-turn search training, benchmark evaluations and ablations checked.",
+    "evidence": "Search Self-play uses the same model in two roles: a proposer generates increasingly difficult but answerable search problems, and a solver learns to resolve them through multi-turn search. Retrieval is used to validate that proposed tasks remain answerable, allowing the curriculum to co-evolve without human-authored questions or trajectories. The paper reports consistent improvements across multiple search benchmarks over ordinary supervised and fixed-query training.",
+    "limitations": "Self-play can drift toward tasks that exploit the solver's current weaknesses but are unlike real user queries. Retrieval-based answerability checks can also accept questions with ambiguous or unstable evidence."
+  },
+  "622": {
+    "review_date": "2026-09-11",
+    "source": "WWW 2026 / arXiv:2511.08325 full paper",
+    "full_text_basis": "Full AgentPRM paper reviewed; promise/progress reward decomposition, temporal-difference plus generalized-advantage training, WebShop search experiments, compute comparison and ablations checked.",
+    "evidence": "AgentPRM decomposes step quality into promise—the expected future probability of success—and progress—the advantage gained by the current action. It learns these signals with temporal-difference and generalized-advantage targets rather than requiring dense human step labels. The paper reports roughly 8x better compute efficiency than process-value/ordinary outcome-reward alternatives; in an 8x8 WebShop search setting, a Qwen2.5-3B policy guided by AgentPRM exceeds the process-value-model comparison by more than 20 success points.",
+    "limitations": "Promise estimates can be poorly calibrated in novel states, while progress depends on a meaningful local baseline. Reward decomposition does not remove search cost or guarantee safety under distribution shift."
+  },
+  "631": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2502.15760 full paper",
+    "full_text_basis": "Full Digi-Q paper reviewed; offline temporal-difference learning over frozen VLM features, Q-value training, Best-of-N policy extraction, Android-in-the-Wild experiments and ablations checked.",
+    "evidence": "Digi-Q learns a VLM Q-function from offline device-control trajectories using temporal-difference targets on frozen intermediate visual-language features. At inference, the learned Q-function reranks candidate actions through Best-of-N selection. On Android-in-the-Wild the paper reports a 21.2% improvement over the prior best offline device-control agent and shows cases where offline Q-guided selection approaches the performance of online RL.",
+    "limitations": "Offline temporal-difference learning inherits the support limitations of the behavior dataset and can extrapolate incorrectly for unseen actions. Best-of-N also depends on the base policy proposing at least one good candidate."
+  },
+  "634": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2026 Industry Track / full ColorBrowserAgent paper",
+    "full_text_basis": "Full 16-page paper reviewed; human-in-the-loop adaptive knowledge base, knowledge-aligned progressive summarization, WebArena/WebChoreArena experiments, commercial A/B deployment and limitations checked.",
+    "evidence": "ColorBrowserAgent adapts without model retraining by converting sparse expert feedback after failures into a persistent site-specific knowledge base and retrieving that knowledge during future execution. A progressive summarizer keeps a compressed belief state aligned with retrieved rules to reduce long-horizon decision drift. The paper reports 71.2% WebArena success, 47.4% zero-shot transfer on WebChoreArena, and a 19.3% relative increase in user satisfaction in commercial deployment.",
+    "limitations": "Cold-start domains still require human interventions to populate useful knowledge, and external memories can become stale as websites change. Progressive summaries can also omit evidence needed later in a long task."
+  }
+}
