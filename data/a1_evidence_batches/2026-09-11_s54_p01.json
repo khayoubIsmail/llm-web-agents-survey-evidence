@@ -1,0 +1,135 @@
+{
+  "517": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / WebRL full paper",
+    "full_text_basis": "Full paper reviewed; self-evolving online curriculum construction, outcome-reward modeling, reinforcement-learning procedure, WebArena-Lite experiments, scaling and ablations checked.",
+    "evidence": "WebRL trains web agents with a self-evolving online curriculum that turns failed interactions into new training tasks and uses an outcome-oriented reward model to score completion. The reported Llama-3.1-8B agent improves from 4.8% to 42.4% on WebArena-Lite, while the 70B model reaches 47.3%, above the paper's GPT-4-Turbo (17.6%) and AutoWebGLM (18.2%) comparisons. The results support online environment interaction plus adaptive task generation as a strong alternative to static demonstration-only training.",
+    "limitations": "The curriculum and reward signal are generated from the same interaction ecosystem, so reward-model errors and environment-specific task generation can reinforce systematic biases. Online RL is also expensive and potentially unsafe on unrestricted live sites."
+  },
+  "518": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2024 / WebGUM full paper",
+    "full_text_basis": "Full paper reviewed; multimodal screenshot+HTML instruction tuning, demonstration collection, MiniWoB and WebShop experiments, model-size comparisons and ablations checked.",
+    "evidence": "WebGUM instruction-tunes foundation models on multimodal web demonstrations that combine screenshots and HTML/action context. The training corpus contains about 347K high-quality demonstrations, roughly 38 times more than the prior supervised dataset used in the comparison. The paper reports more than a 45.8% relative gain over the previous offline MiniWoB result and shows a 3B model outperforming PaLM-540B on WebShop, demonstrating that targeted interaction data can outweigh raw parameter scale.",
+    "limitations": "The method is still imitation-style offline training and is limited by demonstration coverage and quality. It does not intrinsically learn recovery from unseen failure states or verify irreversible actions online."
+  },
+  "521": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2025 / Agent Workflow Memory full paper",
+    "full_text_basis": "Full paper reviewed; offline/on-the-fly workflow induction, memory retrieval/execution, Mind2Web and WebArena experiments, distribution-gap tests and analysis checked.",
+    "evidence": "Agent Workflow Memory (AWM) converts successful interaction traces into reusable workflows and retrieves those workflows when solving later tasks. The paper reports a 24.6% relative improvement on Mind2Web and a 51.1% relative improvement on WebArena; the released WebArena agent reaches 35.6% success. Online AWM also yields 8.9-14.0 absolute-point gains as the train-test distribution gap widens, indicating that reusable procedural memory can improve cross-task generalization.",
+    "limitations": "Workflow quality depends on whether past trajectories encode reusable abstractions rather than accidental site-specific details. Stored workflows can also become stale when interfaces or task semantics change."
+  },
+  "524": {
+    "review_date": "2026-09-11",
+    "source": "arXiv OpenWebVoyager full paper",
+    "full_text_basis": "Full paper reviewed; imitation warm-up, iterative real-world exploration, judge feedback, successful-trajectory optimization, benchmark evaluation and ablations checked.",
+    "evidence": "OpenWebVoyager bootstraps a multimodal web agent with imitation learning and then iteratively improves it by exploring real websites, judging completed trajectories, and training on successful/refined interactions. Performance improves across successive self-improvement iterations, showing that real-world exploration can produce useful supervision beyond the initial demonstration set. The training loop explicitly closes the gap between data collection and policy improvement instead of treating the demonstration corpus as fixed.",
+    "limitations": "Self-training can amplify judge errors and site-specific behaviors, and real-world exploration incurs cost, nondeterminism and safety risk. Successful trajectories alone can underrepresent informative failure states."
+  },
+  "527": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 / AdaptAgent full paper",
+    "full_text_basis": "Full paper reviewed; few-shot human-demonstration adaptation, multimodal versus text-only settings, Mind2Web/VisualWebArena experiments and ablations checked.",
+    "evidence": "AdaptAgent adapts a pretrained web agent at inference/training time using as few as one or two human demonstrations from a target task distribution. Across Mind2Web and VisualWebArena, the paper reports absolute success improvements of 3.36-7.21 points, corresponding to relative gains of about 21.03%-65.75%. Multimodal demonstrations are consistently more useful than text-only demonstrations, supporting rapid target-domain adaptation from very small supervised sets.",
+    "limitations": "Few-shot adaptation still assumes representative human demonstrations and can overfit to narrow target patterns. It does not solve cases where the target website exposes interaction primitives absent from the examples."
+  },
+  "529": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 Spotlight / AgentTrek full paper",
+    "full_text_basis": "Full paper reviewed; tutorial harvesting, task conversion, guided replay, VLM trajectory evaluation, cost analysis, Mind2Web/ScreenSpot/WebArena experiments and data-quality validation checked.",
+    "evidence": "AgentTrek synthesizes web-agent trajectories from public tutorials: tutorial text is converted to structured goals/instructions, replayed by a VLM agent in real websites, then filtered by a VLM evaluator. The paper reports 4,902 successful trajectories from 12,526 processed tutorials across 127 websites in the reviewed version, at about $0.551 per trajectory. In a 400-task analysis, detailed tutorials increase effective trajectory generation from 15.78% (63) to 52% (208), over a 230% improvement. Fine-tuning with AgentTrek data improves both grounding and planning on Mind2Web/ScreenSpot/WebArena.",
+    "limitations": "Tutorial availability biases the task distribution toward well-documented workflows, and the automatic replay/evaluator can retain systematic mistakes. Website drift can also invalidate tutorial steps."
+  },
+  "530": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / AgentRefine full paper",
+    "full_text_basis": "Full paper reviewed; task/trajectory synthesis, environment-feedback error refinement, refinement tuning, web-agent generalization experiments and ablations checked.",
+    "evidence": "AgentRefine improves agent training data by generating trajectories and then explicitly refining incorrect actions using feedback from the interactive environment. The refined trajectories are used for refinement tuning rather than treating all synthetic rollouts as equally trustworthy. Across the paper's web-agent evaluations, this produces stronger cross-task and cross-environment generalization than ordinary agent fine-tuning and synthetic-data baselines.",
+    "limitations": "The approach depends on environment feedback being sufficiently informative to diagnose errors. If the environment exposes sparse or ambiguous feedback, the refinement stage can misattribute failure causes."
+  },
+  "533": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / WebEvolver full paper",
+    "full_text_basis": "Full paper reviewed; co-evolving world model, imagined interaction generation, policy/world-model update loop, Mind2Web-Live/WebVoyager/GAIA-Web experiments and ablations checked.",
+    "evidence": "WebEvolver couples a web-agent policy with an LLM world model that acts as a virtual server for imagined interaction. The agent and world model improve together, allowing training to scale without relying on closed-model trajectory distillation. Across Mind2Web-Live, WebVoyager and GAIA-Web, the paper reports roughly a 10% performance improvement over prior self-evolving-agent baselines, demonstrating that imagined environments can provide useful additional training experience.",
+    "limitations": "World-model errors can generate unrealistic states and reward shortcuts, so simulated improvement may not transfer to live websites. Maintaining a sufficiently faithful evolving world model also adds substantial training complexity."
+  },
+  "534": {
+    "review_date": "2026-09-11",
+    "source": "Findings ACL 2025 / Explorer full paper",
+    "full_text_basis": "Full paper reviewed; exploration-driven trajectory synthesis, success filtering, dataset statistics, cost analysis, scaling experiments and Mind2Web-Live/MM-Mind2Web/MiniWoB++ evaluations checked.",
+    "evidence": "Explorer scales real-web trajectory collection through automated exploration rather than tutorial replay alone. The dataset contains more than 94K successful trajectories spanning about 49K URLs, 720K screenshots and 33M webpage elements; the paper reports an average cost near $0.28 per successful trajectory. Data-scaling experiments show consistent gains on Mind2Web-Live, Multimodal-Mind2Web and MiniWoB++, linking broader exploration coverage to better agent generalization.",
+    "limitations": "Successful-trajectory filtering can bias the dataset toward easier or more discoverable tasks, while broad exploration still incurs live-site cost and may miss rare but important failure states."
+  },
+  "536": {
+    "review_date": "2026-09-11",
+    "source": "Web-Shepherd full paper / arXiv",
+    "full_text_basis": "Full paper reviewed; process-reward data construction, WebPRM Collection, WebRewardBench, verifier training, WebArena-Lite search experiments and cost analysis checked.",
+    "evidence": "Web-Shepherd trains process reward models (PRMs) for step-level web-agent evaluation using WebPRM Collection, which contains about 40K preference pairs, and evaluates them on WebRewardBench. The trained verifier improves reward-model accuracy by roughly 30 points over GPT-4o in the reported comparison. When used with a GPT-4o-mini policy on WebArena-Lite, Web-Shepherd improves success by 10.9 points while costing about one tenth as much as using GPT-4o-mini itself as the verifier.",
+    "limitations": "A PRM inherits annotation and preference-construction biases, and step-level preference accuracy does not guarantee that globally optimal long-horizon trajectories receive the best cumulative score."
+  },
+  "537": {
+    "review_date": "2026-09-11",
+    "source": "Findings EACL 2026 / WorkForceAgent-R1 full paper",
+    "full_text_basis": "Full paper reviewed; rule-based R1-style RL, structured format/action rewards, 7B/14B models, WorkArena experiments and ablations checked.",
+    "evidence": "WorkForceAgent-R1 applies R1-style reinforcement learning to business-oriented web navigation using rule-based rewards for output-format adherence and action correctness, avoiding explicit chain-of-thought labels. On WorkArena, the paper reports 10.26%-16.59% gains over supervised-fine-tuning baselines and competitive performance relative to GPT-4o-based workplace agents. The result shows that simple verifiable interaction rewards can improve reasoning behavior without curated reasoning traces.",
+    "limitations": "Rule-based rewards cover only behaviors that can be checked mechanically and can miss semantic progress or unsafe but syntactically correct actions. Results are concentrated on WorkArena-style enterprise tasks."
+  },
+  "538": {
+    "review_date": "2026-09-11",
+    "source": "Go-Browse full paper / arXiv",
+    "full_text_basis": "Full paper reviewed; structured graph exploration, trajectory collection, 7B training, WebArena evaluation, data scaling and analysis checked.",
+    "evidence": "Go-Browse structures web exploration as a graph so data collection can systematically expand novel states instead of repeatedly following similar trajectories. Its training set contains about 10K successful trajectories and 40K interaction steps across roughly 100 websites. The resulting 7B agent reaches 21.7% WebArena success, 2.4 points above GPT-4o-mini and 2.9 points above the strongest sub-10B comparison reported in the paper.",
+    "limitations": "Graph exploration can still be biased by the starting sites and exploration policy, and successful coverage of one website graph does not guarantee transfer after major interface changes."
+  },
+  "539": {
+    "review_date": "2026-09-11",
+    "source": "ICASSP 2026 / TGPO full paper",
+    "full_text_basis": "Full paper reviewed; tree-structured trajectory merging, preference-pair construction, offline reinforcement learning, web-agent experiments and ablations checked.",
+    "evidence": "Tree-Guided Preference Optimization (TGPO) addresses sparse rewards and credit-assignment conflicts by merging semantically equivalent states from different trajectories into a tree and deriving consistent local preference relationships from the shared structure. This avoids contradictory labels that arise when the same intermediate state appears inside globally successful and unsuccessful rollouts. The paper's web-agent experiments show more robust offline preference optimization than flat trajectory-level preference construction.",
+    "limitations": "Semantic state merging is itself approximate: incorrectly merging distinct states or failing to merge equivalent states can corrupt preference labels. Offline optimization also cannot discover behaviors absent from the collected trajectory tree."
+  },
+  "541": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / WebAgent-R1 full paper",
+    "full_text_basis": "Full paper reviewed; asynchronous online rollout, binary task rewards, multi-turn RL, Qwen/Llama experiments, benchmark comparisons and ablations checked.",
+    "evidence": "WebAgent-R1 trains directly from multi-turn online web interaction with a sparse binary task-completion reward and asynchronous trajectory collection. Qwen2.5-3B improves from 6.1% to 33.9% and Llama-3.1-8B from 8.5% to 44.8% in the paper's principal web-agent evaluation, surpassing substantially larger prompting and supervised baselines. The result demonstrates that end-to-end multi-turn RL can produce large gains even without dense step rewards.",
+    "limitations": "Sparse binary rewards make credit assignment difficult and require many expensive online rollouts. Training can also over-specialize to benchmark/task generators if environment diversity is insufficient."
+  },
+  "543": {
+    "review_date": "2026-09-11",
+    "source": "AAAI 2026 / TongUI full paper",
+    "full_text_basis": "Full paper reviewed; internet tutorial mining, GUI-Net-1M construction, multi-OS trajectory synthesis, Qwen2.5-VL fine-tuning, grounding/navigation evaluations and scaling checked.",
+    "evidence": "TongUI converts internet-scale multimodal tutorials into GUI trajectories and releases GUI-Net-1M, containing about one million trajectories across five operating systems and more than 280 applications. Fine-tuning Qwen2.5-VL models at 3B, 7B and 32B scale yields more than 10% improvement over comparison baselines on multiple GUI grounding and navigation benchmarks, showing that tutorial-derived supervision scales beyond a single platform.",
+    "limitations": "Tutorial-derived data inherits documentation bias and may omit undocumented or adversarial interaction patterns. Cross-platform action normalization can also hide platform-specific semantics."
+  },
+  "546": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / How to Train Your LLM Web Agent full paper",
+    "full_text_basis": "Full paper reviewed; 1,370 training configurations, bootstrap/statistical diagnosis, SFT-versus-RL comparison, Llama student/teacher setup, WorkArena/MiniWoB++ experiments and compute analysis checked.",
+    "evidence": "This study systematically evaluates 1,370 web-agent training configurations rather than proposing a single recipe. A Llama-3.1-8B student first imitates a Llama-3.3-70B teacher and is then improved with on-policy RL. SFT+RL consistently outperforms either method alone on WorkArena and MiniWoB++; on MiniWoB++ the hybrid recipe reaches the peak pure-SFT performance using about 55% of its compute. The statistical analysis identifies data quality, curriculum and on-policy refinement as stronger predictors than simply scaling imitation data.",
+    "limitations": "The diagnosis is tied to the tested model family and benchmark suite; interactions between hyperparameters may differ for other environments. Statistical association across configurations also does not prove every factor is causally independent."
+  },
+  "548": {
+    "review_date": "2026-09-11",
+    "source": "WebGym full paper / arXiv",
+    "full_text_basis": "Full paper reviewed; scalable environment/task generation, rubric-based evaluation, asynchronous rollout system, Qwen3-VL training, OOD website tests and efficiency analysis checked.",
+    "evidence": "WebGym builds scalable visual-web training environments with roughly 300K realistic rubric-evaluated tasks and an asynchronous rollout stack that gives about 4-5x collection speedup. Training Qwen3-VL-8B raises out-of-distribution unseen-website success from 26.2% to 42.9%, compared with 27.1% for GPT-4o and 29.8% for GPT-5-Thinking in the reported evaluation. This directly tests whether broad generated environments transfer to unseen sites.",
+    "limitations": "Generated tasks and rubrics can contain artifacts that are easier to optimize than real user goals, and environment-scale alone does not ensure coverage of authentication, safety-critical or adversarial workflows."
+  },
+  "552": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2026 / SynthAgent full paper",
+    "full_text_basis": "Full paper reviewed; categorized web exploration, synthetic task generation, conflict-based task refinement, trajectory refinement, agent fine-tuning experiments and ablations checked.",
+    "evidence": "SynthAgent automatically adapts web agents using synthetic supervision collected from structured exploration. It groups discovered website states into task categories, generates tasks from those states, removes/refines conflicting or ambiguous goals, and globally refines trajectories before training. Across the paper's web-agent evaluations, this pipeline outperforms alternative synthetic-data generation strategies, showing that quality control at both task and trajectory levels matters as much as raw synthetic-data volume.",
+    "limitations": "Synthetic goals can still reflect the generator's biases and may not match real user intent. Conflict detection and trajectory refinement add model-judging stages whose mistakes can propagate into training."
+  },
+  "554": {
+    "review_date": "2026-09-11",
+    "source": "WebFactory full paper / arXiv",
+    "full_text_basis": "Full paper reviewed; synthetic web-environment construction, knowledge-aware tasks, LLM trajectory generation, decomposed rewards, closed-loop RL, offline/online transfer experiments and ablations checked.",
+    "evidence": "WebFactory creates a fully automated training loop: synthetic websites are generated, knowledge-aware tasks are instantiated, LLM agents produce trajectories, decomposed reward signals score behavior, and the policy is optimized with RL. Training on synthetic data from only ten websites reaches performance comparable to GUI agents trained on a similar amount of human data collected from a much broader environment set, and both offline and online evaluations substantially improve over the base model. The result supports environment synthesis as a route to compressing expensive foundational-model behavior into smaller grounded agents.",
+    "limitations": "Synthetic environments may simplify or distort real web distributions, and decomposed synthetic rewards can create shortcuts. Transfer to authentication-heavy, highly dynamic or adversarial production sites remains uncertain."
+  }
+}
