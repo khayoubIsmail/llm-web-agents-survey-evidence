@@ -41,14 +41,14 @@
     "current_cycle_pdf_full_text_checks": 134,
     "retained_substantive_archive_notes": 268,
     "full_text_analysis_documented": 402,
-    "full_text_access_exceptions": 2,
+    "full_text_access_exceptions": 3,
     "access_exception_record_ids": [
       249
     ],
-    "current_cycle_full_text_rechecks_or_pdf_checks": 229,
-    "records_still_without_current_cycle_full_text_verification": 173,
-    "retained_archive_only_records": 173,
-    "a1_verified_rereads_logged": 120
+    "current_cycle_full_text_rechecks_or_pdf_checks": 250,
+    "records_still_without_current_cycle_full_text_verification": 152,
+    "retained_archive_only_records": 152,
+    "a1_verified_rereads_logged": 141
   },
   "generated_date": "2026-07-26",
   "evidence_note_audit_date": "2026-09-08",

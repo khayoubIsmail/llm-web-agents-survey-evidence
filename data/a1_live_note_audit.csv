@@ -136,28 +136,28 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 287,Large Language Model Powered Agents in the Web,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0287.md
 288,AutoWebGLM: Bootstrap and Reinforce a Large Language Model-Based Web Navigating Agent,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0288.md
 289,Agent S An Open Agentic Framework that Uses Computers Like a Human,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0289.md
-295,Large Language Model-Brained GUI Agents- A Survey,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0295.md
-297,A Survey of WebAgents- Towards Next-Generation AI Agents for Web Automation with Large Foundation Models,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0297.md
+295,Large Language Model-Brained GUI Agents- A Survey,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0295.md
+297,A Survey of WebAgents- Towards Next-Generation AI Agents for Web Automation with Large Foundation Models,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0297.md
 298,WALT- Web Agents that Learn Tools,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0298.md
-299,Mapping Natural Language Instructions to Mobile UI Action Sequences,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0299.md
-300,Grounding Open-Domain Instructions to Automate Web Support Tasks,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0300.md
-302,WebGLM- Towards an Efficient Web-Enhanced Question Answering System with Human Preferences,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0302.md
-303,A Zero-Shot Language Agent for Computer Control with Structured Reflection,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0303.md
-305,AppAgent Multimodal Agents as Smartphone Users,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0305.md
-307,Cradle Empowering Foundation Agents Towards General Computer Control,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0307.md
-310,Automating the Enterprise with Foundation Models,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0310.md
-311,OpenWebAgent- An Open Toolkit to Enable Web Agents on Large Language Models,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0311.md
-313,Turn Every Application into an Agent- Towards Efficient Human-Agent-Computer Interaction with API-First LLM-Based Agents,S4 / P2,False,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0313.md
-318,ReachAgent Enhancing Mobile Agent via Page Reaching and Operation,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0318.md
-319,LiteWebAgent The Open-Source Suite for VLM-Based Web-Agent Applications,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0319.md
-320,LLM-Powered GUI Agents in Phone Automation- Surveying Progress and Prospects,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0320.md
-321,WebThinker- Empowering Large Reasoning Models with Deep Research Capability,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0321.md
-322,Beyond Browsing API-Based Web Agents,S4 / P2,False,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0322.md
-323,GA- A Comprehensive Survey on LLM-based GUI Agent,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0323.md
-328,OPENCUA- Open Foundations for Computer-Use Agents,S4 / P2,False,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0328.md
-330,BrowserAgent- Building Web Agents with Human-Inspired Web Browsing Actions,S4 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0330.md
-332,Agent-SAMA- State-Aware Mobile Assistant,S4 / P2,False,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0332.md
-336,A Comprehensive Survey of Agents for Computer Use,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0336.md
+299,Mapping Natural Language Instructions to Mobile UI Action Sequences,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0299.md
+300,Grounding Open-Domain Instructions to Automate Web Support Tasks,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0300.md
+302,WebGLM- Towards an Efficient Web-Enhanced Question Answering System with Human Preferences,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0302.md
+303,A Zero-Shot Language Agent for Computer Control with Structured Reflection,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0303.md
+305,AppAgent Multimodal Agents as Smartphone Users,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0305.md
+307,Cradle Empowering Foundation Agents Towards General Computer Control,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0307.md
+310,Automating the Enterprise with Foundation Models,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0310.md
+311,OpenWebAgent- An Open Toolkit to Enable Web Agents on Large Language Models,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0311.md
+313,Turn Every Application into an Agent- Towards Efficient Human-Agent-Computer Interaction with API-First LLM-Based Agents,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0313.md
+318,ReachAgent Enhancing Mobile Agent via Page Reaching and Operation,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0318.md
+319,LiteWebAgent The Open-Source Suite for VLM-Based Web-Agent Applications,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0319.md
+320,LLM-Powered GUI Agents in Phone Automation- Surveying Progress and Prospects,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0320.md
+321,WebThinker- Empowering Large Reasoning Models with Deep Research Capability,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0321.md
+322,Beyond Browsing API-Based Web Agents,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0322.md
+323,GA- A Comprehensive Survey on LLM-based GUI Agent,S4 / P2,False,False,False,False,blocked pending publication-status revalidation,complete-or-needs-manual-quality-check,notes/papers/0323.md
+328,OPENCUA- Open Foundations for Computer-Use Agents,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0328.md
+330,BrowserAgent- Building Web Agents with Human-Inspired Web Browsing Actions,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0330.md
+332,Agent-SAMA- State-Aware Mobile Assistant,S4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0332.md
+336,A Comprehensive Survey of Agents for Computer Use,S4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0336.md
 337,Mind2Web- Towards a Generalist Agent for the Web,S5.1 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0337.md
 338,WebArena- A Realistic Web Environment for Building Autonomous Agents,S5.1 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0338.md
 339,VisualWebArena- Evaluating Multimodal Agents on Realistic Visually Grounded Web Tasks,S5.1 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0339.md
