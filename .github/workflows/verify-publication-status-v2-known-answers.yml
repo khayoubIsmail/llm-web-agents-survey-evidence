@@ -24,7 +24,7 @@ jobs:
         run: |
           python - <<'PY'
           import csv
-          ids={1,110,135,323,774}
+          ids={1,4,14,15,29,33,110,135,323,774}
           src=list(csv.DictReader(open('data/studies_805_mapping_corpus.csv',encoding='utf-8-sig')))
           fields=list(src[0])
           rows=[r for r in src if int(r[fields[0]]) in ids]
