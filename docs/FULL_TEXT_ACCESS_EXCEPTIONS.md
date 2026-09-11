@@ -23,10 +23,14 @@ The retrieval search was repeated on **2026-09-10** before rebuilding the 403-fi
 
 ### Synthesis rule
 
-This paper remains in the 403-record publication-eligible register for traceability, but it is **not used for claim-level or quantitative synthesis**. `notes/papers/0249.md` and `notes/original_sources/0249.md` record the access decision; neither is represented as a complete full-text reading.
+This paper remains in the publication-eligible master register for traceability while its publication status remains eligible, but it is **not a member of the qualitative-synthesis set and is not used for claim-level, taxonomy-support, or quantitative synthesis**. `notes/papers/0249.md` and `notes/original_sources/0249.md` record the access decision; neither is represented as a complete full-text reading.
 
-A complete publisher PDF, accepted manuscript, or author copy is required to close the exception. Once obtained, record 249 must receive the same P2/P3 structured full-text analysis as the other contextual papers, and `data/paper_note_audit.csv`, `data/summary.json`, this exception log, and both paper/source notes must be updated together.
+A complete publisher PDF, accepted manuscript, or author copy is required to close the exception. Once obtained, record 249 must receive the same P2/P3 structured full-text analysis as the other contextual papers, and `data/paper_note_audit.csv`, `data/summary.json`, this exception log, and both paper/source notes must be updated together before it can enter the qualitative-synthesis set.
+
+### Count reconciliation rule
+
+Record 249 must be excluded **exactly once** when the final evidence set is rebuilt. If publication-status verification retains record 249 in the final publication-eligible pool, it is removed when deriving the qualitative-synthesis set. If publication-status adjudication removes record 249 from the publication-eligible pool, it must not be subtracted again. Final P0–P3 and reading-depth counts must be recomputed from actual synthesis-set membership rather than adjusted manually from historical totals.
 
 ### Reproducibility note
 
-The repository records this exception rather than inferring methods, numerical results, or limitations from the title, abstract, citations, or implementation alone. This preserves the distinction between **403 paper-specific source records** and **402 records with documented full-text analysis**.
+The repository records this exception rather than inferring methods, numerical results, or limitations from the title, abstract, citations, or implementation alone. This preserves the distinction between the master register and the smaller set of records with documented full-text analysis and synthesis eligibility.
