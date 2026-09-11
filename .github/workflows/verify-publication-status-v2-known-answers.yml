@@ -37,5 +37,7 @@ jobs:
             --out /tmp/known_out.csv \
             --cache /tmp/known_cache \
             --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Show resolved evidence
+        run: cat /tmp/known_out.csv
       - name: Enforce known-answer verdicts
         run: python scripts/check_publication_status_known_answers.py /tmp/known_out.csv
