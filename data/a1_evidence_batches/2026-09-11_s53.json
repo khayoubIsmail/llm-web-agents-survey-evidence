@@ -1,0 +1,114 @@
+{
+  "479": {
+    "review_date": "2026-09-11",
+    "source": "Findings ACL 2024 / full paper",
+    "full_text_basis": "Full RaDA paper reviewed; retrieval-augmented decomposition/action generation, CompWoB and Mind2Web experiments, ablations and qualitative analysis checked.",
+    "evidence": "RaDA separates web planning into Retrieval-augmented Task Decomposition (RaD), which creates high-level subtasks without hand-written decomposition examples, and Retrieval-augmented Action Generation (RaA), which retrieves relevant action exemplars dynamically along the trajectory. With GPT-3.5 and GPT-4 backbones it consistently improves over prior retrieval/prompting baselines on CompWoB and Mind2Web. On the complex Mind2Web subset, the prior Synapse setup drops from 32.8% to 24.73% element accuracy and from 29.33% to 21.34% step success, while RaDA is substantially more robust across the same complexity shift.",
+    "limitations": "Retrieval quality remains a dependency: irrelevant exemplars can distort either task decomposition or action choice. The method also assumes that retrieved trajectories contain reusable structure and does not eliminate grounding or execution errors."
+  },
+  "481": {
+    "review_date": "2026-09-11",
+    "source": "COLM 2025 / arXiv:2504.00906 full paper",
+    "full_text_basis": "Full Agent S2 paper reviewed; compositional specialist architecture, Mixture-of-Grounding, Proactive Hierarchical Planning, OSWorld/WindowsAgentArena/AndroidWorld experiments and ablations checked.",
+    "evidence": "Agent S2 decomposes computer use across specialist modules rather than relying on a single generalist model. Mixture-of-Grounding combines multiple localization strategies, while Proactive Hierarchical Planning revises plans at different time scales as observations change. The paper reports 18.9% and 32.7% relative improvements over leading baselines on OSWorld 15-step and 50-step evaluations, a 52.8% relative gain on WindowsAgentArena, and 16.52% relative improvement on AndroidWorld.",
+    "limitations": "The framework increases system complexity and inherits the latency/cost and failure modes of multiple component models. Better modular planning does not guarantee recovery when all grounding specialists agree on an incorrect target."
+  },
+  "482": {
+    "review_date": "2026-09-11",
+    "source": "EACL 2026 / full paper",
+    "full_text_basis": "Full WebRollback paper reviewed; explicit rollback action, state-history handling, two live-navigation evaluations, zero-shot/fine-tuning comparisons and analysis checked.",
+    "evidence": "WebRollback augments the web-agent action space with explicit rollback so the model can return to an earlier trajectory state instead of continuing greedily after a bad action. The method is tested on two live web-navigation benchmarks under both zero-shot and fine-tuned settings and consistently improves task completion and search efficiency over one-way navigation. The contribution is important because recovery becomes a first-class agent decision rather than an external reset heuristic.",
+    "limitations": "Rollback helps only when a useful prior state remains recoverable and when the agent can diagnose that the current branch is unproductive. Irreversible actions and external side effects cannot in general be undone by browser-state rollback."
+  },
+  "483": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / full AgentOccam paper",
+    "full_text_basis": "Full AgentOccam paper reviewed; observation/action alignment, WebArena/WebVoyager experiments, ablations and error analysis checked.",
+    "evidence": "AgentOccam shows that careful observation and action-space design can outperform substantially more elaborate agent scaffolds. On WebArena it reports a 43.1% success rate, 9.8 absolute points above the prior best and 26.6 points above a comparable plain GPT-4-Turbo web agent. On deterministic WebVoyager tasks it also exceeds the former best agent by about 2.4 points. These gains are achieved without in-context exemplars, extra agent roles, online feedback or tree search.",
+    "limitations": "The result demonstrates the importance of interface alignment, not solved general autonomy. Performance remains benchmark-dependent and still degrades on long-horizon tasks, unseen interaction patterns and cases requiring sophisticated recovery."
+  },
+  "484": {
+    "review_date": "2026-09-11",
+    "source": "TMLR 2025 / arXiv:2411.06559 full paper",
+    "full_text_basis": "Full WebDreamer paper reviewed; LLM world-model simulation, speculative planning, true-interaction comparison, VisualWebArena/Online-Mind2Web/Mind2Web-Live results and ablations checked.",
+    "evidence": "WebDreamer uses an LLM as a web world model to predict the result of candidate actions before committing them to the real environment. With GPT-4o as the simulator it improves a reactive baseline from 17.6% to 23.6% on VisualWebArena, 26.0% to 37.0% on Online-Mind2Web, and 20.2% to 25.0% on Mind2Web-Live. Unlike true tree search, speculative simulation reduces dependence on reversible real interactions and therefore makes lookahead usable on live sites.",
+    "limitations": "Planning quality is bounded by world-model fidelity; hallucinated next states can lead to confidently wrong plans. Simulation also adds inference cost and does not make irreversible live actions safe by itself."
+  },
+  "485": {
+    "review_date": "2026-09-11",
+    "source": "Findings EMNLP 2025 / arXiv:2505.20013 full paper",
+    "full_text_basis": "Full WebCoT paper reviewed; reflection/lookahead, branching, rollback rationale reconstruction, OpenWebVoyager training, WebVoyager/Mind2Web-Live/SimpleQA experiments and ablations checked.",
+    "evidence": "WebCoT reconstructs inference-time search behaviors—reflection and lookahead, branching, and rollback—into supervised chain-of-thought trajectories so the backbone model learns these recovery patterns directly. With Llama-3.3-70B, the full method reaches 41.04% on WebVoyager versus 24.68% for the base model; on Mind2Web-Live it reaches 20.8% versus 5.7%, and on SimpleQA 56.0% versus 25.0%. Ablations rise from 31.77% with reflection/lookahead to 34.38% with branching and 41.04% with rollback included.",
+    "limitations": "Distilled reasoning reflects the search algorithms and environments used to create its trajectories, so out-of-distribution recovery is not guaranteed. Longer rationales also add training/inference overhead."
+  },
+  "489": {
+    "review_date": "2026-09-11",
+    "source": "Findings ACL 2026 / arXiv:2601.03164 full paper",
+    "full_text_basis": "Full WebAnchor paper reviewed; plan-anchor analysis, two-stage Anchor-GRPO, rubric construction, four benchmark evaluations, scaling and tool-efficiency analysis checked.",
+    "evidence": "WebAnchor identifies a 'plan anchor' effect: the initial reasoning step disproportionately determines long-horizon web behavior. Anchor-GRPO therefore trains first-step planning with fine-grained rubrics before separately optimizing execution with sparse rewards. Across BrowseComp, BrowseComp-Zh, GAIA and XBench-DeepSearch, it improves over GRPO variants across 3B-30B models; WebAnchor-30B reports 46.0% pass@1 on BrowseComp and 76.4% on GAIA while also improving tool efficiency.",
+    "limitations": "The method strongly privileges the first plan; if the initial plan is wrong, subsequent execution alignment can reinforce the wrong direction. Rubric quality and self-play coverage also affect training signal quality."
+  },
+  "490": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2407.01476 full paper",
+    "full_text_basis": "Full Tree Search for Language Model Agents paper reviewed; best-first environment search, value/scoring design, VisualWebArena/WebArena results, compute scaling and limitations checked.",
+    "evidence": "This work performs explicit best-first tree search in the actual interactive web environment, making exploration and multi-step planning a test-time algorithm layered over an existing LM agent. On VisualWebArena, search over a GPT-4o baseline yields a 39.7% relative improvement and 26.4% success. On WebArena it yields a 28.0% relative gain and 19.2% success. Performance increases with additional test-time search compute, establishing a clear planning/compute scaling relationship.",
+    "limitations": "Search requires environment interactions, which are costly and may be unsafe or irreversible on live websites. The branch evaluator can also mis-rank states, and gains depend on the underlying agent's action-generation quality."
+  },
+  "495": {
+    "review_date": "2026-09-11",
+    "source": "AAAI 2025 full paper",
+    "full_text_basis": "Full WebPilot paper reviewed; global-plan refinement, local MCTS, multi-agent roles, WebArena/MiniWoB++ experiments, ablations and analysis checked.",
+    "evidence": "WebPilot combines global and local optimization. A global component decomposes and revises high-level subtasks from new observations, while a tailored local MCTS explores uncertain actions for each subtask. On WebArena the GPT-4 configuration is reported as state of the art and gives a 93% relative success-rate increase over the concurrent tree-search method; MiniWoB++ experiments confirm transfer to a different environment. The paper shows that search is more useful when constrained by a continually revised high-level plan.",
+    "limitations": "Multi-agent planning plus MCTS is computationally expensive and depends on reliable state evaluation. Search on live sites can also be problematic when actions have irreversible effects."
+  },
+  "497": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2410.02052 full paper",
+    "full_text_basis": "Full ExACT paper reviewed; Reflective-MCTS, contrastive reflection, multi-agent state evaluation, Exploratory Learning, VisualWebArena results and compute-transfer analysis checked.",
+    "evidence": "ExACT combines Reflective MCTS (R-MCTS) with Exploratory Learning. R-MCTS uses contrastive reflection and multi-agent debate for state evaluation; trajectories generated by search are then distilled so the model learns to explore, evaluate and backtrack without an external search loop. On VisualWebArena, GPT-4o R-MCTS improves over the prior state of the art by roughly 6%-30% depending on task group. After Exploratory Learning, the fine-tuned model preserves about 87% of R-MCTS performance with substantially less inference-time compute.",
+    "limitations": "High-quality search trajectories are expensive to generate, and MCTS value errors can propagate into the distilled policy. The approach also assumes that exploration can be performed safely in the environment."
+  },
+  "501": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2504.06821 full paper",
+    "full_text_basis": "Full Agent Skill Induction paper reviewed; program induction/verification/use, WebArena experiments, text-skill comparison, efficiency and transfer studies checked.",
+    "evidence": "Agent Skill Induction (ASI) learns reusable programmatic web skills online: it induces a program from interaction, verifies it, and later invokes the verified skill as a higher-level action. On WebArena, ASI improves success by 23.5% relative to the static baseline and by 11.3% over a text-skill variant. It also reduces steps by about 10.7%-15.3%, and transfer experiments show that common skills can be reused or updated when websites change.",
+    "limitations": "Program induction is only useful when a task exposes reusable regularities and verification can reliably detect incorrect programs. Highly visual, one-off, or adversarial interactions may not admit compact reusable skills."
+  },
+  "503": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / arXiv:2505.20660 full paper",
+    "full_text_basis": "Full BacktrackAgent paper reviewed; verifier/judger/reflector modules, outcome-page training data, Mobile3M/Auto-UI experiments and ablations checked.",
+    "evidence": "BacktrackAgent makes error recovery explicit through three components: a verifier detects anomalous outcomes, a judger decides whether recovery is needed, and a reflector selects a corrected strategy/backtracking action. Its training set includes post-action outcome pages rather than only intended actions. Across Mobile3M and Auto-UI the paper reports improvements in both task success and step accuracy, supporting outcome-aware verification as a separate capability from next-action prediction.",
+    "limitations": "The recovery loop can only be as reliable as its verifier/judger and may add latency at every step. Some actions cannot be cleanly reversed even when the agent detects the error."
+  },
+  "504": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2310.03720 full paper",
+    "full_text_basis": "Full SteP paper reviewed; stacked-policy MDP, dynamic policy calls, WebArena/MiniWoB++/CRM experiments, decomposition comparisons and limitations checked.",
+    "evidence": "SteP decomposes web behavior into dynamically stacked LLM policies rather than one monolithic prompt or a fixed task hierarchy. The stack represents control state and lets specialized policies call and return from one another as tasks evolve. On WebArena the reported GPT-4 result improves from 14.9% for the prior reference system to 33.5%; on MiniWoB++ it remains competitive while using less demonstration data. This provides evidence that modular policy composition can reduce behavior interference across unrelated web tasks.",
+    "limitations": "Policy boundaries and handoffs remain a design problem and can introduce their own cascading errors. The method still relies on the base LLM for grounding and for deciding which policy should control each state."
+  },
+  "505": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2506.07976 full paper",
+    "full_text_basis": "Full Thinking vs. Doing paper reviewed; test-time interaction scaling, prompting studies, curriculum RL, WebVoyager/WebArena results and exploration analysis checked.",
+    "evidence": "The paper distinguishes scaling internal reasoning from scaling actual environment interaction. Test-Time Interaction (TTI) increases the rollout horizon so an agent can gather information, explore, backtrack and re-plan; the training version uses curriculum-based online RL that adapts allowed interaction length. With Gemma-3-12B, TTI is reported as a state-of-the-art open-source/open-data agent on WebVoyager and WebArena, and analysis shows longer interaction budgets improve the exploration/exploitation balance even without proportionally increasing per-step reasoning.",
+    "limitations": "More interactions increase latency, cost and exposure to harmful/irreversible actions. Longer horizons also amplify compounding action and observation errors when recovery is weak."
+  },
+  "506": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2025 full paper",
+    "full_text_basis": "Full R2D2 paper reviewed; replay-buffer world reconstruction, reflective error analysis, WebArena experiments, navigation-error analysis and limitations checked.",
+    "evidence": "R2D2 combines Remember and Reflect. Remember stores a replay buffer that reconstructs a map of previously visited web states; Reflect analyzes failed behavior and revises strategy. On WebArena the paper reports a 50% reduction in navigation errors and roughly a threefold increase in task completion relative to the compared baseline. The result supports explicit episodic navigation memory plus failure reflection rather than relying only on the LLM context window.",
+    "limitations": "A replay buffer can retain stale or misleading states when websites change, and reflection quality depends on correctly identifying the cause of failure. Memory growth and retrieval also create additional overhead."
+  },
+  "514": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2026 / arXiv:2604.18779 full paper",
+    "full_text_basis": "Full Mango paper reviewed; global website-structure analysis, Thompson-sampling URL allocation, episodic memory, WebVoyager/WebWalkerQA experiments and ablations checked.",
+    "evidence": "Mango avoids always starting from a site's root by building a global view of candidate URLs, initializing relevance from lightweight crawling/search, and using Thompson Sampling to allocate navigation budget across entry points. An episodic memory prevents repeated unsuccessful exploration. With GPT-5-mini it reports 63.6% success on WebVoyager, 7.3 points above the strongest comparison, and 52.5% on WebWalkerQA, 26.8 points above the best baseline. The results quantify the value of choosing where to begin exploration, not only what action to take next.",
+    "limitations": "The method assumes a crawlable/discoverable URL structure and can be less applicable to heavily client-rendered, authenticated or state-dependent sites. Global crawling also adds up-front cost."
+  }
+}
