@@ -1,0 +1,44 @@
+name: Verify publication status
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verify_publication_status.py"
+      - ".github/workflows/verify-publication-status.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: pip install requests
+      - name: Cross-check all 805 records
+        run: |
+          python scripts/verify_publication_status.py \
+            --corpus data/studies_805_mapping_corpus.csv \
+            --out data/publication_status_verification.csv \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Commit verification evidence
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_verification.csv
+          if git diff --cached --quiet; then
+            echo "No verification changes."
+            exit 0
+          fi
+          git commit -m "Add 805-study publication-status verification evidence"
+          git pull --rebase origin main
+          git push
