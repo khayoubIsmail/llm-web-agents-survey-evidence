@@ -96,6 +96,8 @@ The reviewer-process sentence in this paragraph also belongs to D1. When D1 is r
 
 **Reason:** the figure should describe the population actually represented in the thematic synthesis rather than carry an unnecessary reading-process claim.
 
+**Required data/figure action:** this is not a caption-only edit. After `{{N_SYNTH}}` is frozen, rebuild the thematic/category statistics from the actual final synthesis-membership table, regenerate every Figure 2 bar from those statistics, and verify that the bars sum exactly to `{{N_SYNTH}}`. Any historical 403-based statistics artifact must be regenerated rather than merely renamed or relabeled. If a manuscript-workspace file named `corpus_statistics_403.csv` is the current chart source, regenerate it from final membership and replace it with a count-neutral/finalized artifact; that file is not currently versioned in this evidence repository.
+
 ### 5. §3.1 taxonomy paragraph — submitted source line 323
 
 **Current**
@@ -157,7 +159,7 @@ This yields the stronger defensible statement: **All studies contributing to the
 >
 > We also corrected every manuscript statement that previously implied uniform “in-depth” review of the entire included pool. The revised wording distinguishes the final publication-eligible pool from the subset contributing to qualitative synthesis. One otherwise publication-eligible P3 record (record 249) could not be obtained as a complete verifiable full text despite documented retrieval attempts. It is retained in the register for traceability but excluded from qualitative and claim-level synthesis. Consequently, all studies contributing to the final qualitative synthesis have documented full-text reading, with analysis recorded at one of the two defined depth levels.
 >
-> The repository now provides an A2 reading-depth audit that enumerates each affected manuscript location, the prior wording, the reason for correction, the replacement wording, and the supporting evidence artifact. Final numerical counts will be inserted after the ongoing publication-status verification and corpus reconciliation are complete.
+> The repository now provides an A2 reading-depth audit that enumerates each affected manuscript location, the prior wording, the reason for correction, the replacement wording, and the supporting evidence artifact. Figure 2 will also be regenerated from the final synthesis membership rather than merely relabeled, so that its category bars and total reflect the same `{{N_SYNTH}}` population. Final numerical counts will be inserted after the ongoing publication-status verification and corpus reconciliation are complete.
 
 ## Coordination with D1 and E1
 
@@ -181,7 +183,8 @@ A2 is closed only when all of the following are true:
 - [x] repository audit artifact exists;
 - [ ] publication-status verification and manual adjudication are complete;
 - [ ] `{{N_POOL}}`, `{{N_SYNTH}}`, `{{N_P0}}`–`{{N_P3}}`, `{{N_DEEP}}`, and `{{N_STRUCT}}` are recomputed from final membership;
+- [ ] thematic statistics are rebuilt from final `{{N_SYNTH}}` membership and Figure 2 is regenerated, with bar totals verified to equal `{{N_SYNTH}}`;
 - [ ] the eight manuscript edits are applied to the final LaTeX source;
-- [ ] A3 confirms that manuscript, response letter, repository artifacts, and counts agree.
+- [ ] A3 confirms that manuscript, response letter, repository artifacts, figures/statistics, and counts agree.
 
 Until the unchecked items are complete, A2 is **methodologically drafted and auditable, but not numerically frozen**.
