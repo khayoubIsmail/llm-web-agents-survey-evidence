@@ -1,0 +1,16 @@
+{
+  "rows": 805,
+  "verdict_counts": {
+    "DOWNGRADE": 37,
+    "NO_MATCH": 429,
+    "OK_ARCHIVAL": 213,
+    "OK_PREPRINT": 50,
+    "UPGRADE": 57,
+    "VENUE_MISMATCH": 16,
+    "VENUE_MISSING": 3
+  },
+  "resolved": 376,
+  "no_match": 429,
+  "known_answer_gate": "passed",
+  "manual_authoritative_evidence_records": 1
+}
