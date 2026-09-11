@@ -26,25 +26,25 @@ jobs:
           python-version: "3.12"
       - name: Install dependency
         run: pip install requests
-      - name: Split the 805-row corpus into four deterministic chunks
+      - name: Split the 805-row corpus into three deterministic chunks
         run: |
           python - <<'PY'
           import csv
           rows=list(csv.DictReader(open('data/studies_805_mapping_corpus.csv',encoding='utf-8-sig')))
           fields=list(rows[0])
-          for i in range(4):
-              subset=rows[i::4]
+          for i in range(3):
+              subset=rows[i::3]
               with open(f'/tmp/corpus_{i}.csv','w',encoding='utf-8',newline='') as f:
                   w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(subset)
-          assert sum(len(rows[i::4]) for i in range(4)) == 805
+          assert sum(len(rows[i::3]) for i in range(3)) == 805
           PY
-      - name: Cross-check all 805 records with v2
+      - name: Cross-check all 805 records with hardened v2
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p data/verification_cache_v2
           pids=()
-          for i in 0 1 2 3; do
+          for i in 0 1 2; do
             python scripts/verify_publication_status_v2.py \
               --corpus "/tmp/corpus_${i}.csv" \
               --out "/tmp/out_${i}.csv" \
@@ -54,12 +54,12 @@ jobs:
             pids+=("$!")
           done
           for pid in "${pids[@]}"; do wait "$pid"; done
-      - name: Merge four outputs and verify row identity
+      - name: Merge three outputs and verify row identity
         run: |
           python - <<'PY'
           import csv
           rows=[]; fields=None
-          for i in range(4):
+          for i in range(3):
               with open(f'/tmp/out_{i}.csv',encoding='utf-8-sig',newline='') as f:
                   r=csv.DictReader(f); fields=fields or list(r.fieldnames or []); rows.extend(r)
           rows.sort(key=lambda r:int(r['record_id']))
@@ -71,7 +71,7 @@ jobs:
           PY
       - name: Apply logged authoritative evidence
         run: python scripts/apply_publication_status_manual_evidence.py data/publication_status_verification_v2.csv data/publication_status_manual_evidence.csv
-      - name: Known-answer gates
+      - name: Known-answer and title-consistency gates
         run: python scripts/check_publication_status_known_answers.py data/publication_status_verification_v2.csv
       - name: Build verdict summary
         run: |
@@ -81,7 +81,15 @@ jobs:
           rows=list(csv.DictReader(open('data/publication_status_verification_v2.csv', encoding='utf-8-sig')))
           c=Counter(r['VERDICT'] for r in rows)
           resolved=sum(v for k,v in c.items() if k!='NO_MATCH')
-          out={'rows':len(rows),'verdict_counts':dict(sorted(c.items())),'resolved':resolved,'no_match':c.get('NO_MATCH',0),'known_answer_gate':'passed','manual_authoritative_evidence_records':1}
+          out={
+              'rows':len(rows),
+              'verdict_counts':dict(sorted(c.items())),
+              'resolved':resolved,
+              'no_match':c.get('NO_MATCH',0),
+              'known_answer_gate':'passed',
+              'title_consistency_gate':'passed',
+              'manual_authoritative_evidence_records':1,
+          }
           open('data/publication_status_verification_v2_summary.json','w',encoding='utf-8').write(json.dumps(out,indent=2)+'\n')
           print(json.dumps(out,indent=2))
           PY
