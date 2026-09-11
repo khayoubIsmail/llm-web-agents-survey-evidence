@@ -79,6 +79,7 @@ jobs:
           import csv, json
           from collections import Counter
           rows=list(csv.DictReader(open('data/publication_status_verification_v2.csv', encoding='utf-8-sig')))
+          manual=list(csv.DictReader(open('data/publication_status_manual_evidence.csv', encoding='utf-8-sig')))
           c=Counter(r['VERDICT'] for r in rows)
           resolved=sum(v for k,v in c.items() if k!='NO_MATCH')
           out={
@@ -89,7 +90,7 @@ jobs:
               'known_answer_gate':'passed',
               'title_consistency_gate':'passed',
               'confidence_gate':'passed',
-              'manual_authoritative_evidence_records':1,
+              'manual_authoritative_evidence_records':len(manual),
           }
           open('data/publication_status_verification_v2_summary.json','w',encoding='utf-8').write(json.dumps(out,indent=2)+'\n')
           print(json.dumps(out,indent=2))
