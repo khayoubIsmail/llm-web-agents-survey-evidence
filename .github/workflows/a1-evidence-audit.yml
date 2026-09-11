@@ -8,6 +8,7 @@ on:
       - "data/a1_evidence_batches/**"
       - "scripts/apply_a1_evidence_batches.py"
       - "scripts/apply_a1_fulltext_rechecks.py"
+      - "scripts/cleanup_a1_reading_triage.py"
       - "scripts/audit_a1_live_notes.py"
       - ".github/workflows/a1-evidence-audit.yml"
   workflow_dispatch:
@@ -26,6 +27,8 @@ jobs:
         run: python scripts/apply_a1_evidence_batches.py
       - name: Apply only explicitly verified rereads
         run: python scripts/apply_a1_fulltext_rechecks.py
+      - name: Remove stale pre-reading triage language and audit reading tiers
+        run: python scripts/cleanup_a1_reading_triage.py
       - name: Audit the 403 live notes
         run: python scripts/audit_a1_live_notes.py
       - name: Commit reviewer-facing A1 outputs
@@ -33,11 +36,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add notes/papers data/a1_fulltext_rechecks.csv data/paper_note_audit.csv data/summary.json data/a1_live_note_audit.csv data/a1_live_note_audit_summary.json
+          git add notes/papers data/a1_fulltext_rechecks.csv data/paper_note_audit.csv data/summary.json data/a1_live_note_audit.csv data/a1_live_note_audit_summary.json data/a1_reading_tier_summary.json
           if git diff --cached --quiet; then
             echo "No audit changes."
             exit 0
           fi
-          git commit -m "A1: apply verified paper evidence and refresh audit"
+          git commit -m "A1: clean stale reading triage and refresh closure audit"
           git pull --rebase origin main
           git push
