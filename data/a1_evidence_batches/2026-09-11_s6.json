@@ -1,0 +1,51 @@
+{
+  "661": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2024 / arXiv:2404.12753 full paper",
+    "full_text_basis": "Full paper reviewed; scraper-generation formulation, SWDE/Extended-SWDE/DS1 datasets, executability metric, progressive generation, scraper synthesis, eight-LLM experiments, efficiency and error analyses checked.",
+    "evidence": "AutoScraper generates reusable executable scrapers rather than invoking an LLM independently on every page. Progressive generation exploits the HTML hierarchy and a synthesis stage combines candidate scrapers from multiple seed pages into a site-level action/XPath sequence. Evaluation spans SWDE, Extended-SWDE and DS1 with eight LLMs; the transformed benchmark contains 320/294/83 cases and 32,000/29,400/186 webpages respectively. With GPT-3.5, AutoScraper raises SWDE 'Correct' executability from 46.29% for Reflexion to 54.84% and reduces unexecutable cases from 37.10% to 19.35%. The paper also introduces an executability metric that evaluates a scraper across multiple pages, not only single-page extraction F1.",
+    "limitations": "Generated XPath/action sequences remain fragile when a site's DOM changes substantially, and multi-valued fields are a documented error source. Seed-page coverage also affects whether the synthesized scraper generalizes across a site."
+  },
+  "663": {
+    "review_date": "2026-09-11",
+    "source": "Findings NAACL 2025 / arXiv:2410.19054 full paper",
+    "full_text_basis": "Full paper reviewed; Navigator-Extractor-Aggregator architecture, direct API and interactive visual access modes, FRAMES/AssistantBench experiments, model-component analysis, action distribution, qualitative errors and limitations checked.",
+    "evidence": "Infogent decomposes open-ended web information aggregation into Navigator, Extractor and Aggregator components, with aggregator feedback steering further exploration. It explicitly supports two access regimes: text/search-API navigation plus scraping, and screenshot-based interactive visual browsing. On FRAMES under direct API access it beats the compared state-of-the-art multi-agent search framework by 7%; on AssistantBench under interactive visual access it improves over the compared information-seeking web agent by 4.3%. This makes it evidence for multi-source collection and aggregation rather than only linear task completion.",
+    "limitations": "The paper focuses on answer-level aggregation rather than schema-bound row extraction with field-level provenance. It also documents navigation failures, dependence on strong GPT-4-class components, dataset limitations and sensitivity to the dynamic Web."
+  },
+  "666": {
+    "review_date": "2026-09-11",
+    "source": "Data & Knowledge Engineering 2026 / DOI 10.1016/j.datak.2026.102598; 77-page SSRN preprint 5429131",
+    "full_text_basis": "The complete 77-page author preprint was reviewed across scraping techniques, applications, LLM-enhanced methods, performance metrics, corpus collection, legal/ethical analysis, limitations and references; final journal metadata/conclusion were cross-checked, where the published review expands the corpus to 301 primary studies.",
+    "evidence": "The final systematic review covers 301 primary web-scraping studies published from 2004-2025, including 198 journal papers and 103 conference studies. It maps classic and modern extraction techniques, programming languages/tools, evaluation metrics, application areas and dataset sizes, and explicitly adds LLM-enhanced scraping plus legal/ethical guidance. The full preprint also treats web scraping as a corpus-collection methodology rather than only a technical extraction routine. For this survey it supplies broad contextual evidence on the extraction literature but not a web-agent benchmark itself.",
+    "limitations": "As a broad review, it aggregates heterogeneous scraping tasks and metrics rather than providing one controlled agent evaluation. The preprint and final journal version have different corpus counts (260 versus 301), so claims must use the final published 301-study count."
+  },
+  "667": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2026 / arXiv:2510.01832 full paper",
+    "full_text_basis": "Full paper and appendices reviewed; SemiBench grouping, reusable-script formulation, layout-similarity RL reward, CommonCrawl synthetic iteration, GRPO training, script/QA evaluation, holdout generalization and noisy-reward ablations checked.",
+    "evidence": "SCRIBES trains an LLM with reinforcement learning to write reusable Python extraction scripts for structurally similar pages, using within-site layout similarity as reward rather than paying for per-page LLM extraction. Evaluation builds on SemiBench, whose grouped subset contains pages from 139 popular CommonCrawl websites, and iteratively expands training with synthetic in-the-wild annotations. The paper reports more than 13% improvement in script quality over strong baselines and more than 4% downstream QA improvement for GPT-4o. For example, the Qwen-32B + CommonCrawl model reaches 36.71 harmonic LLM-judged F1 overall and 36.20 on the holdout grouping, materially above the corresponding script-generation baselines.",
+    "limitations": "Reusable scripts assume layout regularities within a site; highly dynamic/individualized pages weaken that assumption. Synthetic annotations and layout rewards can also reward structurally consistent but semantically incorrect extraction."
+  },
+  "671": {
+    "review_date": "2026-09-11",
+    "source": "IEEE 2024 full paper 'Automating Web Data Collection: Challenges, Solutions, and Python-Based Strategies for Effective Web Scraping'",
+    "full_text_basis": "Full paper reviewed; challenge taxonomy, Python scraping stack, anti-scraping/dynamic-content discussion, data-processing workflow, ethical/legal concerns and conclusion checked.",
+    "evidence": "This paper surveys practical web-data-collection challenges and the Python tooling used to address them, covering HTTP/HTML retrieval, parsing, dynamic content, access restrictions, storage/cleaning and legal/ethical concerns. Its value for the survey is methodological context: a production extraction pipeline requires more than a selector—it must handle request behavior, page rendering, data cleaning and responsible collection. The paper does not present an LLM-agent architecture or competitive extraction benchmark and should therefore be cited only as supporting scraping-practice context.",
+    "limitations": "The work is descriptive rather than a controlled benchmark, and its Python-centered discussion does not demonstrate generalization across arbitrary websites or LLM-based adaptive extraction."
+  },
+  "673": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 Industry Track / arXiv:2407.00942 full paper",
+    "full_text_basis": "Full paper reviewed; ProductAgent memory/feature summarization/question generation/retrieval loop, PROCLARE construction, one-million-product corpus, 2,000 simulated sessions, retrieval metrics, turn-by-turn results and qualitative analysis checked.",
+    "evidence": "ProductAgent treats extraction/search as an interactive clarification problem: it maintains structured dialogue memory, summarizes product features, generates clarification questions and repeatedly retrieves from hybrid symbolic+dense indices. PROCLARE contains a one-million-product document collection across 20 categories and 2,000 simulated conversational sessions, producing 10,000 turn-specific queries. Retrieval performance improves monotonically as dialogue turns make the desired product constraints more explicit, empirically validating clarification as a mechanism for refining an underspecified extraction/retrieval target.",
+    "limitations": "The benchmark relies on an LLM user simulator rather than real users and focuses on product retrieval, not arbitrary schema-guided record extraction. Simulator behavior can make clarification easier or more regular than natural conversations."
+  },
+  "675": {
+    "review_date": "2026-09-11",
+    "source": "WWW 2025 Demonstration Track / arXiv:2412.20005 full paper",
+    "full_text_basis": "Full system paper reviewed; Schema/Extraction/Reflection agents, configurable schema and case repositories, HTML/PDF ingestion, NER/RE benchmark evaluations, web-news/PDF case studies and deployment design checked.",
+    "evidence": "OneKE is explicitly schema-guided: a Schema Agent analyzes predefined or induced schemas, an Extraction Agent runs the selected LLM/extraction method, and a Reflection Agent debugs erroneous cases using a configurable knowledge base. The system handles raw Web HTML and PDF input and supports NER, relation, event, triple and open-domain extraction. The paper evaluates on two NER/RE benchmarks and demonstrates web-news and PDF-book case studies without requiring task-specific fine-tuning. This is direct system-level evidence that schema configuration, extraction and post-hoc correction can be separated into collaborating agents.",
+    "limitations": "As a WWW demonstration paper, the empirical section is compact and does not establish large-scale live-web robustness, field-level provenance or cross-site scraper generalization. The Reflection Agent can correct known error patterns but does not guarantee independent factual verification."
+  }
+}
