@@ -1,0 +1,29 @@
+name: G2 operational definitions audit
+
+on:
+  push:
+    paths:
+      - 'data/g2_operational_definitions.csv'
+      - 'docs/G2_OPERATIONAL_DEFINITIONS.md'
+      - 'scripts/check_g2_operational_definitions.py'
+      - '.github/workflows/g2-operational-definitions-audit.yml'
+  pull_request:
+    paths:
+      - 'data/g2_operational_definitions.csv'
+      - 'docs/G2_OPERATIONAL_DEFINITIONS.md'
+      - 'scripts/check_g2_operational_definitions.py'
+      - '.github/workflows/g2-operational-definitions-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-g2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate G2 operational definitions
+        run: python scripts/check_g2_operational_definitions.py
