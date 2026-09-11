@@ -126,19 +126,19 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 262,Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models,S3 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0262.md
 268,AgentOCR: Reimagining Agent History via Optical Self-Compression,S3 / P3,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0268.md
 274,"Data Agents: Levels, State of the Art, and Open Problems",S3 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0274.md
-279,World of Bits- An Open-Domain Platform for Web-Based Agents,S4 / P0,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0279.md
-281,WebShop- Towards Scalable Real-World Web Interaction with Grounded Language Agents,S4 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0281.md
-282,SeeAct- GPT-4V__ision__ is a Generalist Web Agent if Grounded,S4 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0282.md
-283,- WebVoyager- Building an End-to-End Web Agent with,S4 / P0,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0283.md
-284,Reinforcement Learning on Web Interfaces using Workflow-Guided Exploration,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0284.md
-285,DOM-Q-NET- Grounded RL on Structured Language,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0285.md
-286,A Real-World WebAgent with Planning Long Context Understanding and Program Synthesis,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0286.md
-287,Large Language Model Powered Agents in the Web,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0287.md
-288,AutoWebGLM: Bootstrap and Reinforce a Large Language Model-Based Web Navigating Agent,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0288.md
-289,Agent S An Open Agentic Framework that Uses Computers Like a Human,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0289.md
+279,World of Bits: An Open-Domain Platform for Web-Based Agents,S4 / P0,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0279.md
+281,WebShop: Towards Scalable Real-World Web Interaction with Grounded Language Agents,S4 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0281.md
+282,SeeAct- GPT-4V__ision__ is a Generalist Web Agent if Grounded,S4 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0282.md
+283,- WebVoyager- Building an End-to-End Web Agent with,S4 / P0,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0283.md
+284,Reinforcement Learning on Web Interfaces using Workflow-Guided Exploration,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0284.md
+285,DOM-Q-NET- Grounded RL on Structured Language,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0285.md
+286,A Real-World WebAgent with Planning Long Context Understanding and Program Synthesis,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0286.md
+287,Large Language Model Powered Agents in the Web,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0287.md
+288,AutoWebGLM: Bootstrap and Reinforce a Large Language Model-Based Web Navigating Agent,S4 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0288.md
+289,Agent S An Open Agentic Framework that Uses Computers Like a Human,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0289.md
 295,Large Language Model-Brained GUI Agents- A Survey,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0295.md
 297,A Survey of WebAgents- Towards Next-Generation AI Agents for Web Automation with Large Foundation Models,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0297.md
-298,WALT- Web Agents that Learn Tools,S4 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0298.md
+298,WALT- Web Agents that Learn Tools,S4 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0298.md
 299,Mapping Natural Language Instructions to Mobile UI Action Sequences,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0299.md
 300,Grounding Open-Domain Instructions to Automate Web Support Tasks,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0300.md
 302,WebGLM- Towards an Efficient Web-Enhanced Question Answering System with Human Preferences,S4 / P2,False,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0302.md
