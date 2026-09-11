@@ -50,11 +50,10 @@ for p in notes:
         flags=re.M,
     )
 
-    # These phrases implied a future partial read. All accessible records have
-    # now received current-cycle full-text verification, so retain the section
-    # while making its status retrospective and protocol-consistent.
+    # Any line retaining this phrase is prospective partial-reading guidance.
+    # Replace the whole line irrespective of small wording/Markdown variants.
     text = re.sub(
-        r"^- \*\*Read fully\?\*\* Selected sections are enough unless promoted later\.\s*$",
+        r"^.*Selected sections are enough.*$",
         "- **Full-text review status:** Completed; see the current-cycle verification in the audit metadata above.",
         text,
         flags=re.M,
