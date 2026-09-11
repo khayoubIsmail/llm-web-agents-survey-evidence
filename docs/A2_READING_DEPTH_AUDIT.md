@@ -50,13 +50,27 @@ Repository evidence: `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`, `data/paper_note_aud
 | A2-01 | Abstract, submitted source line 35 | “403 ... read in full and reviewed in depth” | conflates reading completeness with uniform analytical depth | distinguish `{{N_POOL}}` from `{{N_SYNTH}}`; state that all synthesis studies were read in full and analyzed at two documented levels | `docs/A1_MANUSCRIPT_AND_RESPONSE_TEXT.md`; `data/a1_reading_tier_summary.json` | wording ready; counts pending |
 | A2-02 | §2.4 reviewers paragraph, line 267 | every final-set paper was “reviewed ... in depth” | unsupported uniform-depth claim | state full-text reading for every synthesis study and P0/P1 vs P2/P3 analysis depth | `data/a1_reading_tier_summary.json`; `data/a1_live_note_audit.csv` | wording ready; coordinate with D1 |
 | A2-03 | §2.4 priority paragraph, line 269 | “All 403 ... full-text, in-depth reading irrespective of tier” | directly contradicts documented tiered analysis | state full-text reading irrespective of tier, with analysis depth varying by tier | `docs/METHODOLOGY_AND_VERSIONING.md`; `data/a1_reading_tier_summary.json` | wording ready |
-| A2-04 | Figure 2 caption, line 310 | “403 fully read...” | figure population should match actual synthesis set; reading-process claim is unnecessary | describe thematic distribution of `{{N_SYNTH}}` synthesis studies | final synthesis membership + Figure 2 regeneration | wording ready; count pending |
+| A2-04 | Figure 2 caption, line 310 | “403 fully read...” | figure population and bar totals must match actual synthesis set; caption-only correction is insufficient | rebuild thematic/category statistics from final `{{N_SYNTH}}` membership, regenerate Figure 2 bars, verify bar total equals `{{N_SYNTH}}`, then use the revised caption | final synthesis membership + regenerated thematic-statistics artifact + regenerated Figure 2 | wording ready; data/figure rebuild pending |
 | A2-05 | §3.1 taxonomy paragraph, line 323 | “full-text syntheses for the 403-study included evidence set” | set/count must match actual synthesis membership | replace with `{{N_SYNTH}}`-study qualitative-synthesis set | full-text synthesis notes + final membership | wording ready; count pending |
 | A2-06 | §10 Conclusion, line 881 | “synthesized all 403 ... after full-text, in-depth reading” | conflates eligibility, synthesis membership, and depth | report mapped 805, `{{N_POOL}}` eligible, `{{N_SYNTH}}` synthesized, two documented depth levels | final publication-status summary + A2 definitions | wording ready; counts pending |
 | A2-07 | §11 Limitations item 3, line 893 | “all 403 ... in full and in depth” | repeats unsupported uniform-depth claim | state all synthesis studies were read in full; analysis was tiered by evidence-use priority | A1 note audit + A2 definitions | wording ready |
 | A2-08 | Author contributions, line 911 | “fully read and reviewed in depth all 403” | overstates uniform depth and ignores synthesis exclusion | state full reading of synthesis studies with two documented depth levels | A1 audit + final synthesis membership | wording ready |
 
 A machine-readable companion containing the same eight rows is stored at `data/a2_reading_depth_claim_audit.csv`.
+
+## Figure 2 regeneration invariant
+
+A2-04 is satisfied only when the **data and figure are rebuilt**, not when the caption is edited.
+
+After final synthesis membership is frozen:
+
+1. derive thematic/category counts directly from the actual `{{N_SYNTH}}` record set;
+2. regenerate the statistics artifact that feeds Figure 2;
+3. regenerate Figure 2 from that artifact;
+4. assert that the sum of mutually exclusive primary-theme bars equals `{{N_SYNTH}}` (or, if Figure 2 intentionally uses a non-exclusive encoding, document that encoding and the corresponding invariant explicitly);
+5. remove or supersede any historical 403-based chart-statistics artifact so it cannot be mistaken for the final source.
+
+The user identified a manuscript-workspace source named `corpus_statistics_403.csv`; it is **not currently present in this evidence repository**, so the final manuscript pass must either import/regenerate that source here or document the canonical replacement artifact.
 
 ## Repository evidence supporting A2
 
@@ -82,9 +96,10 @@ After final counts are frozen and manuscript edits are applied, A3 should verify
 6. Record 249 is absent from claim-level/taxonomy synthesis if it remains without a complete verified full text.
 7. Record 249 is excluded at most once during reconciliation.
 8. The response letter, Methods, Abstract, Figure 2 caption, Conclusion, Limitations, Author contributions, README/count summaries, and repository artifacts report the same final definitions and numbers.
+9. Figure 2 is regenerated from final synthesis membership and its plotted total satisfies the documented `{{N_SYNTH}}` invariant; a caption-only change does not pass A3.
 
 ## Closure state
 
-Current A2 state: **definitions and edit map complete; numerical freeze and manuscript application pending**.
+Current A2 state: **definitions and edit map complete; numerical freeze, Figure 2/statistics regeneration, and manuscript application pending**.
 
-A2 should not be marked fully closed until the publication-status sweep/manual review is complete, final synthesis membership is rebuilt, placeholders are resolved, the LaTeX edits are applied, and A3 passes the consistency checks above.
+A2 should not be marked fully closed until the publication-status sweep/manual review is complete, final synthesis membership is rebuilt, placeholders are resolved, thematic statistics/Figure 2 are regenerated, the LaTeX edits are applied, and A3 passes the consistency checks above.
