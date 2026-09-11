@@ -1,14 +1,9 @@
 name: Verify publication status v2
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "scripts/verify_publication_status_v2.py"
-      - "scripts/apply_publication_status_manual_evidence.py"
-      - "scripts/check_publication_status_known_answers.py"
-      - "data/publication_status_manual_evidence.csv"
-      - ".github/workflows/verify-publication-status-v2.yml"
+  workflow_run:
+    workflows: ["Publication status v2 known-answer smoke test"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -16,11 +11,16 @@ permissions:
 
 jobs:
   verify-v2:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -38,7 +38,7 @@ jobs:
                   w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(subset)
           assert sum(len(rows[i::3]) for i in range(3)) == 805
           PY
-      - name: Cross-check all 805 records with hardened v2
+      - name: Cross-check all 805 records with hardened v2.2
         shell: bash
         run: |
           set -euo pipefail
@@ -71,7 +71,7 @@ jobs:
           PY
       - name: Apply logged authoritative evidence
         run: python scripts/apply_publication_status_manual_evidence.py data/publication_status_verification_v2.csv data/publication_status_manual_evidence.csv
-      - name: Known-answer and title-consistency gates
+      - name: Known-answer, confidence and title-consistency gates
         run: python scripts/check_publication_status_known_answers.py data/publication_status_verification_v2.csv
       - name: Build verdict summary
         run: |
@@ -88,21 +88,23 @@ jobs:
               'no_match':c.get('NO_MATCH',0),
               'known_answer_gate':'passed',
               'title_consistency_gate':'passed',
+              'confidence_gate':'passed',
               'manual_authoritative_evidence_records':1,
           }
           open('data/publication_status_verification_v2_summary.json','w',encoding='utf-8').write(json.dumps(out,indent=2)+'\n')
           print(json.dumps(out,indent=2))
           PY
-      - name: Commit v2 verification evidence and raw cache
+      - name: Commit v2.2 verification evidence and raw cache
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/publication_status_verification_v2.csv data/publication_status_verification_v2_summary.json data/verification_cache_v2
           if git diff --cached --quiet; then
-            echo "No v2 verification changes."
+            echo "No v2.2 verification changes."
             exit 0
           fi
-          git commit -m "Add validated 805-study publication-status verification v2"
-          git pull --rebase origin main
-          git push
+          git commit -m "Add validated 805-study publication-status verification v2.2"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
