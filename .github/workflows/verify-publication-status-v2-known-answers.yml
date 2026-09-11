@@ -5,7 +5,9 @@ on:
     branches: [main]
     paths:
       - "scripts/verify_publication_status_v2.py"
+      - "scripts/apply_publication_status_manual_evidence.py"
       - "scripts/check_publication_status_known_answers.py"
+      - "data/publication_status_manual_evidence.csv"
       - ".github/workflows/verify-publication-status-v2-known-answers.yml"
   workflow_dispatch:
 
@@ -37,6 +39,8 @@ jobs:
             --out /tmp/known_out.csv \
             --cache /tmp/known_cache \
             --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Apply logged authoritative evidence
+        run: python scripts/apply_publication_status_manual_evidence.py /tmp/known_out.csv data/publication_status_manual_evidence.csv
       - name: Show resolved evidence
         run: cat /tmp/known_out.csv
       - name: Enforce known-answer verdicts
