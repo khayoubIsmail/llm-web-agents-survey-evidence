@@ -1,0 +1,41 @@
+name: Publication status v2 known-answer smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verify_publication_status_v2.py"
+      - "scripts/check_publication_status_known_answers.py"
+      - ".github/workflows/verify-publication-status-v2-known-answers.yml"
+  workflow_dispatch:
+
+jobs:
+  known-answers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Build known-answer corpus subset
+        run: |
+          python - <<'PY'
+          import csv
+          ids={1,110,135,323,774}
+          src=list(csv.DictReader(open('data/studies_805_mapping_corpus.csv',encoding='utf-8-sig')))
+          fields=list(src[0])
+          rows=[r for r in src if int(r[fields[0]]) in ids]
+          assert {int(r[fields[0]]) for r in rows} == ids
+          with open('/tmp/known.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          PY
+      - name: Resolve known-answer records with v2
+        run: |
+          python scripts/verify_publication_status_v2.py \
+            --corpus /tmp/known.csv \
+            --out /tmp/known_out.csv \
+            --cache /tmp/known_cache \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Enforce known-answer verdicts
+        run: python scripts/check_publication_status_known_answers.py /tmp/known_out.csv
