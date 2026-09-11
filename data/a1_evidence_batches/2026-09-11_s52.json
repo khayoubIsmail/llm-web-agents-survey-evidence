@@ -1,0 +1,184 @@
+{
+  "435": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2022 / arXiv:2110.08518",
+    "full_text_basis": "Full paper and task evaluations reviewed; model architecture, XPath embeddings, pre-training objectives, webpage QA/information-extraction experiments, ablations and limitations checked.",
+    "evidence": "MarkupLM extends language-model pre-training to jointly encode text and markup structure rather than relying on fixed visual layout. It represents each token together with its XPath-derived tag/subscript path and pre-trains on markup-language documents before fine-tuning on visually rich document tasks. The evaluations include webpage QA and webpage information extraction and show consistent gains over text-only and layout-oriented baselines, supporting the narrower claim that DOM/markup structure is useful evidence for web understanding.",
+    "limitations": "MarkupLM models HTML/XML structure rather than live interaction. Its evaluation does not test browser action execution, dynamic DOM changes, long-horizon navigation, or multimodal screenshot grounding, so it is evidence for structured webpage representation rather than a complete web-agent solution."
+  },
+  "436": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2210.03945 full paper",
+    "full_text_basis": "Full paper reviewed across the semantic-classification, description-generation and autonomous-navigation tasks, dataset construction, model comparisons, ablations and discussion.",
+    "evidence": "The paper studies three HTML-understanding tasks: element semantic classification, HTML description generation, and autonomous web navigation. It constructs 12K MiniWoB demonstrations over 62 apps, about 28K semantic-classification examples over 66 categories, and an 85K description-generation set distilled from CommonCrawl. Fine-tuned language models transfer strongly to raw HTML: the paper reports roughly 12 percentage-point higher semantic-classification accuracy than task-only training and about 50% more MiniWoB tasks completed with 192x less data than the previous supervised system. T5-style bidirectional encoder-decoder models are the strongest family in the controlled comparisons, and action-history ablation materially reduces navigation performance.",
+    "limitations": "The environments are still simplified compared with modern live websites, and results remain sensitive to HTML length, observation formatting and model architecture. The paper does not address screenshot-only grounding, authentication, adversarial pages, or schema-guided extraction."
+  },
+  "437": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2023 / arXiv:2210.03347 full HTML",
+    "full_text_basis": "Full paper reviewed; 80M-screenshot pre-training corpus, masked screenshot parsing objective, variable-resolution architecture, downstream tables, ablations and conclusion checked.",
+    "evidence": "Pix2Struct pre-trains screenshot-to-text models on about 80 million web screenshots by masking parts of a page and predicting a simplified HTML representation. The 282M and 1.3B variants use variable-resolution image inputs and avoid dependence on OCR or DOM at inference. Across nine downstream tasks, the paper reports the pixel-only formulation as best on eight and state of the art on six; the large model reaches, among other results, 76.6 on DocVQA, 40.0 on InfographicVQA and 94.2 on RefExp. Ablations show that screenshot-parsing pre-training and warm-up are important contributors.",
+    "limitations": "Pix2Struct is a perception/understanding model, not an interactive agent. It does not itself plan browser trajectories, execute actions, maintain state across long tasks, or verify downstream side effects."
+  },
+  "439": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2306.00245 full HTML",
+    "full_text_basis": "Full Pix2Act paper reviewed; pixel-only action formulation, MiniWoB++ and WebShop data construction, behavioral-cloning experiments, pre-training ablations and error analysis checked.",
+    "evidence": "Pix2Act learns GUI actions directly from screenshots using a Pix2Struct-based policy and generic mouse/keyboard actions rather than DOM metadata. On MiniWoB++ it uses 59 tasks and roughly 1.3M human demonstrations; WebShop uses 1,566 human demonstrations. Screenshot pre-training is decisive: behavioral cloning rises from 17.1 to 66.5 on MiniWoB++ and from 1.1 to 46.7 on WebShop. The study demonstrates that pixel-only control can be competitive while removing privileged DOM access.",
+    "limitations": "The work depends on large demonstration sets and controlled benchmarks. Pixel-only action prediction still struggles with fine-grained targets and does not solve live-site change, safety, authentication, or generalized extraction."
+  },
+  "440": {
+    "review_date": "2026-09-11",
+    "source": "CVPR 2024 / arXiv:2312.08914 full paper",
+    "full_text_basis": "Full CogAgent paper reviewed; high-resolution visual encoder, GUI grounding/action data, Mind2Web/AITW/ScreenSpot-style evaluations, ablations and discussion checked.",
+    "evidence": "CogAgent augments a vision-language model with a high-resolution visual branch specifically to preserve small text and icons that disappear under conventional image resizing. Its GUI training combines grounding, OCR and action-oriented data and evaluates both low-level GUI localization and multi-step navigation. The paper reports large gains over general-purpose multimodal baselines on GUI grounding and competitive computer-control performance, showing that high-resolution perception is a prerequisite for reliable screen interaction.",
+    "limitations": "The model remains sensitive to tiny or visually ambiguous elements and to interface distribution shift. Strong grounding alone does not guarantee robust long-horizon task planning or safe execution."
+  },
+  "441": {
+    "review_date": "2026-09-11",
+    "source": "ACL 2024 / arXiv:2401.10935 full paper",
+    "full_text_basis": "Full SeeClick paper reviewed; GUI-grounding pre-training, ScreenSpot construction, MiniWoB/AITW/Mind2Web experiments, correlation analysis and limitations checked.",
+    "evidence": "SeeClick explicitly trains visual GUI grounding and introduces ScreenSpot, which spans mobile, desktop and web screenshots. It reaches 53.4% average ScreenSpot grounding accuracy versus 16.2% for GPT-4V in the reported comparison. Downstream, SeeClick reaches 67.0% MiniWoB success, 59.3 on AITW and 25.5% Mind2Web step success in the vision-only setting. Checkpoint analysis shows a strong positive relationship between grounding quality and downstream agent performance.",
+    "limitations": "Vision-only navigation still trails HTML-based systems on Mind2Web, and the paper's action space mainly covers clicking/typing-style operations rather than the full diversity of desktop interactions. Multi-step success also requires agent-specific training beyond grounding."
+  },
+  "443": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2408.00203 full paper",
+    "full_text_basis": "Full OmniParser paper reviewed; interactable-region detector, icon captioner, screen parsing pipeline, ScreenSpot/Mind2Web/AITW experiments and analysis checked.",
+    "evidence": "OmniParser converts a screenshot into a structured set of interactable regions by combining a detector with a captioning model for functional semantics. The parsed representation substantially improves GPT-4V grounding on ScreenSpot; on Mind2Web and AITW the screenshot-only OmniParser agent also exceeds GPT-4V baselines that receive additional non-visual information. The result supports treating screen parsing as a separate perception layer rather than asking the LMM to infer all actionable regions implicitly.",
+    "limitations": "Performance depends on the detector and captioner: missed, duplicate or mis-described elements propagate directly into the agent. Parsing also does not solve planning, memory or verification of real-world side effects."
+  },
+  "444": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2410.23218 full HTML",
+    "full_text_basis": "Full paper reviewed; cross-platform data synthesis, 13M-element corpus, base/action-model training, six-benchmark evaluation, grounding application and conclusion checked.",
+    "evidence": "OS-ATLAS builds an open cross-platform GUI grounding corpus with more than 13 million GUI elements from Windows, Linux, macOS, Android and the web, and trains foundation action models for GUI grounding and OOD interaction. On ScreenSpot, OS-Atlas-Base-7B reaches 82.47% average grounding accuracy on the original setting and 85.14% under the updated comparison, materially above general open VLM baselines. The paper further evaluates six benchmarks spanning mobile, desktop and web and shows that the grounding model can replace the perception module in an OSWorld agent.",
+    "limitations": "The paper emphasizes grounding/action modeling more than complete autonomous workflow reliability. Generalization remains tied to synthetic/reprocessed GUI data and still inherits planning and environment-level failure modes."
+  },
+  "445": {
+    "review_date": "2026-09-11",
+    "source": "CVPR 2025 / arXiv:2411.17465 full paper",
+    "full_text_basis": "Full ShowUI paper reviewed; UI-guided token selection, VLA streaming formulation, curated data, grounding/navigation experiments, efficiency ablations and limitations checked.",
+    "evidence": "ShowUI is a 2B vision-language-action model trained with about 256K curated GUI examples. It reaches 75.1% zero-shot ScreenSpot grounding accuracy. Its UI-guided visual-token selection removes about 33% of redundant visual tokens and gives roughly a 1.4x speedup, while navigation evaluations cover Mind2Web, AITW and MiniWoB. The paper therefore connects grounding quality with both efficiency and downstream GUI action performance.",
+    "limitations": "The authors identify online reinforcement learning as future work, and the training/action setup does not cover every interaction primitive or long-horizon recovery case."
+  },
+  "447": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2502.13130 full HTML",
+    "full_text_basis": "Full Magma paper reviewed; SoM/ToM pre-training, heterogeneous image/video/robotics data, zero-shot and fine-tuned UI navigation, robotics experiments, conclusion and limitations checked.",
+    "evidence": "Magma jointly trains verbal and action-oriented capabilities across images, videos, GUI navigation and robotics. Set-of-Mark labels teach actionable-object grounding while Trace-of-Mark labels teach motion/action planning. Zero-shot agentic evaluation includes ScreenSpot, VisualWebBench and SimplerEnv, while downstream UI evaluation uses ScreenSpot, Mind2Web and AITW. The model is presented as a single foundation model that can cover both UI navigation and physical manipulation rather than a GUI-specific adapter.",
+    "limitations": "The pre-training mixture relies on curated data from UI, instructional-video and robotics sources, and zero-shot GUI evaluation still uses external region proposals such as OmniParser for ScreenSpot. A broad foundation model therefore does not eliminate perception-pipeline dependencies."
+  },
+  "449": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 Oral / arXiv:2410.05243 full paper",
+    "full_text_basis": "Full UGround paper reviewed; synthetic GUI grounding data construction, cross-platform evaluations, downstream agent experiments, ablations and limitations checked.",
+    "evidence": "UGround trains universal visual GUI grounding with a synthetic corpus containing roughly 10 million GUI elements over about 1.3 million screenshots. The paper reports absolute grounding improvements of up to about 20 points over prior approaches and strong transfer across web, mobile and desktop. Later released Qwen2-VL-based variants improve AndroidWorld from about 33 to 44 and ScreenSpot-Pro from 18.9 to 31.1, reinforcing the paper's core finding that dedicated GUI grounding data transfers to downstream agents.",
+    "limitations": "The paper notes weaknesses on long-tail icons and limited desktop-specific training data. Pure visual grounding also remains only one component of full task completion."
+  },
+  "450": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / arXiv:2506.03143 full paper",
+    "full_text_basis": "Full GUI-Actor paper reviewed; coordinate-free action head, verifier, frozen-VLM experiments, ScreenSpot/ScreenSpot-Pro results, ablations and limitations checked.",
+    "evidence": "GUI-Actor replaces coordinate-token generation with an attention-based action head plus verifier, allowing a relatively small action module to localize GUI elements on top of a frozen VLM. Its 7B configuration reaches 44.6 on ScreenSpot-Pro, exceeding the reported UI-TARS-72B result of 38.1. The action head is roughly 100M parameters, showing that dedicated localization can improve grounding without retraining the full VLM.",
+    "limitations": "The authors identify fixed 28x28 visual patches as a weakness for extremely small UI targets, especially elements below roughly 10x10 pixels. Higher perceptual resolution and spatial refinement remain necessary."
+  },
+  "453": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2503.10689 full paper",
+    "full_text_basis": "Full LCoW paper reviewed; contextualizer training, WorkArena evaluation, generalization tests, direct-BC comparison, WebShop transfer and ablations checked.",
+    "evidence": "LCoW separates webpage contextualization from decision making: a learned module rewrites complex page observations into a form that is easier for the acting LLM to use. Across 165 WorkArena tasks, one contextualizer improves closed-source LLM success by an average 15.6% and open-source LMs by 23.7%. With the same seed demonstrations, Llama-3.1-8B direct behavior cloning reaches 23.6% success whereas the LCoW-contextualized agent reaches 37.0%; the contextualizer also transfers to unseen task types with about a six-point gain. Gemini-1.5-flash plus LCoW reports state-of-the-art WebShop performance.",
+    "limitations": "The approach adds a separate learned representation stage whose errors can hide needed page details. Results are benchmark- and observation-format dependent, and contextualization does not itself solve action safety or post-action verification."
+  },
+  "454": {
+    "review_date": "2026-09-11",
+    "source": "AAAI 2026 / arXiv:2511.21398 full paper",
+    "full_text_basis": "Full Prune4Web paper reviewed; programmatic DOM pruning, annotation and two-turn training, Multimodal-Mind2Web/grounding experiments, ablations and limitations checked.",
+    "evidence": "Prune4Web asks an LLM to generate lightweight scoring programs that traverse and prune very large DOM trees before grounding. The method reduces candidate elements by roughly 25x-50x and raises the reported low-level grounding accuracy from 46.80% to 88.28%. On Multimodal-Mind2Web the unified 3B system reaches 52.4% cross-task step success, with two-turn joint training outperforming the separated setup. This directly quantifies the benefit of reducing the action candidate set before grounding.",
+    "limitations": "The authors identify planning as a remaining bottleneck: better filtering/grounding does not repair an incorrect high-level plan. Non-semantic HTML tags and CSS-heavy interfaces also make reliable programmatic filtering harder."
+  },
+  "456": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2021 / WebSRC full paper",
+    "full_text_basis": "Full WebSRC paper reviewed; dataset construction, structural QA formulation, HTML/screenshot inputs, baseline models, results and error analysis checked.",
+    "evidence": "WebSRC introduces a structural reading-comprehension benchmark with about 400K question-answer pairs from roughly 6.4K webpages. Each example preserves HTML structure together with rendered-page information and metadata, and questions require span extraction or yes/no reasoning that often depends on webpage structure rather than text alone. Baselines that model HTML structure and visual/layout cues outperform text-only formulations, making the benchmark direct evidence that web extraction/QA benefits from structural context.",
+    "limitations": "WebSRC is static reading comprehension, not interactive browser automation. It does not test navigation, multi-page state changes or long-horizon execution."
+  },
+  "457": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2024 / arXiv:2306.07863 full paper",
+    "full_text_basis": "Full Synapse paper reviewed; state abstraction, trajectory-as-exemplar prompting, memory retrieval, MiniWoB++/Mind2Web experiments and ablations checked.",
+    "evidence": "Synapse compresses computer states, retrieves similar complete trajectories from an exemplar memory and places those trajectories in context for decision making. On MiniWoB++ it reports 99.2% average success across 64 tasks while using demonstrations from only 48 tasks, a roughly 10% relative improvement, and it is reported as the first ICL method to solve book-flight. On Mind2Web it improves average step success by 56% relative to the prior prompting scheme. The results demonstrate that trajectory-level memory can improve generalization without parameter updates.",
+    "limitations": "Performance depends on the quality and coverage of the demonstration memory and on state abstraction preserving task-relevant details. Retrieval does not guarantee recovery when the environment diverges strongly from stored trajectories."
+  },
+  "458": {
+    "review_date": "2026-09-11",
+    "source": "WSDM 2024 / arXiv:2402.18262 full paper",
+    "full_text_basis": "Full WebLM paper reviewed; six-million-page corpus, text/structure/visual encoder design, MLM/TSP/VMD pre-training, downstream tables and ablations checked.",
+    "evidence": "WebLM pre-trains jointly over webpage text, DOM structure and rendered visual regions. Its corpus contains about six million webpages from more than 60,000 domains. Besides masked language modeling, it predicts tree relations and detects visual misalignment, explicitly coupling hierarchical HTML structure with screenshot-derived visual features. The model consistently improves over prior text/markup pre-training systems on webpage-understanding tasks, supporting multimodal structural page representations.",
+    "limitations": "The work targets webpage understanding rather than live action. Rendering and aligned screenshot/DOM collection are expensive, and the approach does not evaluate planning, dynamic interaction or tool safety."
+  },
+  "459": {
+    "review_date": "2026-09-11",
+    "source": "CVPR 2024 / arXiv:2402.04476 full paper",
+    "full_text_basis": "Full Dual-View paper reviewed; HTML-neighborhood contextualization, visual/text features, Mind2Web cross-task/cross-website/cross-domain experiments and ablations checked.",
+    "evidence": "Dual-View contextualizes each candidate HTML element with nearby elements in both the DOM/text view and rendered screenshot view, exploiting the tendency of related controls to be spatially grouped. Evaluated on Mind2Web, the method consistently improves the baseline in cross-task, cross-website and cross-domain settings. The result isolates local multimodal context as a useful signal for choosing the correct web action.",
+    "limitations": "The method still assumes access to aligned HTML elements and screenshots and is evaluated primarily as action selection on Mind2Web. It does not remove the need for planning, recovery or safe online execution."
+  },
+  "460": {
+    "review_date": "2026-09-11",
+    "source": "ECCV 2024 / arXiv:2404.05719 full HTML",
+    "full_text_basis": "Full Ferret-UI paper reviewed; any-resolution architecture, iPhone/Android data construction, 14-task benchmark, elementary/advanced results, ablations and analysis checked.",
+    "evidence": "Ferret-UI adapts a grounding-capable MLLM to mobile screens using an any-resolution scheme that splits portrait/landscape screenshots into high-detail sub-images. Training includes 26,527 Android and 84,685 iPhone images plus elementary referring/grounding tasks and 40K GPT-4-generated advanced conversations. The benchmark covers 14 UI tasks. Ferret-UI outperforms the base Ferret and GPT-4V on most elementary tasks; the any-resolution model reaches 82.4%/82.4% referring and 81.4%/83.8% grounding averages on iPhone/Android in the reported table, while advanced-task transfer exposes platform-specific tradeoffs.",
+    "limitations": "The paper finds Android screens harder because of numerous small widgets, and any-resolution improves iPhone advanced reasoning while sometimes reducing Android transfer. The benchmark is mostly single-screen understanding rather than complete autonomous navigation."
+  },
+  "462": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2406.10819 full HTML",
+    "full_text_basis": "Full GUI-World paper reviewed; dataset collection/annotation, six scenarios, eight question types, image/video MLLM experiments, GUI-Vid training, analysis and conclusion checked.",
+    "evidence": "GUI-World contains 12,379 GUI videos spanning six scenarios, including software, websites, iOS, Android, multi-window settings and XR, with 10,702 training and 1,677 test samples. It generates free-form, multiple-choice and conversational questions over dynamic/sequential content and benchmarks image and video MLLMs. GPT-4o averages 84.8% MC accuracy and 3.573/5 free-form score, whereas the tested video LLMs are substantially weaker; fine-tuned GUI-Vid improves to 54.6% MC and 2.796 free-form. The paper shows that dynamic GUI understanding remains harder than static screenshot understanding.",
+    "limitations": "Human keyframe annotation is labor intensive and current video LLMs remain limited by sparse GUI-video data and base-model capability. The benchmark measures understanding, not end-to-end action safety."
+  },
+  "463": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2406.11317 full paper",
+    "full_text_basis": "Full GUICourse paper reviewed; GUIEnv/GUIAct/GUIChat construction, grounding/action training, 3.1B model evaluation, ablations and limitations checked.",
+    "evidence": "GUICourse assembles large-scale GUI supervision across perception, grounding and action, including GUIEnv, GUIAct and GUIChat; the paper reports about 10.7M GUI-related training examples. A 3.1B model trained on the mixture performs single-step grounding and multi-step GUI tasks across web/mobile settings, showing that targeted GUI curricula can turn a general VLM into a much more capable agent model.",
+    "limitations": "The authors explicitly note that pre-training plus supervised fine-tuning is still insufficient for assistant-level autonomy and point to reinforcement learning as a next step. Training is concentrated on web and smartphone data, leaving desktop/professional applications underrepresented."
+  },
+  "464": {
+    "review_date": "2026-09-11",
+    "source": "IJCAI 2024 / arXiv:2402.04615 full paper",
+    "full_text_basis": "Full ScreenAI paper reviewed; flexible patching, screen annotation, synthetic QA/navigation data, scaling experiments, benchmark tables and conclusion checked.",
+    "evidence": "ScreenAI is a roughly 5B-parameter UI/infographics vision-language model that combines PaLI-style modeling with Pix2Struct-style flexible patching. A screen-annotation task teaches element type/location/description, and those annotations are used to synthesize QA, navigation and summarization data. The model reports new state-of-the-art results on Multi-page DocVQA, WebSRC, MoTIF and Widget Captioning and best-in-class performance among similar-size models on ChartQA, DocVQA and InfographicVQA. Scaling experiments show continued gains through the largest tested model.",
+    "limitations": "ScreenAI is an understanding model and does not itself execute computer actions. Performance also depends on automatically generated training data and remains bounded by visual resolution and annotation quality."
+  },
+  "465": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2025 / arXiv:2412.04454 full paper",
+    "full_text_basis": "Full Aguvis paper reviewed; unified pure-vision action representation, large trajectory corpus, two-stage grounding/reasoning training, offline/online experiments and ablations checked.",
+    "evidence": "Aguvis defines a common visual action space across GUI platforms and trains in two stages: broad GUI grounding followed by planning/reasoning on agent trajectories. The system is pure-vision at execution time and is evaluated across both offline grounding/navigation benchmarks and real interactive environments. The paper reports state-of-the-art open-model results and presents Aguvis as the first fully autonomous pure-vision GUI agent in its comparison that does not depend on a closed external VLM.",
+    "limitations": "Cross-platform visual control still inherits failures from small targets, visual ambiguity and long-horizon planning. The large heterogeneous trajectory corpus also makes data quality and platform balance important confounders."
+  },
+  "466": {
+    "review_date": "2026-09-11",
+    "source": "EACL 2026 / arXiv:2501.04575 full paper",
+    "full_text_basis": "Full InfiGUIAgent paper reviewed; two-stage SFT, hierarchical reasoning, expectation-reflection synthesis, ScreenSpot/AndroidWorld evaluation and ablations checked.",
+    "evidence": "InfiGUIAgent first trains fundamental GUI understanding/grounding and then trains native hierarchical reasoning plus expectation-reflection for self-correction. The 2B model reaches 76.3% average accuracy on ScreenSpot, above ShowUI's 75.1% and the reported UGround-7B 73.3 despite its smaller size. AndroidWorld evaluation is performed on raw screenshots rather than relying on Set-of-Marks, providing a stricter test of native pixel grounding.",
+    "limitations": "The authors motivate the work partly by weaknesses of text/SoM representations, but the resulting agent remains dependent on supervised synthetic reasoning data and is not a guarantee of robust recovery in arbitrary unseen applications."
+  },
+  "467": {
+    "review_date": "2026-09-11",
+    "source": "WWW 2025 / arXiv:2411.02959 full paper",
+    "full_text_basis": "Full HtmlRAG paper reviewed; HTML cleaning/compression, block-tree pruning, six-QA-dataset evaluation, pruning comparisons, ablations and limitations checked.",
+    "evidence": "HtmlRAG keeps retrieved webpages in HTML rather than flattening them to plain text, then removes noise and applies block-tree pruning to fit the context budget. Across ASQA, HotpotQA, NQ, TriviaQA, MuSiQue and ELI5, HTML-based pruning is consistently competitive with or better than text/chunk baselines; for example, the released Llama-pruner results reach 60.75 EM on NQ and 93.0 on TriviaQA, while the Phi pruner reaches 46.25 on HotpotQA. The study directly supports preserving webpage structure for retrieval and extraction-oriented reasoning.",
+    "limitations": "HTML introduces additional tags/noise and pruning can discard evidence. The paper addresses retrieval context modeling, not interactive browser action or end-to-end provenance verification."
+  },
+  "471": {
+    "review_date": "2026-09-11",
+    "source": "ACM Multimedia 2025 / arXiv:2504.07981 full paper",
+    "full_text_basis": "Full ScreenSpot-Pro paper reviewed; professional-software data collection, high-resolution target statistics, benchmark protocol, model results, ScreenSeekeR and limitations checked.",
+    "evidence": "ScreenSpot-Pro targets high-resolution professional desktop interfaces rather than consumer/mobile screens. The paper release contains 1,581 expert-annotated instruction-image pairs across 23 professional applications, five industries and three operating systems; target elements occupy only about 0.07% of the screen area on average. Prior GUI grounding models perform poorly—the paper reports a best existing score around 18.9%—while the proposed ScreenSeekeR reaches 48.1 without additional grounding training, exposing a large professional-GUI generalization gap.",
+    "limitations": "The benchmark intentionally isolates grounding and does not evaluate end-to-end planning/execution, partly because of software licensing and safety constraints. High-resolution professional applications therefore remain under-tested at the full-agent level."
+  }
+}
