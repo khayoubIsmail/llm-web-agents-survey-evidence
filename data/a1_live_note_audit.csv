@@ -179,23 +179,23 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 363,MMInA Benchmarking Multihop Multimodal Internet Agents,S5.1 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0363.md
 364,AgenticShop- Benchmarking Agentic Product Curation for Personalized Web Shopping,S5.1 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0364.md
 367,ST-WebAgentBench- A Benchmark for Evaluating Safety and Trustworthiness in Web Agents,S5.1 / P1,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0367.md
-372,ASSISTGUI- Task-Oriented Desktop Graphical User Interface Automation,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0372.md
-373,TravelPlanner A Benchmark for Real-World Planning with Language Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0373.md
-374,AndroidWorld A Dynamic Benchmarking Environment for Autonomous Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0374.md
-375,WorkBench a Benchmark Dataset for Agents in a Realistic Workplace Setting,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0375.md
-376,-bench A Benchmark for Tool-Agent-User Interaction in Real-World Domains,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0376.md
-377,AI Agents That Matter,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0377.md
-379,Spider2-V How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0379.md
-380,CRAB- Cross-environment Agent Benchmark for Multimodal Language Model Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0380.md
-381,VisualAgentBench Towards Large Multimodal Models as Visual Foundation Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0381.md
-383,Windows Agent Arena Evaluating Multi-Modal OS Agents at Scale,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0383.md
-384,SPA-Bench- A Comprehensive Benchmark for SmartPhone Agent Evaluation,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0384.md
-385,Agent-as-a-Judge Evaluate Agents with Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0385.md
-386,Evaluating Cultural and Social Awareness of LLM Web Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0386.md
-387,VideoWebArena Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0387.md
-388,WebOlympus- An Open Platform for Web Agents on Live Websites,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0388.md
-389,A3- Android Agent Arena for Mobile GUI Agents,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0389.md
-391,SWE-bench Goes Live!,S5.1 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0391.md
+372,ASSISTGUI- Task-Oriented Desktop Graphical User Interface Automation,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0372.md
+373,TravelPlanner A Benchmark for Real-World Planning with Language Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0373.md
+374,AndroidWorld A Dynamic Benchmarking Environment for Autonomous Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0374.md
+375,WorkBench a Benchmark Dataset for Agents in a Realistic Workplace Setting,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0375.md
+376,-bench A Benchmark for Tool-Agent-User Interaction in Real-World Domains,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0376.md
+377,AI Agents That Matter,S5.1 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0377.md
+379,Spider2-V How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0379.md
+380,CRAB- Cross-environment Agent Benchmark for Multimodal Language Model Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0380.md
+381,VisualAgentBench Towards Large Multimodal Models as Visual Foundation Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0381.md
+383,Windows Agent Arena Evaluating Multi-Modal OS Agents at Scale,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0383.md
+384,SPA-Bench- A Comprehensive Benchmark for SmartPhone Agent Evaluation,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0384.md
+385,Agent-as-a-Judge Evaluate Agents with Agents,S5.1 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0385.md
+386,Evaluating Cultural and Social Awareness of LLM Web Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0386.md
+387,VideoWebArena Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0387.md
+388,WebOlympus- An Open Platform for Web Agents on Live Websites,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0388.md
+389,A3- Android Agent Arena for Mobile GUI Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0389.md
+391,SWE-bench Goes Live!,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0391.md
 392,UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0392.md
 394,Open CaptchaWorld: A Comprehensive Web-based Platform for Testing and Benchmarking Multimodal LLM Agents,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0394.md
 395,X-WebAgentBench: A Multilingual Interactive Web Benchmark for Evaluating Global Agentic System,S5.1 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0395.md
