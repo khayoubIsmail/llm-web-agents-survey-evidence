@@ -321,15 +321,15 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 622,AgentPRM- Process Reward Models for LLM Agents via Step-Wise Promise and Progress,S5.4 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0622.md
 631,Digi-Q- Learning VLM Q-Value Functions for Training Device-Control Agents,S5.4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0631.md
 634,ColorBrowserAgent- Complex Long-Horizon Browser Agent with Adaptive Knowledge Evolution,S5.4 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0634.md
-639,WAREX- WEB AGENT RELIABILITY EVALUATION ON EXISTING BENCHMARKS,S5.5 / P1,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0639.md
-640,An Illusion of Progress - Assessing the Current State of Web Agents,S5.5 / P1,False,False,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0640.md
-641,Why Do LLM-based Web Agents Fail- A Hierarchical Planning Perspective,S5.5 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0641.md
-643,Autonomous Evaluation and Refinement of Digital Agents,S5.5 / P2,True,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0643.md
-645,Why Do Multi-Agent LLM Systems Fail,S5.5 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0645.md
-646,Are Autonomous Web Agents Good Testers,S5.5 / P2,True,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0646.md
-647,GEM Gaussian Embedding Modeling for Out-of-Distribution Detection in GUI Agents,S5.5 / P2,True,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0647.md
-648,Understanding GUI Agent Localization Biases through Logit Sharpness,S5.5 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0648.md
-650,Just Do It!- Computer-Use Agents Exhibit Blind Goal-Directedness,S5.5 / P2,True,True,True,True,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0650.md
+639,WAREX- WEB AGENT RELIABILITY EVALUATION ON EXISTING BENCHMARKS,S5.5 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0639.md
+640,An Illusion of Progress - Assessing the Current State of Web Agents,S5.5 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0640.md
+641,Why Do LLM-based Web Agents Fail- A Hierarchical Planning Perspective,S5.5 / P1,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0641.md
+643,Autonomous Evaluation and Refinement of Digital Agents,S5.5 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0643.md
+645,Why Do Multi-Agent LLM Systems Fail,S5.5 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0645.md
+646,Are Autonomous Web Agents Good Testers,S5.5 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0646.md
+647,GEM Gaussian Embedding Modeling for Out-of-Distribution Detection in GUI Agents,S5.5 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0647.md
+648,Understanding GUI Agent Localization Biases through Logit Sharpness,S5.5 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0648.md
+650,Just Do It!- Computer-Use Agents Exhibit Blind Goal-Directedness,S5.5 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0650.md
 657,Reflection-Bench: Evaluating Epistemic Agency in Large Language Models,S5.5 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0657.md
 659,Detecting Silent Failures in Multi-Agentic AI Trajectories,S5.5 / P3,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0659.md
 661,AutoScraper- A Progressive Understanding Web Agent for Web Scraper Generation,S6 / P1,False,False,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0661.md
