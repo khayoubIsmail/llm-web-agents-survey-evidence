@@ -2,9 +2,11 @@
 """Apply explicitly reviewed A1 evidence batches to live paper notes.
 
 Each JSON batch under data/a1_evidence_batches/ is authored only after the paper's
-canonical full text has been reviewed.  The script removes prospective reading TODOs,
+canonical full text has been reviewed. The script removes prospective reading TODOs,
 adds paper-specific verified evidence, updates provenance metadata, and synchronizes
-the explicit full-text reread ledger.  It never infers a reread from note quality.
+the explicit full-text reread ledger. It never infers a reread from note quality.
+
+The operation is idempotent: rerunning CI does not duplicate verification blocks.
 """
 from __future__ import annotations
 
@@ -49,16 +51,16 @@ def remove_template_and_insert(text: str, item: dict) -> str:
         block_parts += ['', '##### Author-stated / evidence-based limitations', '', limitations]
     block = '\n'.join(block_parts).rstrip() + '\n\n---\n\n'
 
-    # Most historical templates use this exact prospective block.
+    # Historical templates use this prospective block. Replace it once.
     pat = re.compile(
         r'#### Key evidence to extract from the paper\s*\n.*?(?=#### Limitations\s*\n)',
         re.S,
     )
     if pat.search(text):
         text = pat.sub(block, text, count=1)
-    else:
-        # Some notes are substantive but were not rechecked this cycle. Insert a
-        # compact verification block before the reading decision / BibTeX / end.
+    elif '#### Concrete evidence verified from the full paper' not in text:
+        # Substantive historical notes without a template receive one compact
+        # verification block. On later runs the heading above prevents duplication.
         anchors = ['#### Reading decision', '#### BibTeX', '<!-- note-body-end -->']
         inserted = False
         for anchor in anchors:
