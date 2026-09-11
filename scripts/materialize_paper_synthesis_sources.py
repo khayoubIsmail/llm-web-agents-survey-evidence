@@ -5,6 +5,8 @@ The normalized corpus stores provenance metadata plus a detailed analysis body.
 This script extracts that body into notes/original_sources/<record_id>.md while
 preserving the canonical normalized note in notes/papers/<record_id>.md.
 It also writes a deterministic SHA-256 manifest for the 403 source files.
+The materializer is rerun after A1 closure so the source layer mirrors the final
+reviewer-facing live notes rather than an earlier remediation checkpoint.
 """
 
 from __future__ import annotations
