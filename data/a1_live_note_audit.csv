@@ -383,18 +383,18 @@ record_id,title,section_priority,has_exact_when_reading_todo,has_template_eviden
 772,Tool Preferences in Agentic LLMs are Unreliable,S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0772.md
 773,AgentAuditor- Human-Level Safety and Security Evaluation for LLM Agents,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0773.md
 774,From Prompt Injections to Protocol Exploits- Threats in LLM-Powered AI Agents Workflows,S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0774.md
-777,Demonstrations of Integrity Attacks in Multi-Agent Systems,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0777.md
-778,Effective Red-Teaming of Policy-Adherent Agents,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0778.md
-779,Simple Prompt Injection Attacks Can Leak Personal Data Observed by LLM Agents During Task Execution,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0779.md
-780,Reliable Weak-to-Strong Monitoring of LLM Agents,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0780.md
-782,"Model Context Protocol -MCP- Landscape, Security Threats, and Future Research Directions",S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0782.md
-783,AprielGuard,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0783.md
-784,LLM Agents for Automated Web Vulnerability Reproduction- Are We There Yet,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0784.md
-785,Web Fraud Attacks Against LLM-Driven Multi-Agent Systems,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0785.md
-786,SMCP- Secure Model Context Protocol,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0786.md
-787,MCP SECURITY BENCH (MSB)- BENCHMARKING ATTACKS AGAINST MODEL CONTEXT PROTOCOL IN LLM AGENTS,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0787.md
-788,ADAM- A Systematic Data Extraction Attack on Agent Memory via Adaptive Querying,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0788.md
-789,SnapGuard- Lightweight Prompt Injection Detection for Screenshot-Based Web Agents,S7 / P2,True,True,True,False,paper-specific note retained for synthesis,needs-a1-full-text-remediation,notes/papers/0789.md
+777,Demonstrations of Integrity Attacks in Multi-Agent Systems,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0777.md
+778,Effective Red-Teaming of Policy-Adherent Agents,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0778.md
+779,Simple Prompt Injection Attacks Can Leak Personal Data Observed by LLM Agents During Task Execution,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0779.md
+780,Reliable Weak-to-Strong Monitoring of LLM Agents,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0780.md
+782,"Model Context Protocol -MCP- Landscape, Security Threats, and Future Research Directions",S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0782.md
+783,AprielGuard,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0783.md
+784,LLM Agents for Automated Web Vulnerability Reproduction- Are We There Yet,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0784.md
+785,Web Fraud Attacks Against LLM-Driven Multi-Agent Systems,S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0785.md
+786,SMCP- Secure Model Context Protocol,S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0786.md
+787,MCP SECURITY BENCH (MSB)- BENCHMARKING ATTACKS AGAINST MODEL CONTEXT PROTOCOL IN LLM AGENTS,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0787.md
+788,ADAM- A Systematic Data Extraction Attack on Agent Memory via Adaptive Querying,S7 / P2,False,False,False,True,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0788.md
+789,SnapGuard- Lightweight Prompt Injection Detection for Screenshot-Based Web Agents,S7 / P2,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0789.md
 790,Emergent and Predictable Memorization in Large Language Models,S7 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0790.md
 791,Foundational Challenges in Assuring Alignment and Safety of Large Language Models,S7 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0791.md
 794,"TRiSM for Agentic AI: A review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems",S7 / P3,False,False,False,False,paper-specific note ready for synthesis,complete-or-needs-manual-quality-check,notes/papers/0794.md
