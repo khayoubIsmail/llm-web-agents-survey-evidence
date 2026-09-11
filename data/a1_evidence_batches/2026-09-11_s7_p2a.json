@@ -1,0 +1,135 @@
+{
+  "728": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2024 / arXiv:2309.15817 full paper",
+    "full_text_basis": "Full ToolEmu paper reviewed; LM tool-emulation design, automatic safety evaluator, 36 high-stakes toolkits/144 cases, human validation, risk analysis and limitations checked.",
+    "evidence": "ToolEmu uses an LM to emulate external tool execution so high-stakes agent behavior can be tested without constructing every real environment. Its initial benchmark contains 36 high-stakes toolkits and 144 test cases. Human evaluation finds that 68.8% of failures identified in the emulated sandbox would correspond to valid real-world failures, while even the safest tested LM agent is judged to exhibit risky failures in 23.9% of cases. The work establishes scalable simulated sandboxing as a useful but imperfect safety-evaluation layer.",
+    "limitations": "The sandbox and evaluator are themselves language models, so simulation or judging errors can create false positives/negatives. Emulated tools cannot reproduce every real system side effect or hidden state."
+  },
+  "733": {
+    "review_date": "2026-09-11",
+    "source": "ICML 2024 / PMLR 235 full paper",
+    "full_text_basis": "Full Agent Smith paper reviewed; infectious-jailbreak formulation, randomized pair-wise multi-agent simulation up to one million LLaVA agents, propagation analysis, defense condition and limitations checked.",
+    "evidence": "Agent Smith demonstrates an 'infectious jailbreak' in which one adversarial image placed into one multimodal agent's memory can spread harmful behavior through ordinary agent-to-agent communication. The paper simulates populations up to one million LLaVA-1.5 agents and shows exponential propagation under randomized pair-wise interaction without further attacker intervention. It also derives a condition that a defense must satisfy to provably prevent continued spread, showing that multi-agent safety cannot be assessed only at the individual-agent boundary.",
+    "limitations": "The million-agent experiment is simulated with a specific interaction process and model family rather than a deployed multi-agent service. Real systems may have different communication graphs, memory isolation and content filters."
+  },
+  "737": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2401.13138 full paper",
+    "full_text_basis": "Full policy/technical paper reviewed; agent identifiers, real-time monitoring, activity logging, centralized/decentralized deployment analysis, stakeholder mapping, privacy and governance tradeoffs checked.",
+    "evidence": "Visibility into AI Agents analyzes three concrete governance/observability measures: agent identifiers, real-time monitoring and activity logging. It maps how those controls can be implemented across centralized and decentralized deployment and across hardware, model, application and tool providers. For the survey, the paper is evidence that trustworthy deployment requires provenance and monitoring infrastructure around agent actions, not just safer base-model generation.",
+    "limitations": "The work is primarily conceptual/governance analysis rather than an empirical agent benchmark. Stronger visibility mechanisms can create privacy and concentration-of-power risks, so monitoring is not automatically beneficial."
+  },
+  "744": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / arXiv:2410.02644 full paper",
+    "full_text_basis": "Full Agent Security Bench paper reviewed; 10 scenarios/agents, 400+ tools, attack/defense taxonomy, 13 backbones, nearly 90K cases, utility-security metric, results and ablations checked.",
+    "evidence": "Agent Security Bench formalizes attacks at system/user prompt, tool-observation, planning and memory stages. The final ICLR version spans 10 scenarios, 10 agents, more than 400 tools, 27 attack/defense variants and seven evaluation metrics across 13 LLM backbones. It evaluates prompt injection, memory poisoning, Plan-of-Thought backdoors, mixed attacks and defenses. The highest average attack success reaches 84.30%, while evaluated defenses provide incomplete protection, showing vulnerabilities across multiple points of an agent pipeline rather than one prompt interface.",
+    "limitations": "ASB is broad but still synthetic/controlled and cannot represent every real permission model or multimodal environment. Aggregate attack success can obscure which defenses trade utility for security."
+  },
+  "745": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2409.16427 full paper",
+    "full_text_basis": "Full HAICOSYSTEM paper reviewed; modular human-agent-tool sandbox, 92 scenarios/seven domains, 1,840 simulations, multidimensional operational/content/societal/legal metrics, malicious-user comparison and limitations checked.",
+    "evidence": "HAICOSYSTEM simulates multi-turn human-agent interactions with tool use across healthcare, finance, education and four other domains. It runs 1,840 simulations from 92 scenarios and evaluates operational, content, societal and legal risks. Both proprietary and open models exhibit safety risks in more than 50% of cases, with risk generally increasing under simulated malicious users. The framework therefore broadens agent safety beyond harmful output to interactional and tool-mediated consequences.",
+    "limitations": "Users, tools and environments are simulated, and the quality of the safety conclusions depends on simulation realism and evaluator definitions. The scenario set is diverse but not exhaustive."
+  },
+  "746": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2410.06172 full paper",
+    "full_text_basis": "Full Multimodal Situational Safety paper reviewed; MSSBench 1,820 image-query pairs, safe/unsafe matched contexts, explicit/visual/situational safety evaluation, MLLM experiments and multi-agent mitigation checked.",
+    "evidence": "MSSBench contains 1,820 language-query/image pairs split evenly between visually safe and unsafe situations while keeping the language query semantically comparable. Evaluation separates explicit safety knowledge, visual understanding and situational safety reasoning. Current MLLMs struggle to combine all three in instruction-following settings; a coordinated multi-agent pipeline consistently improves safety relative to the original single-model response. The benchmark shows that identical text can require different actions depending on visual context.",
+    "limitations": "MSSBench evaluates multimodal judgment rather than long-horizon GUI execution, and safety labels necessarily encode the benchmark authors' situational assumptions. Multi-agent mitigation also adds complexity and correlated-model risk."
+  },
+  "747": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2402.11208 full paper",
+    "full_text_basis": "Full backdoor-threat paper reviewed; general agent-backdoor taxonomy, user-query versus environmental triggers, intermediate versus final behavior targets, WebShop/tool-use experiments, textual defense tests and limitations checked.",
+    "evidence": "The paper distinguishes agent backdoors from ordinary LLM backdoors because triggers can arrive through environmental observations and malicious behavior can occur only at an intermediate reasoning/action step while the final answer appears normal. Experiments on WebShop and tool-utilization agents demonstrate that these variants can achieve high attack success while preserving benign behavior. Existing text-oriented backdoor defenses do not reliably remove the agent-specific triggers, especially when they originate from intermediate observations.",
+    "limitations": "The study uses selected shopping/tool environments and handcrafted backdoor formulations. Supply-chain or fine-tuning access is required for several attack variants, so the threat model is stronger than ordinary external prompt injection."
+  },
+  "748": {
+    "review_date": "2026-09-11",
+    "source": "ICLR 2025 / AgentHarm full paper",
+    "full_text_basis": "Full AgentHarm paper reviewed; harmful-agent task taxonomy, 110 task types with benign counterparts, tool environments, jailbreak evaluation, capability-versus-refusal analysis and defenses checked.",
+    "evidence": "AgentHarm benchmarks whether tool-using LLM agents can carry out explicitly harmful multi-step tasks rather than merely generate harmful text. The benchmark contains 110 distinct harmful task types with matched benign variants and executable tool environments. Across frontier/open agents, ordinary refusal/alignment reduces some harmful behavior but agentic jailbreaks substantially increase harmful task completion, while strong models often possess the underlying operational capability. The matched benign tasks let the paper separate loss of utility from safety refusal.",
+    "limitations": "The benchmark necessarily represents only a curated subset of harmful tool-use scenarios and executes them in controlled environments. Harmful-task completion is not equivalent to real-world impact where permissions and external defenses differ."
+  },
+  "750": {
+    "review_date": "2026-09-11",
+    "source": "AAAI 2026 Alignment Track / DOI 10.1609/aaai.v40i44.41090 full paper",
+    "full_text_basis": "Full MobileSafetyBench paper reviewed; Android-emulator environment, 250-task design, 200 daily safety/helpfulness scenarios plus injection cases, application/risk taxonomy, baseline agents, safety prompting and limitations checked.",
+    "evidence": "MobileSafetyBench evaluates safety separately from helpfulness in realistic Android-emulator interactions involving messaging, web navigation, social media, calendar and financial applications. It contains 250 tasks in total, including 200 daily-scenario tasks plus indirect-prompt-injection evaluations. Baseline frontier agents often complete requested actions while failing to avoid harmful side effects; explicit safety-prioritization prompting improves behavior but leaves a substantial safety gap. This provides direct evidence that successful device control and safe device control are distinct objectives.",
+    "limitations": "The environment uses emulators and a fixed app/task set, and mobile safety judgments depend on device state and scenario assumptions. Prompting mitigation is not a hard runtime guarantee."
+  },
+  "757": {
+    "review_date": "2026-09-11",
+    "source": "ACM Multimedia 2025 / DOI 10.1145/3746027.3755646 full paper",
+    "full_text_basis": "Full AEIA paper reviewed; Android threat model, environmental-content and reasoning-gap vulnerabilities, partial/zero-observability attackers, AEIA-MN experiments on AndroidWorld and robustness analysis checked.",
+    "evidence": "Active Environment Injection Attack (AEIA) models malicious content as part of the mobile environment rather than a direct user prompt. AEIA-MN exploits both adversarial content injection and reasoning-gap vulnerabilities during Android agent execution. Across the evaluated MLLM agents, combining the two vulnerabilities yields attack success as high as 93% on AndroidWorld. The paper also considers attackers with only partial or zero observability of device state, showing that precise internal-agent access is not required.",
+    "limitations": "The concrete attack mechanism is Android/mobile-specific and centers on environmental notification-style channels. Results may differ for desktop/web agents with different event filtering and UI provenance controls."
+  },
+  "759": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2503.03704 full paper",
+    "full_text_basis": "Full MINJA paper reviewed; query-only memory injection, bridging-step and progressive-shortening design, multiple agents/datasets, injection/attack success and benign-utility analysis checked.",
+    "evidence": "MINJA shows that an attacker can poison an agent's long-term memory using only ordinary query/output interaction, without direct database access. Bridging reasoning steps and progressive shortening make malicious records both injectable and retrievable for later victim queries. Experiments report injection success above 95% across tested agents/datasets and attack success above 70% on most datasets, while benign utility drops stay below 2% overall on MIMIC-III, eICU and WebShop. This makes memory-writing interfaces a practical integrity boundary.",
+    "limitations": "The attack assumes the agent stores attacker interactions into reusable memory and that retrieval is similarity driven. Strong provenance, write authorization or memory isolation can invalidate that assumption."
+  },
+  "761": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2503.23434 full survey",
+    "full_text_basis": "Full survey reviewed; security/privacy taxonomy, reliability, transparency/explainability, ethics, evaluation methodologies, representative attack/defense literature and open challenges checked.",
+    "evidence": "Towards Trustworthy GUI Agents organizes trustworthiness into five dimensions: security vulnerabilities, reliability in dynamic environments, transparency/explainability, ethical concerns, and evaluation methodology. Its security/privacy taxonomy links multimodal adversarial attacks, privacy leakage mechanisms and mitigation strategies, while the reliability discussion emphasizes cascading sequential failures and inadequate realistic benchmarks. For this survey it is synthesis evidence that GUI-agent trust cannot be reduced to task success alone.",
+    "limitations": "This is a survey rather than a new controlled experiment, and the fast-moving 2025-2026 threat landscape means its coverage can become incomplete quickly."
+  },
+  "762": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2503.18666 full paper",
+    "full_text_basis": "Full AgentSpec paper reviewed; DSL syntax/semantics, runtime enforcement modes, code/embodied/autonomous-driving deployments, manual and LLM-generated rules, accuracy/overhead analysis and limitations checked.",
+    "evidence": "AgentSpec provides a lightweight DSL for runtime rules with triggers, predicates and enforcement actions such as stopping, requesting user inspection, replacing an action or asking the LLM to self-correct. Manual rules prevent unsafe execution in more than 90% of code-agent cases, eliminate hazardous actions in the embodied-agent tasks and enforce 100% compliance in the evaluated autonomous-driving scenarios, with millisecond-scale overhead. Automatically generated rules are weaker: OpenAI o1 rules reach 95.56% precision/70.96% recall for embodied risks and prevent driving-law violations in five of eight scenarios.",
+    "limitations": "Rule coverage is the central bottleneck: unspecified hazards remain unenforced, and automatically generated rules have incomplete recall. The verified source remains a preprint, so publication status should be revalidated separately from this A1 full-text reading."
+  },
+  "764": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2503.18492 full paper",
+    "full_text_basis": "Full VeriSafe Agent paper reviewed; natural-language-to-DSL autoformalization, runtime logical action checking, 300 instructions/18 mobile apps, baseline verification comparison, task-success effects and limitations checked.",
+    "evidence": "VeriSafe Agent translates a user's mobile instruction into a formal DSL specification and checks each proposed GUI action against that specification before execution. Evaluation covers 300 user instructions across 18 popular mobile apps. VSA verifies actions with 94.3%-98.33% accuracy, a 20.4%-25.6% improvement over LLM-only verification methods, and increases the underlying GUI agent's task-completion rate by 90%-130% by preventing/correcting invalid actions.",
+    "limitations": "Safety depends on correctly autoformalizing user intent; an incorrect specification can deterministically enforce the wrong behavior. Coverage is limited to the DSL and mobile-app action semantics."
+  },
+  "770": {
+    "review_date": "2026-09-11",
+    "source": "Findings EMNLP 2025 / arXiv:2505.14418 full paper",
+    "full_text_basis": "Full 25-page AgentGhost paper reviewed; interaction-level trigger taxonomy, composite goal/history/state triggers, min-max/SCL+SFT injection, two mobile benchmarks, cross-model attack objectives, defense and utility analysis checked.",
+    "evidence": "AgentGhost exploits mobile GUI agents' interaction history, environment state and task progress as hidden backdoor-trigger dimensions. Composite triggers are trained with supervised contrastive and supervised fine-tuning objectives so the malicious behavior activates conditionally while normal utility is preserved. Across two mobile benchmarks and three attack objectives, attack accuracy reaches 99.7% with only about 1% clean-utility degradation. The proposed defense reduces attack accuracy to 22.1%, demonstrating both the severity of supply-chain backdoors and the possibility of targeted mitigation.",
+    "limitations": "The threat model requires compromise of the model/fine-tuning supply chain. The tailored defense is evaluated against AgentGhost-style triggers and may not generalize to unrelated backdoor mechanisms."
+  },
+  "771": {
+    "review_date": "2026-09-11",
+    "source": "arXiv:2505.12442 full paper",
+    "full_text_basis": "Full MASLEAK paper reviewed; black-box propagation attack, synthetic 810-MAS corpus, real Coze/CrewAI systems, topology/prompt/task/tool extraction metrics and defenses checked.",
+    "evidence": "MASLEAK extracts proprietary information from multi-agent systems through only the public API. Its adversarial query propagates through collaborating agents and elicits information about agent count/topology, system prompts, task instructions and tool usage. The paper constructs 810 synthetic MAS applications and also evaluates real Coze/CrewAI systems. Average attack success reaches 87% for system prompts/task instructions and 92% for system architecture in most tested settings.",
+    "limitations": "The attack depends on inter-agent messages preserving attacker-induced disclosure content and on final outputs exposing enough of that propagation. Internal message isolation and strict output filtering can materially alter the threat model."
+  },
+  "772": {
+    "review_date": "2026-09-11",
+    "source": "EMNLP 2025 / full paper",
+    "full_text_basis": "Full paper reviewed; tool-description editing taxonomy, BFCL-derived controlled competitions, GPT-4.1/Qwen and 17-model evaluation, pairwise edit competition and robustness analysis checked.",
+    "evidence": "The paper demonstrates that tool selection is strongly affected by natural-language tool descriptions even when functionality is unchanged. Carefully edited descriptions cause a target tool to receive more than ten times the usage of the original description for GPT-4.1 and Qwen2.5-7B. Experiments across 17 models show that the exact preference patterns vary by model but description-induced bias is widespread, creating both reliability and marketplace/security concerns for MCP/function-calling agents.",
+    "limitations": "The experiments isolate tool-description competition rather than complete malicious tool execution, and preferences can shift with model/version changes. It demonstrates an unstable selection interface, not universal exploitability."
+  },
+  "773": {
+    "review_date": "2026-09-11",
+    "source": "NeurIPS 2025 / arXiv:2506.00641 full paper",
+    "full_text_basis": "Full 58-page AgentAuditor paper reviewed; feature/reasoning memory construction, multi-stage RAG evaluator, ASSEBench construction, strict/lenient labels, cross-benchmark experiments, ablations and human comparison checked.",
+    "evidence": "AgentAuditor is a training-free evaluator that stores structured prior safety/security evaluation experiences and retrieves relevant reasoning patterns for new agent trajectories. ASSEBench contains 2,293 annotated interaction records spanning 15 risk types, 29 application scenarios and four subsets with strict/lenient treatment of ambiguous risk. AgentAuditor reaches human-level performance; the paper reports up to 96.3% F1 and 96.1% accuracy on R-Judge with Gemini-2.0-Flash-thinking and consistent improvements over ordinary LLM-as-judge baselines.",
+    "limitations": "The evaluator can inherit errors from the LLM used to construct/retrieve memories, and high benchmark agreement is not equivalent to formal guarantees. Stored safety experiences can also become stale as agent behavior changes."
+  },
+  "774": {
+    "review_date": "2026-09-11",
+    "source": "ICT Express 2026 / DOI 10.1016/j.icte.2025.12.001 full paper",
+    "full_text_basis": "Full review paper checked across prompt injection, plugin/tool abuse, inter-agent/protocol/MCP threats, trust boundaries, mitigations, open challenges and workflow-level security guidance.",
+    "evidence": "This review expands the agent threat model from prompt injection to failures in plugins, connectors, structured tool calls and inter-agent protocols. It emphasizes that ad-hoc authentication, inconsistent schemas and weak validation create attack surfaces even when the base LLM is well aligned, and organizes mitigations around authentication/authorization, input-output validation, least privilege, isolation, monitoring and protocol-aware controls. It is useful synthesis evidence that security must cover the full agent workflow rather than only prompts.",
+    "limitations": "The paper is a review, not a controlled benchmark, and protocol ecosystems such as MCP are changing quickly. Its threat categories therefore need continual updating."
+  }
+}
