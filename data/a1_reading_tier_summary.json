@@ -1,0 +1,19 @@
+{
+  "live_notes": 403,
+  "review_standard_counts": {
+    "deep_critical_analysis": 116,
+    "complete_structured_reading": 287,
+    "other_review_standard": 0
+  },
+  "protocol": {
+    "P0_P1": "complete full-text reading with deep critical analysis and detailed notes",
+    "P2_P3": "complete full-text reading with lighter structured analysis focused on relevance, methods, results/benchmark properties, contributions, and limitations",
+    "priority_role": "priority governs analytical depth and evidence use, not whether the paper is read in full"
+  },
+  "stale_triage_markers_after_cleanup": {
+    "recommended_reading_depth": 0,
+    "selected_sections_are_enough": 0,
+    "most_important_parts_to_read": 0
+  },
+  "notes_changed_by_cleanup": 127
+}
