@@ -1,0 +1,74 @@
+name: Test publication status v2 - chunk 13 only
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/test-publication-status-chunk-13.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test-chunk-13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: pip install requests
+      - name: Build deterministic chunk 13 of 48
+        run: |
+          python - <<'PY'
+          import csv
+          chunk = 13
+          total_chunks = 48
+          rows = list(csv.DictReader(open('data/studies_805_mapping_corpus.csv', encoding='utf-8-sig')))
+          fields = list(rows[0])
+          subset = rows[chunk::total_chunks]
+          with open('/tmp/corpus_13.csv', 'w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields)
+              w.writeheader()
+              w.writerows(subset)
+          print(f'chunk=13 rows={len(subset)}')
+          print('record_ids=' + ','.join(r['record_id'] for r in subset))
+          assert 16 <= len(subset) <= 17, len(subset)
+          PY
+      - name: Cross-check chunk 13 with hardened v2.2
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          mkdir -p data/verification_cache_v2/chunk_13_test
+          python scripts/verify_publication_status_v2.py \
+            --corpus /tmp/corpus_13.csv \
+            --out /tmp/out_13.csv \
+            --cache data/verification_cache_v2/chunk_13_test \
+            --sleep 0.35 \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Verify standalone output
+        run: |
+          python - <<'PY'
+          import csv
+          rows = list(csv.DictReader(open('/tmp/out_13.csv', encoding='utf-8-sig')))
+          ids = [int(r['record_id']) for r in rows]
+          print(f'output_rows={len(rows)}')
+          print('output_record_ids=' + ','.join(map(str, ids)))
+          assert len(rows) in (16, 17), len(rows)
+          assert len(ids) == len(set(ids))
+          PY
+      - name: Stage standalone artifact
+        run: |
+          mkdir -p /tmp/artifact/cache
+          cp /tmp/out_13.csv /tmp/artifact/out_13.csv
+          cp -R data/verification_cache_v2/chunk_13_test /tmp/artifact/cache/chunk_13_test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-status-v2-chunk-13-standalone-test
+          path: /tmp/artifact
+          retention-days: 7
