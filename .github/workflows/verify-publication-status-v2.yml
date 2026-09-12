@@ -24,9 +24,9 @@ jobs:
     timeout-minutes: 300
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 12
       matrix:
-        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,14 +37,14 @@ jobs:
           python-version: "3.12"
       - name: Install dependency
         run: pip install requests
-      - name: Build deterministic chunk ${{ matrix.chunk }} of 16
+      - name: Build deterministic chunk ${{ matrix.chunk }} of 48
         env:
           CHUNK: ${{ matrix.chunk }}
         run: |
           python - <<'PY'
           import csv, os
           chunk = int(os.environ['CHUNK'])
-          total_chunks = 16
+          total_chunks = 48
           rows = list(csv.DictReader(open('data/studies_805_mapping_corpus.csv', encoding='utf-8-sig')))
           fields = list(rows[0])
           subset = rows[chunk::total_chunks]
@@ -53,7 +53,7 @@ jobs:
               w.writeheader()
               w.writerows(subset)
           print(f'chunk={chunk} rows={len(subset)}')
-          assert 49 <= len(subset) <= 51, len(subset)
+          assert 16 <= len(subset) <= 17, len(subset)
           PY
       - name: Cross-check chunk ${{ matrix.chunk }} with hardened v2.2
         env:
@@ -95,12 +95,12 @@ jobs:
           pattern: publication-status-v2-chunk-*
           path: /tmp/chunks
           merge-multiple: true
-      - name: Merge 16 outputs and verify row identity
+      - name: Merge 48 outputs and verify row identity
         run: |
           python - <<'PY'
-          import csv, glob, os
+          import csv, glob
           files = sorted(glob.glob('/tmp/chunks/out_*.csv'))
-          assert len(files) == 16, files
+          assert len(files) == 48, files
           rows = []
           fields = None
           for path in files:
@@ -143,7 +143,7 @@ jobs:
               'title_consistency_gate': 'passed',
               'confidence_gate': 'passed',
               'manual_authoritative_evidence_records': len(manual),
-              'chunks': 16,
+              'chunks': 48,
           }
           open('data/publication_status_verification_v2_summary.json', 'w', encoding='utf-8').write(json.dumps(out, indent=2) + '\n')
           print(json.dumps(out, indent=2))
