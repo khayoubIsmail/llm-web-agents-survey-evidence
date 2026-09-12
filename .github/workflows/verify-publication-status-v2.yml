@@ -5,17 +5,28 @@ on:
     workflows: ["Publication status v2 known-answer smoke test"]
     types: [completed]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/verify-publication-status-v2.yml"
 
 permissions:
   contents: write
 
 jobs:
-  verify-v2:
+  verify-chunk:
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,49 +37,90 @@ jobs:
           python-version: "3.12"
       - name: Install dependency
         run: pip install requests
-      - name: Split the 805-row corpus into three deterministic chunks
+      - name: Build deterministic chunk ${{ matrix.chunk }} of 16
+        env:
+          CHUNK: ${{ matrix.chunk }}
         run: |
           python - <<'PY'
-          import csv
-          rows=list(csv.DictReader(open('data/studies_805_mapping_corpus.csv',encoding='utf-8-sig')))
-          fields=list(rows[0])
-          for i in range(3):
-              subset=rows[i::3]
-              with open(f'/tmp/corpus_{i}.csv','w',encoding='utf-8',newline='') as f:
-                  w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(subset)
-          assert sum(len(rows[i::3]) for i in range(3)) == 805
+          import csv, os
+          chunk = int(os.environ['CHUNK'])
+          total_chunks = 16
+          rows = list(csv.DictReader(open('data/studies_805_mapping_corpus.csv', encoding='utf-8-sig')))
+          fields = list(rows[0])
+          subset = rows[chunk::total_chunks]
+          with open(f'/tmp/corpus_{chunk}.csv', 'w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields)
+              w.writeheader()
+              w.writerows(subset)
+          print(f'chunk={chunk} rows={len(subset)}')
+          assert 49 <= len(subset) <= 51, len(subset)
           PY
-      - name: Cross-check all 805 records with hardened v2.2
-        shell: bash
+      - name: Cross-check chunk ${{ matrix.chunk }} with hardened v2.2
+        env:
+          CHUNK: ${{ matrix.chunk }}
         run: |
-          set -euo pipefail
+          mkdir -p "data/verification_cache_v2/chunk_${CHUNK}"
+          python scripts/verify_publication_status_v2.py \
+            --corpus "/tmp/corpus_${CHUNK}.csv" \
+            --out "/tmp/out_${CHUNK}.csv" \
+            --cache "data/verification_cache_v2/chunk_${CHUNK}" \
+            --sleep 0.35 \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Stage chunk artifact
+        env:
+          CHUNK: ${{ matrix.chunk }}
+        run: |
+          mkdir -p "/tmp/artifact/cache"
+          cp "/tmp/out_${CHUNK}.csv" "/tmp/artifact/out_${CHUNK}.csv"
+          cp -R "data/verification_cache_v2/chunk_${CHUNK}" "/tmp/artifact/cache/chunk_${CHUNK}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-status-v2-chunk-${{ matrix.chunk }}
+          path: /tmp/artifact
+          retention-days: 7
+
+  merge-and-validate:
+    needs: verify-chunk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: publication-status-v2-chunk-*
+          path: /tmp/chunks
+          merge-multiple: true
+      - name: Merge 16 outputs and verify row identity
+        run: |
+          python - <<'PY'
+          import csv, glob, os
+          files = sorted(glob.glob('/tmp/chunks/out_*.csv'))
+          assert len(files) == 16, files
+          rows = []
+          fields = None
+          for path in files:
+              with open(path, encoding='utf-8-sig', newline='') as f:
+                  r = csv.DictReader(f)
+                  fields = fields or list(r.fieldnames or [])
+                  rows.extend(r)
+          rows.sort(key=lambda r: int(r['record_id']))
+          ids = [int(r['record_id']) for r in rows]
+          assert len(rows) == 805, len(rows)
+          assert len(set(ids)) == 805, len(set(ids))
+          assert ids == sorted(ids)
+          with open('data/publication_status_verification_v2.csv', 'w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields)
+              w.writeheader()
+              w.writerows(rows)
+          PY
+          rm -rf data/verification_cache_v2
           mkdir -p data/verification_cache_v2
-          pids=()
-          for i in 0 1 2; do
-            python scripts/verify_publication_status_v2.py \
-              --corpus "/tmp/corpus_${i}.csv" \
-              --out "/tmp/out_${i}.csv" \
-              --cache "data/verification_cache_v2/chunk_${i}" \
-              --sleep 0.35 \
-              --email "${{ github.actor }}@users.noreply.github.com" &
-            pids+=("$!")
-          done
-          for pid in "${pids[@]}"; do wait "$pid"; done
-      - name: Merge three outputs and verify row identity
-        run: |
-          python - <<'PY'
-          import csv
-          rows=[]; fields=None
-          for i in range(3):
-              with open(f'/tmp/out_{i}.csv',encoding='utf-8-sig',newline='') as f:
-                  r=csv.DictReader(f); fields=fields or list(r.fieldnames or []); rows.extend(r)
-          rows.sort(key=lambda r:int(r['record_id']))
-          ids=[int(r['record_id']) for r in rows]
-          assert len(rows)==805, len(rows)
-          assert len(set(ids))==805
-          with open('data/publication_status_verification_v2.csv','w',encoding='utf-8',newline='') as f:
-              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
-          PY
+          cp -R /tmp/chunks/cache/. data/verification_cache_v2/
       - name: Apply logged authoritative evidence
         run: python scripts/apply_publication_status_manual_evidence.py data/publication_status_verification_v2.csv data/publication_status_manual_evidence.csv
       - name: Known-answer, confidence and title-consistency gates
@@ -78,25 +130,25 @@ jobs:
           python - <<'PY'
           import csv, json
           from collections import Counter
-          rows=list(csv.DictReader(open('data/publication_status_verification_v2.csv', encoding='utf-8-sig')))
-          manual=list(csv.DictReader(open('data/publication_status_manual_evidence.csv', encoding='utf-8-sig')))
-          c=Counter(r['VERDICT'] for r in rows)
-          resolved=sum(v for k,v in c.items() if k!='NO_MATCH')
-          out={
-              'rows':len(rows),
-              'verdict_counts':dict(sorted(c.items())),
-              'resolved':resolved,
-              'no_match':c.get('NO_MATCH',0),
-              'known_answer_gate':'passed',
-              'title_consistency_gate':'passed',
-              'confidence_gate':'passed',
-              'manual_authoritative_evidence_records':len(manual),
+          rows = list(csv.DictReader(open('data/publication_status_verification_v2.csv', encoding='utf-8-sig')))
+          manual = list(csv.DictReader(open('data/publication_status_manual_evidence.csv', encoding='utf-8-sig')))
+          c = Counter(r['VERDICT'] for r in rows)
+          resolved = sum(v for k, v in c.items() if k != 'NO_MATCH')
+          out = {
+              'rows': len(rows),
+              'verdict_counts': dict(sorted(c.items())),
+              'resolved': resolved,
+              'no_match': c.get('NO_MATCH', 0),
+              'known_answer_gate': 'passed',
+              'title_consistency_gate': 'passed',
+              'confidence_gate': 'passed',
+              'manual_authoritative_evidence_records': len(manual),
+              'chunks': 16,
           }
-          open('data/publication_status_verification_v2_summary.json','w',encoding='utf-8').write(json.dumps(out,indent=2)+'\n')
-          print(json.dumps(out,indent=2))
+          open('data/publication_status_verification_v2_summary.json', 'w', encoding='utf-8').write(json.dumps(out, indent=2) + '\n')
+          print(json.dumps(out, indent=2))
           PY
       - name: Commit v2.2 verification evidence and raw cache
-        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
