@@ -1,0 +1,81 @@
+name: Resolve B1 ICLR official evidence
+
+on:
+  push:
+    paths:
+      - '.github/workflows/resolve-b1-iclr-official-evidence.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+      - name: Resolve exact official ICLR proceedings records
+        run: |
+          python - <<'PY'
+          import csv,re,time,requests
+          from bs4 import BeautifulSoup
+          from difflib import SequenceMatcher
+          from urllib.parse import urljoin
+
+          src='data/publication_status_manual_adjudication_B1_ICLR.csv'
+          out='data/publication_status_B1_ICLR_official_resolution.csv'
+          with open(src,encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          targets=[r for r in rows if r['final_status'].startswith('Archival')]
+          assert len(targets)==42, len(targets)
+          def norm(s):
+              s=(s or '').lower().replace('τ','tau')
+              s=re.sub(r'[^a-z0-9]+',' ',s)
+              return ' '.join(s.split())
+          sess=requests.Session(); sess.headers['User-Agent']='publication-status-audit/1.0'
+          outrows=[]
+          for i,r in enumerate(targets):
+              title=r['title']
+              resp=sess.get('https://proceedings.iclr.cc/papers/search',params={'q':title},timeout=30)
+              resp.raise_for_status()
+              soup=BeautifulSoup(resp.text,'html.parser')
+              candidates=[]
+              for a in soup.find_all('a',href=True):
+                  href=a['href']
+                  if 'Abstract-Conference.html' not in href: continue
+                  text=' '.join(a.stripped_strings)
+                  if not text: continue
+                  score=SequenceMatcher(None,norm(title),norm(text)).ratio()
+                  candidates.append((score,text,urljoin(resp.url,href)))
+              candidates.sort(reverse=True)
+              best=candidates[0] if candidates else (0.0,'','')
+              status='OFFICIAL_EXACT' if best[0]>=0.94 else ('OFFICIAL_NEAR' if best[0]>=0.84 else 'UNRESOLVED')
+              outrows.append({
+                  'record_id':r['record_id'],'ledger_title':title,'decision':r['decision'],
+                  'resolution_status':status,'title_similarity':f'{best[0]:.4f}',
+                  'official_title':best[1],'official_url':best[2],
+                  'previous_evidence_url':r['evidence_url'],
+              })
+              print(r['record_id'],status,f'{best[0]:.3f}',best[1],best[2])
+              time.sleep(.15)
+          assert len(outrows)==42
+          fields=list(outrows[0])
+          with open(out,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(outrows)
+          unresolved=[r for r in outrows if r['resolution_status']=='UNRESOLVED']
+          print('resolved',len(outrows)-len(unresolved),'unresolved',len(unresolved))
+          PY
+      - name: Commit resolution audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_B1_ICLR_official_resolution.csv
+          git commit -m 'Resolve B1 ICLR decisions to official proceedings records'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
