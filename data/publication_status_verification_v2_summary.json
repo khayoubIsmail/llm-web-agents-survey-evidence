@@ -1,16 +1,26 @@
 {
+  "version": "v2.2",
   "rows": 805,
+  "unique_record_ids": 805,
+  "record_id_set_matches_corpus": true,
   "verdict_counts": {
-    "DOWNGRADE": 37,
-    "NO_MATCH": 429,
-    "OK_ARCHIVAL": 213,
-    "OK_PREPRINT": 50,
-    "UPGRADE": 57,
-    "VENUE_MISMATCH": 16,
-    "VENUE_MISSING": 3
+    "DOWNGRADE": 140,
+    "NO_MATCH": 74,
+    "OK_ARCHIVAL": 226,
+    "OK_PREPRINT": 290,
+    "UPGRADE": 58,
+    "VENUE_MISMATCH": 15,
+    "VENUE_MISSING": 2
   },
-  "resolved": 376,
-  "no_match": 429,
+  "resolved": 731,
+  "no_match": 74,
   "known_answer_gate": "passed",
-  "manual_authoritative_evidence_records": 1
+  "title_consistency_gate": "passed",
+  "confidence_gate": "passed",
+  "manual_authoritative_evidence_records": 2,
+  "chunks": 48,
+  "source_workflow_run_id": 34722057696,
+  "source_workflow_head_sha": "6f0ce0472abe8ec74e5ba298ed8cebffb67adb16",
+  "raw_checkpoint": "data/checkpoints/publication_status_v2_run_34722057696_48_chunks",
+  "adjudication_status": "verification_complete_manual_corpus_adjudication_pending"
 }
