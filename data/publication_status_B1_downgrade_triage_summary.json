@@ -1,0 +1,17 @@
+{
+  "rows": 101,
+  "venue_family_counts": {
+    "AAAI_IJCAI": 2,
+    "ACL_ANTHOLOGY": 4,
+    "ACM": 1,
+    "CVF": 2,
+    "IEEE": 1,
+    "NEURIPS": 2,
+    "OPENREVIEW_COLM": 11,
+    "OPENREVIEW_ICLR": 45,
+    "OPENREVIEW_TMLR": 8,
+    "OTHER": 3,
+    "PMLR_ICML": 15,
+    "VENUE_BLANK": 7
+  }
+}
