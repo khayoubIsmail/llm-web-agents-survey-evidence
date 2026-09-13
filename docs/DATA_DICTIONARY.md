@@ -1,6 +1,6 @@
 # Data Dictionary
 
-Field definitions for the current corpus registers, final synthesis files, search-reporting artifacts, and paper-note audits.
+Field definitions for the current corpus registers, final synthesis files, search-reporting artifacts, paper-note audits, and evaluation-protocol supplements.
 
 ## Authoritative corpus layers
 
@@ -104,6 +104,24 @@ Both directories contain **403 paper-specific files keyed to the historical norm
 ## Historical source snapshots
 
 `data/historical_original_note_source_manifest.csv` and `notes/historical_source_snapshots/` preserve the earlier note provenance. Historical source-note matching establishes provenance; it does not by itself establish current-cycle reading or final synthesis membership.
+
+## H1–H9 evaluation-protocol artifacts
+
+### `docs/H1_H9_METRIC_SPECIFICATION.md`
+
+Authoritative pre-experiment operational specification for the survey's extraction metric stack. It fixes record alignment, null/collection/nested-field handling, micro/macro aggregation, semantic-equivalence policy, provenance support, zero-output behavior, confidence intervals, the unsupported-value/non-schema split, and the worked-example scoring rules **before** the Reviewer-1 three-agent experiment.
+
+### `schemas/evidence_object.schema.json`
+
+JSON Schema for one field-level source-evidence object. It links a task/run/record/field claim to source identity, snapshot/retrieval timestamps, a representation-specific locator (DOM, text, or vision), and a replayable transformation history. The optional evaluator-populated verification object records availability `A(p)`, support `S(p)`, method, and reason. This schema supports H5 and the formal evidence-object requirement raised separately by Reviewer 1.
+
+### `data/h9_worked_scoring_example.json`
+
+Machine-readable synthetic wireless-headphones-style example used to verify H9 before the real experiment. It contains the declared schema, two gold records, three predicted records, the accepted alignment, raw score counts, final scores, and arithmetic derivations. It is **not** presented as an empirical model result.
+
+### `docs/H1_H9_MANUSCRIPT_PATCH.md`
+
+Exact LaTeX replacement/addition blocks for the current manuscript's Section 7.2 and statistical-reporting paragraph. The patch is kept separate because the current editable `sn-article.tex` is not stored in this evidence repository.
 
 ## Current frozen statistics
 
