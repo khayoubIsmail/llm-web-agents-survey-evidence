@@ -1,0 +1,25 @@
+{
+  "source_rows": 805,
+  "queue_rows": 297,
+  "machine_verdict_counts": {
+    "DOWNGRADE": 140,
+    "NO_MATCH": 74,
+    "OK_PREPRINT": 8,
+    "UPGRADE": 58,
+    "VENUE_MISMATCH": 15,
+    "VENUE_MISSING": 2
+  },
+  "priority_counts": {
+    "A1": 17,
+    "A2": 39,
+    "A3": 58,
+    "B1": 101,
+    "B2": 74,
+    "C1": 8
+  },
+  "direct_authoritative_identifier_counts": {
+    "no": 246,
+    "yes": 51
+  },
+  "policy": "queue_only_no_corpus_mutation"
+}
