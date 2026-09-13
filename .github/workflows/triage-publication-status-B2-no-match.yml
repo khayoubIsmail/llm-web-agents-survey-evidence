@@ -1,0 +1,67 @@
+name: Triage publication status B2 no match
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/triage-publication-status-B2-no-match.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Isolate and triage 74 NO_MATCH cases
+        run: |
+          python - <<'PY'
+          import csv,json,re,os
+          from collections import Counter,defaultdict
+          rows=list(csv.DictReader(open('data/publication_status_adjudication_queue.csv',encoding='utf-8-sig',newline='')))
+          keep=[r for r in rows if r['priority']=='B2' and r['machine_verdict']=='NO_MATCH']
+          assert len(keep)==74,len(keep)
+          def bucket(r):
+              st=(r.get('register_status') or '').lower()
+              v=(r.get('register_venue') or '').lower()
+              ident=(r.get('register_identifier') or '').lower()
+              if 'preprint' in st or 'technical report' in st: return 'REGISTER_PREPRINT'
+              if 'unconfirmed' in st or 'conditional' in st: return 'REGISTER_UNCONFIRMED'
+              if 'archival' in st:
+                  if any(x in ident for x in ['doi.org/10.','aclanthology.org','proceedings.mlr.press','openreview.net','ieeexplore.ieee.org','dl.acm.org','openaccess.thecvf.com','ijcai.org']): return 'ARCHIVAL_WITH_DIRECT_ID'
+                  if any(x in v for x in ['arxiv','preprint','technical report','blog','white paper','working paper']): return 'ARCHIVAL_SUSPICIOUS_VENUE'
+                  return 'ARCHIVAL_NO_DIRECT_ID'
+              return 'OTHER'
+          out=[]; c=Counter(); groups=defaultdict(list)
+          for r in keep:
+              rr=dict(r); rr['b2_bucket']=bucket(r); c[rr['b2_bucket']]+=1; groups[rr['b2_bucket']].append(rr); out.append(rr)
+          os.makedirs('data/adjudication_batches/B2',exist_ok=True)
+          fields=list(out[0])
+          with open('data/publication_status_B2_no_match_triage.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(out)
+          for name,rr in groups.items():
+              for i in range(0,len(rr),15):
+                  ch=rr[i:i+15]
+                  path=f'data/adjudication_batches/B2/{name}_chunk_{i//15}.csv'
+                  with open(path,'w',encoding='utf-8',newline='') as f:
+                      w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(ch)
+          summary={'rows':74,'bucket_counts':dict(sorted(c.items()))}
+          open('data/publication_status_B2_no_match_triage_summary.json','w',encoding='utf-8').write(json.dumps(summary,indent=2)+'\n')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit B2 triage
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_B2_no_match_triage.csv data/publication_status_B2_no_match_triage_summary.json data/adjudication_batches/B2
+          git commit -m 'Triage 74 publication status no-match cases' || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
