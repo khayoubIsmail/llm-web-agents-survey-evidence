@@ -1,0 +1,71 @@
+name: Triage publication status A3 upgrades
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/triage-publication-status-A3-upgrades.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Triage A3 upgrades conservatively
+        run: |
+          python - <<'PY'
+          import csv, json, re
+          from difflib import SequenceMatcher
+          src='data/publication_status_A3_upgrade_queue.csv'
+          rows=list(csv.DictReader(open(src,encoding='utf-8-sig',newline='')))
+          assert len(rows)==58
+          strong_prefixes=('10.18653/','10.1145/','10.1109/','10.1007/','10.1016/','10.52202/','10.1609/','10.24963/','10.14778/','10.1162/','10.1093/','10.34133/','10.1142/','10.1101/','10.3390/','10.48550/')
+          def norm(s):
+              return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+          out=[]
+          counts={}
+          for r in rows:
+              sim=SequenceMatcher(None,norm(r['title']),norm(r['found_title'])).ratio()
+              doi=(r.get('found_doi') or '').lower().strip()
+              archival=(r.get('found_venue') or '').strip()
+              sources=(r.get('candidate_sources') or '')
+              exact=norm(r['title'])==norm(r['found_title'])
+              strong_doi=bool(doi) and doi.startswith(strong_prefixes) and not doi.startswith('10.48550/')
+              corroborated=('crossref:' in sources and 'openalex:' in sources) or ('crossref:' in sources and doi.startswith(('10.18653/','10.1145/','10.1109/','10.1007/','10.1016/','10.52202/','10.1609/','10.24963/','10.14778/','10.34133/')))
+              if archival and strong_doi and sim>=0.97 and corroborated:
+                  bucket='A3_STRONG_TITLE_DOI'
+              elif archival and strong_doi and sim>=0.92:
+                  bucket='A3_REVIEW_TITLE_OR_CORROBORATION'
+              else:
+                  bucket='A3_MANUAL_WEB_CHECK'
+              counts[bucket]=counts.get(bucket,0)+1
+              rr=dict(r)
+              rr['title_similarity']=f'{sim:.4f}'
+              rr['normalized_title_exact']='yes' if exact else 'no'
+              rr['strong_archival_doi']='yes' if strong_doi else 'no'
+              rr['triage_bucket']=bucket
+              out.append(rr)
+          fields=list(out[0])
+          with open('data/publication_status_A3_upgrade_triage.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(out)
+          open('data/publication_status_A3_upgrade_triage_summary.json','w',encoding='utf-8').write(json.dumps({'rows':58,'counts':counts},indent=2)+'\n')
+          print(json.dumps(counts,indent=2))
+          PY
+      - name: Commit triage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_A3_upgrade_triage.csv data/publication_status_A3_upgrade_triage_summary.json
+          git commit -m "Triage 58 publication-status upgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
