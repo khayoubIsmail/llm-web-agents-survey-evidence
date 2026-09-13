@@ -36,7 +36,7 @@ Record alignment is a deterministic association step performed before field scor
 
    `sim(r, rhat) = (1 / |F_r|) * Σ_{f∈F_r} 1[c_f(r_f, rhat_f)=1]`,
 
-   where `F_r` is the set of non-null gold schema fields in `r` for which the prediction exposes a comparable value. Candidate pairs are sorted by decreasing similarity and greedily accepted under a one-to-one constraint when `sim >= τ`.
+   where `F_r` is the complete set of non-null gold schema fields in `r`; a missing/null predicted value contributes zero rather than being removed from the denominator. Candidate pairs are sorted by decreasing similarity and greedily accepted under a one-to-one constraint when `sim >= τ`.
 4. **Frozen threshold.** For the wireless-headphones worked experiment, `τ = 0.20`, inherited from the current WADE-Bench scorer and fixed **before** inspecting the three agents' outputs.
 5. **Unmatched records.** Unmatched predictions are false-positive records; unmatched gold records are false-negative records. Duplicate predictions cannot receive repeated credit for the same gold record.
 
