@@ -1,0 +1,63 @@
+name: Triage publication status B1 downgrades
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/triage-publication-status-B1-downgrades.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Classify 101 B1 downgrade cases
+        run: |
+          python - <<'PY'
+          import csv,json,re
+          from collections import Counter
+          rows=list(csv.DictReader(open('data/publication_status_adjudication_queue.csv',encoding='utf-8-sig',newline='')))
+          keep=[r for r in rows if r['priority']=='B1' and r['machine_verdict']=='DOWNGRADE']
+          assert len(keep)==101,len(keep)
+          def fam(v):
+              s=(v or '').lower()
+              if 'iclr' in s or 'learning representations' in s: return 'OPENREVIEW_ICLR'
+              if 'colm' in s or 'language modeling' in s: return 'OPENREVIEW_COLM'
+              if 'transactions on machine learning research' in s or 'tmlr' in s: return 'OPENREVIEW_TMLR'
+              if 'icml' in s or 'machine learning' in s or 'pmlr' in s: return 'PMLR_ICML'
+              if 'neurips' in s or 'neural information processing systems' in s or 'nips' in s: return 'NEURIPS'
+              if any(x in s for x in ['acl','emnlp','naacl','coling','eacl','computational linguistics']): return 'ACL_ANTHOLOGY'
+              if any(x in s for x in ['acm','www','web conference','uist','sigir','chi','kdd']): return 'ACM'
+              if 'ieee' in s: return 'IEEE'
+              if any(x in s for x in ['eccv','springer','lecture notes in computer science','lncs']): return 'SPRINGER_ECCV'
+              if any(x in s for x in ['cvpr','iccv']): return 'CVF'
+              if any(x in s for x in ['aaai','ijcai']): return 'AAAI_IJCAI'
+              if any(x in s for x in ['journal','transactions','information processing','artificial intelligence','expert systems','software','computing surveys']): return 'JOURNAL_OTHER'
+              if not s.strip(): return 'VENUE_BLANK'
+              return 'OTHER'
+          out=[]; c=Counter()
+          for r in keep:
+              rr=dict(r); rr['venue_family']=fam(r.get('register_venue','')); c[rr['venue_family']]+=1; out.append(rr)
+          with open('data/publication_status_B1_downgrade_triage.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(out[0]));w.writeheader();w.writerows(out)
+          open('data/publication_status_B1_downgrade_triage_summary.json','w',encoding='utf-8').write(json.dumps({'rows':101,'venue_family_counts':dict(sorted(c.items()))},indent=2)+'\n')
+          print(json.dumps(c,indent=2))
+          PY
+      - name: Commit B1 triage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_B1_downgrade_triage.csv data/publication_status_B1_downgrade_triage_summary.json
+          git commit -m "Triage 101 publication-status downgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
