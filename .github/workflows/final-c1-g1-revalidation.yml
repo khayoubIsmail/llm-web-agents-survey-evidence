@@ -1,0 +1,85 @@
+name: Final C1 G1 revalidation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/final-c1-g1-revalidation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Revalidate C1 and G1 against final synthesis membership
+        run: |
+          python - <<'PY'
+          import csv,json,re
+          from pathlib import Path
+          with open('data/final_synthesis_membership.csv',encoding='utf-8-sig',newline='') as f:
+              mem=list(csv.DictReader(f))
+          synth={int(r['record_id']) for r in mem if r['in_N_SYNTH'].lower()=='yes'}
+          assert len(synth)==385
+          with open('data/c1_claim_evidence_matrix.csv',encoding='utf-8-sig',newline='') as f:
+              c1=list(csv.DictReader(f))
+          with open('data/g1_system_requirement_matrix.csv',encoding='utf-8-sig',newline='') as f:
+              g1=list(csv.DictReader(f))
+          def ids(s):
+              return [int(x) for x in re.findall(r'\d+',s or '')]
+          c1_rows=[]; c1_missing=set()
+          id_fields=['primary_study_ids','corroborating_study_ids','within_study_boundary_ids','independent_boundary_study_ids']
+          for r in c1:
+              used=[]
+              for k in id_fields: used += ids(r.get(k,''))
+              missing=sorted(set(used)-synth); c1_missing.update(missing)
+              c1_rows.append({'claim_id':r['claim_id'],'used_ids':';'.join(map(str,sorted(set(used)))),'missing_from_final_synthesis':';'.join(map(str,missing)),'membership_pass':'yes' if not missing else 'no'})
+          g1_ids=[int(r['record_id']) for r in g1]
+          g1_missing=sorted(set(g1_ids)-synth)
+          full_yes=[]
+          req=['unfamiliar_site_navigation','explicit_schema_coverage','field_level_provenance','unsupported_value_control','cross_site_transfer','complete_dataset_assembly']
+          for r in g1:
+              if all((r[k] or '').strip().upper()=='YES' for k in req) and (r['joint_evaluation'] or '').strip().upper()=='YES': full_yes.append(int(r['record_id']))
+          with open('data/final_c1_membership_revalidation.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(c1_rows[0])); w.writeheader(); w.writerows(c1_rows)
+          # high-risk candidate sweep for G1: final synthesis records whose title/section makes them plausible extraction-system counterexamples
+          high=[]
+          pat=re.compile(r'(extract|scrap|schema|provenance|structured|web agent|browser agent|data agent|dataset assembly|information aggregation)',re.I)
+          for r in mem:
+              if r['in_N_SYNTH'].lower()!='yes': continue
+              if r['section'] in {'S6','S8'} or pat.search(r['title']):
+                  rid=int(r['record_id']); high.append({'record_id':rid,'title':r['title'],'section':r['section'],'already_in_g1_matrix':'yes' if rid in set(g1_ids) else 'no'})
+          with open('data/final_g1_high_risk_candidate_sweep.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=['record_id','title','section','already_in_g1_matrix']); w.writeheader(); w.writerows(high)
+          summary={
+            'final_synthesis_size':len(synth),
+            'c1_claims':len(c1),
+            'c1_all_referenced_ids_in_final_synthesis':not c1_missing,
+            'c1_missing_ids':sorted(c1_missing),
+            'g1_matrix_systems':len(g1),
+            'g1_all_matrix_systems_in_final_synthesis':not g1_missing,
+            'g1_missing_ids':g1_missing,
+            'g1_full_contract_yes_records':full_yes,
+            'g1_matrix_supports_scoped_absence_claim':not g1_missing and not full_yes,
+            'g1_high_risk_sweep_count':len(high),
+            'g1_high_risk_not_in_matrix':[r['record_id'] for r in high if r['already_in_g1_matrix']=='no'],
+            'status':'membership_revalidation_complete_candidate_sweep_requires_review' if (not c1_missing and not g1_missing and not full_yes) else 'revalidation_requires_repairs'
+          }
+          Path('data/final_c1_g1_revalidation_summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit final C1 G1 audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/final_c1_membership_revalidation.csv data/final_g1_high_risk_candidate_sweep.csv data/final_c1_g1_revalidation_summary.json
+          git commit -m 'Revalidate C1 and G1 against final 385-study synthesis' || exit 0
+          for i in 1 2 3; do git fetch origin main; git rebase origin/main; git push origin HEAD:main && exit 0; sleep 2; done
+          exit 1
