@@ -1,0 +1,429 @@
+{
+  "flagged_rows": 58,
+  "batch_counts": {
+    "B1_ICLR": 43,
+    "B2_NO_MATCH": 14,
+    "C1_suspicious_OK_PREPRINT": 1
+  },
+  "reason_counts": {
+    "archival_non_journal_conference_type_check_eligibility": 1,
+    "archival_supported_only_or_partly_by_preprint_identifier": 1,
+    "duplicate_or_version_reconciliation_required": 3,
+    "missing_evidence_url": 1,
+    "search_url_not_record_specific": 52
+  },
+  "by_batch": {
+    "B1_ICLR": [
+      {
+        "record_id": "9",
+        "title": "Finetuned Language Models Are Zero-Shot Learners",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Finetuned+Language+Models+Are+Zero-Shot+Learners"
+      },
+      {
+        "record_id": "12",
+        "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Least-to-Most+Prompting+Enables+Complex+Reasoning+in+Large+Language+Models"
+      },
+      {
+        "record_id": "232",
+        "title": "Steering Large Language Models between Code Execution and Textual Reasoning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Steering+Large+Language+Models+between+Code+Execution+and+Textual+Reasoning"
+      },
+      {
+        "record_id": "284",
+        "title": "Reinforcement Learning on Web Interfaces using Workflow-Guided Exploration",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Reinforcement+Learning+on+Web+Interfaces+using+Workflow-Guided+Exploration"
+      },
+      {
+        "record_id": "286",
+        "title": "A Real-World WebAgent with Planning Long Context Understanding and Program Synthesis",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=A+Real-World+WebAgent+with+Planning+Long+Context+Understanding+and+Program+Synthesis"
+      },
+      {
+        "record_id": "289",
+        "title": "Agent S An Open Agentic Framework that Uses Computers Like a Human",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Agent+S+An+Open+Agentic+Framework+that+Uses+Computers+Like+a+Human"
+      },
+      {
+        "record_id": "298",
+        "title": "WALT: Web Agents that Learn Tools",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=WALT%3A+Web+Agents+that+Learn+Tools"
+      },
+      {
+        "record_id": "341",
+        "title": "AgentBench Evaluating LLMs as Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AgentBench+Evaluating+LLMs+as+Agents"
+      },
+      {
+        "record_id": "342",
+        "title": "GAIA a benchmark for General AI Assistants",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=GAIA+a+benchmark+for+General+AI+Assistants"
+      },
+      {
+        "record_id": "367",
+        "title": "ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=ST-WebAgentBench%3A+A+Benchmark+for+Evaluating+Safety+and+Trustworthiness+in+Web+Agents"
+      },
+      {
+        "record_id": "374",
+        "title": "AndroidWorld A Dynamic Benchmarking Environment for Autonomous Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AndroidWorld+A+Dynamic+Benchmarking+Environment+for+Autonomous+Agents"
+      },
+      {
+        "record_id": "376",
+        "title": "-bench A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=-bench+A+Benchmark+for+Tool-Agent-User+Interaction+in+Real-World+Domains"
+      },
+      {
+        "record_id": "381",
+        "title": "VisualAgentBench Towards Large Multimodal Models as Visual Foundation Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=VisualAgentBench+Towards+Large+Multimodal+Models+as+Visual+Foundation+Agents"
+      },
+      {
+        "record_id": "384",
+        "title": "SPA-Bench: A Comprehensive Benchmark for SmartPhone Agent Evaluation",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=SPA-Bench%3A+A+Comprehensive+Benchmark+for+SmartPhone+Agent+Evaluation"
+      },
+      {
+        "record_id": "387",
+        "title": "VideoWebArena Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=VideoWebArena+Evaluating+Long+Context+Multimodal+Agents+with+Video+Understanding+Web+Tasks"
+      },
+      {
+        "record_id": "415",
+        "title": "DRBench: A Realistic Benchmark for Enterprise Deep Research",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=DRBench%3A+A+Realistic+Benchmark+for+Enterprise+Deep+Research"
+      },
+      {
+        "record_id": "444",
+        "title": "OS-ATLAS: A Foundation Action Model for Generalist GUI Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=OS-ATLAS%3A+A+Foundation+Action+Model+for+Generalist+GUI+Agents"
+      },
+      {
+        "record_id": "453",
+        "title": "LCoW: Learning to Contextualize Web Pages for Enhanced Decision Making by LLM Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=LCoW%3A+Learning+to+Contextualize+Web+Pages+for+Enhanced+Decision+Making+by+LLM+Agents"
+      },
+      {
+        "record_id": "457",
+        "title": "Synapse Trajectory-as-Exemplar Prompting with Memory for Computer Control",
+        "flags": "duplicate_or_version_reconciliation_required",
+        "decision": "SET_PREPRINT_WRONG_ARCHIVAL_CLAIM",
+        "evidence_url": "https://dblp.org/rec/journals/corr/abs-2306-07863"
+      },
+      {
+        "record_id": "462",
+        "title": "GUI-World A Video Benchmark and Dataset for Multimodal GUI-oriented Understanding",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=GUI-World+A+Video+Benchmark+and+Dataset+for+Multimodal+GUI-oriented+Understanding"
+      },
+      {
+        "record_id": "483",
+        "title": "AGENTOCCAM: A Simple Yet Strong Baseline for LLM-Based Web Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AGENTOCCAM%3A+A+Simple+Yet+Strong+Baseline+for+LLM-Based+Web+Agents"
+      },
+      {
+        "record_id": "497",
+        "title": "ExACT Teaching AI Agents to Explore with Reflective-MCTS and Exploratory Learning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=ExACT+Teaching+AI+Agents+to+Explore+with+Reflective-MCTS+and+Exploratory+Learning"
+      },
+      {
+        "record_id": "517",
+        "title": "WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=WebRL%3A+Training+LLM+Web+Agents+via+Self-Evolving+Online+Curriculum+Reinforcement+Learning"
+      },
+      {
+        "record_id": "518",
+        "title": "Multimodal Web Navigation with Instruction-Finetuned Foundation Models",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Multimodal+Web+Navigation+with+Instruction-Finetuned+Foundation+Models"
+      },
+      {
+        "record_id": "529",
+        "title": "AgentTrek Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AgentTrek+Agent+Trajectory+Synthesis+via+Guiding+Replay+with+Web+Tutorials"
+      },
+      {
+        "record_id": "530",
+        "title": "AgentRefine Enhancing Agent Generalization through Refinement Tuning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AgentRefine+Enhancing+Agent+Generalization+through+Refinement+Tuning"
+      },
+      {
+        "record_id": "538",
+        "title": "Go-Browse: Training Web Agents with Structured Exploration",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Go-Browse%3A+Training+Web+Agents+with+Structured+Exploration"
+      },
+      {
+        "record_id": "554",
+        "title": "WebFactory: Automated Compression of Foundational Language Intelligence into Grounded Web Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=WebFactory%3A+Automated+Compression+of+Foundational+Language+Intelligence+into+Grounded+Web+Agents"
+      },
+      {
+        "record_id": "569",
+        "title": "Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Learn-by-interact%3A+A+Data-Centric+Framework+for+Self-Adaptive+Agents+in+Realistic+Environments"
+      },
+      {
+        "record_id": "595",
+        "title": "AgentSynth: Scalable Task Generation for Generalist Computer-Use Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AgentSynth%3A+Scalable+Task+Generation+for+Generalist+Computer-Use+Agents"
+      },
+      {
+        "record_id": "615",
+        "title": "Don\u2019t Just Fine-tune the Agent, Tune the Environment",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Don%E2%80%99t+Just+Fine-tune+the+Agent%2C+Tune+the+Environment"
+      },
+      {
+        "record_id": "619",
+        "title": "Search Self-play: Pushing the Frontier of Agent Capability without Supervision",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Search+Self-play%3A+Pushing+the+Frontier+of+Agent+Capability+without+Supervision"
+      },
+      {
+        "record_id": "631",
+        "title": "Digi-Q: Learning VLM Q-Value Functions for Training Device-Control Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Digi-Q%3A+Learning+VLM+Q-Value+Functions+for+Training+Device-Control+Agents"
+      },
+      {
+        "record_id": "650",
+        "title": "Just Do It!- Computer-Use Agents Exhibit Blind Goal-Directedness",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Just+Do+It%21-+Computer-Use+Agents+Exhibit+Blind+Goal-Directedness"
+      },
+      {
+        "record_id": "667",
+        "title": "SCRIBES: Web-Scale Script-Based Semi-Structured Data Extraction with Reinforcement Learning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=SCRIBES%3A+Web-Scale+Script-Based+Semi-Structured+Data+Extraction+with+Reinforcement+Learning"
+      },
+      {
+        "record_id": "702",
+        "title": "EIA: Environmental Injection Attack on Generalist Web Agents for Privacy Leakage",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=EIA%3A+Environmental+Injection+Attack+on+Generalist+Web+Agents+for+Privacy+Leakage"
+      },
+      {
+        "record_id": "708",
+        "title": "RedTeamCUA Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=RedTeamCUA+Realistic+Adversarial+Testing+of+Computer-Use+Agents+in+Hybrid+Web-OS+Environments"
+      },
+      {
+        "record_id": "716",
+        "title": "HackWorld: EVALUATING COMPUTER-USE AGENTS ON EXPLOITING WEB APPLICATION VULNERABILITIES",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=HackWorld%3A+EVALUATING+COMPUTER-USE+AGENTS+ON+EXPLOITING+WEB+APPLICATION+VULNERABILITIES"
+      },
+      {
+        "record_id": "728",
+        "title": "Identifying the Risks of LM Agents with an LM-Emulated Sandbox",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Identifying+the+Risks+of+LM+Agents+with+an+LM-Emulated+Sandbox"
+      },
+      {
+        "record_id": "744",
+        "title": "Agent Security Bench (ASB)- Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Agent+Security+Bench+%28ASB%29-+Formalizing+and+Benchmarking+Attacks+and+Defenses+in+LLM-based+Agents"
+      },
+      {
+        "record_id": "746",
+        "title": "Multimodal Situational Safety",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=Multimodal+Situational+Safety"
+      },
+      {
+        "record_id": "748",
+        "title": "AgentHarm A Benchmark for Measuring Harmfulness of LLM Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=AgentHarm+A+Benchmark+for+Measuring+Harmfulness+of+LLM+Agents"
+      },
+      {
+        "record_id": "787",
+        "title": "MCP SECURITY BENCH (MSB)- BENCHMARKING ATTACKS AGAINST MODEL CONTEXT PROTOCOL IN LLM AGENTS",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_ARCHIVAL_OFFICIAL_ICLR",
+        "evidence_url": "https://proceedings.iclr.cc/papers/search?q=MCP+SECURITY+BENCH+%28MSB%29-+BENCHMARKING+ATTACKS+AGAINST+MODEL+CONTEXT+PROTOCOL+IN+LLM+AGENTS"
+      }
+    ],
+    "B2_NO_MATCH": [
+      {
+        "record_id": "118",
+        "title": "PreAct: Predicting Future in ReAct Enhances Agent\u2019s Planning Ability",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=PreAct%3A+Predicting+Future+in+ReAct+Enhances+Agent%E2%80%99s+Planning+Ability&searchtype=title"
+      },
+      {
+        "record_id": "146",
+        "title": "Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Agentic+Reasoning%3A+Reasoning+LLMs+with+Tools+for+the+Deep+Research&searchtype=title"
+      },
+      {
+        "record_id": "152",
+        "title": "Advances and Challenges in Foundation Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Advances+and+Challenges+in+Foundation+Agents&searchtype=title"
+      },
+      {
+        "record_id": "158",
+        "title": "Deep Research Agents: A Systematic Examination And Roadmap",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Deep+Research+Agents%3A+A+Systematic+Examination+And+Roadmap&searchtype=title"
+      },
+      {
+        "record_id": "165",
+        "title": "Beyond Pipelines: A Survey of the Paradigm Shift toward Model-Native Agentic AI",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Beyond+Pipelines%3A+A+Survey+of+the+Paradigm+Shift+toward+Model-Native+Agentic+AI&searchtype=title"
+      },
+      {
+        "record_id": "166",
+        "title": "Experience-Driven Exploration for Efficient API-Free AI Agents",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Experience-Driven+Exploration+for+Efficient+API-Free+AI+Agents&searchtype=title"
+      },
+      {
+        "record_id": "172",
+        "title": "AI Agent Systems: Architectures, Applications, and Evaluation",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=AI+Agent+Systems%3A+Architectures%2C+Applications%2C+and+Evaluation&searchtype=title"
+      },
+      {
+        "record_id": "174",
+        "title": "Toward Efficient Agents: Memory, Tool learning, and Planning",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Toward+Efficient+Agents%3A+Memory%2C+Tool+learning%2C+and+Planning&searchtype=title"
+      },
+      {
+        "record_id": "252",
+        "title": "Towards Agentic RAG with Deep Reasoning: A Survey of RAG-Reasoning Systems in LLMs",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Towards+Agentic+RAG+with+Deep+Reasoning%3A+A+Survey+of+RAG-Reasoning+Systems+in+LLMs&searchtype=title"
+      },
+      {
+        "record_id": "301",
+        "title": "Synapse: Leveraging Few-Shot Exemplars for Human-Level Computer Control",
+        "flags": "duplicate_or_version_reconciliation_required",
+        "decision": "RETAIN_PREPRINT_DUPLICATE_VERSION",
+        "evidence_url": "https://dblp.org/rec/journals/corr/abs-2306-07863"
+      },
+      {
+        "record_id": "327",
+        "title": "CoAct-1: Computer-using Agents with Coding as Actions",
+        "flags": "archival_supported_only_or_partly_by_preprint_identifier",
+        "decision": "SET_ARCHIVAL_PUBLISHED_ICLR",
+        "evidence_url": "https://limelab.science/papers/"
+      },
+      {
+        "record_id": "470",
+        "title": "Multimodal LLM Agents: Exploring LLM interactions in Software, Web and Operating Systems",
+        "flags": "missing_evidence_url",
+        "decision": "RETAIN_WORKSHOP_NON_ARCHIVAL",
+        "evidence_url": ""
+      },
+      {
+        "record_id": "491",
+        "title": "HEAP: HIERARCHICAL POLICIES FOR",
+        "flags": "duplicate_or_version_reconciliation_required",
+        "decision": "MERGE_VERSION_WITH_504_FINAL_COLM",
+        "evidence_url": "https://ryanmcd.github.io/"
+      },
+      {
+        "record_id": "755",
+        "title": "Context is Key for Agent Security",
+        "flags": "search_url_not_record_specific",
+        "decision": "RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL",
+        "evidence_url": "https://arxiv.org/search/?query=Context+is+Key+for+Agent+Security&searchtype=title"
+      }
+    ],
+    "C1_suspicious_OK_PREPRINT": [
+      {
+        "record_id": "93",
+        "title": "Interactive Natural Language Processing",
+        "flags": "archival_non_journal_conference_type_check_eligibility",
+        "decision": "SET_ARCHIVAL_PUBLISHED_SPRINGER_BOOK",
+        "evidence_url": "https://link.springer.com/book/10.1007/978-3-032-06264-2"
+      }
+    ]
+  }
+}
