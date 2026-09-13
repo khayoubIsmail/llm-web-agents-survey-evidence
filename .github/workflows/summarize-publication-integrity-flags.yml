@@ -1,0 +1,45 @@
+name: Summarize publication adjudication integrity flags
+
+on:
+  push:
+    paths:
+      - '.github/workflows/summarize-publication-integrity-flags.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Group integrity flags by batch and reason
+        run: |
+          python - <<'PY'
+          import csv,json
+          from collections import Counter,defaultdict
+          from pathlib import Path
+          with open('data/publication_status_adjudication_integrity_flags.csv',encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          batches=Counter(r['batch'] for r in rows)
+          reasons=Counter(x for r in rows for x in r['flags'].split(' | '))
+          by_batch=defaultdict(list)
+          for r in rows:
+              by_batch[r['batch']].append({'record_id':r['record_id'],'title':r['title'],'flags':r['flags'],'decision':r['decision'],'evidence_url':r['evidence_url']})
+          out={'flagged_rows':len(rows),'batch_counts':dict(sorted(batches.items())),'reason_counts':dict(sorted(reasons.items())),'by_batch':dict(sorted(by_batch.items()))}
+          Path('data/publication_status_adjudication_integrity_flags_summary.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({'flagged_rows':len(rows),'batch_counts':dict(sorted(batches.items())),'reason_counts':dict(sorted(reasons.items()))},indent=2))
+          PY
+      - name: Commit grouped flag summary
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_adjudication_integrity_flags_summary.json
+          git commit -m 'Summarize publication adjudication integrity flags'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
