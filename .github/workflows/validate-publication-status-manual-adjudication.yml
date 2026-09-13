@@ -27,6 +27,7 @@ jobs:
             ('A1','data/publication_status_manual_adjudication.csv'),
             ('A2_official_proceedings','data/publication_status_manual_adjudication_A2_official_proceedings.csv'),
             ('A2_openreview','data/publication_status_manual_adjudication_A2_openreview.csv'),
+            ('A3_upgrades','data/publication_status_manual_adjudication_A3_upgrades.csv'),
           ]
           with open('data/publication_status_adjudication_queue.csv',encoding='utf-8-sig',newline='') as f:
               queue=list(csv.DictReader(f))
@@ -39,10 +40,10 @@ jobs:
               for r in rr:
                   r=dict(r); r['adjudication_batch']=batch; rows.append(r)
           ids=[int(r['record_id']) for r in rows]
-          assert len(ids)==56, len(ids)
-          assert len(set(ids))==56, 'duplicate adjudication IDs'
+          assert len(ids)==114, len(ids)
+          assert len(set(ids))==114, 'duplicate adjudication IDs'
           assert set(ids) <= qids, sorted(set(ids)-qids)
-          assert per=={'A1':17,'A2_official_proceedings':13,'A2_openreview':26}, per
+          assert per=={'A1':17,'A2_official_proceedings':13,'A2_openreview':26,'A3_upgrades':58}, per
           rows.sort(key=lambda r:int(r['record_id']))
           fields=['adjudication_batch']+[k for k in rows[0].keys() if k!='adjudication_batch']
           with open('data/publication_status_manual_adjudication_all.csv','w',encoding='utf-8',newline='') as f:
@@ -66,5 +67,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/publication_status_manual_adjudication_all.csv data/publication_status_manual_adjudication_summary.json
-          git commit -m 'Consolidate 56 publication-status adjudications'
-          git push
+          git commit -m 'Consolidate 114 publication-status adjudications' || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
