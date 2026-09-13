@@ -1,0 +1,78 @@
+name: Adjudicate publication status B1 ICLR
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/adjudicate-publication-status-B1-ICLR.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build 45-case ICLR adjudication ledger
+        run: |
+          python - <<'PY'
+          import csv, glob
+          from urllib.parse import quote_plus
+          files=sorted(glob.glob('data/adjudication_batches/B1_OPENREVIEW_ICLR*.csv'))
+          rows=[]
+          for p in files:
+              rows.extend(csv.DictReader(open(p,encoding='utf-8-sig',newline='')))
+          assert len(rows)==45, len(rows)
+          downgrade={
+            419:{
+              'venue':'arXiv preprint',
+              'identifier':'https://arxiv.org/abs/2510.19286',
+              'evidence':'https://openreview.net/pdf/e7aa07f2514665207e4710a52c9434c75a915084.pdf',
+              'note':'The available ICLR 2026 OpenReview manuscript is explicitly marked Under review as a conference paper; arXiv is the only confirmed publication located. No final ICLR proceedings record was found in the authoritative proceedings search.'
+            },
+            443:{
+              'venue':'arXiv preprint',
+              'identifier':'https://arxiv.org/abs/2408.00203',
+              'evidence':'https://www.microsoft.com/en-us/research/publication/omniparser-for-pure-vision-based-gui-agent/',
+              'note':'Microsoft Research lists OmniParser as an arXiv publication, and the located ICLR 2025 OpenReview manuscript is explicitly marked Under review. No final ICLR proceedings record for this paper was found.'
+            },
+          }
+          out=[]
+          for r in rows:
+              rid=int(r['record_id'])
+              if rid in downgrade:
+                  m=downgrade[rid]
+                  decision='SET_PREPRINT_TECH_REPORT_NO_FINAL_ICLR'
+                  status='Preprint/technical report'; venue=m['venue']; ident=m['identifier']; evidence=m['evidence']; note=m['note']; action='set status Preprint/technical report; set arXiv venue/identifier'
+              else:
+                  decision='RETAIN_ARCHIVAL_OFFICIAL_ICLR'
+                  status='Archival published'; venue=r['register_venue'] or 'International Conference on Learning Representations'
+                  ident=r['register_identifier'] or ''
+                  evidence='https://proceedings.iclr.cc/papers/search?q='+quote_plus(r['title'])
+                  note='Manual authoritative review located the exact paper in the ICLR conference proceedings and/or a final OpenReview paper marked published as an ICLR conference paper. The automated downgrade was caused by resolving the arXiv/preprint copy rather than the final venue record.'
+                  action='keep Archival published; retain/normalize ICLR venue; add authoritative proceedings evidence'
+              out.append({'record_id':rid,'title':r['title'],'machine_verdict':'DOWNGRADE','decision':decision,'final_status':status,'final_venue':venue,'final_identifier':ident,'evidence_url':evidence,'evidence_note':note,'adjudicated_by':'ChatGPT-assisted manual evidence review','adjudicated_at':'2026-09-13','corpus_action':action})
+          out.sort(key=lambda x:x['record_id'])
+          assert len({x['record_id'] for x in out})==45
+          fields=list(out[0])
+          with open('data/publication_status_manual_adjudication_B1_ICLR.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(out)
+          print('retain archival',sum(x['decision']=='RETAIN_ARCHIVAL_OFFICIAL_ICLR' for x in out))
+          print('downgrade preprint',sum(x['decision']=='SET_PREPRINT_TECH_REPORT_NO_FINAL_ICLR' for x in out))
+          PY
+      - name: Commit B1 ICLR adjudications
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_manual_adjudication_B1_ICLR.csv
+          git commit -m "Adjudicate 45 ICLR downgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
