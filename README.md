@@ -1,12 +1,12 @@
 <div align="center">
 
-# Evidence Register for<br>LLM-Based Agents for Generalized Web Automation<br>and Schema-Guided Data Extraction: A Survey
+# Evidence Register for  
+## LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightblue.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Studies: 805](https://img.shields.io/badge/Mapping%20Corpus-805%20studies-4c8cbf)](data/summary.json)
-[![Evidence Pool: 403](https://img.shields.io/badge/Published%2FAccepted%20Pool-403%20studies-2e7d32)](data/summary.json)
-[![Paper notes: 403](https://img.shields.io/badge/Normalized%20Notes-403-success)](notes/papers/)
-[![A1 status](https://img.shields.io/badge/A1%20Full--Text%20Audit-Complete-success)](data/a1_live_note_audit_summary.json)
+[![Mapping corpus: 805](https://img.shields.io/badge/Mapping%20Corpus-805-4c8cbf)](data/summary.json)
+[![Publication eligible: 454](https://img.shields.io/badge/Publication--Eligible-454-2e7d32)](data/publication_status_corpus_freeze_summary.json)
+[![Historical notes: 403](https://img.shields.io/badge/Historical%20Candidate%20Notes-403-success)](notes/papers/)
+[![Final synthesis: 385](https://img.shields.io/badge/Final%20Synthesis-385-success)](data/final_synthesis_statistics.json)
 
 **Companion evidence repository for the survey manuscript under revision for the International Journal of Data Science and Analytics.**
 
@@ -14,163 +14,151 @@
 
 ---
 
-## About
+## Authoritative evidence layers
 
-This repository is the machine-readable and auditable evidence register supporting the survey:
+The repository intentionally distinguishes four different sets. They must not be conflated.
 
-> **Khayoub, I., Chadi, M.-A., Mousannif, H., & Ait Mohamed, F. (2026).**  
-> *LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey.*
+| Layer | Count | Meaning |
+|---|---:|---|
+| Identification ledger | 3,462 | Consolidated records entering the reported selection flow |
+| After initial normalization/deduplication | 3,455 | Records entering screening |
+| Provisional inclusions | 812 | P0–P3 before post-inclusion reconciliation |
+| **Final systematic-mapping corpus** | **805** | Unique mapped studies |
+| **Publication-eligible pool** | **454** | Archival published/accepted studies after final status/version audit |
+| **Historical normalized-note / synthesis-candidate set** | **403** | Historical P0–P3 candidate set for which normalized notes were materialized |
+| **Final qualitative synthesis** | **385** | Final claim-bearing synthesis after publication eligibility and full-text availability |
 
-It exposes the systematic-mapping corpus, the strict citation-eligibility pool, paper-level notes, paper-specific synthesis sources, current-cycle full-text verification, remediation provenance, historical source-note snapshots, and explicit exceptions.
+The frozen counts are defined in [`data/publication_status_corpus_freeze_summary.json`](data/publication_status_corpus_freeze_summary.json), [`data/final_synthesis_statistics.json`](data/final_synthesis_statistics.json), and [`data/summary.json`](data/summary.json).
 
-## Corpus at a glance
+### Priority counts
 
-| Layer | Count |
-|---|---:|
-| Identification ledger | 3,462 |
-| After normalization and deduplication | 3,455 |
-| Provisional inclusions | 812 |
-| **Final systematic-mapping corpus** | **805** |
-| **Published/accepted citation-eligibility pool** | **403** |
-| Strict pool exclusions after final validation | 3 |
+| Tier | Meaning | Mapping 805 | Publication-eligible 454 | Final synthesis 385 |
+|---|---|---:|---:|---:|
+| P0 | Cornerstone | 20 | 18 | 18 |
+| P1 | Primary evidence | 179 | 110 | 96 |
+| P2 | Supporting/extending evidence | 444 | 233 | 189 |
+| P3 | Contextual/historical evidence | 162 | 93 | 82 |
 
-### Priority tiers
+Priority is an evidence-use and reading-depth classification, **not** a study-quality or risk-of-bias score.
 
-| Tier | Meaning | Mapping (805) | Eligible (403) |
-|---|---|---:|---:|
-| P0 | Cornerstone | 20 | 18 |
-| P1 | Primary evidence | 179 | 98 |
-| P2 | Supporting/extending evidence | 444 | 204 |
-| P3 | Contextual/historical evidence | 162 | 83 |
+## Search and selection reproducibility — B1–B10
+
+Reviewer-2's search-reproducibility block is documented in:
+
+- [`docs/B1_B10_SEARCH_AND_SELECTION_AUDIT.md`](docs/B1_B10_SEARCH_AND_SELECTION_AUDIT.md) — full evidence/provenance audit;
+- [`data/search_queries_historical.csv`](data/search_queries_historical.csv) — five verbatim historically preserved Boolean strings;
+- [`data/search_source_reporting.csv`](data/search_source_reporting.csv) — source-by-source search settings, last-search month, language/field restrictions, and unavailable-count disclosure;
+- [`data/exclusion_ledger_availability.csv`](data/exclusion_ledger_availability.csv) — what exclusion evidence is and is not preserved;
+- [`docs/B1_B10_MANUSCRIPT_PATCH.md`](docs/B1_B10_MANUSCRIPT_PATCH.md) — synchronized manuscript replacement text.
+
+### Confirmed recurring direct-search interfaces
+
+Google Scholar / Scholar Labs, Scopus, Web of Science, ScienceDirect, SpringerLink, IEEE Xplore, ACM Digital Library, Semantic Scholar, DBLP, and OpenReview.
+
+Searches were refreshed approximately monthly through **April 2026**, restricted to **English**, and run through the platforms' **default/general search facilities** rather than title/abstract/keyword-specific fields.
+
+Repository-assisted discovery from curated GitHub literature lists is reported separately from direct scholarly searching.
+
+### Historical preservation limits
+
+The repository does **not** fabricate information that was not preserved. In particular:
+
+- gross per-source retrieval/export counts were not recovered;
+- exact day-level timestamps for the final April 2026 source searches were not retained;
+- the complete 2,643-row P4 record-level exclusion ledger has not been recovered.
+
+The combined two-phase identification ledger is 3,462 records. It was already incrementally consolidated during collection, which explains why only seven residual duplicate/corrupt/non-usable rows were removed in the subsequent `3,462 → 3,455` cleanup.
+
+## Publication-status and version audit
+
+The full 805-study corpus was reverified for publication status. **297 records** were flagged for manual adjudication and all 297 were resolved. The frozen publication-eligible pool contains **454 studies**:
+
+- P0: 18
+- P1: 110
+- P2: 233
+- P3: 93
+
+Version policy:
+
+- a journal/conference published or formally accepted version supersedes preprint metadata;
+- duplicate versions are merged under one study identity;
+- preprints may remain in the mapping corpus but do not enter the strict publication-eligible layer unless an archival/final acceptance is verified;
+- books/monographs are excluded from the strict journal/conference layer even when archival;
+- missing or unresolved evidence remains visible rather than being silently upgraded.
+
+See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md) and the `data/publication_status_*` artifacts.
+
+## Full-text reading and synthesis depth
+
+The final qualitative synthesis contains **385 studies**, all with documented full-text reading:
+
+- **114 P0/P1** studies received deep critical analysis;
+- **271 P2/P3** studies received complete structured reading.
+
+The historical 403-note layer is retained for provenance. Eighteen historical candidates do not enter the final synthesis: 17 are not publication-eligible after final adjudication and one (record 249) is the full-text access exception.
+
+The authoritative membership file is [`data/final_synthesis_membership.csv`](data/final_synthesis_membership.csv).
+
+## Paper-specific evidence
+
+The repository retains:
+
+- `notes/papers/` — 403 normalized notes keyed to the historical candidate set;
+- `notes/original_sources/` — 403 paper-specific synthesis-source files keyed by the same stable IDs;
+- `notes/historical_source_snapshots/` — exact historical provenance snapshots;
+- `data/a1_live_note_audit.csv` and `data/a1_fulltext_rechecks.csv` — current-cycle full-text verification evidence.
+
+File existence alone is not treated as proof of reading; the explicit audit/verification ledgers determine evidence status.
+
+## Claim-level and system-level audit artifacts
+
+Important reviewer-remediation artifacts include:
+
+| Artifact | Purpose |
+|---|---|
+| `data/c1_claim_evidence_matrix.csv` | Major claim → primary/corroborating/boundary studies and checked source locations |
+| `data/g1_system_requirement_matrix.csv` | Representative systems × operational requirements |
+| `data/g1_final_targeted_near_miss_sweep.csv` | Targeted counterexample/near-miss sweep |
+| `data/g2_operational_definitions.csv` | Operational definitions and YES/PARTIAL/NO/NR rules |
+| `data/d1_reviewer_process_claim_audit.csv` | Reviewer-process wording audit |
+| `data/e1_evidence_weighting_claim_audit.csv` | Evidence-weighting claim audit |
+| `data/e2_independent_audit_decision.csv` | Independent-audit disclosure |
+| `data/a3_final_consistency_checks.csv` | Final corpus/manuscript consistency checks |
 
 ## Repository structure
 
 ```text
 llm-web-agents-survey-evidence/
 ├── data/
-│   ├── summary.json
 │   ├── studies_805_mapping_corpus.{csv,json}
-│   ├── studies_403_published_accepted_pool.{csv,json}
-│   ├── paper_note_audit.csv
-│   ├── a1_fulltext_rechecks.csv              # explicit A1 reread/reverification ledger
-│   ├── a1_live_note_audit.csv                # one current A1 row per live paper note
-│   ├── a1_live_note_audit_summary.json       # aggregate A1 closure check
-│   ├── a1_evidence_batches/                  # paper-grounded remediation evidence
-│   ├── note_remediation_log.csv
-│   └── historical_original_note_source_manifest.csv
-├── notes/
-│   ├── papers/                               # 403 live normalized paper notes
-│   ├── original_sources/                     # 403 generated paper-specific source records
-│   └── historical_source_snapshots/          # 229 exact historical source files
+│   ├── publication_status_corpus_freeze_summary.json
+│   ├── final_synthesis_membership.csv
+│   ├── final_synthesis_statistics.json
+│   ├── search_queries_historical.csv
+│   ├── search_source_reporting.csv
+│   ├── exclusion_ledger_availability.csv
+│   ├── c1_claim_evidence_matrix.csv
+│   ├── g1_system_requirement_matrix.csv
+│   └── ...
 ├── docs/
-│   ├── A1_MANUSCRIPT_AND_RESPONSE_TEXT.md
-│   ├── DATA_DICTIONARY.md
-│   ├── FULL_TEXT_ACCESS_EXCEPTIONS.md
+│   ├── B1_B10_SEARCH_AND_SELECTION_AUDIT.md
+│   ├── B1_B10_MANUSCRIPT_PATCH.md
+│   ├── REVIEWER_2_FINAL_RESPONSE.md
 │   ├── METHODOLOGY_AND_VERSIONING.md
-│   └── PAPER_SYNTHESIS_SOURCES.md
+│   ├── DATA_DICTIONARY.md
+│   └── ...
+├── notes/
+│   ├── papers/
+│   ├── original_sources/
+│   └── historical_source_snapshots/
 ├── scripts/
-│   ├── audit_a1_live_notes.py
-│   ├── apply_a1_evidence_batches.py
-│   ├── apply_a1_fulltext_rechecks.py
-│   └── materialize_paper_synthesis_sources.py
 ├── CITATION.cff
-├── LICENSE.md
-└── README.md
+└── LICENSE.md
 ```
-
-## A1 full-text remediation — completed 2026-09-11
-
-The A1 remediation is complete under the repository's conservative reviewer-facing closure rule. Earlier repository states contained prospective language such as `When reading this paper, extract...` and historical records labeled `existing review archive audited; no current-cycle PDF verification`. Those states were not treated as evidence of completed reading.
-
-The live corpus was remediated paper by paper. A record was moved out of the A1 queue only after its paper-specific methods/evaluation/results or benchmark properties, limitations, evidentiary role, and relevant evidence locations had been checked against a complete paper source at tier-appropriate depth. Historical source-note matching or file existence alone never counted as a reread.
-
-The generated final audit in [`data/a1_live_note_audit_summary.json`](data/a1_live_note_audit_summary.json) reports:
-
-| A1 closure check | Final state |
-|---|---:|
-| Live notes audited | **403** |
-| Exact `When reading this paper...` TODOs | **0** |
-| Generic evidence-template blocks | **0** |
-| Accessible records without current-cycle full-text verification | **0** |
-| Records still requiring A1 full-text remediation | **0** |
-| Full-text access exceptions | **1** |
-
-Accordingly, **402 accessible included records have documented current-cycle full-text analysis/verification**. **Record 249 is the sole full-text access exception** and remains blocked from claim-level synthesis. The repository does **not** claim that all 403 were read in full.
-
-The authoritative A1 artifacts are:
-
-- [`data/a1_live_note_audit_summary.json`](data/a1_live_note_audit_summary.json) — final aggregate closure state;
-- [`data/a1_live_note_audit.csv`](data/a1_live_note_audit.csv) — one audit row per included paper;
-- [`data/a1_fulltext_rechecks.csv`](data/a1_fulltext_rechecks.csv) — explicit reread/reverification ledger;
-- [`data/a1_evidence_batches/`](data/a1_evidence_batches/) — paper-specific evidence used to replace incomplete live templates;
-- [`data/paper_note_audit.csv`](data/paper_note_audit.csv) — provenance, full-text status, and claim-use state.
-
-## What counts as a verified paper
-
-A file being present in `notes/papers/` or `notes/original_sources/` does **not** by itself prove that the paper was read. Current-cycle verification requires paper-grounded evidence at the tier-specific standard.
-
-For **P0/P1**, the standard is deep full-text critical analysis with concrete methods/results, limitations, evidentiary role, survey relevance, and evidence locations. For **P2/P3**, the standard is complete full-text reading with structured synthesis of relevance, methodology, concrete results or benchmark properties where applicable, contributions, limitations, and evidence locations. Generic summaries and future-reading checklists do not qualify.
-
-## 403 normalized notes + 403 paper-specific synthesis files
-
-The repository exposes two one-to-one file layers:
-
-- **`notes/papers/` — 403 live normalized notes**, one per register record.
-- **`notes/original_sources/` — 403 generated paper-specific synthesis-source files**, keyed by the same stable record IDs.
-
-The second layer is generated from the live notes to improve traceability. It is not treated as independent proof of reading; A1 completion is determined by the explicit verification ledger and live-note audit.
-
-## Historical provenance
-
-The historical note audit found **335 reliable title/source mappings** resolving to **229 unique Markdown files** because 20 historical files were shared/merged syntheses. Exact historical snapshots are retained under `notes/historical_source_snapshots/` and in the immutable provenance commit `83aca98913e2202d912778917ff7c5b92ff67399`.
-
-Historical source-note matching establishes where prior review material came from; it does **not** prove a current-cycle full-text reread. This distinction is why the historical archive is kept separate from the current A1 verification evidence.
-
-The earlier structural audit also identified 68 records without a reliable historical source-note match and performed an initial remediation pass. Those historical counts remain reproducible, but A1 closure is based on the stricter final 403-note audit above.
 
 ## Full-text access exception
 
-**Record 249**, *Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement*, remains the sole full-text access exception. Publisher/bibliographic metadata and the authors' public implementation are available, but a complete verifiable manuscript has not been obtained after renewed publisher, bibliographic, repository, exact-title, preprint, and author searches. The record is retained for traceability but blocked from claim-level synthesis rather than reconstructed from metadata or code. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
-
-## Separate publication-status revalidation flags
-
-Records **323** and **419** were read and verified from complete available paper versions during A1, so they are **not** full-text access exceptions. Their claim-use status is separately blocked pending publication-status revalidation. This is a bibliographic/citation-eligibility issue, not an A1 reading-completeness issue, and it is reported separately in `data/summary.json`.
-
-## Methodological protocol
-
-Candidate studies are classified P0–P4 after full-text eligibility assessment. P4 records are excluded. P0/P1 receive deep critical reading; P2/P3 receive complete full-text reading with lighter structured synthesis. Priority is an evidence-use/analysis-depth classification, not a risk-of-bias score.
-
-The A1 audit was introduced specifically to prevent the intended protocol from being reported as completed unless the live evidence trail supports it. See [`docs/METHODOLOGY_AND_VERSIONING.md`](docs/METHODOLOGY_AND_VERSIONING.md).
-
-## Key audit artifacts
-
-| Artifact | Purpose |
-|---|---|
-| `data/a1_live_note_audit_summary.json` | Final aggregate A1 closure state |
-| `data/a1_live_note_audit.csv` | One final A1 status row per live paper note |
-| `data/a1_fulltext_rechecks.csv` | Explicit current-cycle reread/reverification ledger |
-| `data/a1_evidence_batches/` | Paper-grounded evidence used in remediation |
-| `data/paper_note_audit.csv` | Paper-level provenance/full-text/claim-use state |
-| `notes/papers/` | 403 canonical live notes |
-| `notes/original_sources/` | 403 generated one-paper-per-file synthesis records |
-| `notes/historical_source_snapshots/` | Exact historical provenance snapshots |
-| `docs/FULL_TEXT_ACCESS_EXCEPTIONS.md` | Record 249 retrieval attempts and synthesis restriction |
-
-## Validation status
-
-| Check | Status |
-|---|---|
-| 805-study corpus unique IDs | ✅ 805 |
-| Published/accepted pool | ✅ 403 register records |
-| Normalized paper-note files | ✅ 403 |
-| Generated paper-specific source files | ✅ 403 |
-| Historical source mappings | ✅ 335 mappings → 229 exact files |
-| Live TODO/template-free evidence corpus | ✅ **0 TODOs / 0 template blocks** |
-| Current-cycle full-text verification for every accessible paper | ✅ **402/402 accessible records** |
-| Full-text access exception | ⚠️ **Record 249 only; blocked from claim-level use** |
-| Publication-status revalidation | ⚠️ Records **323 and 419** separately blocked pending revalidation |
-
-The generated A1 audit is authoritative for reading-completeness status.
+Record **249**, *Meta-Agent-Workflow: Streamlining Tool Usage in LLMs through Workflow Construction, Retrieval, and Refinement*, is retained for traceability but excluded from final qualitative synthesis because a complete verifiable full text could not be obtained. See [`docs/FULL_TEXT_ACCESS_EXCEPTIONS.md`](docs/FULL_TEXT_ACCESS_EXCEPTIONS.md).
 
 ## Citation
 
@@ -181,7 +169,6 @@ The generated A1 audit is authoritative for reading-completeness status.
   title     = {{Evidence Register for LLM-Based Agents for Generalized
                 Web Automation and Schema-Guided Data Extraction: A Survey}},
   year      = {2026},
-  version   = {1.2.0},
   publisher = {GitHub},
   url       = {https://github.com/khayoubIsmail/llm-web-agents-survey-evidence},
   license   = {CC BY 4.0}
@@ -190,12 +177,4 @@ The generated A1 audit is authoritative for reading-completeness status.
 
 ## License
 
-Repository-authored bibliographic metadata, review coding, documentation, and synthesis material are licensed under **CC BY 4.0**. This license does not apply to third-party papers or other material for which the repository authors do not hold copyright. No publisher full-text PDFs are redistributed.
-
----
-
-<div align="center">
-
-*Evidence register v1.2.0 · A1 full-text remediation complete · CC BY 4.0*
-
-</div>
+Repository-authored bibliographic metadata, review coding, documentation, and synthesis material are licensed under **CC BY 4.0**. This does not grant rights to third-party papers or publisher content. Third-party full-text PDFs are not redistributed.
