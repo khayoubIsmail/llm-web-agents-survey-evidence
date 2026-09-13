@@ -1,0 +1,73 @@
+name: Audit publication adjudication integrity
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-publication-adjudication-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit complete manual ledger
+        run: |
+          python - <<'PY'
+          import csv,json
+          from collections import Counter
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          p=Path('data/publication_status_manual_adjudication_all.csv')
+          with p.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==297 and len({r['record_id'] for r in rows})==297
+          flags=[]
+          for r in rows:
+              rid=r['record_id']; status=r['final_status']; ev=(r.get('evidence_url') or '').strip(); ident=(r.get('final_identifier') or '').strip()
+              reasons=[]
+              if not ev: reasons.append('missing_evidence_url')
+              if '/papers/search?' in ev or '/search/?' in ev or 'searchtype=title' in ev: reasons.append('search_url_not_record_specific')
+              if status.startswith('Archival') and ('arxiv.org' in ev or 'arxiv.org' in ident) and not any(x in (r.get('decision') or '') for x in ('CORRECT_ICLR_AND_ARXIV','CORRECT_TITLE','FINAL_TITLE')):
+                  reasons.append('archival_supported_only_or_partly_by_preprint_identifier')
+              if 'MERGE_VERSION' in (r.get('decision') or '') or 'DUPLICATE' in (r.get('decision') or '') or 'duplicate' in (r.get('corpus_action') or '').lower():
+                  reasons.append('duplicate_or_version_reconciliation_required')
+              if 'BOOK' in (r.get('decision') or ''):
+                  reasons.append('archival_non_journal_conference_type_check_eligibility')
+              if status in {'Workshop/non-archival','Preprint/technical report'} and r['machine_verdict'] in {'UPGRADE','VENUE_MISMATCH','VENUE_MISSING'}:
+                  reasons.append('machine_vs_manual_material_status_change')
+              if reasons:
+                  flags.append({
+                    'record_id':rid,'title':r['title'],'batch':r['adjudication_batch'],'machine_verdict':r['machine_verdict'],
+                    'decision':r['decision'],'final_status':status,'final_venue':r['final_venue'],'evidence_url':ev,
+                    'final_identifier':ident,'flags':' | '.join(reasons),'corpus_action':r['corpus_action'],
+                  })
+          fields=list(flags[0]) if flags else ['record_id']
+          with open('data/publication_status_adjudication_integrity_flags.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(flags)
+          fc=Counter(x for r in flags for x in r['flags'].split(' | '))
+          summary={
+            'ledger_rows':len(rows),'unique_record_ids':len({r['record_id'] for r in rows}),
+            'flagged_rows':len(flags),'flag_counts':dict(sorted(fc.items())),
+            'policy':'flags_require_resolution_or_explicit_acceptance_before corpus mutation',
+          }
+          Path('data/publication_status_adjudication_integrity_summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit integrity audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_adjudication_integrity_flags.csv data/publication_status_adjudication_integrity_summary.json
+          git commit -m 'Audit complete publication adjudication ledger for integrity'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
