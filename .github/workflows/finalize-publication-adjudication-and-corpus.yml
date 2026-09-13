@@ -1,0 +1,247 @@
+name: Finalize publication adjudication and corpus
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-publication-adjudication-and-corpus.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply final evidence corrections, validate, and patch corpus
+        run: |
+          python - <<'PY'
+          import csv, json, shutil
+          from collections import Counter
+          from pathlib import Path
+
+          def read_csv(path):
+              with open(path, encoding='utf-8-sig', newline='') as f:
+                  return list(csv.DictReader(f))
+          def write_csv(path, rows, fields=None):
+              if fields is None:
+                  fields=list(rows[0].keys())
+              with open(path,'w',encoding='utf-8',newline='') as f:
+                  w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          def patch_by_id(path, patches):
+              rows=read_csv(path); fields=list(rows[0].keys()); seen=set()
+              for r in rows:
+                  rid=int(r['record_id'])
+                  if rid in patches:
+                      r.update(patches[rid]); seen.add(rid)
+              assert seen==set(patches), (path, sorted(set(patches)-seen))
+              write_csv(path,rows,fields)
+
+          # Correct the one earlier Synapse adjudication and make record 457 canonical.
+          patch_by_id('data/publication_status_manual_adjudication_B1_ICLR.csv', {
+            457:{
+              'decision':'RETAIN_ARCHIVAL_OFFICIAL_ICLR_CORRECTED',
+              'final_status':'Archival published',
+              'final_venue':'ICLR 2024',
+              'final_identifier':'https://proceedings.iclr.cc/paper_files/paper/2024/hash/52f050499cf82fa8efb588e263f6f3a7-Abstract-Conference.html',
+              'evidence_url':'https://proceedings.iclr.cc/paper_files/paper/2024/hash/52f050499cf82fa8efb588e263f6f3a7-Abstract-Conference.html',
+              'evidence_note':'Official ICLR 2024 proceedings page confirms the exact final Synapse paper. Record 457 is the canonical final publication; record 301 is an earlier-title/version duplicate and must not be counted separately.',
+              'corpus_action':'keep canonical Archival published ICLR 2024 record; record 301 is duplicate/version and do not count separately'
+            }
+          })
+
+          # Resolve all remaining non-record-specific B2 evidence and late publications.
+          b2={
+            118:{'decision':'SET_ARCHIVAL_PUBLISHED_COLING','final_status':'Archival published','final_venue':'COLING 2025','final_identifier':'https://dblp.org/rec/conf/coling/FuHLDW0X25','evidence_url':'https://dblp.org/rec/conf/coling/FuHLDW0X25','evidence_note':'DBLP records the final paper PreAct: Prediction Enhances Agent\'s Planning Ability in COLING 2025, pages 1-16. The prior preprint-only decision was outdated.','corpus_action':'upgrade to Archival published; COLING 2025; retain arXiv 2402.11534 as preprint lineage'},
+            146:{'final_identifier':'https://arxiv.org/abs/2502.04644','evidence_url':'https://arxiv.org/abs/2502.04644','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2502.04644'},
+            152:{'final_identifier':'https://arxiv.org/abs/2504.01990','evidence_url':'https://arxiv.org/abs/2504.01990','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2504.01990'},
+            158:{'final_identifier':'https://arxiv.org/abs/2506.18096','evidence_url':'https://arxiv.org/abs/2506.18096','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2506.18096'},
+            165:{'final_identifier':'https://arxiv.org/abs/2510.16720','evidence_url':'https://arxiv.org/abs/2510.16720','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2510.16720'},
+            166:{'decision':'RETAIN_PREPRINT_ICLR_UNDER_REVIEW','final_status':'Preprint/technical report','final_venue':'arXiv / ICLR 2026 submission under review','final_identifier':'https://arxiv.org/abs/2510.15259','evidence_url':'https://arxiv.org/abs/2510.15259','evidence_note':'Exact arXiv record located. The located ICLR 2026 OpenReview manuscript is marked under review, so no final archival acceptance is asserted.','corpus_action':'retain Preprint/technical report; normalize arXiv 2510.15259'},
+            172:{'final_identifier':'https://arxiv.org/abs/2601.01743','evidence_url':'https://arxiv.org/abs/2601.01743','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2601.01743'},
+            174:{'final_identifier':'https://arxiv.org/abs/2601.14192','evidence_url':'https://arxiv.org/abs/2601.14192','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2601.14192'},
+            252:{'decision':'SET_ARCHIVAL_PUBLISHED_FINDINGS_EMNLP','final_status':'Archival published','final_venue':'Findings of EMNLP 2025','final_identifier':'https://aclanthology.org/2025.findings-emnlp.648/','evidence_url':'https://aclanthology.org/2025.findings-emnlp.648/','evidence_note':'ACL Anthology publishes the exact survey in Findings of EMNLP 2025, pages 12120-12145. The prior preprint-only decision was outdated.','corpus_action':'upgrade to Archival published; Findings of EMNLP 2025; canonical ACL Anthology identifier'},
+            301:{'decision':'MERGE_VERSION_WITH_457_FINAL_ICLR','final_status':'Archival published','final_venue':'ICLR 2024','final_identifier':'https://proceedings.iclr.cc/paper_files/paper/2024/hash/52f050499cf82fa8efb588e263f6f3a7-Abstract-Conference.html','evidence_url':'https://proceedings.iclr.cc/paper_files/paper/2024/hash/52f050499cf82fa8efb588e263f6f3a7-Abstract-Conference.html','evidence_note':'This earlier-title Synapse record is the same work as canonical record 457. Official ICLR 2024 proceedings confirm the final paper; record 301 must not be counted separately.','corpus_action':'mark duplicate/version of record 457; do not count separately; final work is ICLR 2024'},
+            327:{'decision':'SET_ARCHIVAL_PUBLISHED_ICLR_FINAL_TITLE','final_status':'Archival published','final_venue':'ICLR 2026','final_identifier':'https://openreview.net/forum?id=l1MQVgIKEU','evidence_url':'https://openreview.net/forum?id=l1MQVgIKEU','evidence_note':'Final OpenReview paper is published at ICLR 2026 under the title CoAct-1: Computer-using Multi-Agent System with Coding Actions. The earlier corpus title and arXiv identifier were outdated.','corpus_action':'upgrade to Archival published; ICLR 2026; final title variant; arXiv lineage 2508.03923'},
+            470:{'final_identifier':'https://openreview.net/pdf?id=YGLOpASCY5','evidence_url':'https://openreview.net/pdf?id=YGLOpASCY5','evidence_note':'Record-specific OpenReview PDF identifies this as a CS598 course/topics paper, not an archival conference/journal publication.','corpus_action':'retain Workshop/non-archival course paper; add record-specific OpenReview evidence'},
+            491:{'decision':'MERGE_VERSION_WITH_504_FINAL_COLM','final_status':'Archival published','final_venue':'COLM 2024','final_identifier':'https://openreview.net/forum?id=5fg0VtRxgi','evidence_url':'https://openreview.net/forum?id=5fg0VtRxgi','evidence_note':'This HEAP/earlier-title record is a version of canonical record 504 (SteP). The final work is a COLM 2024 publication; record 491 must not be counted separately.','corpus_action':'mark duplicate/version of record 504; do not count separately; final work is SteP at COLM 2024'},
+            755:{'final_identifier':'https://arxiv.org/abs/2501.17070','evidence_url':'https://arxiv.org/abs/2501.17070','evidence_note':'Exact arXiv record located; no final archival venue found in targeted review as of 2026-09-13.','corpus_action':'retain Preprint/technical report; normalize arXiv 2501.17070'},
+          }
+          patch_by_id('data/publication_status_manual_adjudication_B2_no_match.csv', b2)
+
+          # Resolve publication-type eligibility explicitly for the Springer book.
+          patch_by_id('data/publication_status_manual_adjudication_C1_suspicious_preprints.csv', {
+            93:{'corpus_action':'set Archival published book metadata; exclude from N_POOL under the strict journal/conference publication-type rule'}
+          })
+
+          files=[
+            ('A1','data/publication_status_manual_adjudication.csv'),
+            ('A2_official_proceedings','data/publication_status_manual_adjudication_A2_official_proceedings.csv'),
+            ('A2_openreview','data/publication_status_manual_adjudication_A2_openreview.csv'),
+            ('A3_upgrades','data/publication_status_manual_adjudication_A3_upgrades.csv'),
+            ('B1_ICLR','data/publication_status_manual_adjudication_B1_ICLR.csv'),
+            ('B1_PMLR','data/publication_status_manual_adjudication_B1_PMLR.csv'),
+            ('B1_COLM','data/publication_status_manual_adjudication_B1_COLM.csv'),
+            ('B1_TMLR','data/publication_status_manual_adjudication_B1_TMLR.csv'),
+            ('B1_remainder','data/publication_status_manual_adjudication_B1_remainder.csv'),
+            ('B2_NO_MATCH','data/publication_status_manual_adjudication_B2_no_match.csv'),
+            ('C1_suspicious_OK_PREPRINT','data/publication_status_manual_adjudication_C1_suspicious_preprints.csv'),
+          ]
+          queue=read_csv('data/publication_status_adjudication_queue.csv')
+          qids={int(r['record_id']) for r in queue}
+          rows=[]; per={}
+          for batch,path in files:
+              rr=read_csv(path); per[batch]=len(rr)
+              for r in rr:
+                  x=dict(r); x['adjudication_batch']=batch; rows.append(x)
+          ids=[int(r['record_id']) for r in rows]
+          assert len(rows)==297 and len(set(ids))==297 and set(ids)==qids
+          rows.sort(key=lambda r:int(r['record_id']))
+          fields=['adjudication_batch']+[k for k in rows[0].keys() if k!='adjudication_batch']
+          write_csv('data/publication_status_manual_adjudication_all.csv',rows,fields)
+
+          # Hard blocking integrity gate. Duplicate/version and book-type cases are allowed only
+          # because they now have explicit, deterministic corpus exclusion actions.
+          blockers=[]; accepted=[]
+          for r in rows:
+              rid=int(r['record_id']); ev=(r.get('evidence_url') or '').strip(); ident=(r.get('final_identifier') or '').strip()
+              if not ev: blockers.append((rid,'missing_evidence_url'))
+              if '/papers/search?' in ev or '/search/?' in ev or 'searchtype=title' in ev: blockers.append((rid,'non_record_specific_search_url'))
+              if r['final_status'].startswith('Archival') and ('arxiv.org' in ev or ('arxiv.org' in ident and not ev)):
+                  blockers.append((rid,'archival_without_record_specific_archival_evidence'))
+              isdup=('MERGE_VERSION' in r['decision'] or 'duplicate/version' in r['corpus_action'].lower())
+              if isdup:
+                  if 'do not count' not in r['corpus_action'].lower(): blockers.append((rid,'duplicate_without_count_exclusion'))
+                  else: accepted.append((rid,'duplicate/version explicitly excluded from counting'))
+              if 'BOOK' in r['decision']:
+                  if 'exclude from n_pool' not in r['corpus_action'].lower(): blockers.append((rid,'book_without_explicit_publication_type_resolution'))
+                  else: accepted.append((rid,'archival book explicitly excluded under strict journal/conference rule'))
+          assert not blockers, blockers
+
+          # Snapshot before any corpus mutation.
+          corpus_path=Path('data/studies_805_mapping_corpus.csv')
+          checkpoint=Path('data/checkpoints/studies_805_mapping_corpus_pre_publication_adjudication.csv')
+          checkpoint.parent.mkdir(parents=True,exist_ok=True)
+          if not checkpoint.exists(): shutil.copyfile(corpus_path,checkpoint)
+
+          corpus=read_csv(corpus_path); cfields=list(corpus[0].keys())
+          assert len(corpus)==805 and len({int(r['record_id']) for r in corpus})==805
+          adj={int(r['record_id']):r for r in rows}
+          duplicate_canonical={301:457,491:504}
+          changes=[]
+          for r in corpus:
+              rid=int(r['record_id'])
+              if rid not in adj: continue
+              a=adj[rid]
+              old={k:r.get(k,'') for k in ['publication_status','status_category','venue','identifier','bibliography_eligibility','final_exclusion_reason']}
+              fs=a['final_status']
+              r['status_category']=fs
+              r['venue']=a['final_venue']
+              r['identifier']=a['final_identifier']
+              r['verification_source']='Manual publication-status adjudication 2026-09-13'
+              r['canonical_status_detail']=a['decision']
+              if fs=='Archival published': r['publication_status']='Published'
+              elif fs=='Archival accepted': r['publication_status']='Accepted'
+              elif fs=='Preprint/technical report': r['publication_status']='Preprint'
+              elif fs=='Workshop/non-archival': r['publication_status']='Workshop/non-archival'
+              else: r['publication_status']=fs
+
+              if rid in duplicate_canonical:
+                  canon=duplicate_canonical[rid]
+                  r['bibliography_eligibility']='Duplicate/version; do not count'
+                  r['final_exclusion_reason']=f'Duplicate/version of canonical record {canon}'
+              elif rid==93:
+                  r['bibliography_eligibility']='Not eligible under strict journal/conference rule'
+                  r['final_exclusion_reason']='Publication type outside strict journal/conference rule (book)'
+              elif fs in {'Archival published','Archival accepted'}:
+                  r['bibliography_eligibility']='Eligible if cited'
+                  if 'publication' in (r.get('final_exclusion_reason') or '').lower() or 'preprint' in (r.get('final_exclusion_reason') or '').lower():
+                      r['final_exclusion_reason']=''
+              else:
+                  r['bibliography_eligibility']='Not eligible under strict journal/conference rule'
+                  r['final_exclusion_reason']=f'Publication status not eligible under strict archival journal/conference rule: {fs}'
+              new={k:r.get(k,'') for k in old}
+              if old!=new:
+                  changes.append({'record_id':rid,'title':r['title'],'old_status_category':old['status_category'],'new_status_category':new['status_category'],'old_venue':old['venue'],'new_venue':new['venue'],'old_identifier':old['identifier'],'new_identifier':new['identifier'],'bibliography_eligibility':new['bibliography_eligibility'],'final_exclusion_reason':new['final_exclusion_reason'],'adjudication_decision':a['decision']})
+          write_csv(corpus_path,corpus,cfields)
+          if changes: write_csv('data/publication_status_adjudication_corpus_patch.csv',changes)
+
+          # Freeze publication-status pool and synthesis count. Record 249 is the sole full-text
+          # access exception and is removed from synthesis only, not from the publication pool.
+          strict_exclusions={93,301,491}
+          eligible=[]
+          for r in corpus:
+              rid=int(r['record_id'])
+              if r['priority'] not in {'P0','P1','P2','P3'}: continue
+              if r['status_category'] not in {'Archival published','Archival accepted'}: continue
+              if rid in strict_exclusions: continue
+              eligible.append(r)
+          pool_ids={int(r['record_id']) for r in eligible}
+          synth=[r for r in eligible if int(r['record_id'])!=249]
+          synth_ids={int(r['record_id']) for r in synth}
+          assert 249 in pool_ids, 'record 249 should be publication-eligible before the full-text exception'
+          assert len(synth)==len(eligible)-1
+
+          def pc(rows): return dict(sorted(Counter(r['priority'] for r in rows).items()))
+          def sc(rows): return dict(sorted(Counter(r['section'] for r in rows).items()))
+          summary={
+            'corpus_rows':len(corpus),
+            'manual_queue_rows':297,
+            'manual_queue_remaining':0,
+            'queue_id_set_exact_match':True,
+            'blocking_integrity_flags':0,
+            'explicitly_resolved_special_cases':accepted,
+            'corpus_rows_changed':len(changes),
+            'strict_publication_type_exclusions':[93],
+            'duplicate_version_exclusions':duplicate_canonical,
+            'full_text_synthesis_exclusions':[249],
+            'N_POOL':len(eligible),
+            'N_SYNTH':len(synth),
+            'N_POOL_priority_counts':pc(eligible),
+            'N_SYNTH_priority_counts':pc(synth),
+            'N_POOL_section_counts':sc(eligible),
+            'N_SYNTH_section_counts':sc(synth),
+            'corpus_status_category_counts':dict(sorted(Counter(r['status_category'] for r in corpus).items())),
+            'adjudicated_final_status_counts':dict(sorted(Counter(r['final_status'] for r in rows).items())),
+            'freeze_status':'publication_status_adjudication_complete_counts_frozen',
+            'frozen_at':'2026-09-13',
+          }
+          Path('data/publication_status_corpus_freeze_summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          Path('data/publication_status_adjudication_integrity_summary.json').write_text(json.dumps({'ledger_rows':297,'unique_record_ids':297,'blocking_flagged_rows':0,'explicitly_resolved_special_cases':accepted,'policy':'clean_for_controlled_corpus_mutation'},indent=2)+'\n',encoding='utf-8')
+          with open('data/publication_status_adjudication_integrity_flags.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.writer(f); w.writerow(['record_id','flag'])
+
+          doc=f'''# Final publication-status adjudication\n\n- Manual adjudication queue: **297 / 297 complete**.\n- Blocking evidence-integrity flags: **0**.\n- Corpus rows: **805**.\n- Publication-status eligible pool (`N_POOL`): **{len(eligible)}**.\n- Final synthesis pool after the sole full-text access exception record 249 (`N_SYNTH`): **{len(synth)}**.\n- Duplicate/version rows excluded from counting: **301 -> 457**, **491 -> 504**.\n- Archival book record 93 is excluded under the strict journal/conference publication-type rule.\n- The 805-row corpus has been patched only from the completed adjudication ledger; the pre-patch corpus is preserved under `data/checkpoints/`.\n'''
+          Path('docs/PUBLICATION_STATUS_ADJUDICATION_FINAL.md').write_text(doc,encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit finalized adjudication and corpus freeze
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            data/publication_status_manual_adjudication_B1_ICLR.csv \
+            data/publication_status_manual_adjudication_B2_no_match.csv \
+            data/publication_status_manual_adjudication_C1_suspicious_preprints.csv \
+            data/publication_status_manual_adjudication_all.csv \
+            data/publication_status_adjudication_integrity_flags.csv \
+            data/publication_status_adjudication_integrity_summary.json \
+            data/publication_status_adjudication_corpus_patch.csv \
+            data/publication_status_corpus_freeze_summary.json \
+            data/studies_805_mapping_corpus.csv \
+            data/checkpoints/studies_805_mapping_corpus_pre_publication_adjudication.csv \
+            docs/PUBLICATION_STATUS_ADJUDICATION_FINAL.md
+          git commit -m 'Finalize publication adjudication and freeze corpus counts'
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
