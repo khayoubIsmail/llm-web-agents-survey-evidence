@@ -1,0 +1,47 @@
+name: Build publication status A3 upgrade queue
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-publication-status-A3-upgrade-queue.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build A3 upgrade queue
+        run: |
+          python - <<'PY'
+          import csv, json
+          src='data/publication_status_adjudication_queue.csv'
+          out='data/publication_status_A3_upgrade_queue.csv'
+          rows=list(csv.DictReader(open(src, encoding='utf-8-sig', newline='')))
+          keep=[r for r in rows if r.get('priority')=='A3' and r.get('machine_verdict')=='UPGRADE']
+          assert len(keep)==58, len(keep)
+          fields=list(keep[0])
+          with open(out,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(keep)
+          summary={'rows':len(keep),'verdicts':sorted(set(r['machine_verdict'] for r in keep)),'priority':'A3'}
+          open('data/publication_status_A3_upgrade_queue_summary.json','w',encoding='utf-8').write(json.dumps(summary,indent=2)+'\n')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit A3 queue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_A3_upgrade_queue.csv data/publication_status_A3_upgrade_queue_summary.json
+          git commit -m "Isolate 58 publication-status upgrade adjudications" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
