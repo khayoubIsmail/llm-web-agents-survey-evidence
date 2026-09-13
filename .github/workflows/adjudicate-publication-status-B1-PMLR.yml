@@ -1,0 +1,79 @@
+name: Adjudicate publication status B1 PMLR
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/adjudicate-publication-status-B1-PMLR.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build 15-case PMLR/ICML adjudication ledger
+        run: |
+          python - <<'PY'
+          import csv
+          rows=list(csv.DictReader(open('data/adjudication_batches/B1_PMLR_ICML.csv',encoding='utf-8-sig',newline='')))
+          assert len(rows)==15
+          urls={
+            75:'https://proceedings.mlr.press/v235/zhou24r.html',
+            282:'https://proceedings.mlr.press/v235/zheng24e.html',
+            307:'https://proceedings.mlr.press/v267/tan25h.html',
+            340:'https://proceedings.mlr.press/v235/lu24e.html',
+            344:'https://proceedings.mlr.press/v235/drouin24a.html',
+            373:'https://proceedings.mlr.press/v235/xie24j.html',
+            383:'https://proceedings.mlr.press/v267/bonatti25a.html',
+            385:'https://proceedings.mlr.press/v267/zhuge25a.html',
+            437:'https://proceedings.mlr.press/v202/lee23g.html',
+            465:'https://proceedings.mlr.press/v267/xu25ae.html',
+            521:'https://proceedings.mlr.press/v267/wang25bx.html',
+            699:'https://proceedings.mlr.press/v267/xu25m.html',
+            703:'https://proceedings.mlr.press/v267/tur25a.html',
+            733:'https://proceedings.mlr.press/v235/gu24e.html',
+          }
+          out=[]
+          for r in rows:
+              rid=int(r['record_id'])
+              if rid==425:
+                  decision='RETAIN_ARCHIVAL_ACCEPTED_OFFICIAL_ICML'
+                  status='Archival accepted'
+                  venue='ICML 2026 (43rd International Conference on Machine Learning)'
+                  ident=r['register_identifier'] or 'https://icml.cc/Downloads/2026'
+                  evidence='https://icml.cc/Downloads/2026'
+                  note='Official ICML 2026 downloads/accepted-paper listing contains the exact title AgentWebBench: Benchmarking Multi-Agent Coordination in Agentic Web. Retain archival accepted status pending canonical PMLR proceedings metadata.'
+                  action='keep Archival accepted; normalize ICML 2026 venue; retain/add official ICML evidence'
+              else:
+                  assert rid in urls, rid
+                  decision='RETAIN_ARCHIVAL_OFFICIAL_PMLR'
+                  status='Archival published'
+                  evidence=urls[rid]; ident=evidence
+                  venue=r['register_venue'] or 'Proceedings of the International Conference on Machine Learning'
+                  note='Official Proceedings of Machine Learning Research page lists the exact paper in the ICML proceedings. The automated downgrade was false because the resolver selected the arXiv/preprint copy.'
+                  action='keep Archival published; set/retain PMLR proceedings identifier'
+              out.append({'record_id':rid,'title':r['title'],'machine_verdict':'DOWNGRADE','decision':decision,'final_status':status,'final_venue':venue,'final_identifier':ident,'evidence_url':evidence,'evidence_note':note,'adjudicated_by':'ChatGPT-assisted manual evidence review','adjudicated_at':'2026-09-13','corpus_action':action})
+          out.sort(key=lambda x:x['record_id'])
+          assert len({x['record_id'] for x in out})==15
+          with open('data/publication_status_manual_adjudication_B1_PMLR.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(out[0]));w.writeheader();w.writerows(out)
+          print('PMLR/ICML adjudicated',len(out))
+          PY
+      - name: Commit B1 PMLR adjudications
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_manual_adjudication_B1_PMLR.csv
+          git commit -m "Adjudicate 15 ICML PMLR downgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
