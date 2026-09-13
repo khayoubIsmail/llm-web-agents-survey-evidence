@@ -1,0 +1,51 @@
+name: Build publication status adjudication queue
+
+on:
+  push:
+    paths:
+      - 'scripts/build_publication_status_adjudication_queue.py'
+      - '.github/workflows/build-publication-status-adjudication-queue.yml'
+      - 'data/publication_status_verification_v2.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build queue
+        run: python scripts/build_publication_status_adjudication_queue.py
+      - name: Verify queue is conservative
+        run: |
+          python - <<'PY'
+          import csv, json
+          rows = list(csv.DictReader(open('data/publication_status_adjudication_queue.csv', encoding='utf-8-sig')))
+          assert rows
+          assert all(r['adjudication_decision'] == 'PENDING' for r in rows)
+          assert all(not r['authoritative_evidence_url'] for r in rows)
+          summary = json.load(open('data/publication_status_adjudication_queue_summary.json', encoding='utf-8'))
+          assert summary['source_rows'] == 805
+          assert summary['queue_rows'] == len(rows)
+          print(json.dumps(summary, indent=2))
+          PY
+      - name: Commit queue
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_adjudication_queue.csv data/publication_status_adjudication_queue_summary.json
+          if git diff --cached --quiet; then
+            echo 'No queue changes.'
+            exit 0
+          fi
+          git commit -m 'Build publication-status manual adjudication queue'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
