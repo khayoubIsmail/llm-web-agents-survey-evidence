@@ -1,0 +1,100 @@
+name: Build final synthesis statistics
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-final-synthesis-statistics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recompute frozen synthesis statistics
+        run: |
+          python - <<'PY'
+          import csv, json
+          from collections import Counter
+          from pathlib import Path
+
+          corpus_path=Path('data/studies_805_mapping_corpus.csv')
+          membership_path=Path('data/final_synthesis_membership.csv')
+          with corpus_path.open(encoding='utf-8-sig',newline='') as f:
+              corpus={int(r['record_id']):r for r in csv.DictReader(f)}
+          with membership_path.open(encoding='utf-8-sig',newline='') as f:
+              membership=list(csv.DictReader(f))
+          synth_ids=[int(r['record_id']) for r in membership if r['in_N_SYNTH'].strip().lower()=='yes']
+          pool_ids=[int(r['record_id']) for r in membership if r['in_N_POOL'].strip().lower()=='yes']
+          assert len(membership)==403, len(membership)
+          assert len(synth_ids)==385, len(synth_ids)
+          assert all(i in corpus for i in synth_ids)
+
+          rows=[corpus[i] for i in synth_ids]
+          priority=Counter(r['priority'] for r in rows)
+          section=Counter(r['section'] for r in rows)
+          status=Counter(r['status_category'] for r in rows)
+          years=Counter(str(r['year']) for r in rows)
+          y2023=sum(n for y,n in years.items() if y.isdigit() and int(y)>=2023)
+          deep=priority.get('P0',0)+priority.get('P1',0)
+          structured=priority.get('P2',0)+priority.get('P3',0)
+          assert deep+structured==385
+          section_order=['S2','S3','S4','S5.1','S5.2','S5.3','S5.4','S5.5','S6','S7','S8']
+          labels={
+            'S2':'Agent foundations and pretraining','S3':'Agent architectures and memory','S4':'Web/GUI agent evolution',
+            'S5.1':'Benchmarks and environments','S5.2':'Perception and grounding','S5.3':'Planning and memory',
+            'S5.4':'Learning and adaptation','S5.5':'Failure modes and reliability','S6':'Extraction and data agents',
+            'S7':'Security and safety','S8':'Generalization and deployment'}
+          with open('data/corpus_statistics_final.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=['section_code','primary_theme','count','percentage_of_385'])
+              w.writeheader()
+              for s in section_order:
+                  n=section.get(s,0)
+                  w.writerow({'section_code':s,'primary_theme':labels[s],'count':n,'percentage_of_385':f'{100*n/385:.1f}'})
+          summary={
+            'mapping_corpus':805,
+            'publication_eligible_pool_N_POOL':454,
+            'normalized_note_candidate_set':403,
+            'final_synthesis_N_SYNTH':385,
+            'excluded_from_403_total':18,
+            'excluded_not_publication_eligible':17,
+            'excluded_full_text_exception':1,
+            'priority_counts':dict(sorted(priority.items())),
+            'deep_P0_P1':deep,
+            'structured_P2_P3':structured,
+            'section_counts':{s:section.get(s,0) for s in section_order},
+            'status_category_counts':dict(sorted(status.items())),
+            'year_counts':dict(sorted(years.items(), key=lambda kv:int(kv[0]) if kv[0].isdigit() else 9999)),
+            'studies_2023_or_later':y2023,
+            'percentage_2023_or_later':round(100*y2023/385,1),
+            'year_2026_count':years.get('2026',0),
+            'bar_total':sum(section.values()),
+            'counts_frozen':True,
+            'source_membership':'data/final_synthesis_membership.csv',
+            'source_corpus':'data/studies_805_mapping_corpus.csv'
+          }
+          assert summary['bar_total']==385
+          Path('data/final_synthesis_statistics.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit final statistics
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/corpus_statistics_final.csv data/final_synthesis_statistics.json
+          git commit -m 'Freeze final 385-study synthesis statistics' || exit 0
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
