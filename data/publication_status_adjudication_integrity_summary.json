@@ -1,0 +1,13 @@
+{
+  "ledger_rows": 297,
+  "unique_record_ids": 297,
+  "flagged_rows": 58,
+  "flag_counts": {
+    "archival_non_journal_conference_type_check_eligibility": 1,
+    "archival_supported_only_or_partly_by_preprint_identifier": 1,
+    "duplicate_or_version_reconciliation_required": 3,
+    "missing_evidence_url": 1,
+    "search_url_not_record_specific": 52
+  },
+  "policy": "flags_require_resolution_or_explicit_acceptance_before corpus mutation"
+}
