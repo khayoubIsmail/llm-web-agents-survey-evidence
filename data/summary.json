@@ -1,66 +1,61 @@
 {
   "mapping_corpus_total": 805,
-  "published_accepted_pool_total": 403,
-  "strict_pool_exclusions_after_validation": 3,
+  "publication_eligible_pool_total": 454,
+  "historical_normalized_note_candidate_set_total": 403,
+  "final_qualitative_synthesis_total": 385,
   "priority_counts_mapping": {
     "P0": 20,
     "P1": 179,
     "P2": 444,
     "P3": 162
   },
-  "priority_counts_eligible": {
+  "priority_counts_publication_eligible": {
     "P0": 18,
-    "P1": 98,
-    "P2": 204,
-    "P3": 83
+    "P1": 110,
+    "P2": 233,
+    "P3": 93
   },
-  "status_category_counts_mapping": {
-    "Archival published": 374,
-    "Preprint/technical report": 367,
-    "Workshop/conditional": 12,
-    "Archival accepted": 29,
-    "Unconfirmed": 10,
-    "Workshop/non-archival": 10,
-    "Excluded after publication-status validation": 3
+  "priority_counts_final_synthesis": {
+    "P0": 18,
+    "P1": 96,
+    "P2": 189,
+    "P3": 82
   },
-  "excluded_record_ids": [
-    432,
-    656,
-    686
-  ],
+  "final_synthesis_reading_depth": {
+    "deep_P0_P1": 114,
+    "structured_P2_P3": 271
+  },
+  "final_synthesis_status": {
+    "Archival published": 377,
+    "Archival accepted": 8
+  },
+  "publication_status_manual_queue": {
+    "flagged": 297,
+    "remaining": 0
+  },
+  "historical_search_reporting": {
+    "direct_search_sources_confirmed": 10,
+    "last_search_month": "2026-04",
+    "language": "English only",
+    "field_restriction": "Default/general search; no explicit title/abstract/keyword field restriction",
+    "historical_boolean_queries": "data/search_queries_historical.csv",
+    "source_reporting": "data/search_source_reporting.csv",
+    "search_selection_audit": "docs/B1_B10_SEARCH_AND_SELECTION_AUDIT.md",
+    "per_source_gross_counts": "not recovered",
+    "complete_2643_P4_record_level_ledger": "not recovered"
+  },
   "paper_note_audit": {
     "normalized_note_files": 403,
     "paper_specific_synthesis_source_files": 403,
-    "paper_specific_synthesis_source_unique_record_ids": 403,
     "historical_reliable_source_note_matches": 335,
     "historical_source_note_files": 229,
-    "historical_shared_source_files": 20,
-    "records_from_shared_historical_sources": 126,
-    "records_without_reliable_historical_source_match": 68,
-    "current_cycle_note_remediations": 71,
-    "current_cycle_pdf_full_text_checks": 134,
-    "retained_substantive_archive_notes": 268,
-    "full_text_analysis_documented": 402,
     "full_text_access_exceptions": 1,
     "access_exception_record_ids": [
       249
-    ],
-    "current_cycle_full_text_rechecks_or_pdf_checks": 402,
-    "records_still_without_current_cycle_full_text_verification": 0,
-    "retained_archive_only_records": 0,
-    "a1_verified_rereads_logged": 293,
-    "publication_status_revalidation_blocks": 2,
-    "publication_status_revalidation_record_ids": [
-      323,
-      419
     ]
   },
-  "generated_date": "2026-07-26",
-  "evidence_note_audit_date": "2026-09-08",
-  "historical_source_archive_date": "2026-09-09",
-  "paper_specific_source_layer_date": "2026-09-10",
-  "historical_source_snapshot_commit": "83aca98913e2202d912778917ff7c5b92ff67399",
-  "release_version": "1.2.0",
+  "counts_frozen_date": "2026-09-13",
+  "release_version": "1.2.1-reviewer-search-audit",
   "scope": "LLM-based agents for generalized web automation and schema-guided data extraction",
-  "notes": "The 403-study file is a citation-eligibility layer within the 805-study mapping corpus. notes/papers and notes/original_sources each contain one paper-specific Markdown record for every one of the 403 eligible papers. Record 249 remains blocked from claim-level synthesis because complete full text has not been obtained."
+  "notes": "Authoritative evidence layers are 805 mapping, 454 publication-eligible, 403 historical normalized-note/synthesis-candidate records, and 385 final qualitative synthesis studies. Historical 403 files remain for provenance and are not the current publication-eligible pool."
 }
