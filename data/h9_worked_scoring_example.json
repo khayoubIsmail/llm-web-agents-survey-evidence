@@ -1,0 +1,160 @@
+{
+  "protocol": "docs/H1_H9_METRIC_SPECIFICATION.md",
+  "purpose": "Synthetic pre-experiment example used to validate the scoring contract before the real three-agent wireless-headphones case study.",
+  "alignment_threshold_tau": 0.2,
+  "schema": {
+    "name": "wireless_headphones_minimal_v1",
+    "additional_properties": false,
+    "identity_fields": ["product_name"],
+    "required_fields": ["product_name", "price"],
+    "fields": {
+      "product_name": {
+        "type": "string",
+        "comparator": "normalized_exact_string"
+      },
+      "price": {
+        "type": "money",
+        "comparator": "amount_and_currency"
+      },
+      "rating": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 5,
+        "required": false,
+        "comparator": "exact_normalized_decimal"
+      }
+    }
+  },
+  "gold_records": [
+    {
+      "record_id": "g1",
+      "product_name": "SoundWave X1",
+      "price": {
+        "amount": 79.99,
+        "currency": "EUR"
+      },
+      "rating": 4.5
+    },
+    {
+      "record_id": "g2",
+      "product_name": "QuietBeat Pro",
+      "price": {
+        "amount": 129.99,
+        "currency": "EUR"
+      },
+      "rating": null
+    }
+  ],
+  "predicted_records": [
+    {
+      "record_id": "p1",
+      "product_name": "SoundWave X1",
+      "price": {
+        "amount": 79.99,
+        "currency": "EUR"
+      },
+      "rating": 4.5,
+      "evidence_status": {
+        "product_name": {"available": true, "supported": true},
+        "price": {"available": true, "supported": true},
+        "rating": {"available": true, "supported": true}
+      }
+    },
+    {
+      "record_id": "p2",
+      "product_name": "QuietBeat Pro Headphones",
+      "price": {
+        "amount": 129.99,
+        "currency": "EUR"
+      },
+      "rating": 4.7,
+      "color": "black",
+      "evidence_status": {
+        "product_name": {
+          "available": true,
+          "supported": false,
+          "reason": "The frozen source quote supports 'QuietBeat Pro' but not the longer claimed name."
+        },
+        "price": {"available": true, "supported": true},
+        "rating": {
+          "available": true,
+          "supported": false,
+          "reason": "No rating is present for this record in the frozen source."
+        }
+      }
+    },
+    {
+      "record_id": "p3",
+      "product_name": "Phantom Pods",
+      "price": {
+        "amount": 49.99,
+        "currency": "EUR"
+      },
+      "rating": 4.9,
+      "evidence_status": {
+        "product_name": {"available": true, "supported": false},
+        "price": {"available": true, "supported": false},
+        "rating": {"available": true, "supported": false}
+      }
+    }
+  ],
+  "alignment": [
+    {
+      "gold_record": "g1",
+      "predicted_record": "p1",
+      "method": "exact_identity_key",
+      "similarity": 1.0
+    },
+    {
+      "gold_record": "g2",
+      "predicted_record": "p2",
+      "method": "fallback_field_similarity",
+      "similarity": 0.5,
+      "explanation": "Among the two non-null gold fields, price matches and product_name does not; 1/2 = 0.5 >= tau."
+    }
+  ],
+  "unmatched_predictions": ["p3"],
+  "unmatched_gold": [],
+  "counts": {
+    "gold_records": 2,
+    "predicted_records": 3,
+    "matched_records": 2,
+    "gold_nonnull_schema_fields": 5,
+    "predicted_nonnull_schema_fields": 9,
+    "correct_schema_field_claims": 4,
+    "supported_schema_field_claims": 4,
+    "available_evidence_schema_field_claims": 9,
+    "unsupported_schema_field_claims": 5,
+    "nonnull_non_schema_claims": 1,
+    "all_nonnull_output_claims": 10
+  },
+  "scores": {
+    "record_precision": 0.666667,
+    "record_recall": 1.0,
+    "record_f1": 0.8,
+    "strict_field_precision_micro": 0.444444,
+    "strict_field_recall_micro": 0.8,
+    "strict_field_f1_micro": 0.571429,
+    "required_field_completeness_macro_over_matched_gold": 0.75,
+    "provenance_coverage_micro": 1.0,
+    "provenance_conditional_correctness_micro": 0.444444,
+    "provenance_joint_faithfulness_micro": 0.444444,
+    "unsupported_value_rate": 0.555556,
+    "non_schema_field_rate": 0.1
+  },
+  "score_derivations": {
+    "record_precision": "2 matched / 3 predicted",
+    "record_recall": "2 matched / 2 gold",
+    "record_f1": "2 * (2/3) * 1 / ((2/3) + 1) = 0.8",
+    "strict_field_precision_micro": "4 correct / 9 predicted non-null schema-field claims",
+    "strict_field_recall_micro": "4 correct / 5 gold non-null schema fields",
+    "strict_field_f1_micro": "2 * (4/9) * (4/5) / ((4/9) + (4/5)) = 4/7 = 0.571429",
+    "required_field_completeness_macro_over_matched_gold": "mean(g1: 2/2, g2: 1/2) = 0.75",
+    "provenance_coverage_micro": "9 evidence objects / 9 predicted non-null schema-field claims",
+    "provenance_conditional_correctness_micro": "4 supported / 9 available evidence objects",
+    "provenance_joint_faithfulness_micro": "4 supported / 9 predicted non-null schema-field claims",
+    "unsupported_value_rate": "5 unsupported schema-field claims / 9 predicted non-null schema-field claims",
+    "non_schema_field_rate": "1 non-schema claim / 10 total non-null output claims"
+  },
+  "interpretation": "The example intentionally yields high record recall but much lower strict field correctness and provenance faithfulness. It demonstrates why record association, value correctness, evidence support, and schema deviation must be scored separately."
+}
