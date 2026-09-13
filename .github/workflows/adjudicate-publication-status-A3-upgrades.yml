@@ -1,0 +1,82 @@
+name: Adjudicate publication status A3 upgrades
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/adjudicate-publication-status-A3-upgrades.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build adjudication ledger for all 58 upgrades
+        run: |
+          python - <<'PY'
+          import csv
+          src='data/publication_status_A3_upgrade_triage.csv'
+          rows=list(csv.DictReader(open(src,encoding='utf-8-sig',newline='')))
+          assert len(rows)==58
+          out=[]
+          manual={
+            199:{
+              'venue':'WIREs Data Mining and Knowledge Discovery',
+              'identifier':'https://doi.org/10.1002/widm.70111',
+              'evidence':'https://wires.onlinelibrary.wiley.com/doi/full/10.1002/widm.70111',
+              'note':'Official Wiley page lists the exact article in WIREs Data Mining and Knowledge Discovery, Volume 16 Issue 3, first published 24 July 2026, DOI 10.1002/widm.70111.'
+            },
+            727:{
+              'venue':'Proceedings on Privacy Enhancing Technologies',
+              'identifier':'https://doi.org/10.56553/popets-2026-0140',
+              'evidence':'https://petsymposium.org/popets/2026/popets-2026-0140.php',
+              'note':'Official PoPETs proceedings page lists the exact paper in Volume 2026 Issue 4, pages 666-702, DOI 10.56553/popets-2026-0140.'
+            }
+          }
+          for r in rows:
+              rid=int(r['record_id'])
+              if rid in manual:
+                  m=manual[rid]
+                  decision='SET_ARCHIVAL_PUBLISHED_MANUAL_OFFICIAL'
+                  venue=m['venue']; ident=m['identifier']; evidence=m['evidence']; note=m['note']
+              else:
+                  assert r['triage_bucket']=='A3_STRONG_TITLE_DOI', (rid,r['triage_bucket'])
+                  doi=(r['found_doi'] or '').strip()
+                  venue=(r['found_venue'] or '').strip()
+                  assert doi and venue
+                  decision='SET_ARCHIVAL_PUBLISHED_STRONG_TITLE_DOI'
+                  ident='https://doi.org/'+doi
+                  evidence=ident
+                  note=(f"Exact/near-exact title match with a strong archival DOI and archival container '{venue}', "
+                        f"corroborated by the v2.2 Crossref/OpenAlex verification evidence. Upgrade the register from "
+                        f"'{r['register_status']}' to archival published.")
+              out.append({
+                'record_id':rid,'title':r['title'],'machine_verdict':'UPGRADE','decision':decision,
+                'final_status':'Archival published','final_venue':venue,'final_identifier':ident,
+                'evidence_url':evidence,'evidence_note':note,'adjudicated_by':'ChatGPT-assisted manual evidence review',
+                'adjudicated_at':'2026-09-13','corpus_action':'set status Archival published; set archival venue and identifier'
+              })
+          fields=list(out[0])
+          with open('data/publication_status_manual_adjudication_A3_upgrades.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(out)
+          assert len({r['record_id'] for r in out})==58
+          print('adjudicated',len(out),'A3 upgrades')
+          PY
+      - name: Commit A3 adjudications
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_manual_adjudication_A3_upgrades.csv
+          git commit -m "Adjudicate 58 publication-status upgrades" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
