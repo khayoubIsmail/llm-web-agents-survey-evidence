@@ -1,20 +1,20 @@
 # G1 — System × Requirement Audit for the Complete Extraction Contract
 
-## Status
+## Final status
 
-**Current-cycle G1 matrix complete for the strongest representative counterexample candidates. Final closure is pending final `N_SYNTH` membership revalidation after publication-status adjudication.**
+**G1 is complete and closed against the final 385-study qualitative synthesis.**
 
-G1 tests the manuscript's central absence claim using the operational definitions frozen in `docs/G2_OPERATIONAL_DEFINITIONS.md`.
+G1 tests the manuscript's central system-level gap claim using the operational definitions frozen in `docs/G2_OPERATIONAL_DEFINITIONS.md`.
 
-The claim under test is:
+The final claim is:
 
 > Under the operational definitions used in our system-level comparison, none of the representative reviewed systems jointly demonstrates unfamiliar-site navigation, explicit schema coverage, field-level provenance, unsupported-value control, cross-site transfer, and complete dataset assembly in one evaluated end-to-end pipeline.
 
-This is deliberately narrower than an absolute statement about all systems in existence.
+This wording is deliberately scoped to the reviewed representative systems. It is not an unrestricted universal claim over every possible system.
 
-## Coding rule
+## Operational requirements
 
-Each system is coded independently on:
+Each candidate system is coded independently on:
 
 1. unfamiliar-site navigation;
 2. explicit schema coverage;
@@ -24,121 +24,104 @@ Each system is coded independently on:
 6. complete dataset assembly; and
 7. joint evaluation.
 
-Allowed values are `YES`, `PARTIAL`, `NO`, and `NR` exactly as defined in G2.
+Allowed values are `YES`, `PARTIAL`, `NO`, and `NR`, exactly as defined in G2.
 
 Critical rules:
 
-- `NR` is not treated as `NO`.
-- `PARTIAL` is not upgraded to `YES` because a capability appears plausible.
-- a system closes the contract only if all six capability columns are `YES` **and** `joint_evaluation = YES`.
-- benchmark-level or literature-level composition across different systems does not count as joint evaluation.
+- `NR` is not treated as `NO`;
+- `PARTIAL` is not upgraded to `YES` because a capability appears plausible;
+- a system closes the contract only if all six requirement columns are `YES` and `joint_evaluation = YES`;
+- capabilities assembled across different systems do not count as joint end-to-end evaluation.
 
-## Why these candidates were selected
+## Representative system matrix
 
-The matrix intentionally tests the strongest plausible counterexamples from distinct parts of the reviewed literature rather than filling rows with obviously irrelevant papers.
-
-### Navigation/generalist-agent side
-
-- **SeeAct (282):** strong live-Web multimodal browser interaction and cross-site/domain evidence.
-- **MindAct / Mind2Web (337):** explicit cross-website and cross-domain generalization protocol.
-- **WebArena GPT-4 baseline (338):** realistic executable long-horizon Web interaction with functional validators.
-
-### Structured/extraction side
-
-- **AutoScraper (661):** reusable site-level scraper synthesis and multi-page executability.
-- **SCRIBES (667):** RL-trained reusable extraction scripts with holdout grouping.
-- **OneKE (675):** explicit schema-guided multi-agent extraction and reflection.
-
-### Multi-source / continuous aggregation side
-
-- **INFOGENT (663):** Navigator–Extractor–Aggregator with multi-source Web access.
-- **WiNELL (692):** continuous Web search, citation-aware updates, and human review.
-
-### Structured workflow / executable-evaluation side
-
-- **Spider2-V (379):** executable data-science/engineering workflows across 20 enterprise applications.
-- **DAAgent / InfiAgent-DABench (430):** execution-grounded structured outputs with machine-checkable evaluation.
-
-Together these candidates challenge the absence claim from the strongest nearby capability families: live navigation, cross-site generalization, schema-guided extraction, reusable scripts, multi-source aggregation, continuous updating, structured workflows, and executable validation.
-
-## Current result
-
-The machine-readable audit is in:
+The machine-readable matrix is:
 
 - `data/g1_system_requirement_matrix.csv`
 
-No current candidate is coded `YES` on all six capability requirements plus `YES` on joint evaluation.
+The 10 representative systems are:
 
-The pattern is consistent but asymmetric:
+- SeeAct (282);
+- MindAct / Mind2Web (337);
+- WebArena GPT-4 baseline (338);
+- Spider2-V (379);
+- DAAgent / InfiAgent-DABench (430);
+- AutoScraper (661);
+- INFOGENT (663);
+- SCRIBES (667);
+- OneKE (675);
+- WiNELL (692).
 
-- **Navigation-heavy systems** such as SeeAct and INFOGENT can explore the Web, but do not jointly provide explicit extraction schemas, field-level provenance, unsupported-value control, and complete dataset assembly.
-- **Extraction-heavy systems** such as AutoScraper, SCRIBES, and OneKE provide structured extraction or reusable scripts, but do not jointly demonstrate unfamiliar-site navigation, field-level provenance, unsupported-value control, cross-site transfer, and complete dataset assembly.
-- **Structured workflow/evaluation systems** such as Spider2-V and InfiAgent-DABench improve executable workflows and machine-checkable outputs, but are not end-to-end generalized Web extraction systems.
-- **WiNELL** is a strong near-miss for source-aware continuous updating, but its unit of output is article/update-level rather than a schema-bound multi-record dataset with field-level provenance.
+All 10 records remain members of the final 385-study synthesis. None is coded `YES` on all six capability requirements plus `YES` on joint evaluation.
 
-Therefore the current evidence supports the **scoped representative-system wording** above, but not an unrestricted universal statement such as “no system does this.”
+## Final targeted counterexample sweep
 
-## Important near-miss readings
+After the final corpus freeze, G1 performed a targeted second-pass sweep over **12 additional extraction/generalization/deployment near-misses** beyond the original 10-row matrix.
 
-### SeeAct
+The additional cases cover:
 
-SeeAct provides a strong test of the navigation side. Its live-Web results and cross-website/domain evaluation justify `YES` for unfamiliar-site navigation and cross-site transfer, but its task is browser action generation/grounding rather than structured dataset extraction. It therefore does not close the schema/provenance/unsupported-value/dataset requirements.
+- broad Web-scraping survey/context work;
+- practical Web-data collection;
+- conversational product search;
+- historical webpage interaction systems;
+- natural-language data analysis;
+- data-cleaning workflow generation;
+- business-intelligence/data-agent platforms;
+- question-aware data preparation;
+- agent-generalizability survey evidence;
+- human-agent collaborative Web navigation;
+- live-Web A/B-testing agents; and
+- value-sensitive GUI-agent evaluation.
 
-Checked locations: Figure 1; Sections 2.1–2.3; Tables 2–4; online evaluation; error analysis; impact statement.
+These studies provide important adjacent capabilities but do not form a counterexample to the six-requirement end-to-end extraction contract. They are either surveys/background, post-extraction data preparation/analysis systems, search/aggregation systems, human-in-the-loop navigation systems, or deployment/HCI evaluations rather than one pipeline jointly demonstrating all six G2 requirements.
 
-### AutoScraper
+The final gate is recorded in:
 
-AutoScraper provides a strong test from the extraction side. Reusable XPath/action sequences operate across multiple pages of a site, so the matrix gives partial credit for schema/provenance-like structure and dataset behavior. However, the paper does not demonstrate arbitrary unfamiliar-site navigation, held-out cross-site transfer, audited field-level evidence binding, unsupported-value control, or complete collection assembly with coverage/deduplication.
+- `data/final_c1_g1_revalidation_summary.json`
+- `data/final_g1_targeted_counterexample_sweep.csv`
+- `data/final_g1_high_risk_candidate_sweep.csv`
 
-Checked locations: Figures 1–2; SWDE/Extended-SWDE/DS1 experiments; executability metric; Table 6; error analysis; limitations.
+Final result:
 
-### SCRIBES
+- representative G1 matrix systems checked: **10**;
+- targeted additional near-misses checked: **12**;
+- total explicit final system/edge cases checked: **22**;
+- full-contract counterexamples found: **0**;
+- scoped absence claim supported: **YES**.
 
-SCRIBES is one of the strongest counterexamples because it learns reusable scripts and reports holdout grouping. G1 therefore records `PARTIAL`, not `NO`, for cross-site transfer. The remaining gap is that its transfer is tied to structurally similar groups, while field-level provenance, unsupported-value gating, unfamiliar-site navigation, and complete dataset assembly are not jointly demonstrated.
+## Interpretation of the near-miss pattern
 
-Checked locations: Figure 1; SemiBench/grouped-page evaluation; Table 1; Table 4; holdout grouping; CommonCrawl pipeline; limitations.
+The result is not that the literature lacks progress. Instead, capabilities remain distributed across different system families:
 
-### OneKE
+- **Navigation-heavy systems** can explore unfamiliar or varied Web environments but generally do not jointly provide extraction schemas, field-level provenance, unsupported-value controls, and complete dataset assembly.
+- **Extraction-heavy systems** provide schemas, scripts, selectors, or structured output but generally do not jointly demonstrate unfamiliar-site navigation, field-level source binding, arbitrary cross-site transfer, and complete collection coverage.
+- **Structured data-workflow systems** provide machine-checkable outputs and executable evaluation but are not generalized live-Web extraction systems.
+- **Multi-source aggregation/update systems** improve source discovery and citation-aware synthesis but operate at answer/report/article level rather than a field-provenance-preserving multi-record dataset contract.
+- **Deployment/HCI systems** address collaboration, behavior, safety, efficiency, or user values, not the complete extraction contract.
 
-OneKE is explicitly schema-guided and includes a Reflection Agent. G1 therefore avoids coding the extraction side as absent. It still falls below the stricter G2 thresholds because the available evidence does not establish schema coverage/completeness tracking, field-level source binding, or field-specific unsupported-value control, and it does not evaluate generalized live-Web navigation or complete dataset assembly.
+This is why the manuscript uses a scoped representative-system conclusion rather than an absolute absence statement.
 
-Checked locations: Schema/Extraction/Reflection agents; NER/RE evaluations; Web-news/PDF cases; deployment design; limitations.
+## Final C1-11 wording
 
-### INFOGENT
-
-INFOGENT directly challenges the navigation + multi-source part of the claim. It receives `YES` for unfamiliar-site navigation because its Navigator explores multiple sources under direct and interactive visual access. Its evaluated output, however, is answer-level aggregation rather than schema-bound rows with field-level provenance and collection-completeness guarantees.
-
-Checked locations: Figure 1; FRAMES/AssistantBench experiments; component/action analysis; qualitative errors; limitations.
-
-### WiNELL
-
-WiNELL contributes continuous source discovery, citation-aware editing, section-specific criteria, and human review. G1 treats these as meaningful `PARTIAL` analogues of schema/provenance/unsupported-value control rather than dismissing them. It does not, however, assemble a multi-record dataset or establish field-level provenance and cross-site transfer under the G2 definitions.
-
-Checked locations: section-criteria induction; agentic update aggregation; fine-grained editing; historical evaluation; findings; limitations.
-
-## What G1 does not prove yet
-
-A green G1 structural check does **not** mean the universal claim is permanently closed.
-
-Final closure requires:
-
-1. publication-status adjudication to finish;
-2. final `N_SYNTH` membership to be frozen;
-3. every G1 candidate record to be revalidated against final membership;
-4. a final high-risk counterexample sweep of the synthesis set to ensure no plausible system family was omitted;
-5. any newly included near-miss system to be coded using the same frozen G2 rules;
-6. C1-11 wording to remain scoped to the representative reviewed systems.
-
-If a system is found with `YES` on all six capability requirements and `YES` on joint evaluation, C1-11 must be revised or removed.
-
-## Manuscript wording if final G1 remains unchanged
+The manuscript and C1 matrix use the following wording:
 
 > Under the operational definitions used in our system-level comparison, none of the representative reviewed systems jointly demonstrates unfamiliar-site navigation, explicit schema coverage, field-level provenance, unsupported-value control, cross-site transfer, and complete dataset assembly in one evaluated end-to-end pipeline.
 
 ## Reviewer-response wording
 
-> We agree that the previous absence claim required explicit system-level evidence rather than a narrative comparison. We therefore introduced operational definitions for the disputed requirements and coded the strongest representative counterexample systems in a system-by-requirement matrix using four states (YES, PARTIAL, NO, NR). Missing reporting was not treated as evidence of absence, and partial capabilities were not upgraded to full satisfaction. The resulting matrix shows that the reviewed systems cover many components individually, but none of the representative systems currently satisfies all six requirements together in one evaluated end-to-end pipeline. We consequently narrowed the manuscript wording to the representative reviewed systems under the published operational definitions rather than making an unrestricted universal claim. The matrix and checked source locations are provided in the evidence repository.
+> We agree that the previous absence claim required explicit system-level evidence rather than a narrative comparison. We therefore operationalized the six disputed requirements and coded the strongest representative counterexample systems in a system-by-requirement matrix using four states (YES, PARTIAL, NO, NR). Missing reporting was not treated as evidence of absence, and partial capabilities were not upgraded to full satisfaction. After freezing the final 385-study synthesis, we revalidated all 10 matrix systems and conducted a targeted sweep of 12 additional extraction/generalization/deployment near-misses. No candidate satisfied all six requirements together in one jointly evaluated end-to-end pipeline. We therefore retain only the scoped representative-system wording rather than an unrestricted universal claim.
 
-## Final completion criterion
+## Completion checklist
 
-G1 is finally closed only after final `N_SYNTH` is frozen and the candidate matrix has been revalidated against it. Until then, the current result is **methodologically complete but membership-pending**.
+- [x] six operational requirements fixed in G2;
+- [x] YES/PARTIAL/NO/NR rules fixed;
+- [x] 10 strongest representative systems coded;
+- [x] final `N_SYNTH = 385` membership frozen;
+- [x] all 10 G1 matrix records revalidated against final membership;
+- [x] targeted final counterexample sweep completed;
+- [x] 12 additional near-misses explicitly checked;
+- [x] no full-contract counterexample found;
+- [x] C1-11 wording retained only in scoped representative-system form;
+- [x] final manuscript wording updated consistently.
+
+**G1 final status: CLOSED.**
