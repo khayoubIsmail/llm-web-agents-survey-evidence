@@ -1,0 +1,93 @@
+{
+  "corpus_rows": 805,
+  "manual_queue_rows": 297,
+  "manual_queue_remaining": 0,
+  "queue_id_set_exact_match": true,
+  "blocking_integrity_flags": 0,
+  "explicitly_resolved_special_cases": [
+    [
+      93,
+      "archival book explicitly excluded under strict journal/conference rule"
+    ],
+    [
+      301,
+      "duplicate/version explicitly excluded from counting"
+    ],
+    [
+      457,
+      "duplicate/version explicitly excluded from counting"
+    ],
+    [
+      491,
+      "duplicate/version explicitly excluded from counting"
+    ]
+  ],
+  "corpus_rows_changed": 283,
+  "strict_publication_type_exclusions": [
+    93
+  ],
+  "duplicate_version_exclusions": {
+    "301": 457,
+    "491": 504
+  },
+  "full_text_synthesis_exclusions": [
+    249
+  ],
+  "N_POOL": 454,
+  "N_SYNTH": 453,
+  "N_POOL_priority_counts": {
+    "P0": 18,
+    "P1": 110,
+    "P2": 233,
+    "P3": 93
+  },
+  "N_SYNTH_priority_counts": {
+    "P0": 18,
+    "P1": 110,
+    "P2": 233,
+    "P3": 92
+  },
+  "N_POOL_section_counts": {
+    "S2": 46,
+    "S3": 113,
+    "S4": 35,
+    "S5.1": 60,
+    "S5.2": 26,
+    "S5.3": 23,
+    "S5.4": 61,
+    "S5.5": 12,
+    "S6": 13,
+    "S7": 60,
+    "S8": 5
+  },
+  "N_SYNTH_section_counts": {
+    "S2": 46,
+    "S3": 112,
+    "S4": 35,
+    "S5.1": 60,
+    "S5.2": 26,
+    "S5.3": 23,
+    "S5.4": 61,
+    "S5.5": 12,
+    "S6": 13,
+    "S7": 60,
+    "S8": 5
+  },
+  "corpus_status_category_counts": {
+    "Archival accepted": 8,
+    "Archival published": 449,
+    "Excluded after publication-status validation": 3,
+    "Preprint/technical report": 324,
+    "Unconfirmed": 3,
+    "Workshop/conditional": 6,
+    "Workshop/non-archival": 12
+  },
+  "adjudicated_final_status_counts": {
+    "Archival accepted": 2,
+    "Archival published": 229,
+    "Preprint/technical report": 62,
+    "Workshop/non-archival": 4
+  },
+  "freeze_status": "publication_status_adjudication_complete_counts_frozen",
+  "frozen_at": "2026-09-13"
+}
