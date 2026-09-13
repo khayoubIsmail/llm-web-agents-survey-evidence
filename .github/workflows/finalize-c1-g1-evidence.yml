@@ -1,0 +1,114 @@
+name: Finalize C1 G1 evidence
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-c1-g1-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Repair C1 and complete targeted G1 counterexample sweep
+        run: |
+          python - <<'PY'
+          import csv,json,re
+          from pathlib import Path
+          with open('data/final_synthesis_membership.csv',encoding='utf-8-sig',newline='') as f:
+              mem=list(csv.DictReader(f))
+          synth={int(r['record_id']) for r in mem if r['in_N_SYNTH'].lower()=='yes'}
+          assert len(synth)==385
+
+          # C1: remove stale corroborating preprint record 443 (OmniParser), which is outside final synthesis.
+          p=Path('data/c1_claim_evidence_matrix.csv')
+          with p.open(encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f)); fields=list(rows[0].keys())
+          for r in rows:
+              if r['claim_id']=='C1-02':
+                  vals=[x.strip() for x in r['corroborating_study_ids'].split(';') if x.strip()]
+                  assert '443' in vals
+                  vals=[x for x in vals if x!='443']
+                  r['corroborating_study_ids']=';'.join(vals)
+                  r['boundary_rationale']=r['boundary_rationale']+' OmniParser (record 443) was removed from corroboration after final publication-status adjudication because it is outside the final synthesis set.'
+              r['verification_status']='final_385_membership_verified'
+          rows[-1]['verification_status']='final_385_membership_verified_G1_scoped_absence_confirmed'
+          with p.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields,quoting=csv.QUOTE_ALL); w.writeheader(); w.writerows(rows)
+
+          # Verify every C1 referenced ID is now inside final synthesis.
+          def ids(s): return [int(x) for x in re.findall(r'\d+',s or '')]
+          missing=set()
+          for r in rows:
+              for k in ['primary_study_ids','corroborating_study_ids','within_study_boundary_ids','independent_boundary_study_ids']:
+                  missing.update(set(ids(r[k]))-synth)
+          assert not missing, sorted(missing)
+
+          # G1 representative matrix final membership/status.
+          gp=Path('data/g1_system_requirement_matrix.csv')
+          with gp.open(encoding='utf-8-sig',newline='') as f:
+              g1=list(csv.DictReader(f)); gfields=list(g1[0].keys())
+          assert len(g1)==10
+          assert all(int(r['record_id']) in synth for r in g1)
+          req=['unfamiliar_site_navigation','explicit_schema_coverage','field_level_provenance','unsupported_value_control','cross_site_transfer','complete_dataset_assembly']
+          full=[int(r['record_id']) for r in g1 if all(r[k].strip().upper()=='YES' for k in req) and r['joint_evaluation'].strip().upper()=='YES']
+          assert not full
+          for r in g1: r['verification_status']='final_385_membership_verified_scoped_absence_confirmed'
+          with gp.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=gfields); w.writeheader(); w.writerows(g1)
+
+          # Targeted final near-miss sweep: all remaining S6 systems/background plus S8 generalization/deployment candidates.
+          near=[
+            (666,'A Systematic Review of Web Scraping: Techniques, LLM-Enhanced Approaches, Performance Metrics, and Legal-Ethical Issues','survey/background','Broad review, not an evaluated extraction system; cannot satisfy an end-to-end six-requirement contract.'),
+            (671,'Automating Web Data Collection: Challenges, Solutions, and Python-Based Strategies for Effective Web Scraping','classical scraping background','Descriptive Python scraping guidance; no LLM agent, unfamiliar-site transfer protocol, field provenance, or complete dataset contract.'),
+            (673,'ProductAgent: Benchmarking Conversational Product Search Agent with Asking Clarification Questions','conversational retrieval','Clarification and product retrieval over a fixed product corpus; not arbitrary schema-guided live-Web extraction and no field-level provenance or dataset-completeness evaluation.'),
+            (684,'Reagent: Converting Ordinary Webpages into Interactive Software Agents','historical interactive Web system','Predates LLM agents and assumes structured page regions; no modern schema/provenance/unsupported-value/cross-site extraction contract.'),
+            (685,"DataAgent: Evaluating Large Language Models' Ability to Answer Zero-Shot, Natural Language Queries",'data-analysis agent','Assumes the dataset is already available; no live-Web navigation, source provenance, or Web dataset assembly.'),
+            (687,'AutoDCWorkflow: LLM-based Data Cleaning Workflow Auto-Generation and Benchmark','post-extraction data cleaning','Operates after data acquisition on curated tables; no live-Web navigation or field-to-source provenance.'),
+            (688,'DataLab: A Unified Platform for LLM-Powered Business Intelligence','enterprise BI/data agent','Assumes internal data, schemas, and lineage; focuses preparation/analysis/visualization rather than open-Web extraction.'),
+            (690,'AutoPrep: Natural Language Question-Aware Data Preparation with a Multi-Agent Framework','table preparation agent','Works after a table is available; no live-Web extraction, provenance, site transfer, or complete collection assembly.'),
+            (797,'Generalizability of Large Language Model-Based Agents: A Comprehensive Survey','generalizability survey','Conceptual survey and evaluation framework, not an evaluated extraction system.'),
+            (799,'CowPilot: A Framework for Autonomous and Human-Agent Collaborative Web Navigation','human-in-the-loop navigation','Improves navigation through sparse human intervention; no schema-bound extraction, field provenance, or complete dataset assembly.'),
+            (801,'Agent A/B: Automated and Scalable A/B Testing on Live Websites with Interactive LLM Agents','UX simulation/A-B testing','Uses live-Web agents for behavioral experiments, not schema-guided data extraction with provenance/completeness guarantees.'),
+            (811,'The Behavioral Fabric of LLM-Powered GUI Agents: Human Values and Interaction Outcomes','value-sensitive GUI evaluation','Evaluates value-sensitive trajectories in a bounded testbed; not an extraction pipeline and does not implement the six-requirement contract.'),
+          ]
+          assert all(rid in synth for rid,_,_,_ in near)
+          with open('data/g1_final_targeted_near_miss_sweep.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.writer(f); w.writerow(['record_id','title','candidate_type','reason_not_full_contract','counterexample_to_G1'])
+              for rid,title,typ,why in near: w.writerow([rid,title,typ,why,'NO'])
+
+          summary={
+            'final_synthesis_size':385,
+            'C1_claims':len(rows),
+            'C1_all_referenced_ids_in_final_synthesis':True,
+            'C1_removed_stale_reference':443,
+            'G1_representative_systems':len(g1),
+            'G1_targeted_additional_near_misses':len(near),
+            'G1_total_system_or_edge_cases_explicitly_checked':len(g1)+len(near),
+            'G1_full_contract_counterexamples':[],
+            'G1_scoped_absence_claim_supported':True,
+            'G1_scope':'representative reviewed systems under the six operational requirements; not a universal claim over all possible systems',
+            'status':'C1_G1_final_revalidation_passed'
+          }
+          Path('data/final_c1_g1_revalidation_summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          doc='''# Final C1/G1 Revalidation after Corpus Freeze\n\nThe final qualitative-synthesis set contains **385 studies**. C1 and G1 were revalidated only after publication-status adjudication and synthesis membership were frozen.\n\n## C1 — claim-to-evidence traceability\n\nAll 11 load-bearing claims now reference only studies inside the final 385-study synthesis set. Record 443 (OmniParser) was removed from C1-02 corroboration because final publication-status adjudication placed it outside the synthesis set. The remaining C1-02 support and independent boundary evidence remain sufficient for the scoped grounding-bottleneck claim.\n\n## G1 — six-requirement system claim\n\nThe 10 representative systems in the system×requirement matrix all remain inside the final synthesis. None receives YES on all six requirements plus joint end-to-end evaluation. A targeted final counterexample sweep additionally examined the 12 remaining extraction/generalization/deployment candidates most likely to challenge the claim. These candidates are surveys/background, downstream table/BI systems, conversational retrieval, historical non-LLM interaction, HITL navigation, UX simulation, or value-sensitive GUI evaluation; none implements the complete six-requirement extraction contract.\n\nThe defensible manuscript wording is therefore:\n\n> Under the operational definitions used in our system-level comparison, none of the representative reviewed systems jointly demonstrates unfamiliar-site navigation, explicit schema coverage, field-level provenance, unsupported-value control, cross-site transfer, and complete dataset assembly in one evaluated end-to-end pipeline.\n\nThis is a **scoped representative-system conclusion**, not a universal claim that no system anywhere could satisfy the requirements.\n'''
+          Path('docs/C1_G1_FINAL_REVALIDATION.md').write_text(doc,encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit final C1/G1 evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/c1_claim_evidence_matrix.csv data/g1_system_requirement_matrix.csv data/g1_final_targeted_near_miss_sweep.csv data/final_c1_g1_revalidation_summary.json docs/C1_G1_FINAL_REVALIDATION.md
+          git commit -m 'Finalize C1 and G1 against frozen 385-study synthesis' || exit 0
+          for i in 1 2 3; do git fetch origin main; git rebase origin/main; git push origin HEAD:main && exit 0; sleep 2; done
+          exit 1
