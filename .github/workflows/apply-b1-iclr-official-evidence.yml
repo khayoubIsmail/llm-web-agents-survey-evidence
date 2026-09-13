@@ -1,0 +1,73 @@
+name: Apply B1 ICLR official evidence
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-b1-iclr-official-evidence.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply record-specific official evidence
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          ledger=Path('data/publication_status_manual_adjudication_B1_ICLR.csv')
+          resolution=Path('data/publication_status_B1_ICLR_official_resolution.csv')
+          with ledger.open(encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f)); fields=list(rows[0])
+          with resolution.open(encoding='utf-8-sig',newline='') as f:
+              rr=list(csv.DictReader(f))
+          exact={r['record_id']:r for r in rr if r['resolution_status']=='OFFICIAL_EXACT'}
+          assert len(exact)==36, len(exact)
+          manual={
+            '9':('https://openreview.net/forum?id=gEZrGCozdqR','Finetuned Language Models Are Zero-Shot Learners is published as a conference paper at ICLR 2022; the record-specific OpenReview paper confirms the final venue.'),
+            '12':('https://openreview.net/forum?id=WZH7099tgfM','The record-specific OpenReview entry and ICLR bibliographic record confirm Least-to-Most Prompting at ICLR 2023.'),
+            '284':('https://openreview.net/forum?id=ryTp3f-0-','The record-specific OpenReview forum entry confirms Reinforcement Learning on Web Interfaces Using Workflow-Guided Exploration at ICLR 2018.'),
+            '376':('https://openreview.net/forum?id=roNSXZpUDN','The record-specific OpenReview paper is explicitly published as a conference paper at ICLR 2025 under the final title τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains.'),
+            '453':('https://proceedings.iclr.cc/paper_files/paper/2025/hash/c995a913bc20ca39ce2231b8973be90a-Abstract-Conference.html','The official ICLR proceedings page confirms Learning to Contextualize Web Pages for Enhanced Decision Making by LLM Agents at ICLR 2025.'),
+            '615':('https://openreview.net/forum?id=nzodtGccEM','The record-specific OpenReview entry is an ICLR 2026 poster for Don’t Just Fine-tune the Agent, Tune the Environment; the title also appears in the official ICLR 2026 paper list.'),
+          }
+          seen=set()
+          for r in rows:
+              rid=r['record_id']
+              if r['final_status'].startswith('Archival'):
+                  if rid in exact:
+                      x=exact[rid]
+                      r['evidence_url']=x['official_url']
+                      r['final_identifier']=x['official_url']
+                      r['evidence_note']='Official ICLR proceedings record for the exact paper: '+x['official_title']+'. This replaces the earlier generic proceedings-search evidence.'
+                      seen.add(rid)
+                  elif rid in manual:
+                      url,note=manual[rid]
+                      r['evidence_url']=url
+                      r['final_identifier']=url
+                      r['evidence_note']=note
+                      seen.add(rid)
+          archival_ids={r['record_id'] for r in rows if r['final_status'].startswith('Archival')}
+          assert seen==archival_ids, {'missing':sorted(archival_ids-seen),'extra':sorted(seen-archival_ids)}
+          assert len(seen)==42
+          with ledger.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          print('updated archival ICLR evidence rows',len(seen))
+          PY
+      - name: Commit B1 ICLR evidence cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_manual_adjudication_B1_ICLR.csv
+          git commit -m 'Replace B1 ICLR generic evidence with official record URLs'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
