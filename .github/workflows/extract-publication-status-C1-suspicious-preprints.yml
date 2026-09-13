@@ -1,0 +1,42 @@
+name: Extract publication status C1 suspicious preprints
+
+on:
+  push:
+    paths:
+      - '.github/workflows/extract-publication-status-C1-suspicious-preprints.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract 8 suspicious OK_PREPRINT records
+        run: |
+          python - <<'PY'
+          import csv
+          src='data/publication_status_adjudication_queue.csv'
+          out='data/publication_status_C1_suspicious_preprint_queue.csv'
+          with open(src,encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          rr=[r for r in rows if r.get('machine_verdict')=='OK_PREPRINT' and r.get('suspicious_ok_preprint')=='yes']
+          assert len(rr)==8, len(rr)
+          with open(out,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(rr[0])); w.writeheader(); w.writerows(rr)
+          print([(r['record_id'],r['title']) for r in rr])
+          PY
+      - name: Commit queue
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_C1_suspicious_preprint_queue.csv
+          git commit -m 'Isolate final 8 suspicious preprint adjudications'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
