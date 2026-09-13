@@ -1,0 +1,53 @@
+{
+  "mapping_corpus": 805,
+  "publication_eligible_pool_N_POOL": 454,
+  "normalized_note_candidate_set": 403,
+  "final_synthesis_N_SYNTH": 385,
+  "excluded_from_403_total": 18,
+  "excluded_not_publication_eligible": 17,
+  "excluded_full_text_exception": 1,
+  "priority_counts": {
+    "P0": 18,
+    "P1": 96,
+    "P2": 189,
+    "P3": 82
+  },
+  "deep_P0_P1": 114,
+  "structured_P2_P3": 271,
+  "section_counts": {
+    "S2": 45,
+    "S3": 78,
+    "S4": 31,
+    "S5.1": 58,
+    "S5.2": 25,
+    "S5.3": 20,
+    "S5.4": 57,
+    "S5.5": 11,
+    "S6": 13,
+    "S7": 43,
+    "S8": 4
+  },
+  "status_category_counts": {
+    "Archival accepted": 8,
+    "Archival published": 377
+  },
+  "year_counts": {
+    "2017": 2,
+    "2018": 1,
+    "2019": 3,
+    "2020": 8,
+    "2021": 3,
+    "2022": 9,
+    "2023": 32,
+    "2024": 113,
+    "2025": 148,
+    "2026": 66
+  },
+  "studies_2023_or_later": 359,
+  "percentage_2023_or_later": 93.2,
+  "year_2026_count": 66,
+  "bar_total": 385,
+  "counts_frozen": true,
+  "source_membership": "data/final_synthesis_membership.csv",
+  "source_corpus": "data/studies_805_mapping_corpus.csv"
+}
