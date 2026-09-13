@@ -28,7 +28,16 @@ jobs:
             ('A2_official_proceedings','data/publication_status_manual_adjudication_A2_official_proceedings.csv'),
             ('A2_openreview','data/publication_status_manual_adjudication_A2_openreview.csv'),
             ('A3_upgrades','data/publication_status_manual_adjudication_A3_upgrades.csv'),
+            ('B1_ICLR','data/publication_status_manual_adjudication_B1_ICLR.csv'),
+            ('B1_PMLR','data/publication_status_manual_adjudication_B1_PMLR.csv'),
+            ('B1_COLM','data/publication_status_manual_adjudication_B1_COLM.csv'),
+            ('B1_TMLR','data/publication_status_manual_adjudication_B1_TMLR.csv'),
+            ('B1_remainder','data/publication_status_manual_adjudication_B1_remainder.csv'),
           ]
+          expected={
+            'A1':17,'A2_official_proceedings':13,'A2_openreview':26,'A3_upgrades':58,
+            'B1_ICLR':45,'B1_PMLR':15,'B1_COLM':11,'B1_TMLR':8,'B1_remainder':22,
+          }
           with open('data/publication_status_adjudication_queue.csv',encoding='utf-8-sig',newline='') as f:
               queue=list(csv.DictReader(f))
           qids={int(r['record_id']) for r in queue}
@@ -40,23 +49,26 @@ jobs:
               for r in rr:
                   r=dict(r); r['adjudication_batch']=batch; rows.append(r)
           ids=[int(r['record_id']) for r in rows]
-          assert len(ids)==114, len(ids)
-          assert len(set(ids))==114, 'duplicate adjudication IDs'
+          assert len(ids)==215, len(ids)
+          assert len(set(ids))==215, 'duplicate adjudication IDs'
           assert set(ids) <= qids, sorted(set(ids)-qids)
-          assert per=={'A1':17,'A2_official_proceedings':13,'A2_openreview':26,'A3_upgrades':58}, per
+          assert per==expected, per
           rows.sort(key=lambda r:int(r['record_id']))
           fields=['adjudication_batch']+[k for k in rows[0].keys() if k!='adjudication_batch']
           with open('data/publication_status_manual_adjudication_all.csv','w',encoding='utf-8',newline='') as f:
               w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
           machine=Counter(r['machine_verdict'] for r in rows)
           decisions=Counter(r['decision'] for r in rows)
+          finals=Counter(r['final_status'] for r in rows)
           summary={
             'queue_total':len(queue),
             'adjudicated_total':len(rows),
             'remaining_total':len(queue)-len(rows),
             'batches':per,
             'machine_verdict_counts_adjudicated':dict(sorted(machine.items())),
+            'final_status_counts_adjudicated':dict(sorted(finals.items())),
             'decision_counts':dict(sorted(decisions.items())),
+            'next_unreviewed_groups':{'B2_NO_MATCH':74,'C1_suspicious_OK_PREPRINT':8},
             'corpus_mutation_status':'not_applied_pending_full_manual_adjudication',
           }
           open('data/publication_status_manual_adjudication_summary.json','w',encoding='utf-8').write(json.dumps(summary,indent=2)+'\n')
@@ -67,7 +79,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/publication_status_manual_adjudication_all.csv data/publication_status_manual_adjudication_summary.json
-          git commit -m 'Consolidate 114 publication-status adjudications' || exit 0
+          git commit -m 'Consolidate 215 publication-status adjudications' || exit 0
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
