@@ -1,0 +1,53 @@
+name: Build remaining A2 publication adjudication queue
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-a2-remaining-adjudication.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build remaining A2 queue
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          q='data/publication_status_adjudication_queue.csv'
+          done_files=[
+            'data/publication_status_manual_adjudication.csv',
+            'data/publication_status_manual_adjudication_A2_official_proceedings.csv',
+          ]
+          done=set()
+          for p in done_files:
+              if os.path.exists(p):
+                  with open(p, encoding='utf-8-sig', newline='') as f:
+                      for r in csv.DictReader(f):
+                          done.add(int(r['record_id']))
+          with open(q, encoding='utf-8-sig', newline='') as f:
+              rows=[r for r in csv.DictReader(f) if r['priority']=='A2' and int(r['record_id']) not in done]
+          assert len(rows)==26, len(rows)
+          fields=list(rows[0].keys())
+          out='data/publication_status_A2_remaining_queue.csv'
+          with open(out,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          summary={'remaining_a2_rows':len(rows),'record_ids':[int(r['record_id']) for r in rows]}
+          open('data/publication_status_A2_remaining_queue_summary.json','w',encoding='utf-8').write(json.dumps(summary,indent=2)+'\n')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit queue
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_A2_remaining_queue.csv data/publication_status_A2_remaining_queue_summary.json
+          git commit -m 'Add remaining 26 A2 publication adjudication cases'
+          git push
