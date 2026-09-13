@@ -1,0 +1,43 @@
+name: Summarize B1 ICLR resolution
+
+on:
+  push:
+    paths:
+      - '.github/workflows/summarize-b1-iclr-resolution.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Summarize official ICLR resolution
+        run: |
+          python - <<'PY'
+          import csv,json
+          from collections import Counter
+          from pathlib import Path
+          p='data/publication_status_B1_ICLR_official_resolution.csv'
+          with open(p,encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          c=Counter(r['resolution_status'] for r in rows)
+          unresolved=[{'record_id':r['record_id'],'title':r['ledger_title'],'status':r['resolution_status'],'similarity':r['title_similarity'],'official_title':r['official_title'],'official_url':r['official_url']} for r in rows if r['resolution_status']!='OFFICIAL_EXACT']
+          out={'rows':len(rows),'status_counts':dict(sorted(c.items())),'non_exact':unresolved}
+          Path('data/publication_status_B1_ICLR_official_resolution_summary.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,indent=2))
+          PY
+      - name: Commit summary
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_B1_ICLR_official_resolution_summary.json
+          git commit -m 'Summarize ICLR official evidence resolution'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
