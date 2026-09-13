@@ -1,0 +1,50 @@
+name: Split publication status B1 families
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/split-publication-status-B1-families.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Split B1 triage into manageable files
+        run: |
+          python - <<'PY'
+          import csv, os
+          src='data/publication_status_B1_downgrade_triage.csv'
+          rows=list(csv.DictReader(open(src,encoding='utf-8-sig',newline='')))
+          groups={}
+          for r in rows: groups.setdefault(r['venue_family'],[]).append(r)
+          for fam,rr in groups.items():
+              chunk_size=15 if len(rr)>15 else len(rr)
+              chunks=[rr[i:i+chunk_size] for i in range(0,len(rr),chunk_size)]
+              for j,ch in enumerate(chunks):
+                  suffix=f'_chunk_{j}' if len(chunks)>1 else ''
+                  path=f'data/adjudication_batches/B1_{fam}{suffix}.csv'
+                  os.makedirs(os.path.dirname(path),exist_ok=True)
+                  with open(path,'w',encoding='utf-8',newline='') as f:
+                      w=csv.DictWriter(f,fieldnames=list(ch[0]));w.writeheader();w.writerows(ch)
+                  print(path,len(ch))
+          PY
+      - name: Commit family files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/adjudication_batches
+          git commit -m "Split 101 downgrade cases by venue family" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
