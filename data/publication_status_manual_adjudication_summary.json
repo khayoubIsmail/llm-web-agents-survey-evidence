@@ -1,31 +1,62 @@
 {
   "queue_total": 297,
-  "adjudicated_total": 114,
-  "remaining_total": 183,
+  "adjudicated_total": 215,
+  "remaining_total": 82,
   "batches": {
     "A1": 17,
     "A2_official_proceedings": 13,
     "A2_openreview": 26,
-    "A3_upgrades": 58
+    "A3_upgrades": 58,
+    "B1_ICLR": 45,
+    "B1_PMLR": 15,
+    "B1_COLM": 11,
+    "B1_TMLR": 8,
+    "B1_remainder": 22
   },
   "machine_verdict_counts_adjudicated": {
-    "DOWNGRADE": 39,
+    "DOWNGRADE": 140,
     "UPGRADE": 58,
     "VENUE_MISMATCH": 15,
     "VENUE_MISSING": 2
   },
+  "final_status_counts_adjudicated": {
+    "Archival accepted": 2,
+    "Archival published": 200,
+    "Preprint/technical report": 13
+  },
   "decision_counts": {
+    "RETAIN_ARCHIVAL_ACCEPTED_ACM": 1,
+    "RETAIN_ARCHIVAL_ACCEPTED_OFFICIAL_ICML": 1,
     "RETAIN_ARCHIVAL_CORRECT_IDENTIFIER": 3,
+    "RETAIN_ARCHIVAL_CORRECT_TITLE_CVPR": 1,
+    "RETAIN_ARCHIVAL_CORRECT_TITLE_IDENTIFIER": 1,
     "RETAIN_ARCHIVAL_CORRECT_VENUE": 3,
     "RETAIN_ARCHIVAL_NORMALIZE_CONTAINER": 2,
     "RETAIN_ARCHIVAL_NORMALIZE_VENUE": 9,
-    "RETAIN_ARCHIVAL_OFFICIAL_ICLR": 2,
+    "RETAIN_ARCHIVAL_OFFICIAL_ACL": 1,
+    "RETAIN_ARCHIVAL_OFFICIAL_COLM": 11,
+    "RETAIN_ARCHIVAL_OFFICIAL_CVF": 2,
+    "RETAIN_ARCHIVAL_OFFICIAL_ICLR": 45,
+    "RETAIN_ARCHIVAL_OFFICIAL_IJCAI": 2,
+    "RETAIN_ARCHIVAL_OFFICIAL_NEURIPS": 1,
     "RETAIN_ARCHIVAL_OFFICIAL_OPENREVIEW": 11,
+    "RETAIN_ARCHIVAL_OFFICIAL_PMLR": 14,
     "RETAIN_ARCHIVAL_OFFICIAL_PROCEEDINGS": 12,
-    "RETAIN_ARCHIVAL_OFFICIAL_TMLR": 3,
+    "RETAIN_ARCHIVAL_OFFICIAL_TMLR": 11,
     "SET_ARCHIVAL_PUBLISHED": 11,
+    "SET_ARCHIVAL_PUBLISHED_AAMAS": 1,
+    "SET_ARCHIVAL_PUBLISHED_FINAL_TITLE": 1,
     "SET_ARCHIVAL_PUBLISHED_MANUAL_OFFICIAL": 2,
-    "SET_ARCHIVAL_PUBLISHED_STRONG_TITLE_DOI": 56
+    "SET_ARCHIVAL_PUBLISHED_STRONG_TITLE_DOI": 56,
+    "SET_PREPRINT_NO_ARCHIVAL_EVIDENCE": 6,
+    "SET_PREPRINT_ONLY": 2,
+    "SET_PREPRINT_TECH_REPORT_NO_FINAL_ICLR": 2,
+    "SET_PREPRINT_UNDER_REVIEW": 1,
+    "SET_PREPRINT_WRONG_ACL_IDENTIFIER": 2
+  },
+  "next_unreviewed_groups": {
+    "B2_NO_MATCH": 74,
+    "C1_suspicious_OK_PREPRINT": 8
   },
   "corpus_mutation_status": "not_applied_pending_full_manual_adjudication"
 }
