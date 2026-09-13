@@ -1,0 +1,27 @@
+{
+  "queue_total": 297,
+  "adjudicated_total": 56,
+  "remaining_total": 241,
+  "batches": {
+    "A1": 17,
+    "A2_official_proceedings": 13,
+    "A2_openreview": 26
+  },
+  "machine_verdict_counts_adjudicated": {
+    "DOWNGRADE": 39,
+    "VENUE_MISMATCH": 15,
+    "VENUE_MISSING": 2
+  },
+  "decision_counts": {
+    "RETAIN_ARCHIVAL_CORRECT_IDENTIFIER": 3,
+    "RETAIN_ARCHIVAL_CORRECT_VENUE": 3,
+    "RETAIN_ARCHIVAL_NORMALIZE_CONTAINER": 2,
+    "RETAIN_ARCHIVAL_NORMALIZE_VENUE": 9,
+    "RETAIN_ARCHIVAL_OFFICIAL_ICLR": 2,
+    "RETAIN_ARCHIVAL_OFFICIAL_OPENREVIEW": 11,
+    "RETAIN_ARCHIVAL_OFFICIAL_PROCEEDINGS": 12,
+    "RETAIN_ARCHIVAL_OFFICIAL_TMLR": 3,
+    "SET_ARCHIVAL_PUBLISHED": 11
+  },
+  "corpus_mutation_status": "not_applied_pending_full_manual_adjudication"
+}
