@@ -1,0 +1,73 @@
+record_id,title,section,already_in_g1_matrix
+215,AgentKit: Structured LLM Reasoning with Dynamic Graphs,S3,no
+274,"Data Agents: Levels, State of the Art, and Open Problems",S3,no
+282,SeeAct- GPT-4V__ision__ is a Generalist Web Agent if Grounded,S4,yes
+283,- WebVoyager- Building an End-to-End Web Agent with,S4,no
+285,DOM-Q-NET- Grounded RL on Structured Language,S4,no
+298,WALT- Web Agents that Learn Tools,S4,no
+303,A Zero-Shot Language Agent for Computer Control with Structured Reflection,S4,no
+311,OpenWebAgent- An Open Toolkit to Enable Web Agents on Large Language Models,S4,no
+322,Beyond Browsing API-Based Web Agents,S4,no
+330,BrowserAgent- Building Web Agents with Human-Inspired Web Browsing Actions,S4,no
+344,WorkArena- How Capable Are Web Agents at Solving Common Knowledge Work Tasks,S5.1,no
+345,TurkingBench A Challenge Benchmark for Web Agents,S5.1,no
+348,AssistantBench- Can Web Agents Solve Realistic and Time-Consuming Tasks,S5.1,no
+351,The BrowserGym Ecosystem for Web Agent Research,S5.1,no
+353,BEARCUBS A benchmark for computer-using web agents,S5.1,no
+356,AgentRewardBench Evaluating Automatic Evaluations of Web Agent Trajectories,S5.1,no
+367,ST-WebAgentBench- A Benchmark for Evaluating Safety and Trustworthiness in Web Agents,S5.1,no
+386,Evaluating Cultural and Social Awareness of LLM Web Agents,S5.1,no
+388,WebOlympus- An Open Platform for Web Agents on Live Websites,S5.1,no
+424,Ego2Web- A Web Agent Benchmark Grounded in Egocentric Videos,S5.1,no
+454,Prune4Web- DOM Tree Pruning Programming for Web Agent,S5.2,no
+479,RaDA- Retrieval-augmented Web Agent Planning with LLMs,S5.3,no
+482,WebRollback Enhancing Web Agents with Explicit Rollback Mechanisms,S5.3,no
+483,AGENTOCCAM- A Simple Yet Strong Baseline for LLM-Based Web Agents,S5.3,no
+484,WebDreamer- Is Your LLM Secretly a World Model of the Internet Model-Based Planning for Web Agents,S5.3,no
+485,WebCoT Enhancing Web Agent Reasoning by Reconstructing Chain-of-Thought in Reflection Branching and Rollback,S5.3,no
+517,WebRL- Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning,S5.4,no
+524,"OpenWebVoyager- Building Multimodal Web Agents via Iterative Real-World Exploration, Feedback and Optimization",S5.4,no
+527,AdaptAgent Adapting Multimodal Web Agents with Few-Shot Learning from Human Demonstrations,S5.4,no
+533,WebEvolver Enhancing Web Agent Self-Improvement with Coevolving World Model,S5.4,no
+534,Explorer- Scaling Exploration-driven Web Trajectory Synthesis for Multimodal Web Agents,S5.4,no
+536,Web-Shepherd Advancing PRMs for Reinforcing Web Agents,S5.4,no
+537,WorkForceAgent-R1 Incentivizing Reasoning Capability in LLM-based Web Agents via Reinforcement Learning,S5.4,no
+538,Go-Browse- Training Web Agents with Structured Exploration,S5.4,no
+539,TGPO- TREE-GUIDED PREFERENCE OPTIMIZATION FOR ROBUST WEB AGENT REINFORCEMENT LEARNING,S5.4,no
+541,WebAgent-R1- Training Web Agents via End-to-End Multi-Turn Reinforcement Learning,S5.4,no
+546,How to Train Your LLM Web Agent- A Statistical Diagnosis,S5.4,no
+548,WebGym- Scaling Training Environments for Visual Web Agents with Realistic Tasks,S5.4,no
+552,SynthAgent- Adapting Web Agents with Synthetic Supervision,S5.4,no
+554,WebFactory- Automated Compression of Foundational Language Intelligence into Grounded Web Agents,S5.4,no
+556,On the Multi-turn Instruction Following for Conversational Web Agents,S5.4,no
+565,Auto-Intent: Automated Intent Discovery and Self-Exploration for Large Language Model Web Agents,S5.4,no
+575,Large Language Models Empowered Personalized Web Agents,S5.4,no
+589,Structured Agent Distillation for Large Language Model,S5.4,no
+634,ColorBrowserAgent- Complex Long-Horizon Browser Agent with Adaptive Knowledge Evolution,S5.4,no
+639,WAREX- WEB AGENT RELIABILITY EVALUATION ON EXISTING BENCHMARKS,S5.5,no
+640,An Illusion of Progress - Assessing the Current State of Web Agents,S5.5,no
+641,Why Do LLM-based Web Agents Fail- A Hierarchical Planning Perspective,S5.5,no
+646,Are Autonomous Web Agents Good Testers,S5.5,no
+661,AutoScraper- A Progressive Understanding Web Agent for Web Scraper Generation,S6,yes
+663,INFOGEN- An Agent-Based Framework for Web Information Aggregation,S6,yes
+666,"A Systematic Review of Web Scraping- Techniques, LLM-Enhanced Approaches, Performance Metrics, and Legal-Ethical Issues",S6,no
+667,SCRIBES- Web-Scale Script-Based Semi-Structured Data Extraction with Reinforcement Learning,S6,yes
+671,"Automating Web Data Collection- Challenges, Solutions, and Python-Based Strategies for Effective Web Scraping",S6,no
+673,ProductAgent Benchmarking Conversational Product Search Agent with Asking Clarification Questions,S6,no
+675,OneKE A Dockerized Schema-Guided LLM Agent-based Knowledge Extraction System,S6,yes
+684,Reagent: Converting Ordinary Webpages into Interactive Software Agents,S6,no
+685,"DataAgent: Evaluating Large Language Models' Ability to Answer Zero-Shot, Natural Language Queries",S6,no
+687,AutoDCWorkflow: LLM-based Data Cleaning Workflow Auto-Generation and Benchmark,S6,no
+688,DataLab: A Unified Platform for LLM-Powered Business Intelligence,S6,no
+690,AutoPrep: Natural Language Question-Aware Data Preparation with a Multi-Agent Framework,S6,no
+692,WiNELL: Wikipedia Never-Ending Updating with LLM Agents,S6,yes
+699,AdvAgent Controllable Blackbox Red-teaming on Web Agents,S7,no
+702,EIA- Environmental Injection Attack on Generalist Web Agents for Privacy Leakage,S7,no
+703,SafeArena Evaluating the Safety of Autonomous Web Agents,S7,no
+709,WebInject Prompt Injection Attack to Web Agents,S7,no
+717,Investigating the Impact of Dark Patterns on LLM-Based Web Agents,S7,no
+718,WebCloak- Characterizing and Mitigating Threats from LLM-Driven Web Agents as Intelligent Scrapers,S7,no
+797,Generalizability of Large Language Model-Based Agents- A comprehensive survey,S8,no
+799,CowPilot A Framework for Autonomous and Human-Agent Collaborative Web Navigation,S8,no
+801,"Agent A/B- Automated and Scalable A/B Testing on Live Websites with Interactive LLM Agents [MERGED: consolidates former duplicate row #802, ""AgentAB"" title variant — confirmed same paper]",S8,no
+811,The Behavioral Fabric of LLM-Powered GUI Agents- HumanValues and Interaction Outcomes,S8,no
