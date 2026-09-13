@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence/schemas/evidence_object.schema.json",
+  "title": "Schema-Guided Extraction Evidence Object",
+  "description": "A field-level evidence record linking one predicted value to a frozen web-source artifact and a replayable transformation history.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "task_id",
+    "run_id",
+    "record_id",
+    "field_path",
+    "predicted_value",
+    "source",
+    "locator",
+    "transformation_history"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "field_path": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Leaf field path in the declared target schema, e.g. price or seller.name."
+    },
+    "predicted_value": {
+      "description": "The value claimed by the evaluated system. Any JSON value is permitted because the target schema supplies the domain type."
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "locator": {
+      "oneOf": [
+        { "$ref": "#/$defs/domLocator" },
+        { "$ref": "#/$defs/textLocator" },
+        { "$ref": "#/$defs/visionLocator" }
+      ]
+    },
+    "transformation_history": {
+      "type": "array",
+      "description": "Ordered deterministic transformations from source form to the reported normalized value. Empty when the source form is used directly.",
+      "items": {
+        "$ref": "#/$defs/transformationStep"
+      }
+    },
+    "verification": {
+      "$ref": "#/$defs/verification"
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page_id", "url", "snapshot_at", "retrieved_at"],
+      "properties": {
+        "page_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "snapshot_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp at which the evaluator/run retrieved or loaded the frozen artifact."
+        },
+        "artifact": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Artifact name/path, e.g. page.html, text.txt, or screenshot.png."
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        }
+      }
+    },
+    "domLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "selector_type", "selector", "text_quote"],
+      "properties": {
+        "channel": {
+          "const": "dom"
+        },
+        "selector_type": {
+          "enum": ["css", "xpath", "ax_node"]
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attribute": {
+          "type": ["string", "null"]
+        },
+        "text_quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "textLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "artifact", "char_start", "char_end", "text_quote"],
+      "properties": {
+        "channel": {
+          "const": "text"
+        },
+        "artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "char_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text_quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "visionLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "screenshot_id", "bounding_box"],
+      "properties": {
+        "channel": {
+          "const": "vision"
+        },
+        "screenshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tile_index": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "bounding_box": {
+          "type": "array",
+          "description": "[x, y, width, height] in screenshot pixels.",
+          "prefixItems": [
+            { "type": "number", "minimum": 0 },
+            { "type": "number", "minimum": 0 },
+            { "type": "number", "exclusiveMinimum": 0 },
+            { "type": "number", "exclusiveMinimum": 0 }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "text_quote": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "transformationStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "input_value", "output_value"],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Whitelisted deterministic operation such as trim, casefold, parse_money, parse_date, unit_convert, or enum_map."
+        },
+        "input_value": {},
+        "output_value": {},
+        "parameters": {
+          "type": "object"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["available", "supported", "method"],
+      "properties": {
+        "available": {
+          "type": "boolean",
+          "description": "Operational A(p)."
+        },
+        "supported": {
+          "type": "boolean",
+          "description": "Operational S(p)."
+        },
+        "method": {
+          "enum": ["automatic", "manual_frozen_artifact"]
+        },
+        "reason": {
+          "type": ["string", "null"]
+        },
+        "evaluator_version": {
+          "type": ["string", "null"]
+        },
+        "verified_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
