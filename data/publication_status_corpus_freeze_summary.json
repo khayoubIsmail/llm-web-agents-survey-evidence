@@ -34,7 +34,7 @@
     249
   ],
   "N_POOL": 454,
-  "N_SYNTH": 453,
+  "N_SYNTH": 385,
   "N_POOL_priority_counts": {
     "P0": 18,
     "P1": 110,
@@ -43,9 +43,9 @@
   },
   "N_SYNTH_priority_counts": {
     "P0": 18,
-    "P1": 110,
-    "P2": 233,
-    "P3": 92
+    "P1": 96,
+    "P2": 189,
+    "P3": 82
   },
   "N_POOL_section_counts": {
     "S2": 46,
@@ -61,17 +61,17 @@
     "S8": 5
   },
   "N_SYNTH_section_counts": {
-    "S2": 46,
-    "S3": 112,
-    "S4": 35,
-    "S5.1": 60,
-    "S5.2": 26,
-    "S5.3": 23,
-    "S5.4": 61,
-    "S5.5": 12,
+    "S2": 45,
+    "S3": 78,
+    "S4": 31,
+    "S5.1": 58,
+    "S5.2": 25,
+    "S5.3": 20,
+    "S5.4": 57,
+    "S5.5": 11,
     "S6": 13,
-    "S7": 60,
-    "S8": 5
+    "S7": 43,
+    "S8": 4
   },
   "corpus_status_category_counts": {
     "Archival accepted": 8,
@@ -88,6 +88,13 @@
     "Preprint/technical report": 62,
     "Workshop/non-archival": 4
   },
-  "freeze_status": "publication_status_adjudication_complete_counts_frozen",
-  "frozen_at": "2026-09-13"
+  "freeze_status": "publication_status_and_synthesis_membership_reconciled_counts_frozen",
+  "frozen_at": "2026-09-13",
+  "normalized_note_membership_count": 403,
+  "synthesis_membership_source": "notes/papers/*.md record IDs",
+  "N_SYNTH_excluded_from_403_normalized_notes": 18,
+  "N_SYNTH_exclusion_reason_counts": {
+    "full-text access exception": 1,
+    "not publication-eligible after final adjudication": 17
+  }
 }
