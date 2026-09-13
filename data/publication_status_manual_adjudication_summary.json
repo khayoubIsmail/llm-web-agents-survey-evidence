@@ -1,14 +1,16 @@
 {
   "queue_total": 297,
-  "adjudicated_total": 56,
-  "remaining_total": 241,
+  "adjudicated_total": 114,
+  "remaining_total": 183,
   "batches": {
     "A1": 17,
     "A2_official_proceedings": 13,
-    "A2_openreview": 26
+    "A2_openreview": 26,
+    "A3_upgrades": 58
   },
   "machine_verdict_counts_adjudicated": {
     "DOWNGRADE": 39,
+    "UPGRADE": 58,
     "VENUE_MISMATCH": 15,
     "VENUE_MISSING": 2
   },
@@ -21,7 +23,9 @@
     "RETAIN_ARCHIVAL_OFFICIAL_OPENREVIEW": 11,
     "RETAIN_ARCHIVAL_OFFICIAL_PROCEEDINGS": 12,
     "RETAIN_ARCHIVAL_OFFICIAL_TMLR": 3,
-    "SET_ARCHIVAL_PUBLISHED": 11
+    "SET_ARCHIVAL_PUBLISHED": 11,
+    "SET_ARCHIVAL_PUBLISHED_MANUAL_OFFICIAL": 2,
+    "SET_ARCHIVAL_PUBLISHED_STRONG_TITLE_DOI": 56
   },
   "corpus_mutation_status": "not_applied_pending_full_manual_adjudication"
 }
