@@ -1,0 +1,10 @@
+{
+  "rows": 74,
+  "bucket_counts": {
+    "ARCHIVAL_NO_DIRECT_ID": 7,
+    "ARCHIVAL_SUSPICIOUS_VENUE": 2,
+    "ARCHIVAL_WITH_DIRECT_ID": 14,
+    "REGISTER_PREPRINT": 49,
+    "REGISTER_UNCONFIRMED": 2
+  }
+}
