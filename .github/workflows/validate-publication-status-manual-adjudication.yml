@@ -1,0 +1,70 @@
+name: Validate publication status manual adjudication
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-publication-status-manual-adjudication.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Consolidate and validate ledgers
+        run: |
+          python - <<'PY'
+          import csv, json
+          from collections import Counter
+          files = [
+            ('A1','data/publication_status_manual_adjudication.csv'),
+            ('A2_official_proceedings','data/publication_status_manual_adjudication_A2_official_proceedings.csv'),
+            ('A2_openreview','data/publication_status_manual_adjudication_A2_openreview.csv'),
+          ]
+          with open('data/publication_status_adjudication_queue.csv',encoding='utf-8-sig',newline='') as f:
+              queue=list(csv.DictReader(f))
+          qids={int(r['record_id']) for r in queue}
+          rows=[]; per={}
+          for batch,path in files:
+              with open(path,encoding='utf-8-sig',newline='') as f:
+                  rr=list(csv.DictReader(f))
+              per[batch]=len(rr)
+              for r in rr:
+                  r=dict(r); r['adjudication_batch']=batch; rows.append(r)
+          ids=[int(r['record_id']) for r in rows]
+          assert len(ids)==56, len(ids)
+          assert len(set(ids))==56, 'duplicate adjudication IDs'
+          assert set(ids) <= qids, sorted(set(ids)-qids)
+          assert per=={'A1':17,'A2_official_proceedings':13,'A2_openreview':26}, per
+          rows.sort(key=lambda r:int(r['record_id']))
+          fields=['adjudication_batch']+[k for k in rows[0].keys() if k!='adjudication_batch']
+          with open('data/publication_status_manual_adjudication_all.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          machine=Counter(r['machine_verdict'] for r in rows)
+          decisions=Counter(r['decision'] for r in rows)
+          summary={
+            'queue_total':len(queue),
+            'adjudicated_total':len(rows),
+            'remaining_total':len(queue)-len(rows),
+            'batches':per,
+            'machine_verdict_counts_adjudicated':dict(sorted(machine.items())),
+            'decision_counts':dict(sorted(decisions.items())),
+            'corpus_mutation_status':'not_applied_pending_full_manual_adjudication',
+          }
+          open('data/publication_status_manual_adjudication_summary.json','w',encoding='utf-8').write(json.dumps(summary,indent=2)+'\n')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit consolidated ledger and summary
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_manual_adjudication_all.csv data/publication_status_manual_adjudication_summary.json
+          git commit -m 'Consolidate 56 publication-status adjudications'
+          git push
