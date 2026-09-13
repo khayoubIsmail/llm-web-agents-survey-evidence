@@ -1,0 +1,52 @@
+name: Correct publication status B1 Synapse
+
+on:
+  push:
+    paths:
+      - '.github/workflows/correct-publication-status-B1-synapse.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Correct record 457 adjudication
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('data/publication_status_manual_adjudication_B1_ICLR.csv')
+          with p.open(encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f)); fields=list(rows[0])
+          found=0
+          for r in rows:
+              if r['record_id']=='457':
+                  found+=1
+                  r['decision']='SET_PREPRINT_WRONG_ARCHIVAL_CLAIM'
+                  r['final_status']='Preprint/technical report'
+                  r['final_venue']='arXiv / CoRR'
+                  r['final_identifier']='https://arxiv.org/abs/2306.07863'
+                  r['evidence_url']='https://dblp.org/rec/journals/corr/abs-2306-07863'
+                  r['evidence_note']='Authoritative bibliographic review lists Synapse: Leveraging Few-Shot Exemplars for Human-Level Computer Control only as CoRR/arXiv 2306.07863. The stored ICLR claim/title variant is unsupported; no final ICLR proceedings record was found.'
+                  r['corpus_action']='set Preprint/technical report; correct title to Synapse: Leveraging Few-Shot Exemplars for Human-Level Computer Control; use arXiv 2306.07863; flag duplicate/version overlap with record 301 for later corpus reconciliation'
+          assert found==1, found
+          with p.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          PY
+      - name: Commit correction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_manual_adjudication_B1_ICLR.csv
+          git commit -m 'Correct Synapse to preprint in publication adjudication'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
