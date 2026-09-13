@@ -1,0 +1,115 @@
+name: Reconcile synthesis membership after publication freeze
+
+on:
+  push:
+    paths:
+      - '.github/workflows/reconcile-synthesis-membership-after-publication-freeze.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recompute synthesis membership from normalized notes
+        run: |
+          python - <<'PY'
+          import csv, json
+          from collections import Counter
+          from pathlib import Path
+
+          def read_csv(path):
+              with open(path,encoding='utf-8-sig',newline='') as f:
+                  return list(csv.DictReader(f))
+          def write_csv(path,rows,fields):
+              with open(path,'w',encoding='utf-8',newline='') as f:
+                  w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+
+          corpus=read_csv('data/studies_805_mapping_corpus.csv')
+          byid={int(r['record_id']):r for r in corpus}
+          assert len(corpus)==805 and len(byid)==805
+
+          note_paths=sorted(Path('notes/papers').glob('*.md'))
+          note_ids=[]
+          bad=[]
+          for p in note_paths:
+              try: note_ids.append(int(p.stem))
+              except ValueError: bad.append(p.name)
+          assert not bad, bad
+          assert len(note_ids)==403, len(note_ids)
+          assert len(set(note_ids))==403
+          assert set(note_ids) <= set(byid), sorted(set(note_ids)-set(byid))
+
+          strict_exclusions={93,301,491}
+          pool=[]
+          for r in corpus:
+              rid=int(r['record_id'])
+              if r['priority'] not in {'P0','P1','P2','P3'}: continue
+              if r['status_category'] not in {'Archival published','Archival accepted'}: continue
+              if rid in strict_exclusions: continue
+              pool.append(r)
+          pool_ids={int(r['record_id']) for r in pool}
+
+          membership=[]
+          synth=[]
+          for rid in note_ids:
+              r=byid[rid]
+              if rid==249:
+                  included=False; reason='full-text access exception'
+              elif rid not in pool_ids:
+                  included=False; reason='not publication-eligible after final adjudication'
+              else:
+                  included=True; reason='publication-eligible normalized-note synthesis study'
+                  synth.append(r)
+              membership.append({
+                'record_id':rid,'title':r['title'],'priority':r['priority'],'section':r['section'],
+                'status_category':r['status_category'],'in_N_POOL':'yes' if rid in pool_ids else 'no',
+                'in_N_SYNTH':'yes' if included else 'no','exclusion_reason':reason if not included else ''
+              })
+          assert 249 in set(note_ids)
+          assert 249 in pool_ids
+          assert 249 not in {int(r['record_id']) for r in synth}
+
+          def counts(rows,key): return dict(sorted(Counter(r[key] for r in rows).items()))
+          summary_path=Path('data/publication_status_corpus_freeze_summary.json')
+          summary=json.loads(summary_path.read_text(encoding='utf-8'))
+          summary['normalized_note_membership_count']=403
+          summary['synthesis_membership_source']='notes/papers/*.md record IDs'
+          summary['N_POOL']=len(pool)
+          summary['N_SYNTH']=len(synth)
+          summary['N_POOL_priority_counts']=counts(pool,'priority')
+          summary['N_SYNTH_priority_counts']=counts(synth,'priority')
+          summary['N_POOL_section_counts']=counts(pool,'section')
+          summary['N_SYNTH_section_counts']=counts(synth,'section')
+          summary['N_SYNTH_excluded_from_403_normalized_notes']=403-len(synth)
+          summary['N_SYNTH_exclusion_reason_counts']=dict(sorted(Counter(x['exclusion_reason'] for x in membership if x['in_N_SYNTH']=='no').items()))
+          summary['freeze_status']='publication_status_and_synthesis_membership_reconciled_counts_frozen'
+          summary_path.write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+
+          write_csv('data/final_synthesis_membership.csv',membership,['record_id','title','priority','section','status_category','in_N_POOL','in_N_SYNTH','exclusion_reason'])
+
+          doc=f'''# Final publication-status adjudication\n\n- Manual adjudication queue: **297 / 297 complete**.\n- Blocking evidence-integrity flags: **0**.\n- Corpus rows: **805**.\n- Normalized paper-note membership: **403** (`notes/papers/*.md`).\n- Publication-status eligible pool (`N_POOL`): **{len(pool)}**.\n- Final synthesis set (`N_SYNTH`), defined as publication-eligible normalized-note studies minus the full-text exception: **{len(synth)}**.\n- Record 249 is publication-eligible but excluded from synthesis because full text could not be obtained.\n- Duplicate/version rows excluded from counting: **301 -> 457**, **491 -> 504**.\n- Archival book record 93 is excluded under the strict journal/conference publication-type rule.\n- The pre-adjudication 805-row corpus is preserved under `data/checkpoints/`.\n'''
+          Path('docs/PUBLICATION_STATUS_ADJUDICATION_FINAL.md').write_text(doc,encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit reconciled synthesis membership and counts
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_corpus_freeze_summary.json data/final_synthesis_membership.csv docs/PUBLICATION_STATUS_ADJUDICATION_FINAL.md
+          git commit -m 'Reconcile 403-study synthesis membership with publication freeze'
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
