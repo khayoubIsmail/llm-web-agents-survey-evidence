@@ -1,0 +1,59 @@
+name: Adjudicate publication status B1 COLM
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/adjudicate-publication-status-B1-COLM.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build 11-case COLM adjudication ledger
+        run: |
+          python - <<'PY'
+          import csv
+          rows=list(csv.DictReader(open('data/adjudication_batches/B1_OPENREVIEW_COLM.csv',encoding='utf-8-sig',newline='')))
+          assert len(rows)==11
+          evidence={
+            356:'https://openreview.net/pdf?id=fQcUZMPIvu',
+            433:'https://openreview.net/pdf/31326f5596207e8241d103bfa23b4521f5a4a539.pdf',
+            481:'https://openreview.net/pdf?id=zg5is4GJ3R',
+            501:'https://openreview.net/pdf?id=lsAY6fWsog',
+            504:'https://openreview.net/pdf?id=5fg0VtRxgi',
+            570:'https://openreview.net/pdf?id=SoEmgM1ioC',
+            578:'https://openreview.net/pdf/65903331eb76e9b57f2b8de9291044b97381d0d6.pdf',
+            640:'https://openreview.net/pdf?id=6jZi4HSs6o',
+            643:'https://openreview.net/pdf?id=NPAQ6FKSmK',
+            713:'https://openreview.net/pdf?id=7HPuAkgdVm',
+            745:'https://openreview.net/pdf?id=KI1WQ6rLiy',
+          }
+          out=[]
+          for r in rows:
+              rid=int(r['record_id']); assert rid in evidence
+              out.append({'record_id':rid,'title':r['title'],'machine_verdict':'DOWNGRADE','decision':'RETAIN_ARCHIVAL_OFFICIAL_COLM','final_status':'Archival published','final_venue':r['register_venue'] or 'Conference on Language Modeling (COLM)','final_identifier':r['register_identifier'] or evidence[rid],'evidence_url':evidence[rid],'evidence_note':'Final OpenReview manuscript is explicitly marked Published as a conference paper at COLM. The automated downgrade was false because it resolved the arXiv/preprint copy.','adjudicated_by':'ChatGPT-assisted manual evidence review','adjudicated_at':'2026-09-13','corpus_action':'keep Archival published; retain/normalize COLM venue; add final OpenReview evidence'})
+          out.sort(key=lambda x:x['record_id'])
+          with open('data/publication_status_manual_adjudication_B1_COLM.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(out[0]));w.writeheader();w.writerows(out)
+          print('COLM adjudicated',len(out))
+          PY
+      - name: Commit B1 COLM adjudications
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_manual_adjudication_B1_COLM.csv
+          git commit -m "Adjudicate 11 COLM downgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
