@@ -1,0 +1,68 @@
+name: Test publication status v2 - chunk 17 only
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/test-publication-status-chunk-17.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-chunk-17:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: pip install requests
+      - name: Build deterministic chunk 17 of 48
+        run: |
+          python - <<'PY'
+          import csv
+          chunk = 17
+          total_chunks = 48
+          rows = list(csv.DictReader(open('data/studies_805_mapping_corpus.csv', encoding='utf-8-sig')))
+          fields = list(rows[0])
+          subset = rows[chunk::total_chunks]
+          with open('/tmp/corpus_17.csv', 'w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields)
+              w.writeheader()
+              w.writerows(subset)
+          print(f'chunk=17 rows={len(subset)}')
+          assert 16 <= len(subset) <= 17, len(subset)
+          PY
+      - name: Cross-check chunk 17 with hardened v2.2
+        run: |
+          mkdir -p data/verification_cache_v2/chunk_17
+          python scripts/verify_publication_status_v2.py \
+            --corpus /tmp/corpus_17.csv \
+            --out /tmp/out_17.csv \
+            --cache data/verification_cache_v2/chunk_17 \
+            --sleep 0.35 \
+            --email "${{ github.actor }}@users.noreply.github.com"
+      - name: Verify standalone output
+        run: |
+          python - <<'PY'
+          import csv
+          rows = list(csv.DictReader(open('/tmp/out_17.csv', encoding='utf-8-sig')))
+          assert 16 <= len(rows) <= 17, len(rows)
+          ids = [int(r['record_id']) for r in rows]
+          assert len(ids) == len(set(ids)), 'duplicate record IDs'
+          print(f'verified {len(rows)} rows for chunk 17')
+          PY
+      - name: Stage standalone artifact
+        run: |
+          mkdir -p /tmp/artifact/cache
+          cp /tmp/out_17.csv /tmp/artifact/out_17.csv
+          cp -R data/verification_cache_v2/chunk_17 /tmp/artifact/cache/chunk_17
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-status-v2-chunk-17-standalone
+          path: /tmp/artifact
+          retention-days: 7
