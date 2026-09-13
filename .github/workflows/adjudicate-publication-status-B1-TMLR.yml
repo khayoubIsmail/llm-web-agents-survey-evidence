@@ -1,0 +1,56 @@
+name: Adjudicate publication status B1 TMLR
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/adjudicate-publication-status-B1-TMLR.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build 8-case TMLR adjudication ledger
+        run: |
+          python - <<'PY'
+          import csv
+          rows=list(csv.DictReader(open('data/adjudication_batches/B1_OPENREVIEW_TMLR.csv',encoding='utf-8-sig',newline='')))
+          assert len(rows)==8
+          evidence={
+            73:'https://openreview.net/pdf?id=1i6ZCvflQJ',
+            295:'https://openreview.net/pdf?id=xChvYjvXTp',
+            330:'https://mlanthology.org/tmlr/2026/yu2026tmlr-browseragent/',
+            351:'https://openreview.net/pdf?id=5298fKGmv3',
+            377:'https://openreview.net/pdf?id=Zy4uFzMviZ',
+            484:'https://mlanthology.org/tmlr/2025/gu2025tmlr-your/',
+            490:'https://openreview.net/pdf/32f14eef3c5d10bca6cc4635ec9e6d7bb1d7a92e.pdf',
+            639:'https://openreview.net/pdf?id=o4pXVP8RCD',
+          }
+          out=[]
+          for r in rows:
+              rid=int(r['record_id']); assert rid in evidence
+              out.append({'record_id':rid,'title':r['title'],'machine_verdict':'DOWNGRADE','decision':'RETAIN_ARCHIVAL_OFFICIAL_TMLR','final_status':'Archival published','final_venue':'Transactions on Machine Learning Research','final_identifier':evidence[rid],'evidence_url':evidence[rid],'evidence_note':'Manual authoritative review located the final TMLR publication/accepted record for the exact paper. The automated downgrade used an earlier arXiv or under-review copy and is therefore false.','adjudicated_by':'ChatGPT-assisted manual evidence review','adjudicated_at':'2026-09-13','corpus_action':'keep Archival published; normalize venue to Transactions on Machine Learning Research; add final publication evidence'})
+          out.sort(key=lambda x:x['record_id'])
+          with open('data/publication_status_manual_adjudication_B1_TMLR.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(out[0]));w.writeheader();w.writerows(out)
+          print('TMLR adjudicated',len(out))
+          PY
+      - name: Commit B1 TMLR adjudications
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publication_status_manual_adjudication_B1_TMLR.csv
+          git commit -m "Adjudicate 8 TMLR downgrade cases" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
