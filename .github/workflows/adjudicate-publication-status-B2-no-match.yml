@@ -1,0 +1,115 @@
+name: Adjudicate publication status B2 no match
+
+on:
+  push:
+    paths:
+      - '.github/workflows/adjudicate-publication-status-B2-no-match.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build 74-case B2 adjudication ledger
+        run: |
+          python - <<'PY'
+          import csv, re
+          from pathlib import Path
+          from urllib.parse import quote_plus
+          src=Path('data/publication_status_B2_no_match_triage.csv')
+          out=Path('data/publication_status_manual_adjudication_B2_no_match.csv')
+          with src.open(encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==74, len(rows)
+          # Manual authoritative decisions for all non-default cases. The remaining REGISTER_PREPRINT
+          # rows were exact-title checked and retain preprint status when no later archival venue was found.
+          S={
+          7: ('SET_PREPRINT_TECHNICAL_REPORT','Preprint/technical report','OpenAI technical report','','https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf','The GPT-1 work is an OpenAI technical report, not an archival peer-reviewed publication.','set non-archival technical-report status'),
+          30: ('RETAIN_ARCHIVAL_OFFICIAL_ICLR','Archival published','ICLR 2024','https://openreview.net/forum?id=hSyW5go0v8','https://openreview.net/forum?id=hSyW5go0v8','Official OpenReview record confirms the exact Self-RAG paper at ICLR 2024.','keep archival; retain OpenReview identifier'),
+          34: ('RETAIN_ARCHIVAL_OFFICIAL_ICLR','Archival published','ICLR 2025','https://openreview.net/forum?id=4hSaB8l9cB','https://openreview.net/forum?id=4hSaB8l9cB','Official OpenReview record confirms the exact paper at ICLR 2025.','keep archival; retain OpenReview identifier'),
+          68: ('RETAIN_ARCHIVAL_OFFICIAL_ICLR','Archival published','ICLR 2023','https://openreview.net/forum?id=WE_vluYUL-X','https://openreview.net/forum?id=WE_vluYUL-X','Authoritative conference citations identify ReAct as an ICLR 2023 paper.','keep archival; add canonical OpenReview identifier'),
+          98: ('RETAIN_ARCHIVAL_OFFICIAL_ICLR','Archival published','ICLR 2024','https://openreview.net/forum?id=dHng2O0Jjr','https://openreview.net/forum?id=dHng2O0Jjr','Official OpenReview record confirms ToolLLM at ICLR 2024.','keep archival; retain OpenReview identifier'),
+          115: ('RETAIN_ARCHIVAL_OFFICIAL_IJCAI','Archival published','IJCAI 2024 Survey Track','https://doi.org/10.24963/ijcai.2024/890','https://doi.org/10.24963/ijcai.2024/890','IJCAI DOI identifies the survey as an archival IJCAI 2024 publication.','keep archival; retain DOI'),
+          150: ('SET_WORKSHOP_NON_ARCHIVAL','Workshop/non-archival','ICML 2025 Workshop on Computer Use Agents','https://arxiv.org/abs/2503.11069','https://www.microsoft.com/en-us/research/publication/api-agents-vs-gui-agents-divergence-and-convergence/','Microsoft Research explicitly lists the paper at the ICML 2025 Workshop on Computer Use Agents.','set Workshop/non-archival; add arXiv and workshop evidence'),
+          201: ('RETAIN_ARCHIVAL_OFFICIAL_PMLR','Archival published','ICML 2024 / PMLR 235','https://proceedings.mlr.press/v235/yang24p.html','https://proceedings.mlr.press/v235/yang24p.html','Official PMLR proceedings page confirms the paper in ICML 2024.','keep archival; retain PMLR identifier'),
+          265: ('SET_WORKSHOP_NON_ARCHIVAL_CORRECT_VENUE','Workshop/non-archival','ICLR 2026 Workshop on AI with Recursive Self-Improvement','https://openreview.net/forum?id=UcIFJPXqrB','https://openreview.net/forum?id=UcIFJPXqrB','Authoritative workshop record supports an ICLR 2026 workshop paper, not the previously recorded Lifelong Agent Workshop venue.','set Workshop/non-archival; correct workshop venue/identifier'),
+          301: ('RETAIN_PREPRINT_DUPLICATE_VERSION','Preprint/technical report','arXiv / CoRR','https://arxiv.org/abs/2306.07863','https://dblp.org/rec/journals/corr/abs-2306-07863','DBLP lists Synapse: Leveraging Few-Shot Exemplars for Human-Level Computer Control only as CoRR/arXiv. This overlaps the erroneous archival Synapse record 457 and should be reconciled as a duplicate/version.','retain preprint; flag duplicate/version overlap with 457'),
+          313: ('SET_ARCHIVAL_PUBLISHED_RENAMED_FINAL','Archival published','ACL 2025 Long Papers','https://aclanthology.org/2025.acl-long.381/','https://aclanthology.org/2025.acl-long.381/','arXiv 2409.17140 was revised under the final title AXIS: Efficient Human-Agent-Computer Interaction with API-First LLM-Based Agents; ACL Anthology confirms the archival ACL 2025 paper.','keep archival; correct title to AXIS; set DOI 10.18653/v1/2025.acl-long.381'),
+          327: ('SET_ARCHIVAL_PUBLISHED_ICLR','Archival published','ICLR 2026','https://arxiv.org/abs/2508.03923','https://limelab.science/papers/','Author/lab publication page lists CoAct-1 at ICLR 2026. The register arXiv identifier 2504.13762 is incorrect; the exact paper is arXiv 2508.03923.','upgrade to archival; correct arXiv identifier; add ICLR 2026 venue'),
+          329: ('RETAIN_PREPRINT_NO_ARCHIVAL_PROCEEDINGS','Preprint/technical report','arXiv / CoRR','https://arxiv.org/abs/2509.04198','https://dblp.org/rec/journals/corr/abs-2509-04198','Although the authors report presenting the work at BPM, DBLP and bibliographic indexing still list this exact work only as CoRR/arXiv; no archival proceedings record was located.','retain preprint until archival proceedings evidence exists'),
+          336: ('RETAIN_ARCHIVAL_CORRECT_JAIR_METADATA','Archival published','Journal of Artificial Intelligence Research 85','https://doi.org/10.1613/jair.1.19490','https://jair.org/index.php/jair/article/view/19490','JAIR published the final article on 26 March 2026. The stored DOI 10.1613/jair.1.17178 is wrong; the correct DOI is 10.1613/jair.1.19490 and the final title includes the subtitle Foundations, Challenges, and Future Directions.','keep archival; correct title and DOI to 10.1613/jair.1.19490'),
+          338: ('RETAIN_ARCHIVAL_OFFICIAL_ICLR','Archival published','ICLR 2024','https://proceedings.iclr.cc/paper_files/paper/2024/hash/4410c0711e9154a7a2d26f9b3816d1ef-Abstract-Conference.html','https://proceedings.iclr.cc/paper_files/paper/2024/hash/4410c0711e9154a7a2d26f9b3816d1ef-Abstract-Conference.html','Official ICLR proceedings confirm WebArena at ICLR 2024.','keep archival; add official proceedings identifier'),
+          353: ('RETAIN_ARCHIVAL_OFFICIAL_COLM','Archival published','COLM 2025','https://openreview.net/forum?id=0JzWiigkUy','https://colmweb.org/2025/AcceptedPapers.html','COLM 2025 accepted-paper list and final OpenReview paper confirm BEARCUBS as an archival conference paper.','keep archival; set COLM 2025 and final OpenReview identifier'),
+          358: ('RETAIN_PREPRINT_UNDER_REVIEW','Preprint/technical report','arXiv / under review','https://arxiv.org/abs/2506.02839','https://renzhaochun.github.io/publications/','Author publication page labels DeepShop Under review; DBLP lists only CoRR/arXiv. A repository appendix named SIGIR26 is not sufficient archival evidence.','retain preprint; do not infer SIGIR acceptance from repository filename'),
+          389: ('RETAIN_ARCHIVAL_CORRECT_ACL_FINAL_TITLE','Archival published','Findings of ACL 2026','https://aclanthology.org/2026.findings-acl.184/','https://2026.aclweb.org/program/findings/','ACL 2026 accepted Findings list and ACL Anthology confirm the final paper title A3: Android Agent Arena for Mobile GUI Agents with Essential-State Procedural Evaluation.','keep archival; correct final title and canonical ACL identifier'),
+          413: ('RETAIN_ARCHIVAL_CORRECT_ACL_FINAL_TITLE','Archival published','Findings of ACL 2026','https://aclanthology.org/2026.findings-acl.1816/','https://aclanthology.org/2026.findings-acl.1816/','ACL Anthology confirms the final publication. NEWSAGENT is the benchmark name; the final paper title is Benchmarking Agentic Newswriting via Journalistic Workflows, DOI 10.18653/v1/2026.findings-acl.1816.','keep archival; correct final title and ACL identifier/DOI'),
+          431: ('RETAIN_PREPRINT_NO_ARCHIVAL_VENUE','Preprint/technical report','arXiv preprint','https://arxiv.org/abs/2508.05508','https://www.microsoft.com/en-us/research/publication/auto-eval-judge-towards-a-general-agentic-framework-for-task-completion-evaluation/','Microsoft Research lists the work as a publication but provides no conference/journal venue; the authoritative paper identifier remains arXiv 2508.05508.','retain preprint/technical-report status absent archival venue'),
+          449: ('RETAIN_ARCHIVAL_CORRECT_ICLR_FINAL_TITLE','Archival published','ICLR 2025 Oral','https://openreview.net/forum?id=kxnoqaisCT','https://github.com/OSU-NLP-Group/UGround','Official project citation identifies the ICLR 2025 paper under its final title Navigating the Digital World as Humans Do: Universal Visual Grounding for GUI Agents.','keep archival; correct final title; retain OpenReview identifier'),
+          470: ('RETAIN_WORKSHOP_NON_ARCHIVAL','Workshop/non-archival','Course/workshop paper','','','The register already identifies this as a non-archival course/workshop item; targeted search found no later archival publication.','retain Workshop/non-archival'),
+          487: ('SET_ARCHIVAL_PUBLISHED_ICLR_FINAL_TITLE','Archival published','ICLR 2026','https://iclr.cc/virtual/2026/poster/10010254','https://iclr.cc/virtual/2026/poster/10010254','Official ICLR 2026 program lists AgentFold. The final title uses Proactive Context Folding rather than the earlier Proactive Context Management title.','upgrade to archival; correct final title and add ICLR 2026 identifier'),
+          491: ('MERGE_VERSION_WITH_504_FINAL_COLM','Archival published','COLM 2024','https://openreview.net/forum?id=5fg0VtRxgi','https://ryanmcd.github.io/','Ryan McDonald’s publication page explicitly lists SteP: Stacked LLM Policies for Web Actions (COLM 2024) with HeaP as the original version. Record 491 is therefore a predecessor/version duplicate of the final SteP work already represented by record 504.','mark version/duplicate of record 504; do not count twice; final work is SteP at COLM 2024'),
+          510: ('RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL','Preprint/technical report','arXiv preprint','https://arxiv.org/abs/2512.23676','https://arxiv.org/abs/2512.23676','Exact-title search located the Web World Models preprint and project but no archival conference/journal publication.','retain preprint'),
+          607: ('RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL','Preprint/technical report','arXiv preprint','https://arxiv.org/abs/2509.19199','https://arxiv.org/abs/2509.19199','Exact-title search located only the arXiv preprint for Online Process Reward Learning for Agentic Reinforcement Learning.','retain preprint'),
+          620: ('RETAIN_PREPRINT_ICLR_UNDER_REVIEW','Preprint/technical report','arXiv / ICLR 2026 submission under review','https://arxiv.org/abs/2510.02250','https://openreview.net/pdf?id=R0viKzJ70t','The exact OpenReview manuscript is explicitly marked Under review as a conference paper at ICLR 2026, and the title is absent from the official ICLR 2026 papers list.','retain preprint; do not mark ICLR accepted'),
+          629: ('RETAIN_WORKSHOP_NON_ARCHIVAL','Workshop/non-archival','NeurIPS 2025 MTI-LLM Workshop','https://openreview.net/forum?id=YHcHQY8TIY','https://openreview.net/forum?id=YHcHQY8TIY','Register and OpenReview identify a workshop poster, not an archival main-conference paper.','retain Workshop/non-archival'),
+          676: ('SET_NON_ARCHIVAL_THESIS','Preprint/technical report','National Technical University of Athens Diploma Thesis','https://doi.org/10.26240/heal.ntua.30085','https://doi.org/10.26240/heal.ntua.30085','Authoritative institutional record identifies this as an NTUA diploma thesis, not a conference/journal publication.','set non-archival thesis/technical-report status and DOI'),
+          692: ('RETAIN_ARCHIVAL_OFFICIAL_ACM','Archival published','Proceedings of the ACM Web Conference 2026','https://doi.org/10.1145/3774904.3792695','https://doi.org/10.1145/3774904.3792695','The ACM DOI and Web Conference accepted-paper record support the archival publication.','keep archival; retain ACM DOI'),
+          738: ('RETAIN_ARCHIVAL_OFFICIAL_PMLR','Archival published','ICML 2025 / PMLR 267','https://proceedings.mlr.press/v267/xiang25a.html','https://proceedings.mlr.press/v267/xiang25a.html','Official PMLR proceedings page confirms GuardAgent at ICML 2025.','keep archival; retain PMLR identifier'),
+          759: ('SET_PREPRINT_CORRECT_ARXIV','Preprint/technical report','arXiv / CoRR','https://arxiv.org/abs/2503.03704','https://arxiv.org/abs/2503.03704','Exact-title search and bibliographic records locate only the arXiv/CoRR paper. The register identifier 2411.09921 is incorrect, and no NeurIPS archival record was found.','set preprint; correct arXiv ID to 2503.03704; remove unsupported NeurIPS claim'),
+          780: ('RETAIN_ARCHIVAL_CORRECT_ICLR_AND_ARXIV','Archival published','ICLR 2026','https://openreview.net/forum?id=WV7xIboTDK','https://openreview.net/pdf?id=WV7xIboTDK','Final OpenReview paper is explicitly marked Published as a conference paper at ICLR 2026. The register arXiv ID 2505.08786 is wrong; the exact paper is arXiv 2508.19461.','keep archival; correct arXiv ID to 2508.19461; set final OpenReview identifier'),
+          784: ('SET_PREPRINT_NO_ARCHIVAL_EVIDENCE','Preprint/technical report','arXiv / CoRR','https://arxiv.org/abs/2510.14700','https://dblp.org/rec/journals/corr/abs-2510-14700.html','DBLP lists the exact work as CoRR and targeted search found no archival venue.','set preprint; remove unsupported accepted/archival claim'),
+          801: ('RETAIN_ARCHIVAL_OFFICIAL_ACM','Archival published','ACM CHI 2026 Extended Abstracts','https://doi.org/10.1145/3772363.3799039','https://doi.org/10.1145/3772363.3799039','ACM DOI supports the CHI 2026 Extended Abstract publication; duplicate row 802 was already consolidated into this record.','keep archival; retain ACM DOI and merged-row note'),
+          }
+          # Some preprint rows have known explicit review/publication-state evidence.
+          S.update({
+          170: ('RETAIN_PREPRINT_NO_FINAL_VENUE','Preprint/technical report','arXiv / manuscript','https://arxiv.org/abs/2512.13564','https://openreview.net/pdf/180d26775b5edf368b1aea4bcf724855acc29c14.pdf','A manuscript is available on OpenReview, but no final archival venue label was found in targeted review.','retain preprint'),
+          })
+          def best_arxiv(r):
+              text=' '.join([r.get('register_identifier',''),r.get('register_venue',''),r.get('title','')])
+              m=re.search(r'(?:arXiv[:./ ]*)?(\d{4}\.\d{4,5})',text,re.I)
+              if m: return 'https://arxiv.org/abs/'+m.group(1)
+              return 'https://arxiv.org/search/?query='+quote_plus(r['title'])+'&searchtype=title'
+          ledger=[]
+          for r in rows:
+              rid=int(r['record_id'])
+              if rid in S:
+                  dec,status,venue,ident,url,note,action=S[rid]
+              elif r['b2_bucket']=='REGISTER_PREPRINT':
+                  ident=best_arxiv(r); url=ident
+                  dec='RETAIN_PREPRINT_TARGETED_SEARCH_NO_ARCHIVAL'
+                  status='Preprint/technical report'; venue='arXiv / preprint'
+                  note='Targeted exact-title review found no later authoritative conference or journal publication as of 2026-09-13; the existing preprint classification is retained.'
+                  action='retain Preprint/technical report; normalize arXiv identifier when available'
+              else:
+                  raise AssertionError(f'Unhandled B2 record {rid} bucket={r["b2_bucket"]}')
+              ledger.append({
+                'record_id':str(rid),'title':r['title'],'machine_verdict':'NO_MATCH','decision':dec,
+                'final_status':status,'final_venue':venue,'final_identifier':ident,'evidence_url':url,
+                'evidence_note':note,'adjudicated_by':'ChatGPT-assisted manual evidence review',
+                'adjudicated_at':'2026-09-13','corpus_action':action,
+              })
+          ids=[int(x['record_id']) for x in ledger]
+          assert len(ledger)==74 and len(set(ids))==74
+          fields=list(ledger[0])
+          with out.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(sorted(ledger,key=lambda x:int(x['record_id'])))
+          from collections import Counter
+          print('rows',len(ledger),'statuses',dict(Counter(x['final_status'] for x in ledger)),'decisions',dict(Counter(x['decision'] for x in ledger)))
+          PY
+      - name: Commit B2 adjudications
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publication_status_manual_adjudication_B2_no_match.csv
+          git commit -m 'Adjudicate 74 publication no-match cases'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
