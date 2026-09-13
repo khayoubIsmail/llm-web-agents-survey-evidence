@@ -1,86 +1,117 @@
 # Data Dictionary
 
-Field definitions for the corpus registers and paper-note audit files.
+Field definitions for the current corpus registers, final synthesis files, search-reporting artifacts, and paper-note audits.
 
----
+## Authoritative corpus layers
 
-| Field | Type | Meaning |
-|---|---|---|
-| `record_id` | integer | Stable identifier in the reconciled 805-study corpus. |
-| `section` | string | Primary thematic section assigned during mapping. |
-| `priority` | string | Evidence-use tier: P0 cornerstone, P1 primary, P2 supporting/extending, P3 contextual/historical. Not a risk-of-bias score. |
-| `year` | integer | Canonical publication year after verification. |
-| `title` | string | Canonical study title, normalized for consistency. |
-| `publication_status` | string | Full verified publication status. |
-| `status_category` | string | Normalized publication-status category used in summary statistics. |
-| `venue` | string | Canonical publication venue. |
-| `identifier` | string | DOI, OpenReview URL, arXiv identifier, or other canonical persistent identifier. |
-| `verification_source` | string | Source/audit trail used to confirm metadata and publication status. |
-| `bibliography_eligibility` | boolean | Whether the record enters the strict 403-study published/accepted citation layer. |
-| `note_quality` | string | Internal evidence-note readiness grade. |
-| `evidence_readiness` | string | Overall claim-use readiness after validation. |
-| `pages` | string | Final page range where available. |
-| `canonical_status_detail` | string | Detailed final status wording from study-specific validation. |
-| `final_exclusion_reason` | string | Reason a record was removed from the strict citation pool; empty for eligible records. |
+| Layer | Count | Authoritative artifact |
+|---|---:|---|
+| Mapping corpus | 805 | `data/studies_805_mapping_corpus.csv` |
+| Publication-eligible pool | 454 | `data/publication_status_corpus_freeze_summary.json` |
+| Historical normalized-note / synthesis-candidate set | 403 | `notes/papers/` + historical candidate manifests |
+| Final qualitative synthesis | 385 | `data/final_synthesis_membership.csv` |
 
-## Priority tier summary
+The historical 403-record file/note layer must not be described as the current publication-eligible pool. The final publication-status audit expanded/reconciled publication eligibility across all 805 mapped studies and freezes `N_POOL = 454`; intersecting eligibility with the historical candidate set and full-text availability yields `N_SYNTH = 385`.
 
-| Tier | Corpus intent | Count in 805 | Count in 403 |
-|---|---|---:|---:|
-| P0 | Cornerstone | 20 | 18 |
-| P1 | Primary | 179 | 98 |
-| P2 | Supporting / extending | 444 | 204 |
-| P3 | Contextual / historical | 162 | 83 |
+## `data/studies_805_mapping_corpus.csv`
+
+| Field | Meaning |
+|---|---|
+| `record_id` | Stable identifier in the reconciled 805-study mapping corpus. |
+| `section` | Primary thematic section assigned during mapping. |
+| `priority` | Evidence-use tier: P0 cornerstone, P1 primary, P2 supporting/extending, P3 contextual/historical. Not a risk-of-bias score. |
+| `year` | Canonical publication year after verification. |
+| `title` | Canonical study title. |
+| `publication_status` | Full verified publication status. |
+| `status_category` | Normalized publication-status category. |
+| `venue` | Canonical venue. |
+| `identifier` | DOI, official proceedings/OpenReview URL, arXiv identifier, or other persistent identifier. |
+| `verification_source` | Source/audit trail used to verify publication metadata/status. |
+| `bibliography_eligibility` | Record-level eligibility wording inherited from the corpus/status audit. For current pool membership, use the frozen publication-status artifacts rather than assuming that the historical 403-file set is authoritative. |
+| `note_quality` | Historical/internal note-readiness grade. |
+| `evidence_readiness` | Claim-use readiness after validation. |
+| `pages` | Final page range where available. |
+| `canonical_status_detail` | Detailed final status/version decision. |
+| `final_exclusion_reason` | Explicit final exclusion reason where applicable. |
+
+### Priority counts
+
+| Tier | Mapping 805 | Publication-eligible 454 | Final synthesis 385 |
+|---|---:|---:|---:|
+| P0 | 20 | 18 | 18 |
+| P1 | 179 | 110 | 96 |
+| P2 | 444 | 233 | 189 |
+| P3 | 162 | 93 | 82 |
+
+## `data/final_synthesis_membership.csv`
+
+This file is the authoritative study-level membership table for the 385-study final qualitative synthesis. It should be used for final synthesis counts, tier counts, status counts, and downstream claim/system revalidation.
+
+## `data/search_queries_historical.csv`
+
+| Field | Meaning |
+|---|---|
+| `query_id` | Stable label Q1–Q5. |
+| `query_text` | Verbatim Boolean query preserved in the first 152-page SLR. |
+| `historical_source` | Historical location from which the string was recovered. |
+| `historical_source_date` | Date of the preserved historical manuscript. |
+| `provenance` | Whether the string is verbatim historical text rather than a later template. |
+
+## `data/search_source_reporting.csv`
+
+| Field | Meaning |
+|---|---|
+| `source` | Search/discovery/verification interface. |
+| `role` | Direct scholarly search, repository-assisted discovery, or supplementary resolution/version verification. |
+| `access_route` | How the source was accessed when retained/confirmed. |
+| `query_set` | Historical query set used, or `NA` when the source was not a recurring direct-query interface in the final audit. |
+| `coverage_window` | Review/search period. |
+| `last_search` | Last retained search/update month; exact day is marked unavailable where not preserved. |
+| `language_restriction` | Language scope. |
+| `field_restriction` | Actual search-field practice; no source-specific field syntax is inferred. |
+| `gross_records_retrieved` | Historical gross per-source count, `NR` where not recoverable. |
+| `gross_count_status` | Explanation of why source-level counts are or are not available. |
+| `provenance` | Historical manuscript vs author-confirmed/current-audit basis. |
+
+## `data/exclusion_ledger_availability.csv`
+
+This is **not a synthetic exclusion ledger**. It is an availability map showing which exclusion stages retain record-level identities/reasons and which historical rows are missing. In particular, the complete 2,643-row P4 record-level exclusion ledger has not been recovered and is not reconstructed.
 
 ## `data/paper_note_audit.csv`
 
 | Field | Meaning |
 |---|---|
-| `record_id` | Stable ID linking the note audit to the 403-paper register. |
+| `record_id` | Stable ID linking note evidence to the historical 403 candidate set. |
 | `title`, `section`, `priority` | Canonical register metadata. |
 | `initial_note_quality` | Readiness label present before remediation. |
-| `audit_computed_source_quality` | Heuristic coverage grade for the matched historical source-note segment. |
-| `source_match_score` | Normalized title-similarity score for the selected historical source note. |
-| `original_note_source` | Historical review-archive path selected by the title audit, or an explicit no-reliable-match label. Historical paths are provenance identifiers and may refer to the frozen September 9 snapshot release. |
-| `content_provenance` | Whether the final note preserves audited archive evidence, is a current-cycle remediation, or is an access-exception record. |
-| `note_file` | Canonical normalized paper-specific Markdown note under `notes/papers/`. The same basename identifies its paper-specific synthesis-source record under `notes/original_sources/`. |
-| `full_text_status` | Distinguishes current-cycle PDF verification, retained archive evidence, and blocked access. |
-| `full_text_basis` | Human-readable verification basis, including page count/hash for current-cycle PDFs. |
-| `pdf_pages`, `pdf_sha256`, `title_similarity` | Current-cycle full-text verification fields; blank when no PDF was rechecked in this cycle. |
-| `review_standard` | Tier-specific required reading/analysis depth. |
-| `claim_use_status` | Whether the note may support synthesis or remains blocked pending full text. |
+| `audit_computed_source_quality` | Heuristic coverage grade for matched historical source material. |
+| `source_match_score` | Normalized title-similarity score for selected historical source note. |
+| `original_note_source` | Historical review-archive provenance path or explicit no-match label. |
+| `content_provenance` | Whether the live note preserves archive evidence, is a current-cycle remediation, or is an access exception. |
+| `note_file` | Canonical normalized paper note under `notes/papers/`. |
+| `full_text_status` | Current full-text verification/access state. |
+| `full_text_basis` | Human-readable basis for full-text verification. |
+| `pdf_pages`, `pdf_sha256`, `title_similarity` | PDF verification fields when applicable. |
+| `review_standard` | Tier-specific reading/analysis depth. |
+| `claim_use_status` | Whether the note may support the final synthesis. |
 
 ## `notes/papers/` and `notes/original_sources/`
 
-Both directories contain **403 files keyed by the same record-ID basename**. `notes/papers/<id>.md` is the canonical normalized note. `notes/original_sources/<id>.md` is the one-paper-per-file detailed synthesis-source record for that same paper. See `docs/PAPER_SYNTHESIS_SOURCES.md` for provenance semantics and the record-249 exception.
+Both directories contain **403 paper-specific files keyed to the historical normalized-note/synthesis-candidate set**. They are retained for provenance and audit continuity. They are not equivalent to the current 454 publication-eligible pool or the final 385-study synthesis.
 
-## `data/note_remediation_log.csv`
+`notes/papers/<id>.md` is the normalized live note. `notes/original_sources/<id>.md` is the paper-specific synthesis-source record keyed to the same historical record ID.
 
-| Field | Meaning |
-|---|---|
-| `record_id`, `title`, `priority` | Register identity and tier. |
-| `initial_note_quality` | Original readiness label. |
-| `audit_computed_quality` | Coverage grade of the best historical source-note match before remediation. |
-| `reason` | Why the record was selected for note creation or replacement. |
-| `action` | Remediation performed in the current cycle. |
+## Historical source snapshots
 
-## `data/note_source_overrides.csv`
+`data/historical_original_note_source_manifest.csv` and `notes/historical_source_snapshots/` preserve the earlier note provenance. Historical source-note matching establishes provenance; it does not by itself establish current-cycle reading or final synthesis membership.
 
-Manual corrections for title variants or duplicate-stub cases where automatic matching did not select the best substantive historical note. `source_path` is relative to the supplied review archive; `reason` records the adjudication basis.
+## Current frozen statistics
 
-## `data/historical_original_note_source_manifest.csv`
-
-Frozen record-level manifest for the **335 reliable historical source-note mappings** from the September 9 provenance release. Those mappings resolve to **229 unique historical Markdown files**, including 20 shared/merged files covering multiple records. The exact snapshots are retained under `notes/historical_source_snapshots/` and in commit `83aca98913e2202d912778917ff7c5b92ff67399`.
-
-The manifest's `repository_source` values describe the paths as they existed in that frozen provenance release. In release v1.2.0 the exact snapshot tree is separated from the new 403-file paper-specific source layer; do not interpret the historical path as a current `notes/original_sources/<id>.md` path.
-
-| Field | Meaning |
-|---|---|
-| `record_id`, `title`, `priority` | Register identity and evidence tier. |
-| `final_note` | Canonical normalized note in `notes/papers/`. |
-| `original_source` | Path recorded in the supplied historical review archive. |
-| `repository_source` | Path used by the frozen v1.1.1 provenance snapshot. |
-| `source_sha256` | SHA-256 digest of the exact historical source bytes. |
-| `source_bytes`, `source_lines` | Historical file size and line count. |
-| `records_mapped_to_source` | Number of register records linked to the same historical file. |
-| `source_layout` | `standalone` or `shared/merged`. |
+- Mapping corpus: **805**
+- Publication-eligible pool: **454**
+- Historical normalized-note/candidate set: **403**
+- Final qualitative synthesis: **385**
+- Deep P0/P1 analysis in final synthesis: **114**
+- Structured P2/P3 reading in final synthesis: **271**
+- Published final-synthesis studies: **377**
+- Accepted final-synthesis studies: **8**
