@@ -1,0 +1,11 @@
+check_id,final_value_or_test,status
+counts,805 mapping / 454 pool / 403 historical candidates / 385 synthesis,PASS
+reading_depth,114 deep + 271 structured = 385,PASS
+publication_status,377 published + 8 accepted = 385,PASS
+figure2_total,45+78+31+58+25+20+57+11+13+43+4 = 385,PASS
+C1_membership,11 claims; all referenced IDs in final synthesis,PASS
+G1_scope,10 representative + 12 targeted near-misses; zero full-contract counterexamples,PASS
+D1,collaborative reconciliation; no kappa claim,PASS
+E1,qualitative holistic evidence weighting; no numerical RoB score,PASS
+E2,no independent blind non-author recoding claimed,PASS
+manuscript_build,39 pages; zero undefined citations/references,PASS

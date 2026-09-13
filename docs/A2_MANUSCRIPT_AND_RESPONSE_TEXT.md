@@ -1,5 +1,10 @@
 # A2 — Reading-Depth Definitions and Manuscript Edit Plan
 
+## Finalization status (2026-09-13)
+
+A2 is now numerically closed after publication-status adjudication and synthesis-membership reconciliation. The frozen values are **N_POOL = 454**, **N_SYNTH = 385**, with **114 P0/P1 deep critical analyses** and **271 P2/P3 complete structured readings**. The final synthesis priority counts are **P0 = 18, P1 = 96, P2 = 189, P3 = 82**. Record 249 is the sole full-text access exception and is excluded from N_SYNTH. Figure 1 and Figure 2 have been regenerated from the frozen sets.
+
+
 ## Scope
 
 A2 is the manuscript-facing correction for reading-depth terminology. A1 established the paper-level reading evidence and note audit. A2 defines the reading terms operationally, removes the inaccurate implication that every included study received the same depth of critical analysis, and provides the exact manuscript edits needed to make the paper consistent with the evidence repository.
@@ -10,12 +15,12 @@ A2 is intentionally separate from publication-status verification. The final cor
 
 To avoid ambiguity between eligibility and actual synthesis use, A2 distinguishes two sets:
 
-- `{{N_POOL}}` — the final publication-status-eligible P0–P3 pool after publication-status verification and manual adjudication.
-- `{{N_SYNTH}}` — the subset of `{{N_POOL}}` admitted to qualitative synthesis after full-text availability and evidence-use checks.
+- `454` — the final publication-status-eligible P0–P3 pool after publication-status verification and manual adjudication.
+- `385` — the subset of `454` admitted to qualitative synthesis after full-text availability and evidence-use checks.
 
 Record 249 is currently publication-eligible but lacks a complete verified full text. It is retained in the register for traceability and is excluded from qualitative and claim-level synthesis.
 
-**Important count rule:** record 249 must be excluded exactly once. If the publication-status sweep retains record 249 in `{{N_POOL}}`, then `{{N_SYNTH}}` excludes it. If the publication-status process itself removes record 249 from `{{N_POOL}}`, it must not be subtracted again when deriving `{{N_SYNTH}}`.
+**Important count rule:** record 249 must be excluded exactly once. If the publication-status sweep retains record 249 in `454`, then `385` excludes it. If the publication-status process itself removes record 249 from `454`, it must not be subtracted again when deriving `385`.
 
 ## Operational definitions for §2.4
 
@@ -33,14 +38,14 @@ Do not freeze numerical values in the manuscript until publication-status verifi
 
 | Placeholder | Definition | Pre-verification value / state | Finalization rule |
 |---|---|---:|---|
-| `{{N_POOL}}` | final publication-status-eligible P0–P3 pool | 403 historical value | recompute after v2.2 + manual adjudication |
-| `{{N_SYNTH}}` | final qualitative-synthesis set | unresolved | derive from final pool after evidence-use/full-text exclusions |
+| `454` | final publication-status-eligible P0–P3 pool | 403 historical value | recompute after v2.2 + manual adjudication |
+| `385` | final qualitative-synthesis set | unresolved | derive from final pool after evidence-use/full-text exclusions |
 | `{{N_P0}}` | P0 records in synthesis set | unresolved | recompute from final synthesis membership |
 | `{{N_P1}}` | P1 records in synthesis set | unresolved | recompute from final synthesis membership |
 | `{{N_P2}}` | P2 records in synthesis set | unresolved | recompute from final synthesis membership |
 | `{{N_P3}}` | P3 records in synthesis set | unresolved | recompute from final synthesis membership |
-| `{{N_DEEP}}` | `{{N_P0}} + {{N_P1}}` | historical value 116 | recompute from final synthesis membership |
-| `{{N_STRUCT}}` | `{{N_P2}} + {{N_P3}}` | historical value 287 before synthesis exclusion reconciliation | recompute from final synthesis membership |
+| `114` | `{{N_P0}} + {{N_P1}}` | historical value 116 | recompute from final synthesis membership |
+| `271` | `{{N_P2}} + {{N_P3}}` | historical value 287 before synthesis exclusion reconciliation | recompute from final synthesis membership |
 
 The historical 116/287 split describes the 403-record pre-finalization register and must not be copied forward blindly after status and synthesis-set reconciliation.
 
@@ -56,7 +61,7 @@ The submitted `sn-article.tex` contains eight locations that either assert unifo
 
 **Replace with**
 
-> ...{{N_POOL}} published or accepted studies form the final publication-eligible pool, of which {{N_SYNTH}} contribute to the qualitative synthesis. All studies contributing to the final qualitative synthesis were read in full by the two primary reviewers, with recorded analysis following two documented depth levels.
+> ...454 published or accepted studies form the final publication-eligible pool, of which 385 contribute to the qualitative synthesis. All studies contributing to the final qualitative synthesis were read in full by the two primary reviewers, with recorded analysis following two documented depth levels.
 
 **Reason:** removes the false implication of uniform in-depth analysis and distinguishes the eligible pool from the actual synthesis set.
 
@@ -68,7 +73,7 @@ The submitted `sn-article.tex` contains eight locations that either assert unifo
 
 **A2 replacement for the reading-depth portion**
 
-> Both reviewers read the full text of every study contributing to the final qualitative synthesis. Recorded analysis followed two tiers: {{N_DEEP}} P0/P1 records received deep critical analysis and {{N_STRUCT}} P2/P3 records received complete structured reading, as defined above.
+> Both reviewers read the full text of every study contributing to the final qualitative synthesis. Recorded analysis followed two tiers: 114 P0/P1 records received deep critical analysis and 271 P2/P3 records received complete structured reading, as defined above.
 
 The reviewer-process sentence in this paragraph also belongs to D1. When D1 is resolved, rewrite the paragraph once so the final prose simultaneously reflects reading depth and the actual collaborative/independent-review procedure.
 
@@ -92,11 +97,11 @@ The reviewer-process sentence in this paragraph also belongs to D1. When D1 is r
 
 **Replace with**
 
-> Primary thematic distribution of the {{N_SYNTH}} studies contributing to the final qualitative synthesis.
+> Primary thematic distribution of the 385 studies contributing to the final qualitative synthesis.
 
 **Reason:** the figure should describe the population actually represented in the thematic synthesis rather than carry an unnecessary reading-process claim.
 
-**Required data/figure action:** this is not a caption-only edit. After `{{N_SYNTH}}` is frozen, rebuild the thematic/category statistics from the actual final synthesis-membership table, regenerate every Figure 2 bar from those statistics, and verify that the bars sum exactly to `{{N_SYNTH}}`. Any historical 403-based statistics artifact must be regenerated rather than merely renamed or relabeled. If a manuscript-workspace file named `corpus_statistics_403.csv` is the current chart source, regenerate it from final membership and replace it with a count-neutral/finalized artifact; that file is not currently versioned in this evidence repository.
+**Required data/figure action:** this is not a caption-only edit. After `385` is frozen, rebuild the thematic/category statistics from the actual final synthesis-membership table, regenerate every Figure 2 bar from those statistics, and verify that the bars sum exactly to `385`. Any historical 403-based statistics artifact must be regenerated rather than merely renamed or relabeled. If a manuscript-workspace file named `corpus_statistics_403.csv` is the current chart source, regenerate it from final membership and replace it with a count-neutral/finalized artifact; that file is not currently versioned in this evidence repository.
 
 ### 5. §3.1 taxonomy paragraph — submitted source line 323
 
@@ -106,7 +111,7 @@ The reviewer-process sentence in this paragraph also belongs to D1. When D1 is r
 
 **Replace with**
 
-> ...rechecked against the full-text syntheses for the {{N_SYNTH}}-study qualitative-synthesis set.
+> ...rechecked against the full-text syntheses for the 385-study qualitative-synthesis set.
 
 **Reason:** “full-text syntheses” is acceptable; the set and count need to be accurate.
 
@@ -118,7 +123,7 @@ The reviewer-process sentence in this paragraph also belongs to D1. When D1 is r
 
 **Replace with**
 
-> This review mapped 805 studies, identified {{N_POOL}} studies in the final publication-eligible pool, and synthesized {{N_SYNTH}} studies using full-text reading followed by one of two documented levels of analysis.
+> This review mapped 805 studies, identified 454 studies in the final publication-eligible pool, and synthesized 385 studies using full-text reading followed by one of two documented levels of analysis.
 
 ### 7. §11 Limitations item 3 — submitted source line 893
 
@@ -159,7 +164,7 @@ This yields the stronger defensible statement: **All studies contributing to the
 >
 > We also corrected every manuscript statement that previously implied uniform “in-depth” review of the entire included pool. The revised wording distinguishes the final publication-eligible pool from the subset contributing to qualitative synthesis. One otherwise publication-eligible P3 record (record 249) could not be obtained as a complete verifiable full text despite documented retrieval attempts. It is retained in the register for traceability but excluded from qualitative and claim-level synthesis. Consequently, all studies contributing to the final qualitative synthesis have documented full-text reading, with analysis recorded at one of the two defined depth levels.
 >
-> The repository now provides an A2 reading-depth audit that enumerates each affected manuscript location, the prior wording, the reason for correction, the replacement wording, and the supporting evidence artifact. Figure 2 will also be regenerated from the final synthesis membership rather than merely relabeled, so that its category bars and total reflect the same `{{N_SYNTH}}` population. Final numerical counts will be inserted after the ongoing publication-status verification and corpus reconciliation are complete.
+> The repository now provides an A2 reading-depth audit that enumerates each affected manuscript location, the prior wording, the reason for correction, the replacement wording, and the supporting evidence artifact. Figure 2 will also be regenerated from the final synthesis membership rather than merely relabeled, so that its category bars and total reflect the same `385` population. Final numerical counts are frozen after publication-status adjudication and corpus reconciliation.
 
 ## Coordination with D1 and E1
 
@@ -182,8 +187,8 @@ A2 is closed only when all of the following are true:
 - [x] all eight affected manuscript claims have mapped replacement text;
 - [x] repository audit artifact exists;
 - [ ] publication-status verification and manual adjudication are complete;
-- [ ] `{{N_POOL}}`, `{{N_SYNTH}}`, `{{N_P0}}`–`{{N_P3}}`, `{{N_DEEP}}`, and `{{N_STRUCT}}` are recomputed from final membership;
-- [ ] thematic statistics are rebuilt from final `{{N_SYNTH}}` membership and Figure 2 is regenerated, with bar totals verified to equal `{{N_SYNTH}}`;
+- [ ] `454`, `385`, `{{N_P0}}`–`{{N_P3}}`, `114`, and `271` are recomputed from final membership;
+- [ ] thematic statistics are rebuilt from final `385` membership and Figure 2 is regenerated, with bar totals verified to equal `385`;
 - [ ] the eight manuscript edits are applied to the final LaTeX source;
 - [ ] A3 confirms that manuscript, response letter, repository artifacts, figures/statistics, and counts agree.
 
