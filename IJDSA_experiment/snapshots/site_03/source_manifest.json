@@ -1,0 +1,24 @@
+{
+  "site_id": "site_03",
+  "site_name": "Alternate DE",
+  "url_original": "https://www.alternate.de/html/search.html?query=bluetooth+kopfhoerer",
+  "url_local": "http://127.0.0.1:8000/site_03/",
+  "frozen_at": "2026-09-14T22:21:17.087752+00:00",
+  "freeze_tool": "freeze_snapshot.py v2",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "scroll_passes": 5,
+  "scripts_neutralized": 54,
+  "csp_injected": true,
+  "layout_description": "Dense product list, long descriptions, EUR prices, star ratings",
+  "sha256": {
+    "index.html": "db1cf87b712dc6ebcc959dbaa497a8594acfe9718cc2af037f5545da8b41c672",
+    "screenshot_full.png": "e824c8ac86d4bc9198911cd3cfdb076154f69276cd11ff130e993083d31cad58",
+    "accessibility_tree.json": "277966ce473ceca512d4fedc5190a93e62ce5ecf4424307a1a24913ff5ca0f99",
+    "visible_text.txt": "1369b85c8e4dde5fdbae1b5ad2993df3fcdf95db43cefe14b1cde7152c25ba20"
+  },
+  "gold_sha256": "6a929158732a834a56194658c6b88084118e5e31501ebf03cba9bb9e1ef9c034",
+  "num_products_visible": null
+}

@@ -1,0 +1,79 @@
+{
+  "alignment": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      4
+    ]
+  ],
+  "fields": [
+    {
+      "prediction_index": 0,
+      "gold_index": 0,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": false,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 0,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 0,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 0,
+      "field": "rating",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": 4,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": 4,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": 4,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": 4,
+      "field": "rating",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    }
+  ],
+  "schema_errors": []
+}

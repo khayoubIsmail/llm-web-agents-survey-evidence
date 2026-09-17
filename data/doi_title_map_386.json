@@ -1,0 +1,2318 @@
+[
+  {
+    "record_id": 1,
+    "title": "Attention Is All You Need",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 2,
+    "title": "BERT- Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "doi": "10.18653/v1/n19-1423",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 3,
+    "title": "Language Models are Few-Shot Learners",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 4,
+    "title": "Self-consistency improves chain of thought reasoning in language models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 5,
+    "title": "Training language models to follow instructions with human feedback",
+    "doi": "10.52202/068431-2011",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 6,
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "doi": "10.52202/068431-1800",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 8,
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 9,
+    "title": "Finetuned Language Models Are Zero-Shot Learners",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 11,
+    "title": "Large Language Models are Zero-Shot Reasoners",
+    "doi": "10.52202/068431-1613",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 12,
+    "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 13,
+    "title": "Visual Instruction Tuning",
+    "doi": "10.52202/075280-1516",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 14,
+    "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 17,
+    "title": "BART Denoising Sequence-to-Sequence Pre-training for Natural Language Generation Translation and Comprehension",
+    "doi": "10.18653/v1/2020.acl-main.703",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 19,
+    "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 20,
+    "title": "Training Compute-Optimal Large Language Models",
+    "doi": "10.52202/068431-2176",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 21,
+    "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+    "doi": "10.52202/068431-1723",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 22,
+    "title": "Emergent Abilities of Large Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 23,
+    "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 24,
+    "title": "Language Is Not All You Need: Aligning Perception with Language Models",
+    "doi": "10.52202/075280-3155",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 25,
+    "title": "Multimodal Chain-of-Thought Reasoning in Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 26,
+    "title": "PaLM-E: An Embodied Multimodal Language Model",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 27,
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "doi": "10.18653/v1/2023.emnlp-main.557",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 28,
+    "title": "InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning",
+    "doi": "10.52202/075280-2142",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 30,
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 34,
+    "title": "To CoT or Not to CoT? Chain-of-Thought Helps Mainly on Math and Symbolic Reasoning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 38,
+    "title": "A Survey of Frontiers in LLM Reasoning Inference Scaling Learning to Reason and Agentic Systems",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 39,
+    "title": "How Can We Know What Language Models Know?",
+    "doi": "10.1162/tacl_a_00324",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 40,
+    "title": "How Much Knowledge Can You Pack Into the Parameters of a Language Model?",
+    "doi": "10.18653/v1/2020.emnlp-main.437",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 41,
+    "title": "Experience Grounds Language",
+    "doi": "10.18653/v1/2020.emnlp-main.703",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 44,
+    "title": "Selection-Inference: Exploiting Large Language Models for Interpretable Logical Reasoning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 46,
+    "title": "Adapting Language Models to Compress Contexts",
+    "doi": "10.18653/v1/2023.emnlp-main.232",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 47,
+    "title": "AlpacaFarm: A Simulation Framework for Methods that Learn from Human Feedback",
+    "doi": "10.52202/075280-1308",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 48,
+    "title": "Random-Access Infinite Context Length for Transformers",
+    "doi": "10.52202/075280-2378",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 49,
+    "title": "SelfCheck: Using LLMs to Zero-Shot Check Their Own Step-by-Step Reasoning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 50,
+    "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+    "doi": "10.18653/v1/2024.findings-acl.212",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 51,
+    "title": "FreshLLMs: Refreshing Large Language Models with Search Engine Augmentation",
+    "doi": "10.18653/v1/2024.findings-acl.813",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 55,
+    "title": "A Critical Evaluation of AI Feedback for Aligning Large Language Models",
+    "doi": "10.52202/079017-0919",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 57,
+    "title": "Beyond Chain-of-Thought: A Survey of Chain-of-X Paradigms for LLMs",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 58,
+    "title": "Can Small Language Models Help Large Language Models Reason Better?: LM-Guided Chain-of-Thought",
+    "doi": "10.63317/2c35vp2yxb88",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 59,
+    "title": "Mind's Eye of LLMs- Visualization-of-Thought- Elicits Spatial Reasoning in Large Language Models",
+    "doi": "10.52202/079017-2866",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 61,
+    "title": "Buffer of Thoughts: Thought-Augmented Reasoning with Large Language Models",
+    "doi": "10.52202/079017-3607",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 62,
+    "title": "Retrieving, Rethinking and Revising: The Chain-of-Verification Can Improve Retrieval Augmented Generation",
+    "doi": "10.18653/v1/2024.findings-emnlp.607",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 63,
+    "title": "Thinking LLMs: General Instruction Following with Thought Generation",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 64,
+    "title": "PRefLexOR: Preference-based Recursive Language Modeling for Exploratory Optimization of Reasoning and Agentic Thinking",
+    "doi": "10.1038/s44387-025-00003-z",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 65,
+    "title": "Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-Adaptive Planning Agent",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 68,
+    "title": "ReAct- Synergizing Reasoning and Acting in Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 69,
+    "title": "Reflexion- Language Agents with Verbal Reinforcement Learning",
+    "doi": "10.52202/075280-0377",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 70,
+    "title": "Toolformer- Language Models Can Teach Themselves to Use Tools",
+    "doi": "10.52202/075280-2997",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 73,
+    "title": "Cognitive Architectures for Language Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 74,
+    "title": "The Rise and Potential of Large Language Model Based Agents A Survey",
+    "doi": "10.1007/s11432-024-4222-0",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 75,
+    "title": "Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 76,
+    "title": "A Survey on Large Language Model based Autonomous Agents",
+    "doi": "10.1007/s11704-024-40231-1",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 78,
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "doi": "10.52202/075280-2019",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 80,
+    "title": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face",
+    "doi": "10.52202/075280-1657",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 84,
+    "title": "ViperGPT: Visual Inference via Python Execution for Reasoning",
+    "doi": "10.1109/iccv51070.2023.01092",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 85,
+    "title": "API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs",
+    "doi": "10.18653/v1/2023.emnlp-main.187",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 86,
+    "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+    "doi": "10.1145/3586183.3606763",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 89,
+    "title": "Chameleon: Plug-and-Play Compositional Reasoning with Large Language Models",
+    "doi": "10.52202/075280-1882",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 92,
+    "title": "Gorilla: Large Language Model Connected with Massive APIs",
+    "doi": "10.52202/079017-4020",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 94,
+    "title": "Large Language Models as Tool Makers",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 95,
+    "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory",
+    "doi": "10.1609/aaai.v38i17.29946",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 96,
+    "title": "Reasoning with Language Model is Planning with World Model",
+    "doi": "10.18653/v1/2023.emnlp-main.507",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 98,
+    "title": "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-World APIs",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 102,
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "doi": "10.1609/aaai.v38i17.29936",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 103,
+    "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 114,
+    "title": "An LLM Compiler for Parallel Function Calling",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 115,
+    "title": "Large Language Model based Multi-Agents- A Survey of Progress and Challenges Taicheng Guo1 , Xiuying Chen2 , Yaqi Wang3∗, Ruidi Chang , Shichao Pei4 ,",
+    "doi": "10.24963/ijcai.2024/890",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 119,
+    "title": "Executable Code Actions Elicit Better LLM Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 125,
+    "title": "Graph of Thoughts: Solving Elaborate Problems with Large Language Models",
+    "doi": "10.1609/aaai.v38i16.29720",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 131,
+    "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+    "doi": "10.52202/079017-1601",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 147,
+    "title": "PlanGenLLMs- A Modern Survey of LLM Planning Capabilities",
+    "doi": "10.18653/v1/2025.acl-long.958",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 157,
+    "title": "ReflAct World-Grounded Decision Making in LLM Agents via Goal-State Reflection",
+    "doi": "10.18653/v1/2025.emnlp-main.1697",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 162,
+    "title": "OS Agents- A Survey on MLLM-based Agents for General Computing Devices Use",
+    "doi": "10.18653/v1/2025.acl-long.369",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 173,
+    "title": "From language to action- a review of large language models as autonomous agents and tool users",
+    "doi": "10.1007/s10462-025-11471-9",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 175,
+    "title": "A Survey on the Optimization of Large Language Model-based agents",
+    "doi": "10.1145/3789261",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 176,
+    "title": "PlanBench An Extensible Benchmark for Evaluating Large Language Models on Planning and Reasoning about Change",
+    "doi": "10.52202/075280-1693",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 181,
+    "title": "Knowledge-enhanced Agents for Interactive Text Games",
+    "doi": "10.1145/3587259.3627561",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 182,
+    "title": "Language Models Meet World Models: Embodied Experiences Enhance Language Models",
+    "doi": "10.52202/075280-3295",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 183,
+    "title": "Automatically Correcting Large Language Models: Surveying the Landscape of Diverse Automated Correction Strategies",
+    "doi": "10.1162/tacl_a_00660",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 186,
+    "title": "CRAFT: Customizing LLMs by Creating and Retrieving from Specialized Toolsets",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 187,
+    "title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+    "doi": "10.18653/v1/2024.findings-naacl.50",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 188,
+    "title": "AlphaZero-Like Tree-Search can Guide Large Language Model Decoding and Training",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 189,
+    "title": "AutoAgents: A Framework for Automatic Agent Generation",
+    "doi": "10.24963/ijcai.2024/3",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 190,
+    "title": "Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 191,
+    "title": "L2MAC: Large Language Model Automatic Computer for Extensive Code Generation",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 192,
+    "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 193,
+    "title": "LLaMA-Rider: Spurring Large Language Models to Explore the Open World",
+    "doi": "10.18653/v1/2024.findings-naacl.292",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 194,
+    "title": "Automating the Generation of Prompts for LLM-based Action Choice in PDDL Planning",
+    "doi": "10.1609/icaps.v35i1.36126",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 196,
+    "title": "JARVIS-1: Open-World Multi-Task Agents With Memory-Augmented Multimodal Language Models",
+    "doi": "10.1109/tpami.2024.3511593",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 198,
+    "title": "A Survey on LLM-Based Multi-Agent Systems: Workflow, Infrastructure, and Challenges",
+    "doi": "10.1007/s44336-024-00009-2",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 200,
+    "title": "Self-Discover- Large Language Models Self-Compose Reasoning Structures",
+    "doi": "10.52202/079017-4004",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 201,
+    "title": "Position: Towards Unified Alignment Between Agents, Humans, and Environment",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 202,
+    "title": "A Human-Inspired Reading Agent with Gist Memory of Very Long Contexts",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 203,
+    "title": "When is Tree Search Useful for LLM Planning? It Depends on the Discriminator",
+    "doi": "10.18653/v1/2024.acl-long.738",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 204,
+    "title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+    "doi": "10.52202/079017-2243",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 207,
+    "title": "Can LLM-Augmented Autonomous Agents Cooperate? An Evaluation of Their Cooperative Capabilities Through Melting Pot",
+    "doi": "10.1109/tai.2025.3569192",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 208,
+    "title": "Language Guided Exploration for RL Agents in Text Environments",
+    "doi": "10.18653/v1/2024.findings-naacl.7",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 209,
+    "title": "MAGIS: LLM-Based Multi-Agent Framework for GitHub Issue Resolution",
+    "doi": "10.52202/079017-1647",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 210,
+    "title": "Playing NetHack with LLMs: Potential & Limitations as Zero-Shot Agents",
+    "doi": "10.1109/cog60054.2024.10645630",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 212,
+    "title": "Toward Self-Improvement of LLMs via Imagination, Searching, and Criticizing",
+    "doi": "10.52202/079017-1670",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 213,
+    "title": "360°REA: Towards Reusable Experience Accumulation with 360° Assessment for Multi-Agent Systems",
+    "doi": "10.18653/v1/2024.findings-acl.778",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 214,
+    "title": "A Survey on Large Language Model-Based Game Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 215,
+    "title": "AgentKit: Structured LLM Reasoning with Dynamic Graphs",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 216,
+    "title": "Agent Planning with World Knowledge Model",
+    "doi": "10.52202/079017-3646",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 219,
+    "title": "Ask-before-Plan: Proactive Language Agents for Real-World Planning",
+    "doi": "10.18653/v1/2024.findings-emnlp.636",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 220,
+    "title": "A Review of Prominent Paradigms for LLM-Based Agents: Tool Use (Including RAG), Planning, and Feedback Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 221,
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "doi": "10.52202/079017-4202",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 222,
+    "title": "FlowBench: Revisiting and Benchmarking Workflow-Guided Planning for LLM-based Agents",
+    "doi": "10.18653/v1/2024.findings-emnlp.638",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 223,
+    "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+    "doi": "10.24963/ijcai.2025/2",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 230,
+    "title": "Planning in the Dark: LLM-Symbolic Planning Pipeline without Experts",
+    "doi": "10.1609/aaai.v39i25.34855",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 231,
+    "title": "PRACT: Optimizing Principled Reasoning and Acting of LLM Agent",
+    "doi": "10.18653/v1/2024.conll-1.33",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 232,
+    "title": "Steering Large Language Models between Code Execution and Textual Reasoning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 233,
+    "title": "ACC-Collab: An Actor-Critic Approach to Multi-Agent LLM Collaboration",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 234,
+    "title": "AgentBank: Towards Generalized LLM Agents via Fine-Tuning on 50,000+ Interaction Trajectories",
+    "doi": "10.18653/v1/2024.findings-emnlp.116",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 237,
+    "title": "OPTIMA: Optimizing Effectiveness and Efficiency for LLM-Based Multi-Agent Systems",
+    "doi": "10.18653/v1/2025.findings-acl.601",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 238,
+    "title": "Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 239,
+    "title": "TaskBench: Benchmarking Large Language Models for Task Automation",
+    "doi": "10.52202/079017-0148",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 242,
+    "title": "EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents",
+    "doi": "10.18653/v1/2025.acl-long.39",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 244,
+    "title": "The Lighthouse of Language: Enhancing LLM Agents via Critique-Guided Improvement",
+    "doi": "10.52202/085713-5491",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 247,
+    "title": "LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 262,
+    "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 268,
+    "title": "AgentOCR: Reimagining Agent History via Optical Self-Compression",
+    "doi": "10.18653/v1/2026.acl-long.230",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 274,
+    "title": "Data Agents: Levels, State of the Art, and Open Problems",
+    "doi": "10.1145/3788853.3801878",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 279,
+    "title": "World of Bits- An Open-Domain Platform for Web-Based Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 281,
+    "title": "WebShop- Towards Scalable Real-World Web Interaction with Grounded Language Agents",
+    "doi": "10.52202/068431-1508",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 282,
+    "title": "SeeAct- GPT-4V__ision__ is a Generalist Web Agent if Grounded",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 283,
+    "title": "- WebVoyager- Building an End-to-End Web Agent with",
+    "doi": "10.18653/v1/2024.acl-long.371",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 284,
+    "title": "Reinforcement Learning on Web Interfaces using Workflow-Guided Exploration",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 285,
+    "title": "DOM-Q-NET- Grounded RL on Structured Language",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 286,
+    "title": "A Real-World WebAgent with Planning Long Context Understanding and Program Synthesis",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 287,
+    "title": "Large Language Model Powered Agents in the Web",
+    "doi": "10.1145/3589335.3641240",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 288,
+    "title": "AutoWebGLM: Bootstrap and Reinforce a Large Language Model-Based Web Navigating Agent",
+    "doi": "10.1145/3637528.3671620",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 289,
+    "title": "Agent S An Open Agentic Framework that Uses Computers Like a Human",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 295,
+    "title": "Large Language Model-Brained GUI Agents- A Survey",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 297,
+    "title": "A Survey of WebAgents- Towards Next-Generation AI Agents for Web Automation with Large Foundation Models",
+    "doi": "10.1145/3711896.3736555",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 298,
+    "title": "WALT- Web Agents that Learn Tools",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 299,
+    "title": "Mapping Natural Language Instructions to Mobile UI Action Sequences",
+    "doi": "10.18653/v1/2020.acl-main.729",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 300,
+    "title": "Grounding Open-Domain Instructions to Automate Web Support Tasks",
+    "doi": "10.18653/v1/2021.naacl-main.80",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 302,
+    "title": "WebGLM- Towards an Efficient Web-Enhanced Question Answering System with Human Preferences",
+    "doi": "10.1145/3580305.3599931",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 303,
+    "title": "A Zero-Shot Language Agent for Computer Control with Structured Reflection",
+    "doi": "10.18653/v1/2023.findings-emnlp.753",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 305,
+    "title": "AppAgent Multimodal Agents as Smartphone Users",
+    "doi": "10.1145/3706598.3713600",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 307,
+    "title": "Cradle Empowering Foundation Agents Towards General Computer Control",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 310,
+    "title": "Automating the Enterprise with Foundation Models",
+    "doi": "10.14778/3681954.3681964",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 311,
+    "title": "OpenWebAgent- An Open Toolkit to Enable Web Agents on Large Language Models",
+    "doi": "10.18653/v1/2024.acl-demos.8",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 313,
+    "title": "Turn Every Application into an Agent- Towards Efficient Human-Agent-Computer Interaction with API-First LLM-Based Agents",
+    "doi": "10.18653/v1/2025.acl-long.381",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 318,
+    "title": "ReachAgent Enhancing Mobile Agent via Page Reaching and Operation",
+    "doi": "10.18653/v1/2025.naacl-long.244",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 319,
+    "title": "LiteWebAgent The Open-Source Suite for VLM-Based Web-Agent Applications",
+    "doi": "10.18653/v1/2025.naacl-demo.36",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 320,
+    "title": "LLM-Powered GUI Agents in Phone Automation- Surveying Progress and Prospects",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 321,
+    "title": "WebThinker- Empowering Large Reasoning Models with Deep Research Capability",
+    "doi": "10.52202/085713-4011",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 322,
+    "title": "Beyond Browsing API-Based Web Agents",
+    "doi": "10.18653/v1/2025.findings-acl.577",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 328,
+    "title": "OPENCUA- Open Foundations for Computer-Use Agents",
+    "doi": "10.52202/085713-4669",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 330,
+    "title": "BrowserAgent- Building Web Agents with Human-Inspired Web Browsing Actions",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 332,
+    "title": "Agent-SAMA- State-Aware Mobile Assistant",
+    "doi": "10.1609/aaai.v40i35.40187",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 336,
+    "title": "A Comprehensive Survey of Agents for Computer Use",
+    "doi": "10.1613/jair.1.19490",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 337,
+    "title": "Mind2Web- Towards a Generalist Agent for the Web",
+    "doi": "10.52202/075280-1220",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 338,
+    "title": "WebArena- A Realistic Web Environment for Building Autonomous Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 339,
+    "title": "VisualWebArena- Evaluating Multimodal Agents on Realistic Visually Grounded Web Tasks",
+    "doi": "10.18653/v1/2024.acl-long.50",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 340,
+    "title": "WebLINX- Real-World Website Navigation with Multi-Turn Dialogue",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 341,
+    "title": "AgentBench Evaluating LLMs as Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 342,
+    "title": "GAIA a benchmark for General AI Assistants",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 343,
+    "title": "OmniACT A Dataset and Benchmark for Enabling Multimodal Generalist Autonomous Agents for Desktop and Web",
+    "doi": "10.1007/978-3-031-73113-6_10",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 344,
+    "title": "WorkArena- How Capable Are Web Agents at Solving Common Knowledge Work Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 345,
+    "title": "TurkingBench A Challenge Benchmark for Web Agents",
+    "doi": "10.18653/v1/2025.naacl-long.188",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 346,
+    "title": "OSWorld Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+    "doi": "10.52202/079017-1650",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 348,
+    "title": "AssistantBench- Can Web Agents Solve Realistic and Time-Consuming Tasks",
+    "doi": "10.18653/v1/2024.emnlp-main.505",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 349,
+    "title": "WorkArena Towards Compositional Planning and Reasoning-based Common Knowledge Work Tasks",
+    "doi": "10.52202/079017-0195",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 350,
+    "title": "TheAgentCompany Benchmarking LLM Agents on Consequential Real World Tasks",
+    "doi": "10.52202/085713-0315",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 351,
+    "title": "The BrowserGym Ecosystem for Web Agent Research",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 353,
+    "title": "BEARCUBS A benchmark for computer-using web agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 355,
+    "title": "REAL- Benchmarking Autonomous Agents on Deterministic Simulations of Real Websites",
+    "doi": "10.52202/085713-4536",
+    "status": "added_verified_archival_doi_crossref_openalex"
+  },
+  {
+    "record_id": 356,
+    "title": "AgentRewardBench Evaluating Automatic Evaluations of Web Agent Trajectories",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 361,
+    "title": "Mind2Web 2 Evaluating Agentic Search with Agent-as-a-Judge",
+    "doi": "10.52202/085713-5778",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 363,
+    "title": "MMInA Benchmarking Multihop Multimodal Internet Agents",
+    "doi": "10.18653/v1/2025.findings-acl.703",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 364,
+    "title": "AgenticShop- Benchmarking Agentic Product Curation for Personalized Web Shopping",
+    "doi": "10.1145/3774904.3792724",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 367,
+    "title": "ST-WebAgentBench- A Benchmark for Evaluating Safety and Trustworthiness in Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 372,
+    "title": "ASSISTGUI- Task-Oriented Desktop Graphical User Interface Automation",
+    "doi": "10.1109/cvpr52733.2024.01262",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 373,
+    "title": "TravelPlanner A Benchmark for Real-World Planning with Language Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 374,
+    "title": "AndroidWorld A Dynamic Benchmarking Environment for Autonomous Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 375,
+    "title": "WorkBench a Benchmark Dataset for Agents in a Realistic Workplace Setting",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 376,
+    "title": "-bench A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 377,
+    "title": "AI Agents That Matter",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 379,
+    "title": "Spider2-V How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows",
+    "doi": "10.52202/079017-3421",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 380,
+    "title": "CRAB- Cross-environment Agent Benchmark for Multimodal Language Model Agents",
+    "doi": "10.18653/v1/2025.findings-acl.1113",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 381,
+    "title": "VisualAgentBench Towards Large Multimodal Models as Visual Foundation Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 383,
+    "title": "Windows Agent Arena Evaluating Multi-Modal OS Agents at Scale",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 384,
+    "title": "SPA-Bench- A Comprehensive Benchmark for SmartPhone Agent Evaluation",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 385,
+    "title": "Agent-as-a-Judge Evaluate Agents with Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 386,
+    "title": "Evaluating Cultural and Social Awareness of LLM Web Agents",
+    "doi": "10.18653/v1/2025.findings-naacl.222",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 387,
+    "title": "VideoWebArena Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 388,
+    "title": "WebOlympus- An Open Platform for Web Agents on Live Websites",
+    "doi": "10.18653/v1/2024.emnlp-demo.20",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 389,
+    "title": "A3- Android Agent Arena for Mobile GUI Agents",
+    "doi": "10.18653/v1/2026.findings-acl.184",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 391,
+    "title": "SWE-bench Goes Live!",
+    "doi": "10.52202/085713-4923",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 392,
+    "title": "UI-Vision- A Desktop-centric GUI Benchmark for Visual Perception and Interaction",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 394,
+    "title": "Open CaptchaWorld A Comprehensive Web-based Platform for Testing and Benchmarking Multimodal LLM Agents",
+    "doi": "10.52202/085713-3006",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 395,
+    "title": "X-WebAgentBench A Multilingual Interactive Web Benchmark for Evaluating Global Agentic System",
+    "doi": "10.18653/v1/2025.findings-acl.988",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 396,
+    "title": "Agent-RewardBench Towards a Unified Benchmark for Reward Modeling across Perception Planning and Safety in Real-World Multimodal Agents",
+    "doi": "10.18653/v1/2025.acl-long.857",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 399,
+    "title": "FormFactory An Interactive Benchmarking Suite for Multimodal Form-Filling Agents",
+    "doi": "10.1145/3746027.3758285",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 400,
+    "title": "Evaluation and Benchmarking of LLM Agents- A Survey",
+    "doi": "10.1145/3711896.3736570",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 406,
+    "title": "ShoppingBench- A Real-World Intent-Grounded Shopping Benchmark for LLM-based Agents",
+    "doi": "10.1609/aaai.v40i39.40640",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 408,
+    "title": "WebWalker- Benchmarking LLMs in Web Traversal",
+    "doi": "10.18653/v1/2025.acl-long.508",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 411,
+    "title": "MCP-AgentBench- Evaluating Real-World Language Agent Performance with MCP-Mediated Tools",
+    "doi": "10.1609/aaai.v40i37.40347",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 413,
+    "title": "NEWSAGENT- Benchmarking Multimodal Agents as Journalists with Real-World Newswriting Tasks",
+    "doi": "10.18653/v1/2026.findings-acl.1816",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 415,
+    "title": "DRBench- A Realistic Benchmark for Enterprise Deep Research",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 416,
+    "title": "GEM- A Gym for Agentic LLMs",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 417,
+    "title": "Holistic Agent Leaderboard- The Missing Infrastructure for AI Agent Evaluation",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 423,
+    "title": "AGENCYBENCH- Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts",
+    "doi": "10.18653/v1/2026.acl-long.337",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 424,
+    "title": "Ego2Web- A Web Agent Benchmark Grounded in Egocentric Videos",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 425,
+    "title": "AgentWebBench- Benchmarking Multi-Agent Coordination in Agentic Web",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 427,
+    "title": "MAgIC: Investigation of Large Language Model Powered Multi-Agent in Cognition, Adaptability, Rationality and Collaboration",
+    "doi": "10.18653/v1/2024.emnlp-main.416",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 429,
+    "title": "EgoPlan-Bench: Benchmarking Multimodal Large Language Models for Human-Level Planning",
+    "doi": "10.1007/s11263-025-02676-0",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 430,
+    "title": "InfiAgent-DABench: Evaluating Agents on Data Analysis Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 433,
+    "title": "A Long Way to Go: Investigating Length Correlations in RLHF",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 435,
+    "title": "MarkupLM- Pre-training of Text and Markup Language for Visually-rich Document Understanding",
+    "doi": "10.18653/v1/2022.acl-long.420",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 436,
+    "title": "UNDERSTANDING HTML WITH LARGE LANGUAGE",
+    "doi": "10.18653/v1/2023.findings-emnlp.185",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 437,
+    "title": "Pix2Struct- Screenshot Parsing as Pretraining for Visual Language Understanding",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 439,
+    "title": "Pix2Act -- From Pixels to UI Actions- Learning to Follow Instructions via Graphical User Interfaces",
+    "doi": "10.52202/075280-1490",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 440,
+    "title": "CogAgent A Visual Language Model for GUI Agents",
+    "doi": "10.1109/cvpr52733.2024.01354",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 441,
+    "title": "SeeClick- Harnessing GUI Grounding for Advanced Visual GUI Agents",
+    "doi": "10.18653/v1/2024.acl-long.505",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 444,
+    "title": "OS-ATLAS- A Foundation Action Model for Generalist GUI Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 445,
+    "title": "ShowUI One Vision-Language-Action Model for GUI Visual Agent",
+    "doi": "10.1109/cvpr52734.2025.01816",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 447,
+    "title": "Magma- A Foundation Model for Multimodal AI Agents",
+    "doi": "10.1109/cvpr52734.2025.01325",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 449,
+    "title": "UGround- Unified Visual Grounding for GUI Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 450,
+    "title": "GUI-Actor Coordinate-Free Visual Grounding for GUI Agents",
+    "doi": "10.52202/085713-0508",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 453,
+    "title": "LCoW- Learning to Contextualize Web Pages for Enhanced Decision Making by LLM Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 454,
+    "title": "Prune4Web- DOM Tree Pruning Programming for Web Agent",
+    "doi": "10.1609/aaai.v40i41.40772",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 456,
+    "title": "WebSRC- A Dataset for Web-Based Structural Reading Comprehension",
+    "doi": "10.18653/v1/2021.emnlp-main.343",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 457,
+    "title": "Synapse Trajectory-as-Exemplar Prompting with Memory for Computer Control",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 458,
+    "title": "Hierarchical Multimodal Pre-training for Visually Rich Webpage Understanding",
+    "doi": "10.1145/3616855.3635753",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 459,
+    "title": "Dual-View Visual Contextualization for Web Navigation",
+    "doi": "10.1109/cvpr52733.2024.01369",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 460,
+    "title": "Ferret-UI- Grounded Mobile UI Understanding with Multimodal LLMs",
+    "doi": "10.1007/978-3-031-73039-9_14",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 462,
+    "title": "GUI-World A Video Benchmark and Dataset for Multimodal GUI-oriented Understanding",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 463,
+    "title": "GUICourse From General Vision Language Models to Versatile GUI Agents",
+    "doi": "10.18653/v1/2025.acl-long.1065",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 464,
+    "title": "ScreenAI- A Vision-Language Model for UI and Infographics Understanding",
+    "doi": "10.24963/ijcai.2024/339",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 465,
+    "title": "Aguvis Unified Pure Vision Agents for Autonomous GUI Interaction",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 466,
+    "title": "InfiGUIAgent A Multimodal Generalist GUI Agent with Native Reasoning and Reflection",
+    "doi": "10.18653/v1/2026.eacl-long.45",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 467,
+    "title": "HtmlRAG- HTML is Better Than Plain Text for Modeling Retrieved Knowledge in RAG Systems",
+    "doi": "10.1145/3696410.3714546",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 471,
+    "title": "ScreenSpot-Pro- GUI Grounding for Professional High-Resolution Computer Use",
+    "doi": "10.1145/3746027.3755688",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 479,
+    "title": "RaDA- Retrieval-augmented Web Agent Planning with LLMs",
+    "doi": "10.18653/v1/2024.findings-acl.802",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 481,
+    "title": "Agent S2 A Compositional Generalist-Specialist Framework for Computer Use Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 482,
+    "title": "WebRollback Enhancing Web Agents with Explicit Rollback Mechanisms",
+    "doi": "10.18653/v1/2026.eacl-short.12",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 483,
+    "title": "AGENTOCCAM- A Simple Yet Strong Baseline for LLM-Based Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 484,
+    "title": "WebDreamer- Is Your LLM Secretly a World Model of the Internet Model-Based Planning for Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 485,
+    "title": "WebCoT Enhancing Web Agent Reasoning by Reconstructing Chain-of-Thought in Reflection Branching and Rollback",
+    "doi": "10.18653/v1/2025.findings-emnlp.276",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 489,
+    "title": "WebAnchor- Anchoring Agent Planning to Stabilize Long-Horizon Web Reasoning",
+    "doi": "10.18653/v1/2026.findings-acl.2058",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 490,
+    "title": "Tree Search for Language Model Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 493,
+    "title": "TRAD: Enhancing LLM Agents with Step-Wise Thought Retrieval and Aligned Decision",
+    "doi": "10.1145/3626772.3657788",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 495,
+    "title": "WebPilot- A Versatile and Autonomous Multi-Agent System for Web Task Execution with Strategic Exploration",
+    "doi": "10.1609/aaai.v39i22.34505",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 496,
+    "title": "OSCAR: Operating System Control via State-Aware Reasoning and Re-Planning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 497,
+    "title": "ExACT Teaching AI Agents to Explore with Reflective-MCTS and Exploratory Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 498,
+    "title": "MOBA: Multifaceted Memory-Enhanced Adaptive Planning for Efficient Mobile Task Automation",
+    "doi": "10.18653/v1/2025.naacl-demo.43",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 501,
+    "title": "Inducing Programmatic Skills for Agentic Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 503,
+    "title": "BacktrackAgent Enhancing GUI Agent with Error Detection and Backtracking Mechanism",
+    "doi": "10.18653/v1/2025.emnlp-main.212",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 504,
+    "title": "SteP- Stacked LLM Policies for Web Actions",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 505,
+    "title": "Thinking vs. Doing- Agents that Reason by Scaling Test-Time Interaction",
+    "doi": "10.52202/085713-5647",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 506,
+    "title": "R2D2- Remembering, Replaying and Dynamic Decision Making with a Reflective Agentic Memory",
+    "doi": "10.18653/v1/2025.acl-long.1464",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 514,
+    "title": "MANGO- Multi-Agent Web Navigation via Global-View Optimization",
+    "doi": "10.18653/v1/2026.acl-long.646",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 516,
+    "title": "Can Language Models Serve as Text-Based World Simulators",
+    "doi": "10.18653/v1/2024.acl-short.1",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 517,
+    "title": "WebRL- Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 518,
+    "title": "Multimodal Web Navigation with Instruction-Finetuned Foundation Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 521,
+    "title": "Agent Workflow Memory",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 524,
+    "title": "OpenWebVoyager- Building Multimodal Web Agents via Iterative Real-World Exploration, Feedback and Optimization",
+    "doi": "10.18653/v1/2025.acl-long.1336",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 527,
+    "title": "AdaptAgent Adapting Multimodal Web Agents with Few-Shot Learning from Human Demonstrations",
+    "doi": "10.18653/v1/2025.acl-long.1008",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 529,
+    "title": "AgentTrek Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 530,
+    "title": "AgentRefine Enhancing Agent Generalization through Refinement Tuning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 533,
+    "title": "WebEvolver Enhancing Web Agent Self-Improvement with Coevolving World Model",
+    "doi": "10.18653/v1/2025.emnlp-main.454",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 534,
+    "title": "Explorer- Scaling Exploration-driven Web Trajectory Synthesis for Multimodal Web Agents",
+    "doi": "10.18653/v1/2025.findings-acl.326",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 536,
+    "title": "Web-Shepherd Advancing PRMs for Reinforcing Web Agents",
+    "doi": "10.52202/085713-2127",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 537,
+    "title": "WorkForceAgent-R1 Incentivizing Reasoning Capability in LLM-based Web Agents via Reinforcement Learning",
+    "doi": "10.18653/v1/2026.findings-eacl.3",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 538,
+    "title": "Go-Browse- Training Web Agents with Structured Exploration",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 539,
+    "title": "TGPO- TREE-GUIDED PREFERENCE OPTIMIZATION FOR ROBUST WEB AGENT REINFORCEMENT LEARNING",
+    "doi": "10.1109/icassp55912.2026.11464574",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 541,
+    "title": "WebAgent-R1- Training Web Agents via End-to-End Multi-Turn Reinforcement Learning",
+    "doi": "10.18653/v1/2025.emnlp-main.401",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 543,
+    "title": "TongUI- Internet-Scale Trajectories from Multimodal Web Tutorials for Generalized GUI Agents",
+    "doi": "10.1609/aaai.v40i15.38229",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 546,
+    "title": "How to Train Your LLM Web Agent- A Statistical Diagnosis",
+    "doi": "10.52202/085713-1774",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 548,
+    "title": "WebGym- Scaling Training Environments for Visual Web Agents with Realistic Tasks",
+    "doi": "",
+    "status": "verified_no_archival_doi_manual"
+  },
+  {
+    "record_id": 552,
+    "title": "SynthAgent- Adapting Web Agents with Synthetic Supervision",
+    "doi": "10.18653/v1/2026.acl-long.716",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 554,
+    "title": "WebFactory- Automated Compression of Foundational Language Intelligence into Grounded Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 556,
+    "title": "On the Multi-turn Instruction Following for Conversational Web Agents",
+    "doi": "10.18653/v1/2024.acl-long.477",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 558,
+    "title": "AutoGuide: Automated Generation and Selection of Context-Aware Guidelines for Large Language Model Agents",
+    "doi": "10.52202/079017-3811",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 559,
+    "title": "Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents",
+    "doi": "10.18653/v1/2024.acl-long.409",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 560,
+    "title": "AutoManual: Constructing Instruction Manuals by LLM Agents via Interactive Environmental Learning",
+    "doi": "10.52202/079017-0019",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 561,
+    "title": "Navigating WebAI: Training Agents to Complete Web Tasks with Large Language Models and Reinforcement Learning",
+    "doi": "10.1145/3605098.3635903",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 562,
+    "title": "AgentGym: Evaluating and Training Large Language Model-based Agents across Diverse Environments",
+    "doi": "10.18653/v1/2025.acl-long.1355",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 563,
+    "title": "Re-ReST: Reflection-Reinforced Self-Training for Language Agents",
+    "doi": "10.18653/v1/2024.emnlp-main.861",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 564,
+    "title": "Watch Every Step LLM Agent Learning via Iterative Step-Level Process Refinement",
+    "doi": "10.18653/v1/2024.emnlp-main.93",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 565,
+    "title": "Auto-Intent: Automated Intent Discovery and Self-Exploration for Large Language Model Web Agents",
+    "doi": "10.18653/v1/2024.findings-emnlp.964",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 566,
+    "title": "Synatra: Turning Indirect Knowledge into Direct Demonstrations for Digital Agents at Scale",
+    "doi": "10.52202/079017-2908",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 568,
+    "title": "OS-Genesis Automating GUI Agent Trajectory Construction via Reverse Task Synthesis",
+    "doi": "10.18653/v1/2025.acl-long.277",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 569,
+    "title": "Learn-by-interact- A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 570,
+    "title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 571,
+    "title": "AgentRM Enhancing Agent Generalization with Reward Modeling",
+    "doi": "10.18653/v1/2025.acl-long.945",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 575,
+    "title": "Large Language Models Empowered Personalized Web Agents",
+    "doi": "10.1145/3696410.3714842",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 576,
+    "title": "DeepResearcher- Scaling Deep Research via Reinforcement Learning in Real-world Environments",
+    "doi": "10.18653/v1/2025.emnlp-main.22",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 577,
+    "title": "AndroidGen Building an Android Language Agent under Data Scarcity",
+    "doi": "10.18653/v1/2025.acl-long.138",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 578,
+    "title": "Breaking the Data Barrier -- Building GUI Agents Through Task Generalization",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 580,
+    "title": "Efficient Agent Training for Computer Use",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 581,
+    "title": "EvolveSearch An Iterative Self-Evolving Search Agent",
+    "doi": "10.18653/v1/2025.emnlp-main.663",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 582,
+    "title": "Group-in-Group Policy Optimization for LLM Agent Training",
+    "doi": "10.52202/085713-1544",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 584,
+    "title": "MobileIPL Enhancing Mobile Agents Thinking Process via Iterative Preference Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 586,
+    "title": "Scalable Video-to-Dataset Generation for Cross-Platform Mobile Agents",
+    "doi": "10.1109/cvpr52734.2025.00804",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 587,
+    "title": "Self-Generated In-Context Examples Improve LLM Agents for Sequential Decision-Making Tasks",
+    "doi": "10.52202/085713-2158",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 589,
+    "title": "Structured Agent Distillation for Large Language Model",
+    "doi": "10.65109/olhj8062",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 590,
+    "title": "Towards Efficient Online Tuning of VLM Agents via Counterfactual Soft Reinforcement Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 593,
+    "title": "UI-Genie A Self-Improving Approach for Iteratively Boosting MLLM-based Mobile GUI Agents",
+    "doi": "10.52202/085713-5028",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 594,
+    "title": "WebDancer Towards Autonomous Information Seeking Agency",
+    "doi": "10.52202/085713-4035",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 595,
+    "title": "AgentSynth- Scalable Task Generation for Generalist Computer-Use Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 599,
+    "title": "AgentCPM-GUI Building Mobile-Use Agents with Reinforcement Fine-Tuning",
+    "doi": "10.18653/v1/2025.emnlp-demos.12",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 601,
+    "title": "Contextual Experience Replay for Self-Improvement of Language Agents",
+    "doi": "10.18653/v1/2025.acl-long.694",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 604,
+    "title": "WebSynthesis: World Model-Guided Monte Carlo Tree Search for Efficient WebAgent Trajectory Synthesis",
+    "doi": "10.18653/v1/2026.acl-long.1157",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 612,
+    "title": "Agent Data Protocol- Unifying Datasets for Diverse, Effective Fine-tuning of LLM Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 615,
+    "title": "Don’t Just Fine-tune the Agent, Tune the Environment",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 619,
+    "title": "Search Self-play- Pushing the Frontier of Agent Capability without Supervision",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 622,
+    "title": "AgentPRM- Process Reward Models for LLM Agents via Step-Wise Promise and Progress",
+    "doi": "10.1145/3774904.3792551",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 631,
+    "title": "Digi-Q- Learning VLM Q-Value Functions for Training Device-Control Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 634,
+    "title": "ColorBrowserAgent- Complex Long-Horizon Browser Agent with Adaptive Knowledge Evolution",
+    "doi": "10.18653/v1/2026.acl-industry.46",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 639,
+    "title": "WAREX- WEB AGENT RELIABILITY EVALUATION ON EXISTING BENCHMARKS",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 640,
+    "title": "An Illusion of Progress - Assessing the Current State of Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 641,
+    "title": "Why Do LLM-based Web Agents Fail- A Hierarchical Planning Perspective",
+    "doi": "10.18653/v1/2026.acl-long.1483",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 643,
+    "title": "Autonomous Evaluation and Refinement of Digital Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 645,
+    "title": "Why Do Multi-Agent LLM Systems Fail",
+    "doi": "10.52202/085713-4082",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 646,
+    "title": "Are Autonomous Web Agents Good Testers",
+    "doi": "10.1145/3728879",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 647,
+    "title": "GEM Gaussian Embedding Modeling for Out-of-Distribution Detection in GUI Agents",
+    "doi": "10.1609/aaai.v40i40.40692",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 648,
+    "title": "Understanding GUI Agent Localization Biases through Logit Sharpness",
+    "doi": "10.18653/v1/2025.findings-emnlp.1268",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 650,
+    "title": "Just Do It!- Computer-Use Agents Exhibit Blind Goal-Directedness",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 657,
+    "title": "Reflection-Bench: Evaluating Epistemic Agency in Large Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 659,
+    "title": "Detecting Silent Failures in Multi-Agentic AI Trajectories",
+    "doi": "10.1145/3777911.3801104",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 661,
+    "title": "AutoScraper- A Progressive Understanding Web Agent for Web Scraper Generation",
+    "doi": "10.18653/v1/2024.emnlp-main.141",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 663,
+    "title": "INFOGEN- An Agent-Based Framework for Web Information Aggregation",
+    "doi": "10.18653/v1/2025.findings-naacl.318",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 666,
+    "title": "A Systematic Review of Web Scraping- Techniques, LLM-Enhanced Approaches, Performance Metrics, and Legal-Ethical Issues",
+    "doi": "10.1016/j.datak.2026.102598",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 667,
+    "title": "SCRIBES- Web-Scale Script-Based Semi-Structured Data Extraction with Reinforcement Learning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 671,
+    "title": "Automating Web Data Collection- Challenges, Solutions, and Python-Based Strategies for Effective Web Scraping",
+    "doi": "10.1109/netapps63333.2024.10823528",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 673,
+    "title": "ProductAgent Benchmarking Conversational Product Search Agent with Asking Clarification Questions",
+    "doi": "10.18653/v1/2025.emnlp-industry.25",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 675,
+    "title": "OneKE A Dockerized Schema-Guided LLM Agent-based Knowledge Extraction System",
+    "doi": "10.1145/3701716.3715189",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 684,
+    "title": "Reagent: Converting Ordinary Webpages into Interactive Software Agents",
+    "doi": "10.24963/ijcai.2019/956",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 685,
+    "title": "DataAgent: Evaluating Large Language Models' Ability to Answer Zero-Shot, Natural Language Queries",
+    "doi": "10.1109/icaic60265.2024.10433803",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 687,
+    "title": "AutoDCWorkflow: LLM-based Data Cleaning Workflow Auto-Generation and Benchmark",
+    "doi": "10.18653/v1/2025.findings-emnlp.410",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 688,
+    "title": "DataLab: A Unified Platform for LLM-Powered Business Intelligence",
+    "doi": "10.1109/icde65448.2025.00326",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 690,
+    "title": "AutoPrep: Natural Language Question-Aware Data Preparation with a Multi-Agent Framework",
+    "doi": "10.14778/3748191.3748211",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 692,
+    "title": "WiNELL: Wikipedia Never-Ending Updating with LLM Agents",
+    "doi": "10.1145/3774904.3792695",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 695,
+    "title": "InjecAgent Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents",
+    "doi": "10.18653/v1/2024.findings-acl.624",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 697,
+    "title": "AGENTPOISON- Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases",
+    "doi": "10.52202/079017-4136",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 699,
+    "title": "AdvAgent Controllable Blackbox Red-teaming on Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 700,
+    "title": "Attacking Vision-Language Computer Agents via Pop-ups",
+    "doi": "10.18653/v1/2025.acl-long.411",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 702,
+    "title": "EIA- Environmental Injection Attack on Generalist Web Agents for Privacy Leakage",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 703,
+    "title": "SafeArena Evaluating the Safety of Autonomous Web Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 704,
+    "title": "sudo rm -rf agentic_security",
+    "doi": "10.18653/v1/2025.acl-industry.75",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 708,
+    "title": "RedTeamCUA Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 709,
+    "title": "WebInject Prompt Injection Attack to Web Agents",
+    "doi": "10.18653/v1/2025.emnlp-main.104",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 713,
+    "title": "VisualTrap A Stealthy Backdoor Attack on GUI Agents via Visual Grounding Manipulation",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 716,
+    "title": "HackWorld- EVALUATING COMPUTER-USE AGENTS ON EXPLOITING WEB APPLICATION VULNERABILITIES",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 717,
+    "title": "Investigating the Impact of Dark Patterns on LLM-Based Web Agents",
+    "doi": "10.1109/sp63933.2026.00042",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 718,
+    "title": "WebCloak- Characterizing and Mitigating Threats from LLM-Driven Web Agents as Intelligent Scrapers",
+    "doi": "10.1109/sp63933.2026.00025",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 728,
+    "title": "Identifying the Risks of LM Agents with an LM-Emulated Sandbox",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 731,
+    "title": "R-Judge: Benchmarking Safety Risk Awareness for LLM Agents",
+    "doi": "10.18653/v1/2024.findings-emnlp.79",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 733,
+    "title": "Agent Smith A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 734,
+    "title": "ToolSword: Unveiling Safety Issues of Large Language Models in Tool Learning Across Three Stages",
+    "doi": "10.18653/v1/2024.acl-long.119",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 736,
+    "title": "AirGapAgent: Protecting Privacy-Conscious Conversational Agents",
+    "doi": "10.1145/3658644.3690350",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 737,
+    "title": "Visibility into AI Agents",
+    "doi": "10.1145/3630106.3658948",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 738,
+    "title": "GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 741,
+    "title": "The Emerged Security and Privacy of LLM Agent: A Survey with Case Studies",
+    "doi": "10.1145/3773080",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 744,
+    "title": "Agent Security Bench (ASB)- Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 745,
+    "title": "HAICOSYSTEM- An Ecosystem for Sandboxing Safety Risks in Human-AI Interactions",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 746,
+    "title": "Multimodal Situational Safety",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 747,
+    "title": "Watch Out for Your Agents! Investigating Backdoor Threats to LLM-Based Agents",
+    "doi": "10.52202/079017-3201",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 748,
+    "title": "AgentHarm A Benchmark for Measuring Harmfulness of LLM Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 750,
+    "title": "MobileSafetyBench Evaluating Safety of Autonomous Agents in Mobile Device Control",
+    "doi": "10.1609/aaai.v40i44.41090",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 751,
+    "title": "Navigating the Risks: A Survey of Security and Privacy Threats in LLM-Based Agents",
+    "doi": "10.1145/3807666",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 757,
+    "title": "Evaluating the Robustness of Multimodal Agents Against Active Environmental Injection Attacks",
+    "doi": "10.1145/3746027.3755646",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 760,
+    "title": "A Survey on Trustworthy LLM Agents- Threats and Countermeasures",
+    "doi": "10.1145/3711896.3736561",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 762,
+    "title": "AgentSpec Customizable Runtime Enforcement for Safe and Reliable LLM Agents",
+    "doi": "10.1145/3744916.3764546",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 764,
+    "title": "VeriSafe Agent Safeguarding Mobile GUI Agent via Logic-based Action Verification",
+    "doi": "10.1145/3680207.3765248",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 770,
+    "title": "Hidden Ghost Hand Unveiling Backdoor Vulnerabilities in MLLM-Powered Mobile GUI Agents",
+    "doi": "10.18653/v1/2025.findings-emnlp.411",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 772,
+    "title": "Tool Preferences in Agentic LLMs are Unreliable",
+    "doi": "10.18653/v1/2025.emnlp-main.1060",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 773,
+    "title": "AgentAuditor- Human-Level Safety and Security Evaluation for LLM Agents",
+    "doi": "10.52202/085713-1440",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 774,
+    "title": "From Prompt Injections to Protocol Exploits- Threats in LLM-Powered AI Agents Workflows",
+    "doi": "10.1016/j.icte.2025.12.001",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 778,
+    "title": "Effective Red-Teaming of Policy-Adherent Agents",
+    "doi": "10.18653/v1/2025.emnlp-main.114",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 780,
+    "title": "Reliable Weak-to-Strong Monitoring of LLM Agents",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 782,
+    "title": "Model Context Protocol -MCP- Landscape, Security Threats, and Future Research Directions",
+    "doi": "10.1145/3796519",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 785,
+    "title": "Web Fraud Attacks Against LLM-Driven Multi-Agent Systems",
+    "doi": "10.18653/v1/2026.findings-acl.686",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 787,
+    "title": "MCP SECURITY BENCH (MSB)- BENCHMARKING ATTACKS AGAINST MODEL CONTEXT PROTOCOL IN LLM AGENTS",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 790,
+    "title": "Emergent and Predictable Memorization in Large Language Models",
+    "doi": "10.52202/075280-1219",
+    "status": "added_verified_archival_doi_crossref"
+  },
+  {
+    "record_id": 791,
+    "title": "Foundational Challenges in Assuring Alignment and Safety of Large Language Models",
+    "doi": "",
+    "status": "verified_no_archival_doi_expected_for_venue"
+  },
+  {
+    "record_id": 794,
+    "title": "TRiSM for Agentic AI: A review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems",
+    "doi": "10.1016/j.aiopen.2026.02.006",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 797,
+    "title": "Generalizability of Large Language Model-Based Agents- A comprehensive survey",
+    "doi": "10.1145/3794858",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 799,
+    "title": "CowPilot A Framework for Autonomous and Human-Agent Collaborative Web Navigation",
+    "doi": "10.18653/v1/2025.naacl-demo.17",
+    "status": "verified_existing_archival_doi"
+  },
+  {
+    "record_id": 801,
+    "title": "Agent A/B- Automated and Scalable A/B Testing on Live Websites with Interactive LLM Agents [MERGED: consolidates former duplicate row #802, \"AgentAB\" title variant — confirmed same paper]",
+    "doi": "10.1145/3772363.3799039",
+    "status": "verified_archival_doi_manual"
+  },
+  {
+    "record_id": 811,
+    "title": "The Behavioral Fabric of LLM-Powered GUI Agents- HumanValues and Interaction Outcomes",
+    "doi": "10.1145/3742413.3789219",
+    "status": "verified_existing_archival_doi"
+  }
+]

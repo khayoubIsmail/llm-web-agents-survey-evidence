@@ -1,0 +1,30 @@
+[
+  {
+    "card_index": 1,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 3,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 4,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 5,
+    "error": "Model output exceeded token budget"
+  },
+  {
+    "card_index": 7,
+    "error": "Model output exceeded token budget"
+  },
+  {
+    "card_index": 8,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 9,
+    "error": "Model output exceeded token budget"
+  }
+]

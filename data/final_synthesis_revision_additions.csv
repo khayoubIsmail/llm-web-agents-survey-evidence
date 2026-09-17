@@ -1,0 +1,2 @@
+record_id,title,priority,section,status_category,in_N_POOL,in_N_SYNTH,decision_stage,decision_reason
+760,A Survey on Trustworthy LLM Agents- Threats and Countermeasures,P2,S7,Archival published,yes,yes,reviewer-driven scope re-adjudication,"Already present in the 805 mapping corpus and 454 publication-eligible pool; complete full-text review during revision established direct relevance to the trust/security synthesis and Cluster D comparison. Added to final synthesis without changing upstream search or publication-eligibility counts."

@@ -1,0 +1,26 @@
+[
+  {
+    "card_index": 1,
+    "error": "A3 card turn budget exhausted"
+  },
+  {
+    "card_index": 2,
+    "error": "A3 card turn budget exhausted"
+  },
+  {
+    "card_index": 4,
+    "error": "A3 card turn budget exhausted"
+  },
+  {
+    "card_index": 5,
+    "error": "A3 card turn budget exhausted"
+  },
+  {
+    "card_index": 6,
+    "error": "A3 card turn budget exhausted"
+  },
+  {
+    "card_index": 8,
+    "error": "A3 card turn budget exhausted"
+  }
+]

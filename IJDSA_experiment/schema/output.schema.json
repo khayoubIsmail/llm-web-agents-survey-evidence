@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "records"
+  ],
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "product_name",
+          "price",
+          "rating",
+          "evidence"
+        ],
+        "properties": {
+          "product_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "price": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              }
+            }
+          },
+          "rating": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 5
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "product_name",
+              "price"
+            ],
+            "properties": {
+              "product_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "css",
+                  "xpath",
+                  "text_quote",
+                  "attribute"
+                ],
+                "properties": {
+                  "css": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "xpath": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "text_quote": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "attribute": {
+                    "enum": [
+                      null,
+                      "aria-label",
+                      "aria-description",
+                      "title",
+                      "alt",
+                      "content"
+                    ]
+                  }
+                }
+              },
+              "price": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "css",
+                  "xpath",
+                  "text_quote",
+                  "attribute"
+                ],
+                "properties": {
+                  "css": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "xpath": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "text_quote": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "attribute": {
+                    "enum": [
+                      null,
+                      "aria-label",
+                      "aria-description",
+                      "title",
+                      "alt",
+                      "content"
+                    ]
+                  }
+                }
+              },
+              "rating": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "css",
+                  "xpath",
+                  "text_quote",
+                  "attribute"
+                ],
+                "properties": {
+                  "css": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "xpath": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "text_quote": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "attribute": {
+                    "enum": [
+                      null,
+                      "aria-label",
+                      "aria-description",
+                      "title",
+                      "alt",
+                      "content"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "rating": {
+                  "type": "number"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "evidence": {
+                  "required": [
+                    "rating"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

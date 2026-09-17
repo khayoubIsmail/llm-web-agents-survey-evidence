@@ -1,0 +1,57 @@
+{
+  "protocol_version": "r1-headphones-3arch-3llm-v3",
+  "port": 8000,
+  "repetitions": 3,
+  "seed": 42,
+  "max_run_seconds": 3600,
+  "request_timeout_seconds": 300,
+  "max_turns_per_card": 10,
+  "max_browser_actions": 80,
+  "max_tokens": 4096,
+  "num_ctx": 32768,
+  "local_temperature": 0.0,
+  "direct_repairs": 1,
+  "plan_verify_repairs": 1,
+  "models": {
+    "gemma": {"provider": "ollama", "model": "gemma4-131k:latest"},
+    "qwen": {"provider": "ollama", "model": "qwen2.5vl:7b"},
+    "kimi": {"provider": "moonshot", "model": "kimi-k2.6"}
+  },
+  "architectures": {
+    "A1": {
+      "class": "DirectDOMSnapshotAgent",
+      "name": "Direct DOM Snapshot Agent",
+      "environment": "offline_dom",
+      "uses_playwright_mcp": false
+    },
+    "A2": {
+      "class": "SchemaStateGroundVerifyAgent",
+      "name": "Schema-State Ground-and-Verify Agent",
+      "environment": "offline_dom",
+      "uses_playwright_mcp": false
+    },
+    "A3": {
+      "class": "PlaywrightMCPReActAgent",
+      "name": "Playwright-MCP ReAct Agent",
+      "environment": "playwright_mcp",
+      "uses_playwright_mcp": true
+    }
+  },
+  "agents": {
+    "A1__gemma": {"architecture": "A1", "model_key": "gemma"},
+    "A1__qwen":  {"architecture": "A1", "model_key": "qwen"},
+    "A1__kimi":  {"architecture": "A1", "model_key": "kimi"},
+    "A2__gemma": {"architecture": "A2", "model_key": "gemma"},
+    "A2__qwen":  {"architecture": "A2", "model_key": "qwen"},
+    "A2__kimi":  {"architecture": "A2", "model_key": "kimi"},
+    "A3__gemma": {"architecture": "A3", "model_key": "gemma"},
+    "A3__qwen":  {"architecture": "A3", "model_key": "qwen"},
+    "A3__kimi":  {"architecture": "A3", "model_key": "kimi"}
+  },
+  "sites": {
+    "site_01": {"name": "MediaMarkt DE", "card_selector": "article[data-test='mms-product-card']", "limit": 10},
+    "site_02": {"name": "Saturn DE", "card_selector": "article[data-test='mms-product-card']", "limit": 10},
+    "site_03": {"name": "Alternate DE", "card_selector": "a.card.productBox", "limit": 10},
+    "site_04": {"name": "Amazon DE", "card_selector": "div[data-component-type='s-search-result']", "limit": 10}
+  }
+}

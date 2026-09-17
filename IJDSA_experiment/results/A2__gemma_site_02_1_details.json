@@ -1,0 +1,43 @@
+{
+  "alignment": [
+    [
+      0,
+      8
+    ]
+  ],
+  "fields": [
+    {
+      "prediction_index": 0,
+      "gold_index": 8,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 8,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 8,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": 8,
+      "field": "rating",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    }
+  ],
+  "schema_errors": []
+}

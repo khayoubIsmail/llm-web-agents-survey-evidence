@@ -1,0 +1,107 @@
+{
+  "alignment": [
+    [
+      3,
+      5
+    ]
+  ],
+  "fields": [
+    {
+      "prediction_index": 0,
+      "gold_index": null,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": null,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 0,
+      "gold_index": null,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": null,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": null,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 1,
+      "gold_index": null,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 2,
+      "gold_index": null,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 2,
+      "gold_index": null,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 2,
+      "gold_index": null,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": false
+    },
+    {
+      "prediction_index": 3,
+      "gold_index": 5,
+      "field": "product_name",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 3,
+      "gold_index": 5,
+      "field": "price.amount",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    },
+    {
+      "prediction_index": 3,
+      "gold_index": 5,
+      "field": "price.currency",
+      "selector_pair_valid": true,
+      "quote_valid": true,
+      "supported_correct_value": true
+    }
+  ],
+  "schema_errors": []
+}

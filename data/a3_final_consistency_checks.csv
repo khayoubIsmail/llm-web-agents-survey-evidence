@@ -1,0 +1,12 @@
+check_id,final_value_or_test,status
+counts,"805 mapping / 454 pool / 403 historical candidates / 385 retained historical + 1 revision scope addition = 386 synthesis",PASS
+reading_depth,114 deep + 272 structured = 386,PASS
+publication_status,378 published + 8 accepted = 386,PASS
+figure2_total,45+78+31+58+25+20+57+11+13+44+4 = 386,PASS
+scope_readjudication,"Record 760 already in mapping/pool; reviewer-stage full-text scope re-adjudication documented separately; upstream counts unchanged",PASS
+C1_membership,"Existing 11 claim-matrix claims remain supported; Record 760 is used for Cluster D and security/governance context",PASS
+G1_scope,10 representative + 12 targeted near-misses; zero full-contract counterexamples,PASS
+D1,collaborative reconciliation; no kappa claim,PASS
+E1,qualitative holistic evidence weighting; no numerical RoB score,PASS
+E2,no independent blind non-author recoding claimed,PASS
+manuscript_build,"42 pages; zero undefined citations/references; one pre-existing ~2.88 pt overfull box outside the updated related-work/security text",PASS

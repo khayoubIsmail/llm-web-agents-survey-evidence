@@ -1,0 +1,24 @@
+{
+  "site_id": "site_04",
+  "site_name": "Amazon DE",
+  "url_original": "https://www.amazon.de/s?k=wireless+kopfhoerer",
+  "url_local": "http://127.0.0.1:8000/site_04/",
+  "frozen_at": "2026-09-14T22:22:30.987185+00:00",
+  "freeze_tool": "freeze_snapshot.py v2",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "scroll_passes": 6,
+  "scripts_neutralized": 163,
+  "csp_injected": true,
+  "layout_description": "Grid with sponsored and organic product cards, star ratings, EUR prices",
+  "sha256": {
+    "index.html": "4787f7b98fee90255bda630ad3b00b2948bf3014dd0905e3e0d5bb47ab267038",
+    "screenshot_full.png": "5992c6639064dea29f400a3424d4b1a3bd2c72da849129ec563de32a2a9494d8",
+    "accessibility_tree.json": "0979e3c1a5e0da670efeefa2fe2965a5702e8602a5c74ff9469e606938cd3485",
+    "visible_text.txt": "d6512b3f259060dce08275e8898ebe0627018ff8188833984bf243ecb8e4acb8"
+  },
+  "gold_sha256": "7fbd9c02eddf5ac13601890961bbd03fd9b92bc990e69ee21dd6e85fe7b43787",
+  "num_products_visible": null
+}

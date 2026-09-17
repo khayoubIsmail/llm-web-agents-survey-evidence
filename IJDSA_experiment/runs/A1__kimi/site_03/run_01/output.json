@@ -1,0 +1,254 @@
+{
+  "records": [
+    {
+      "product_name": "ASUS ROG Cetra True Wireless SpeedNova, Gaming-Headset",
+      "price": {
+        "amount": 169.0,
+        "currency": "EUR"
+      },
+      "rating": 5.0,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "ASUS ROG Cetra True Wireless SpeedNova, Gaming-Headset",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 169,00",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "5.0 Sterne bei 1 Bewertung",
+          "attribute": "aria-description"
+        }
+      }
+    },
+    {
+      "product_name": "Samsung Galaxy Buds 4 Pro, Kopfhörer",
+      "price": {
+        "amount": 189.9,
+        "currency": "EUR"
+      },
+      "rating": 4.7,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Samsung Galaxy Buds 4 Pro, Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 189,90",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "4.7 Sterne bei 97 Bewertungen",
+          "attribute": "aria-description"
+        }
+      }
+    },
+    {
+      "product_name": "JBL Wave Flex 2, Kopfhörer",
+      "price": {
+        "amount": 49.9,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "JBL Wave Flex 2, Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 49,90",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "ASUS ROG Cetra Open Wireless, Gaming-Headset",
+      "price": {
+        "amount": 194.0,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "ASUS ROG Cetra Open Wireless, Gaming-Headset",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 194,00",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "Nothing Ear (a), Kopfhörer",
+      "price": {
+        "amount": 79.9,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[5]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Nothing Ear (a), Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[5]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 79,90",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "ENDORFY VIRO Wireless Onyx White, Gaming-Headset",
+      "price": {
+        "amount": 86.9,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[6]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "ENDORFY VIRO Wireless Onyx White, Gaming-Headset",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[6]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 86,90",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "ASUS ROG Delta II, Gaming-Headset",
+      "price": {
+        "amount": 179.0,
+        "currency": "EUR"
+      },
+      "rating": 4.5,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[7]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "ASUS ROG Delta II, Gaming-Headset",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[7]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 179,00",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[7]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "4.5 Sterne bei 10 Bewertungen",
+          "attribute": "aria-description"
+        }
+      }
+    },
+    {
+      "product_name": "Xiaomi Redmi Buds 8 Lite, Kopfhörer",
+      "price": {
+        "amount": 21.09,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[8]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Xiaomi Redmi Buds 8 Lite, Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[8]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 21,09",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "Samsung Galaxy Buds 4 Pro, Kopfhörer",
+      "price": {
+        "amount": 211.9,
+        "currency": "EUR"
+      },
+      "rating": 4.8,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[9]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Samsung Galaxy Buds 4 Pro, Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[9]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 211,90",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[9]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "4.8 Sterne bei 26 Bewertungen",
+          "attribute": "aria-description"
+        }
+      }
+    },
+    {
+      "product_name": "Fractal Design Scape Light, Gaming-Headset",
+      "price": {
+        "amount": 153.9,
+        "currency": "EUR"
+      },
+      "rating": 5.0,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[10]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Fractal Design Scape Light, Gaming-Headset",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[10]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 153,90",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[10]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "5.0 Sterne bei 1 Bewertung",
+          "attribute": "aria-description"
+        }
+      }
+    }
+  ]
+}

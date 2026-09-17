@@ -1,0 +1,24 @@
+{
+  "site_id": "site_01",
+  "site_name": "MediaMarkt DE",
+  "url_original": "https://www.mediamarkt.de/de/search.html?query=wireless+kopfhoerer",
+  "url_local": "http://127.0.0.1:8000/site_01/",
+  "frozen_at": "2026-09-14T22:21:56.993543+00:00",
+  "freeze_tool": "freeze_snapshot.py v2",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "scroll_passes": 6,
+  "scripts_neutralized": 77,
+  "csp_injected": true,
+  "layout_description": "Vertical list with product cards, star ratings, EUR prices, discount badges",
+  "sha256": {
+    "index.html": "ea6bf7835ad9c866ba9c9631a5fa1bd4213aeaebc982b5171045cecd064cc743",
+    "screenshot_full.png": "52814bcf1ab5f16963f4a7acf840d75190f22641ed588494d56115f1ec4ef099",
+    "accessibility_tree.json": "ff8d4a375b2933fa4c206a612965b6fcd02c91b3afb69910fa447759e6ed74d8",
+    "visible_text.txt": "0c3b10154c6aa9ec056a9f44ff98afd9ec3d8f905f5fa89c9bac20c5e93257ac"
+  },
+  "gold_sha256": "cda3eba40fbad4be81426bab54616272824f44ed2a2ffdb871eabd431b3907ac",
+  "num_products_visible": null
+}

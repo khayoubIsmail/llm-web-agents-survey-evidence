@@ -1,0 +1,42 @@
+[
+  {
+    "card_index": 0,
+    "error": "A1 output invalid after bounded repair: Expecting ',' delimiter: line 32 column 1 (char 2116)"
+  },
+  {
+    "card_index": 1,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 2,
+    "error": "A1 output invalid after bounded repair: Expecting ',' delimiter: line 18 column 2 (char 1452)"
+  },
+  {
+    "card_index": 3,
+    "error": "A1 output invalid after bounded repair: Expecting ',' delimiter: line 18 column 2 (char 727)"
+  },
+  {
+    "card_index": 4,
+    "error": "A1 output invalid after bounded repair: record must contain exactly product_name, price, rating, evidence"
+  },
+  {
+    "card_index": 5,
+    "error": "A1 output invalid after bounded repair: record must contain exactly product_name, price, rating, evidence"
+  },
+  {
+    "card_index": 6,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 7,
+    "error": "A1 output invalid after bounded repair: record must contain exactly product_name, price, rating, evidence"
+  },
+  {
+    "card_index": 8,
+    "error": "A1 output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 9,
+    "error": "A1 output invalid after bounded repair: Expecting ',' delimiter: line 32 column 1 (char 2407)"
+  }
+]

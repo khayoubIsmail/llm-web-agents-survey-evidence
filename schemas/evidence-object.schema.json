@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence/schemas/evidence-object.schema.json",
+  "title": "Field-level evidence object for schema-guided Web extraction",
+  "description": "Formalization of e_ij = <u,h,t,l,r,v,n,pi>, augmented with record and field identifiers as described in Section 9.1 of the manuscript.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "field",
+    "source_url",
+    "snapshot_hash",
+    "retrieved_at",
+    "locator",
+    "raw_text",
+    "value",
+    "normalized_value",
+    "transformations"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the output record/entity to which the field belongs."
+    },
+    "field": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Schema field path, e.g. price.amount."
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "u: source URL from which the evidence was obtained."
+    },
+    "snapshot_hash": {
+      "type": "string",
+      "minLength": 16,
+      "description": "h: content or snapshot digest that fixes the evaluated source state."
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "t: retrieval or snapshot timestamp in RFC 3339 form."
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "l: structural and/or visual locator for the supporting source fragment.",
+      "properties": {
+        "css": {
+          "type": "string",
+          "minLength": 1
+        },
+        "xpath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessibility_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bbox": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "description": "Optional visual bounding box [x, y, width, height] in the referenced snapshot."
+        },
+        "attribute": {
+          "enum": [
+            null,
+            "aria-label",
+            "aria-description",
+            "title",
+            "alt",
+            "content"
+          ]
+        }
+      },
+      "anyOf": [
+        {"required": ["css"]},
+        {"required": ["xpath"]},
+        {"required": ["accessibility_ref"]},
+        {"required": ["bbox"]}
+      ]
+    },
+    "raw_text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "r: exact supporting text or attribute value captured from the located source fragment."
+    },
+    "value": {
+      "description": "v: extracted field value before normalization."
+    },
+    "normalized_value": {
+      "description": "n: value after the declared normalization pipeline."
+    },
+    "transformations": {
+      "type": "array",
+      "description": "pi: ordered transformation history from raw/extracted value to normalized value. Empty when normalization is identity.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["operation"],
+        "properties": {
+          "operation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input": {},
+          "output": {},
+          "parameters": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

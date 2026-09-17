@@ -1,0 +1,278 @@
+{
+  "records": [
+    {
+      "product_name": "LEICKE Twin Mini New Generation, In-ear Wireless Kopfhörer Bluetooth weiß",
+      "price": {
+        "amount": 36.99,
+        "currency": "EUR"
+      },
+      "rating": 4.1,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/article[1]/div[1]/div[1]/div[4]/a[1]/div[1]/h3[1]",
+          "text_quote": "LEICKE Twin Mini New Generation, In-ear Wireless Kopfhörer Bluetooth weiß",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "36,99 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.1 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "AKG N5 HYBRID ANC TRUE WIRELESS BLACK, In-ear True Wireless Kopfhörer Bluetooth Black",
+      "price": {
+        "amount": 149.0,
+        "currency": "EUR"
+      },
+      "rating": 4.3,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/article[1]/div[1]/div[1]/div[4]/a[1]/div[1]/h3[1]",
+          "text_quote": "AKG N5 HYBRID ANC TRUE WIRELESS BLACK, In-ear True Wireless Kopfhörer Bluetooth Black",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/span[2]",
+          "text_quote": "149,00€",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.3 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "APPLE AirPods 5 + wireless charging Case, Open-ear Kopfhörer Bluetooth White",
+      "price": {
+        "amount": 169.0,
+        "currency": "EUR"
+      },
+      "rating": null,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/article[1]/div[1]/div[1]/div[4]/a[1]/div[1]/h3[1]",
+          "text_quote": "APPLE AirPods 5 + wireless charging Case, Open-ear Kopfhörer Bluetooth White",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "169,– €",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "SENNHEISER Momentum True Wireless 4, In-ear Kopfhörer Bluetooth Black Graphite",
+      "price": {
+        "amount": 159.0,
+        "currency": "EUR"
+      },
+      "rating": 4.2,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/article[1]/div[1]/div[1]/div[4]/a[1]/div[1]/h3[1]",
+          "text_quote": "SENNHEISER Momentum True Wireless 4, In-ear Kopfhörer Bluetooth Black Graphite",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "159,– €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.2 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "JBL TUNE 255NC, In-ear Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 59.99,
+        "currency": "EUR"
+      },
+      "rating": 4.6,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/article[1]/div[1]/div[1]/div[4]/a[1]/div[1]/h3[1]",
+          "text_quote": "JBL TUNE 255NC, In-ear Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "59,99 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.6 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "JBL WAVE BEAM True Wireless, In-ear Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 39.0,
+        "currency": "EUR"
+      },
+      "rating": 4.0,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "JBL WAVE BEAM True Wireless, In-ear Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[2]",
+          "text_quote": "39,00€",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.0 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "BEATS MQTP3ZM/A STUDIO PRO WIRELESS BLACK, Over-ear Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 227.9,
+        "currency": "EUR"
+      },
+      "rating": 4.8,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "BEATS MQTP3ZM/A STUDIO PRO WIRELESS BLACK, Over-ear Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "227,90 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.8 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "XIAOMI REDMI BUDS 6 PLAY BLACK, In-ear True Wireless Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 16.66,
+        "currency": "EUR"
+      },
+      "rating": 4.5,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "XIAOMI REDMI BUDS 6 PLAY BLACK, In-ear True Wireless Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "16,66 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.5 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "SENNHEISER Momentum 4 Wireless, Over-ear Kopfhörer Bluetooth Brown",
+      "price": {
+        "amount": 199.0,
+        "currency": "EUR"
+      },
+      "rating": 4.5,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "SENNHEISER Momentum 4 Wireless, Over-ear Kopfhörer Bluetooth Brown",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "199,– €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.5 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "BEATS MQTR3ZM/A STUDIO PRO WIRELESS SANDSTONE, Over-ear Kopfhörer Bluetooth Sandstein",
+      "price": {
+        "amount": 227.9,
+        "currency": "EUR"
+      },
+      "rating": 4.6,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(12) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "BEATS MQTR3ZM/A STUDIO PRO WIRELESS SANDSTONE, Over-ear Kopfhörer Bluetooth Sandstein",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(12) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "227,90 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(12) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.6 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    }
+  ]
+}

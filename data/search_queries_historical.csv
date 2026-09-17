@@ -1,0 +1,6 @@
+query_id,query_text,historical_source,historical_source_date,provenance
+Q1,"(""LLM-based agent"" OR ""language agent"" OR ""AI agent"") AND (""web automation"" OR ""browser automation"" OR ""web navigation"")","First 152-page SLR, §1.4.2 / Representative Boolean queries included",2026-05-24,"verbatim historical manuscript text"
+Q2,"(""web scraping"" OR ""intelligent scraping"" OR ""web data extraction"") AND (LLM OR agent OR ""large language model"")","First 152-page SLR, §1.4.2 / Representative Boolean queries included",2026-05-24,"verbatim historical manuscript text"
+Q3,"(""web agent"" OR ""browser agent"") AND (benchmark OR evaluation OR dataset)","First 152-page SLR, §1.4.2 / Representative Boolean queries included",2026-05-24,"verbatim historical manuscript text"
+Q4,"(""GUI agent"" OR ""computer-use agent"") AND (grounding OR screenshot OR DOM OR ""accessibility tree"")","First 152-page SLR, §1.4.2 / Representative Boolean queries included",2026-05-24,"verbatim historical manuscript text"
+Q5,"(""prompt injection"" OR security OR robustness) AND (""web agent"" OR ""browser agent"" OR ""LLM agent"")","First 152-page SLR, §1.4.2 / Representative Boolean queries included",2026-05-24,"verbatim historical manuscript text"

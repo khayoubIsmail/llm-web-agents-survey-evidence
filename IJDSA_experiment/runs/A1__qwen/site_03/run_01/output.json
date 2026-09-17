@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "product_name": "ASUS ROG Cetra True Wireless SpeedNova, Gaming-Headset schwarz",
+      "price": {
+        "amount": 169.0,
+        "currency": "EUR"
+      },
+      "rating": 4.1,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[1]",
+          "text_quote": "ASUS ROG Cetra True Wireless SpeedNova, Gaming-Headset schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]",
+          "text_quote": "€ 169,00",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/span[1]",
+          "text_quote": "Sofort verfügbar",
+          "attribute": null
+        }
+      }
+    },
+    {
+      "product_name": "Nothing Ear (a), Kopfhörer",
+      "price": {
+        "amount": 79.9,
+        "currency": "EUR"
+      },
+      "rating": 4.1,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[5]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "Nothing Ear (a), Kopfhörer",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[5]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]",
+          "text_quote": "€ 79,90",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[6]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[5]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/span[1]",
+          "text_quote": "Sofort verfügbar",
+          "attribute": null
+        }
+      }
+    }
+  ]
+}

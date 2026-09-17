@@ -1,0 +1,62 @@
+{
+  "run_index": 53,
+  "agent": "A1__kimi",
+  "site": "site_01",
+  "rep": 1,
+  "started_at": "2026-09-16T07:19:28.771452+00:00",
+  "finished": true,
+  "smoke": false,
+  "freeze_sha256": "37906e87d5315f3d764a5efa883f61ae02d401e1ae5617aea2eba34029a4ab63",
+  "architecture_id": "A1",
+  "architecture": {
+    "class": "DirectDOMSnapshotAgent",
+    "name": "Direct DOM Snapshot Agent",
+    "environment": "offline_dom",
+    "uses_playwright_mcp": false
+  },
+  "model_key": "kimi",
+  "model_config": {
+    "provider": "moonshot",
+    "model": "kimi-k2.6"
+  },
+  "model_identity": {
+    "created": 1789485712,
+    "id": "kimi-k2.6",
+    "object": "model",
+    "owned_by": "moonshot",
+    "permission": [
+      {
+        "created": 0,
+        "id": "",
+        "object": "",
+        "organization": "moonshot",
+        "group": "moonshot",
+        "is_blocking": false
+      }
+    ],
+    "root": "",
+    "parent": "",
+    "supports_image_in": true,
+    "supports_video_in": true,
+    "supports_reasoning": true,
+    "context_length": 262144
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mcp_python_version": "2.2.0",
+  "playwright_python_version": "1.63.0",
+  "sampling": {
+    "thinking": "disabled",
+    "temperature": "provider default 0.6"
+  },
+  "status": "completed",
+  "finished_at": "2026-09-16T07:25:47.787016+00:00",
+  "latency_seconds": 379.016,
+  "input_tokens": 522842,
+  "output_tokens": 10568,
+  "total_tokens": 533410,
+  "model_calls": 12,
+  "tool_actions": 10,
+  "browser_actions": 0,
+  "output_sha256": "ce53feb0dbfaa717e03857570aeaf87508fdce6568f1cfaee95f5d73fc7cbcb7"
+}

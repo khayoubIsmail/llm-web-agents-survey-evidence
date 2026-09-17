@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: "Evidence and experiment for LLM-Based Agents for Generalized Web Automation and Schema-Guided Data Extraction: A Survey"
+message: "Please cite the survey manuscript and this repository when using the released review data or experiment."
+type: dataset
+authors:
+  - family-names: Khayoub
+    given-names: Ismail
+    orcid: "https://orcid.org/0009-0009-5677-8392"
+  - family-names: Chadi
+    given-names: Mohamed-Amine
+    orcid: "https://orcid.org/0000-0003-3260-0978"
+  - family-names: Mousannif
+    given-names: Hajar
+    orcid: "https://orcid.org/0000-0002-1307-4215"
+  - family-names: Ait Mohamed
+    given-names: Firdaous
+    orcid: "https://orcid.org/0009-0009-6131-1439"
+version: "2.1.0"
+date-released: "2026-09-16"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/khayoubIsmail/llm-web-agents-survey-evidence"
+abstract: >
+  Evidence and experiment package for the survey on LLM-based Web agents and
+  schema-guided data extraction. The release contains the 805-study mapping
+  corpus, the 454-study publication-eligible pool, the historical 403-record
+  note set, the final 386-study qualitative synthesis (385 retained historical
+  synthesis studies plus one documented revision-stage scope re-adjudication),
+  paper-level notes and synthesis sources, claim-level evidence files, a formal
+  field-provenance schema, and the controlled 108-run wireless-headphones experiment.
+keywords:
+  - LLM agents
+  - Web automation
+  - data extraction
+  - systematic mapping
+  - provenance
+  - survey

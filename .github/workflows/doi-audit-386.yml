@@ -1,0 +1,39 @@
+name: DOI audit 386
+
+on:
+  push:
+    paths:
+      - 'scripts/doi_audit_386.py'
+      - 'data/doi_audit_386_manual_decisions.csv'
+      - '.github/workflows/doi-audit-386.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit 386 synthesis records against Crossref and OpenAlex
+        run: |
+          python -m py_compile scripts/doi_audit_386.py
+          python scripts/doi_audit_386.py
+      - name: Commit audit outputs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/doi_audit_386.csv data/doi_audit_386_summary.json data/doi_title_map_386.json
+          if git diff --cached --quiet; then
+            echo 'No DOI-audit changes to commit.'
+          else
+            git commit -m 'Add 386-study DOI audit [skip ci]'
+            git push
+          fi

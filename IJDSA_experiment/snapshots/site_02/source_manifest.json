@@ -1,0 +1,23 @@
+{
+  "site_id": "site_02",
+  "site_name": "Saturn DE",
+  "url_original": "https://www.saturn.de/de/search.html?query=wireless+kopfhoerer",
+  "url_local": "http://127.0.0.1:8000/site_02/",
+  "frozen_at": "2026-09-14T00:16:02.563513+00:00",
+  "freeze_tool": "freeze_snapshot.py v1.0",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "scroll_passes": 6,
+  "scripts_neutralized": 27,
+  "layout_description": "Vertical list, cookie consent modal visible, star ratings, EUR prices",
+  "sha256": {
+    "index.html": "d2e3313e54f9bd3c53c76e3638b96eb3c1fe833eb3baa337e98617e60649bf2c",
+    "screenshot_full.png": "47b7a13543a6500d90a07b0b5fa4f9bee3b879e19467d45d0a964808d18c19e9",
+    "accessibility_tree.json": "6b28d13bdefce2d9a7d4cb945d77aba4e81cc9cf916d8638095b723e26b3c64e",
+    "visible_text.txt": "273462287d0f11a6f9941213566b154e8bebdc471d1fd35505b03e596db94c59"
+  },
+  "gold_sha256": "2e065d135dc1d30a142602e385325d72bca57a88672d0df7a0c17d247de5cdc6",
+  "num_products_visible": null
+}

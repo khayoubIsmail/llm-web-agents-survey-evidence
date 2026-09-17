@@ -1,0 +1,9 @@
+{
+  "freeze_sha256": "37906e87d5315f3d764a5efa883f61ae02d401e1ae5617aea2eba34029a4ab63",
+  "scheduled_runs": 108,
+  "scored_runs": 108,
+  "missing_runs": [],
+  "partial": false,
+  "design": "3 architectures x 3 LLMs x 4 sites x 3 repetitions = 108 runs",
+  "confidence_interval": "95% percentile, 2000 site-cluster bootstrap resamples, seed=42; only four sites; exploratory."
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "card_index": 0,
+    "error": "Excluded node_id"
+  },
+  {
+    "card_index": 1,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 2,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 3,
+    "error": "Excluded node_id"
+  },
+  {
+    "card_index": 4,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 5,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 6,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 7,
+    "error": "rating node_id must be null when rating is null"
+  },
+  {
+    "card_index": 8,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 9,
+    "error": "A2 final output invalid after bounded repair: evidence keys must match non-null fields"
+  }
+]

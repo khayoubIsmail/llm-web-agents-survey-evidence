@@ -1,0 +1,26 @@
+[
+  {
+    "card_index": 0,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 1,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 6,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 7,
+    "error": "A2 final output invalid after bounded repair: price: unsupported attribute"
+  },
+  {
+    "card_index": 8,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  },
+  {
+    "card_index": 9,
+    "error": "A2 final output invalid after bounded repair: rating: text_quote required"
+  }
+]

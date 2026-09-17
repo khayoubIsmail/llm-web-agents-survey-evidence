@@ -1,0 +1,26 @@
+[
+  {
+    "card_index": 2,
+    "error": "A2 final output invalid after bounded repair: price: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 4,
+    "error": "A2 final output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 5,
+    "error": "A2 final output invalid after bounded repair: price: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 6,
+    "error": "A2 final output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 8,
+    "error": "A2 final output invalid after bounded repair: price: CSS/XPath pair must be copied from supplied evidence catalog"
+  },
+  {
+    "card_index": 9,
+    "error": "A2 final output invalid after bounded repair: product_name: CSS/XPath pair must be copied from supplied evidence catalog"
+  }
+]

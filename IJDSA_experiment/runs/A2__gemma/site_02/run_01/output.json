@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "product_name": "JBL Tune Flex 2, In-ear Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 59.99,
+        "currency": "EUR"
+      },
+      "rating": 3.9,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "JBL Tune Flex 2, In-ear Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "59,99 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(11) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 3.9 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    }
+  ]
+}

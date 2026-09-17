@@ -1,0 +1,12 @@
+section_code,primary_theme,count,percentage_of_386
+S2,Agent foundations and pretraining,45,11.7
+S3,Agent architectures and memory,78,20.2
+S4,Web/GUI agent evolution,31,8.0
+S5.1,Benchmarks and environments,58,15.0
+S5.2,Perception and grounding,25,6.5
+S5.3,Planning and memory,20,5.2
+S5.4,Learning and adaptation,57,14.8
+S5.5,Failure modes and reliability,11,2.8
+S6,Extraction and data agents,13,3.4
+S7,Security and safety,44,11.4
+S8,Generalization and deployment,4,1.0

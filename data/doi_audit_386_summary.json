@@ -1,0 +1,21 @@
+{
+  "audited_at_utc": "2026-09-16T23:36:45.819179+00:00",
+  "audit_cutoff_date": "2026-09-16",
+  "execution_mode": "live_crossref_openalex_plus_manual_finalization",
+  "effective_final_synthesis": 386,
+  "rows_audited": 386,
+  "rows_with_archival_doi": 249,
+  "rows_without_verified_archival_doi": 137,
+  "unresolved_rows": 0,
+  "duplicate_dois": [],
+  "manual_decisions_applied": 26,
+  "status_counts": {
+    "verified_no_archival_doi_manual": 9,
+    "verified_existing_archival_doi": 121,
+    "verified_no_archival_doi_expected_for_venue": 128,
+    "added_verified_archival_doi_crossref": 83,
+    "added_verified_archival_doi_crossref_openalex": 28,
+    "verified_archival_doi_manual": 17
+  },
+  "method": "existing-identifier validation; exact-title searches in Crossref and OpenAlex; archival Crossref object-type gate; official publisher/proceedings manual decisions for edge cases; arXiv, repost, and posted-content DOIs excluded as archival publication DOIs"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "card_index": 0,
+    "error": "A2 planning output must contain product_name, price, rating, node_ids"
+  },
+  {
+    "card_index": 9,
+    "error": "rating node_id must be null when rating is null"
+  }
+]

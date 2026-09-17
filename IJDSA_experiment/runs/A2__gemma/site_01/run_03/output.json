@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "product_name": "BEATS MQTP3ZM/A STUDIO PRO WIRELESS BLACK, Over-ear Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 227.9,
+        "currency": "EUR"
+      },
+      "rating": 4.8,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "BEATS MQTP3ZM/A STUDIO PRO WIRELESS BLACK, Over-ear Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "227,90 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(8) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.8 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    },
+    {
+      "product_name": "XIAOMI REDMI BUDS 6 PLAY BLACK, In-ear True Wireless Kopfhörer Bluetooth Schwarz",
+      "price": {
+        "amount": 16.66,
+        "currency": "EUR"
+      },
+      "rating": 4.5,
+      "evidence": {
+        "product_name": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[3]/a[1]/div[1]/h3[1]",
+          "text_quote": "XIAOMI REDMI BUDS 6 PLAY BLACK, In-ear True Wireless Kopfhörer Bluetooth Schwarz",
+          "attribute": null
+        },
+        "price": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/span[1]",
+          "text_quote": "16,66 €",
+          "attribute": null
+        },
+        "rating": {
+          "css": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(9) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "xpath": "/html[1]/body[1]/div[2]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]",
+          "text_quote": "Durchschnittliche Produktbewertung: 4.5 von 5 Sternen",
+          "attribute": "aria-label"
+        }
+      }
+    }
+  ]
+}

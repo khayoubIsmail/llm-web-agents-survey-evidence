@@ -1,0 +1,6 @@
+[
+  {
+    "card_index": 0,
+    "error": "A2 planning output must contain product_name, price, rating, node_ids"
+  }
+]
